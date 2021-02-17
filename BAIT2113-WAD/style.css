@@ -8,6 +8,7 @@
 
 html {
     height: 100%;
+    width: 100%;
 }
 
 body {
@@ -60,7 +61,7 @@ body {
 }
 
 .navigation__button {
-    background-color: #fff;
+    /*background-color: #fff;*/
     height: 3.5rem;
     width: 3.5rem;
     position: fixed;
@@ -121,15 +122,26 @@ body {
     color: white;
     text-decoration: none;
     color: #000;
+    position: relative;
 }
 
-.navigation__link:hover, .navigation__link:active {
-    background-position: 100%;
-    color: #90CAF9;
-    transform: translateX(1rem);
+.navigation__link:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: -8px;
+    content: "";
+    display: block;
+    height: 4px;
+    left: 50%;
+    position: absolute;
+    background: #000;
+    transition: width .5s ease 0s, left .5s ease 0s;
+    width: 0;
 }
 
-
+.navigation__link:hover:after {
+    width: 100%;
+    left: 0;
+}
 
 
 
@@ -155,7 +167,7 @@ body {
 .navigation__icon::before,
 .navigation__icon::after {
     width: 2rem;
-    height: 2px;
+    height: 3px;
     background-color: black;
     display: inline-block;
 }
@@ -203,12 +215,13 @@ body {
 
 
 .horizontal__nav {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    height: 4rem;
+    height: 64px;
     width: 100%;
-    color: black;
+    color: #000;
+    z-index: 100;
     
     background: white;
     user-select: none; /* supported by Chrome and Opera */
@@ -221,6 +234,21 @@ body {
 .horizontal__title {
     float: left;
     list-style: none;
+    padding: 1rem;
+    /*margin-left: 5rem;*/
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: none;
+    transition: all .4s;
+    height: 2rem;
+    position:absolute;
+    top: 0;
+    left: 4rem;
+}
+
+.horizontal__link {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 30px;
     letter-spacing: 2px;
@@ -231,15 +259,24 @@ body {
     font-style: normal;
     font-variant: normal;
     text-transform: none;
-    padding: 1rem;
-    margin-left: 5rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    fill: none;
-    transition: all .4s;
-    height: 2rem;
+}
+
+.horizontal__link:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: -8px;
+    content: "";
+    display: block;
+    height: 3px;
+    left: 50%;
+    position: relative;
+    background: #000;
+    transition: width .5s ease 0s, left .5s ease 0s;
+    width: 0;
+}
+
+.horizontal__link:hover:after {
+    width: 100%;
+    left: 0;
 }
 
 .horizontal__item {
@@ -261,10 +298,24 @@ body {
     fill: black;
 }
 
+
+
+
+
 .content {
-    width: 100vw;
-    position: absolute;
-    top: 4rem;
-    left: 0;
+    width: 100%;
+    position: relative;
+    margin-top: 24px;
+}
+
+
+
+
+
+
+.footer {
+    background-color: gray;
+    position: relative;
+    width: 100%;
 }
 

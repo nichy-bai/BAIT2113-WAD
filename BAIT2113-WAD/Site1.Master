@@ -21,7 +21,7 @@
 
             <nav class="navigation__nav">
                 <ul class="navigation__list">
-                    <li class="navigation__item"><a href="/WebForm1.aspx" class="navigation__link">About Us</a></li>
+                    <li class="navigation__item"><a href="/WebForm1.aspx" class="navigation__link">Home</a></li>
                     <li class="navigation__item"><a href="/WebForm2.aspx" class="navigation__link">Artwork Sales</a></li>
                     <li class="navigation__item"><a href="#" class="navigation__link">Display Gallery</a></li>
                     <li class="navigation__item"><a href="#" class="navigation__link">Shopping Cart</a></li>
@@ -33,7 +33,7 @@
 
         <div class="horizontal__nav">
             <ul>
-                <li class="horizontal__title">Gallerion</li>
+                <li class="horizontal__title"><a href="#" class="horizontal__link">Gallerion</a></li>
             </ul>
             <ul>
                 <li class="horizontal__item">
