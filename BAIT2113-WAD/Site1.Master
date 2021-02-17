@@ -4,15 +4,56 @@
 
 <html>
 <head runat="server">
-    <title></title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>Gallerion</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class="navigation">
+            <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+            <label for="navi-toggle" class="navigation__button">
+                <span class="navigation__icon">&nbsp;</span>
+            </label>
+
+            <div class="navigation__background">&nbsp;</div>
+
+            <nav class="navigation__nav">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a href="/WebForm1.aspx" class="navigation__link">Home</a></li>
+                    <li class="navigation__item"><a href="/WebForm2.aspx" class="navigation__link">Artwork Sales</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link">Display Gallery</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link">Shopping Cart</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link">Login</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link">Help</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="horizontal__nav">
+            <ul>
+                <li class="horizontal__title"><a href="#" class="horizontal__link">Gallerion</a></li>
+            </ul>
+            <ul>
+                <li class="horizontal__item">
+                    <svg width="2rem" height="2rem" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                </li>
+                <li class="horizontal__item">
+                    <svg width="2rem" height="2rem" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+        </div>
+
+        <div class="footer">
+            Footer
         </div>
     </form>
 </body>

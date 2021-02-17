@@ -1,0 +1,321 @@
+﻿*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: #E0E0E0;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 24px;
+    /*
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;*/
+}
+
+.navigation {
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: 300;
+    padding: 1rem 2rem;
+    color: #fff;
+    background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+    background-size: 220%;
+    transition: all .4s;
+    margin-right: 1.5rem;
+    display: inline-block;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+#navi-toggle {
+    display: none;
+}
+
+.navigation__button {
+    /*background-color: #fff;*/
+    height: 3.5rem;
+    width: 3.5rem;
+    position: fixed;
+    top: .25rem;
+    left: .25rem;
+    border-radius: 50%;
+    z-index: 2000;
+    text-align: center;
+    cursor: pointer;
+}
+
+.navigation__background {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    position: fixed;
+    top: .5rem;
+    left: .5rem;
+    /*background-image: radial-gradient(#03A9F4, #fff);*/
+    background-color: #fff;
+    /*background: rgba( 255, 255, 255, 0.20 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );*/
+    z-index: 1000;
+    transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.navigation__nav {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+    opacity: 0;
+    width: 0;
+    transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.navigation__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    list-style: none;
+    text-align: center;
+    width: 100%;
+}
+
+.navigation__item {
+    margin: 1rem;
+    padding-bottom: 50px;
+}
+
+.navigation__link {
+    color: white;
+    text-decoration: none;
+    color: #000;
+    position: relative;
+}
+
+.navigation__link:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: -8px;
+    content: "";
+    display: block;
+    height: 4px;
+    left: 50%;
+    position: absolute;
+    background: #000;
+    transition: width .5s ease 0s, left .5s ease 0s;
+    width: 0;
+}
+
+.navigation__link:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+
+
+.navigation__checkbox:checked ~ .navigation__background {
+    transform: scale(80);
+}
+
+.navigation__checkbox:checked ~ .navigation__nav {
+    opacity: 1;
+    width: 100%;
+}
+
+
+
+
+
+.navigation__icon {
+    position: relative;
+    margin-top: 1.75rem;
+}
+
+.navigation__icon,
+.navigation__icon::before,
+.navigation__icon::after {
+    width: 2rem;
+    height: 3px;
+    background-color: black;
+    display: inline-block;
+}
+
+.navigation__icon::before,
+.navigation__icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all .4s;
+}
+
+.navigation__icon::before {
+    top: -.8rem;
+}
+
+.navigation__icon::after {
+    top: .8rem;
+}
+
+.navigation__button:hover .navigation__icon::before {
+    top: -1rem;
+}
+
+.navigation__button:hover .navigation__icon::after {
+    top: 1rem;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+    background-color: transparent;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+}
+
+
+
+
+
+.horizontal__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 64px;
+    width: 100%;
+    color: #000;
+    z-index: 100;
+    
+    background: white;
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.horizontal__title {
+    float: left;
+    list-style: none;
+    padding: 1rem;
+    /*margin-left: 5rem;*/
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: none;
+    transition: all .4s;
+    height: 2rem;
+    position:absolute;
+    top: 0;
+    left: 4rem;
+}
+
+.horizontal__link {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+}
+
+.horizontal__link:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: -8px;
+    content: "";
+    display: block;
+    height: 3px;
+    left: 50%;
+    position: relative;
+    background: #000;
+    transition: width .5s ease 0s, left .5s ease 0s;
+    width: 0;
+}
+
+.horizontal__link:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.horizontal__item {
+    float: right;
+    list-style: none;
+    text-decoration: none;
+    padding: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: none;
+    transition: all .4s;
+    height: 2rem;
+}
+
+.horizontal__item:hover {
+    fill: black;
+}
+
+
+
+
+
+.content {
+    width: 100%;
+    position: relative;
+    margin-top: 24px;
+}
+
+
+
+
+
+
+.footer {
+    background-color: gray;
+    position: relative;
+    width: 100%;
+}
+
