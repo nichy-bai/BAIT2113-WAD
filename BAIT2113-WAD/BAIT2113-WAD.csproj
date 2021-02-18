@@ -71,8 +71,13 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="background_image.png" />
+    <Content Include="image01.jpg" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="Wishlist.aspx">
+      <BrowseToURL>/Wishlist.aspx</BrowseToURL>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,6 +87,13 @@
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Wishlist.aspx.cs">
+      <DependentUpon>Wishlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wishlist.aspx.designer.cs">
+      <DependentUpon>Wishlist.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
