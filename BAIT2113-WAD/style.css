@@ -13,7 +13,7 @@ html {
 
 body {
     background: #E0E0E0;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-family: "Roboto";
     font-size: 16px;
     letter-spacing: 0px;
     word-spacing: 0px;
@@ -101,6 +101,7 @@ body {
     opacity: 0;
     width: 0;
     transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition-delay: .1s;
 }
 
 .navigation__list {
@@ -111,6 +112,9 @@ body {
     list-style: none;
     text-align: center;
     width: 100%;
+    display: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
 }
 
 .navigation__item {
@@ -123,6 +127,8 @@ body {
     text-decoration: none;
     color: #000;
     position: relative;
+    letter-spacing: 1px;
+    line-height: .5;
 }
 
 .navigation__link:after {
@@ -130,7 +136,7 @@ body {
     bottom: -8px;
     content: "";
     display: block;
-    height: 4px;
+    height: 2px;
     left: 50%;
     position: absolute;
     background: #000;
@@ -167,7 +173,7 @@ body {
 .navigation__icon::before,
 .navigation__icon::after {
     width: 2rem;
-    height: 3px;
+    height: 2px;
     background-color: black;
     display: inline-block;
 }
@@ -222,13 +228,13 @@ body {
     width: 100%;
     color: #000;
     z-index: 100;
-    
+    box-shadow: 0px 1px 5px #b5b5b5;
     background: white;
     user-select: none; /* supported by Chrome and Opera */
-   -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-   -moz-user-select: none; /* Firefox */
-   -ms-user-select: none; /* Internet Explorer/Edge */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
 .horizontal__title {
@@ -249,7 +255,7 @@ body {
 }
 
 .horizontal__link {
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
     letter-spacing: 2px;
     word-spacing: 2px;
@@ -257,7 +263,7 @@ body {
     font-weight: 700;
     text-decoration: none;
     font-style: normal;
-    font-variant: normal;
+    font-variant: small-caps;
     text-transform: none;
 }
 
@@ -266,7 +272,7 @@ body {
     bottom: -8px;
     content: "";
     display: block;
-    height: 3px;
+    height: 2px;
     left: 50%;
     position: relative;
     background: #000;
@@ -314,8 +320,101 @@ body {
 
 
 .footer {
-    background-color: gray;
+    background-color: white;
     position: relative;
     width: 100%;
+    height: 100%;
 }
 
+.footer__container {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 100px;
+    height: 100%;
+}
+
+.footer__content {
+    width: auto;
+    height: 250px;
+    background-color: white;
+    margin: 30px 0;
+    padding: 10px 20px;
+    text-align: left;
+    
+}
+
+.footer__title {
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+.footer__item, .footer__item > a {
+    text-decoration: none;
+    list-style: none;
+    padding-bottom: 10px;
+    color: #2c2c2c;
+}
+
+.footer__item:hover, .footer__item:hover > a {
+    color: #000;
+    transition: width .5s ease 0s, left .5s ease 0s;
+}
+
+.footer__item > a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 3px;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 50%;
+    position: relative;
+    background: #000;
+    transition: width .5s ease 0s, left .5s ease 0s;
+    width: 0;
+}
+
+.footer__item > a:hover:after {
+    width: 20%;
+    left: 0;
+    height: 1px;
+}
+
+.newsletter__textbox {
+    padding: 10px 20px;
+    border-color: #e0e0e0;
+    background-color: #fff;
+    border-style: solid;
+    margin-bottom: 5px;
+}
+
+.newsletter__checkbox {
+    cursor: pointer;
+}
+
+.newsletter__terms {
+    text-decoration: underline !important;
+}
+
+.footer__item > .newsletter__terms:hover:after {
+    width: 0;
+    left: 0;
+    height: 1px;
+}
+
+.newsletter__button {
+    padding: 5px;
+    border-color: #000;
+    background-color: #fff;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.newsletter__button:hover {
+    background-color: #000;
+    color: #fff;
+}
