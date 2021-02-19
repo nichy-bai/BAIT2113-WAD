@@ -4,6 +4,7 @@
 
 <html>
 <head runat="server">
+    <link href="icon.png" rel="icon" />
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="script.js" type="text/javascript"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -24,20 +25,24 @@
             <div class="navigation__background">&nbsp;</div>
 
             <nav class="navigation__nav">
+
                 <ul class="navigation__list" id="navi-menu">
+                    <asp:SiteMapPath ID="SiteMapPath1" runat="server" CssClass="navigation__sitemap"></asp:SiteMapPath>
+
                     <li class="navigation__item"><a href="/WebForm1.aspx" class="navigation__link">Home</a></li>
                     <li class="navigation__item"><a href="/WebForm2.aspx" class="navigation__link">Artwork Sales</a></li>
                     <li class="navigation__item"><a href="#" class="navigation__link">Display Gallery</a></li>
                     <li class="navigation__item"><a href="#" class="navigation__link">Shopping Cart</a></li>
                     <li class="navigation__item"><a href="#" class="navigation__link">Login</a></li>
                     <li class="navigation__item"><a href="#" class="navigation__link">Help</a></li>
+                    
                 </ul>
             </nav>
         </div>
 
         <div class="horizontal__nav">
             <ul>
-                <li class="horizontal__title"><a href="#" class="horizontal__link">Gallerion</a></li>
+                <li class="horizontal__title"><a href="#" class="horizontal__link">gallerion</a></li>
             </ul>
             <ul>
                 <li class="horizontal__item">
@@ -52,11 +57,10 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-
         <div class="footer">
             <div class="footer__container">
                 <div class="footer__content">
-                    <div class="footer__title">Art</div>
+                    <div class="footer__title">Artwork</div>
                     <div>
                         <ul class="footer__body">
                             <li class="footer__item"><a href="#">Painting</a></li>
