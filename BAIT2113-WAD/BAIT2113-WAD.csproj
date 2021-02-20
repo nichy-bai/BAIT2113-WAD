@@ -71,6 +71,8 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="icon.png" />
+    <Content Include="script.js" />
     <Content Include="style.css" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
@@ -102,6 +104,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
