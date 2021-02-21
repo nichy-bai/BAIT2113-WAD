@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="BAIT2113_WAD.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Gallerion.Master.cs" Inherits="BAIT2113_WAD.Site1" %>
 
 <!DOCTYPE html>
 
@@ -29,20 +29,20 @@
                 <ul class="navigation__list" id="navi-menu">
                     <asp:SiteMapPath ID="SiteMapPath1" runat="server" CssClass="navigation__sitemap"></asp:SiteMapPath>
 
-                    <li class="navigation__item"><a href="/WebForm1.aspx" class="navigation__link">Home</a></li>
+                    <li class="navigation__item"><a href="/Homepage.aspx" class="navigation__link">Home</a></li>
                     <li class="navigation__item"><a href="/WebForm2.aspx" class="navigation__link">Artwork Sales</a></li>
                     <li class="navigation__item"><a href="#" class="navigation__link">Display Gallery</a></li>
-                    <li class="navigation__item"><a href="#" class="navigation__link">Shopping Cart</a></li>
-                    <li class="navigation__item"><a href="#" class="navigation__link">Login</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link">Wishlist</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link">Profile</a></li>
                     <li class="navigation__item"><a href="#" class="navigation__link">Help</a></li>
                     
                 </ul>
             </nav>
         </div>
 
-        <div class="horizontal__nav">
+        <div class="horizontal__nav" id="navbar">
             <ul>
-                <li class="horizontal__title"><a href="#" class="horizontal__link">gallerion</a></li>
+                <li class="horizontal__title"><a href="/Homepage.aspx" class="horizontal__link">gallerion</a></li>
             </ul>
             <ul>
                 <li class="horizontal__item">
@@ -76,8 +76,8 @@
                     <div class="footer__title">About Us</div>
                     <div>
                         <ul class="footer__body">
-                            <li class="footer__item"><a href="#">About Us</a></li>
-                            <li class="footer__item"><a href="#">Organisation</a></li>
+                            <li class="footer__item"><a href="/Homepage.aspx#about_us">About Us</a></li>
+                            <li class="footer__item"><a href="/Homepage.aspx#organization">Organisation</a></li>
                             <li class="footer__item"><a href="#">Privacy Policy</a></li>
                             <li class="footer__item"><a href="#">Terms and Conditions</a></li>
                             <li class="footer__item"><a href="#">FAQ</a></li>
@@ -101,13 +101,15 @@
                     <div>
                         <ul class="footer__body">
                             <li class="footer__item">Subscribe to the newsletter and stay up to date with the latest artworks</li>
-                            <li class="footer__item"><asp:TextBox ID="TextBox1" runat="server" TextMode="Email" AutoCompleteType="Email" placeholder="Email" Width="250px" Height="25px" CssClass="newsletter__textbox"></asp:TextBox></li>
-                            <li class="footer__item"><asp:CheckBox ID="CheckBox1" runat="server" Text=" I accept the " CssClass="newsletter__checkbox" /><a href="#" class="newsletter__terms">terms and conditions</a></li>
-                            <li class="footer__item"><asp:Button ID="Button1" runat="server" Text="Subscribe" Width="100px" Height="30px" CssClass="newsletter__button" /></li>
+                            <li class="footer__item"><asp:TextBox ID="newsletter_email" runat="server" TextMode="Email" AutoCompleteType="Email" placeholder="Email" Width="250px" Height="25px" CssClass="newsletter__textbox"></asp:TextBox></li>
+                            <li class="footer__item"><asp:CheckBox ID="newsletter_checkbox" runat="server" Text=" I accept the " CssClass="newsletter__checkbox" /><a href="#" class="newsletter__terms">terms and conditions</a></li>
+                            <li class="footer__item"><asp:Button ID="newsletter_button" runat="server" Text="Subscribe" Width="100px" Height="30px" CssClass="newsletter__button" onclientclick="javascript:alert('Newsletter Subscribed Successfully');" /></li>
                         </ul>
                     </div>
                 </div>
             </div>
+
+            <a onclick="topFunction()" id="top-btn"class="back-to-top">Back to top</a>
         </div>
     </form>
 </body>
