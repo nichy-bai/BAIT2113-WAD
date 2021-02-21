@@ -23,119 +23,130 @@
             </div>
             <div class="item-count">0</div>
     </div>
-    <div class="side_menu">
-        <div class="side_menu_title">Category</div>
-
-
-
-
-
-
-    </div>
+    
 	<div class="gallery">
-        
-		<div class="gallery-item">
-			<img class="gallery-image" src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=500&h=500&fit=crop" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer"/>
-            <div class="overlay">
-                <div class="row">
-                    <div class="details">
-                        <span>Headphone</span>
-                        <p>Premium headphone</p>
-                    </div>
-                    <div class="price">$30</div>
+        <div class="side_menu">
+            <div class="side_menu_content">
+                <hr />
+                <div class="side_menu_title">Category</div>
+                <div>
+                    <ul class="category">
+                        <li class="category_item"><a href="#">Painting</a></li>
+                        <li class="category_item"><a href="#">Photography</a></li>
+                        <li class="category_item"><a href="#">Design</a></li>
+                        <li class="category_item"><a href="#">Sculpture</a></li>
+                        <li class="category_item"><a href="#">Textile</a></li>
+                        <li class="category_item"><a href="#">Illustration</a></li>
+                    </ul>
                 </div>
-                <div class="buttons">
-                    <button>Buy Now</button>
-                    <button class="cart-btn">Add to Cart</button>
-                </div>
-            </div>
-		</div>
-
-		<div class="gallery-item">
-			<img class="gallery-image" src="https://images.unsplash.com/photo-1515260268569-9271009adfdb?w=500&h=500&fit=crop" alt="sunset behind San Francisco city skyline"/>
-			<div class="overlay">
-                <div class="row">
-                    <div class="details">
-                        <span>Headphone</span>
-                        <p>Premium headphone</p>
-                    </div>
-                    <div class="price">$30</div>
-                </div>
-                <div class="buttons">
-                    <button>Buy Now</button>
-                    <button class="cart-btn">Add to Cart</button>
-                </div>
-            </div>
-		</div>
-
-		<div class="gallery-item">
-			<img class="gallery-image" src="https://images.unsplash.com/photo-1506045412240-22980140a405?w=500&h=500&fit=crop" alt="people holding umbrellas on a busy street at night lit by street lights and illuminated signs in Tokyo, Japan"/>
-		    <div class="overlay">
-                <div class="row">
-                    <div class="details">
-                        <span>Headphone</span>
-                        <p>Premium headphone</p>
-                    </div>
-                    <div class="price">$30</div>
-                </div>
-                <div class="buttons">
-                    <button>Buy Now</button>
-                    <button class="cart-btn">Add to Cart</button>
-                </div>
-            </div>
-		</div>
-
-		<div class="gallery-item">
-			<img class="gallery-image" src="https://images.unsplash.com/photo-1514041181368-bca62cceffcd?w=500&h=500&fit=crop" alt="car interior from central back seat position showing driver and blurred view through windscreen of a busy road at night"/>
-		    <div class="overlay">
-                <div class="row">
-                    <div class="details">
-                        <span>Headphone</span>
-                        <p>Premium headphone</p>
-                    </div>
-                    <div class="price">$30</div>
-                </div>
-                <div class="buttons">
-                    <button>Buy Now</button>
-                    <button class="cart-btn">Add to Cart</button>
-                </div>
+                <hr />
             </div>
         </div>
-
-		<div class="gallery-item">
-			<img class="gallery-image" src="https://images.unsplash.com/photo-1445810694374-0a94739e4a03?w=500&h=500&fit=crop" alt="back view of woman wearing a backpack and beanie waiting to cross the road on a busy street at night in New York City, USA"/>
-		    <div class="overlay">
-                <div class="row">
-                    <div class="details">
-                        <span>Headphone</span>
-                        <p>Premium headphone</p>
+        <div class="gallery_container">
+            <div class="gallery-item">
+                <img class="gallery-image" src="https://onlinegallery.art/images/artworks/img-20200630-wa0006.jpg" alt="" />
+                <div class="overlay">
+                    <div class="row">
+                        <div class="details">
+                            <span>Wooden Vajra</span>
+                            <p><b>Artist</b> - Nir Karmazin</p>
+                        </div>
+                        <div class="price">RM 1,938</div>
                     </div>
-                    <div class="price">$30</div>
-                </div>
-                <div class="buttons">
-                    <button>Buy Now</button>
-                    <button class="cart-btn">Add to Cart</button>
+                    <div class="buttons">
+                        <asp:Button ID="buyNow" runat="server" Text="Button" />
+                        <asp:Button ID="addToCart" runat="server" Text="Button" />
+                        <%--<button>Buy Now</button>
+                        <button class="cart-btn">Add to Cart</button>--%>
+                    </div>
                 </div>
             </div>
-        </div>
 
-		<div class="gallery-item">
-			<img class="gallery-image" src="https://images.unsplash.com/photo-1486334803289-1623f249dd1e?w=500&h=500&fit=crop" alt="man wearing a black jacket, white shirt, blue jeans, and brown boots, playing a white electric guitar while sitting on an amp"/>
-            <div class="overlay">
-                <div class="row">
-                    <div class="details">
-                        <span>Headphone</span>
-                        <p>Premium headphone</p>
+           <%-- <div class="gallery-item">
+                <img class="gallery-image" src="https://onlinegallery.art/images/artworks/john-ryland-bw-16-1000x.jpg" alt="" />
+                <div class="overlay">
+                    <div class="row">
+                        <div class="details">
+                            <span>John Rylands 03</span>
+                            <p><b>Artist</b> - Oscar de Wit</p>
+                        </div>
+                        <div class="price">RM 5,628</div>
                     </div>
-                    <div class="price">$30</div>
-                </div>
-                <div class="buttons">
-                    <button>Buy Now</button>
-                    <button class="cart-btn">Add to Cart</button>
+                    <div class="buttons">
+                        <button>Buy Now</button>
+                        <button class="cart-btn">Add to Cart</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
+            <div class="gallery-item">
+                <img class="gallery-image" src="https://onlinegallery.art/images/artworks/50126c0a-4c69-4f40-ae1b-f91f88eda0ce.jpeg" alt="" />
+                <div class="overlay">
+                    <div class="row">
+                        <div class="details">
+                            <span>Nipple #7</span>
+                            <p><b>Artist</b> - Ruben van der Meer</p>
+                        </div>
+                        <div class="price">RM 465</div>
+                    </div>
+                    <div class="buttons">
+                        <button>Buy Now</button>
+                        <button class="cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img class="gallery-image" src="https://images.unsplash.com/photo-1506045412240-22980140a405?w=500&h=500&fit=crop" alt="" />
+                <div class="overlay">
+                    <div class="row">
+                        <div class="details">
+                            <span>Japan Night Street</span>
+                            <p><b>Artist</b> - Akamine Kazuo</p>
+                        </div>
+                        <div class="price">RM 369</div>
+                    </div>
+                    <div class="buttons">
+                        <button>Buy Now</button>
+                        <button class="cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img class="gallery-image" src="https://onlinegallery.art/images/artworks/missing-remains-2017.jpg" alt="" />
+                <div class="overlay">
+                    <div class="row">
+                        <div class="details">
+                            <span>Missing remains 2017</span>
+                            <p><b>Artist</b> - Jak Beemsterboer</p>
+                        </div>
+                        <div class="price">RM 1,246</div>
+                    </div>
+                    <div class="buttons">
+                        <button>Buy Now</button>
+                        <button class="cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img class="gallery-image" src="https://onlinegallery.art/images/artworks/b3cd878f-a575-49ec-84bc-0c0504ce1f07.jpeg" alt="" />
+                <div class="overlay">
+                    <div class="row">
+                        <div class="details">
+                            <span>African Male Lion</span>
+                            <p><b>Artist</b> - Matthew Tyree</p>
+                        </div>
+                        <div class="price">RM 10,097</div>
+                    </div>
+                    <div class="buttons">
+                        <button>Buy Now</button>
+                        <button class="cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>--%>
+        </div>
 
 	</div>
 
