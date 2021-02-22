@@ -7,27 +7,15 @@ using System.Web.UI.WebControls;
 
 namespace BAIT2113_WAD
 {
-    public partial class WebForm2 : System.Web.UI.Page
+    public partial class WebForm4 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-        {
-
-        }
-
-        protected void ImageButton1_Click1(object sender, ImageClickEventArgs e)
-        {
-
-        }
-
-        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
+        protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
 
         }
     }
-
 }

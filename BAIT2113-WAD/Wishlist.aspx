@@ -1,169 +1,56 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Wishlist.aspx.cs" Inherits="BAIT2113_WAD.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Wishlist.aspx.cs" Inherits="BAIT2113_WAD.WebForm4" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+   <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+    <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
+    <style>
+        .image {
+            text-align: center;
+        }
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+        table.wishlist {
+            margin-left: auto;
+            margin-right: auto;
+        }
+         img.rounded {
+            border-radius: 6px !important;
+        }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <div class="image mr-3" style="margin-top:10%">
+                        <img src="https://i.imgur.com/ZSkeqnd.jpg" class="rounded-circle" width="100" />
+         <p style="font-size: 20px">Anna Watson</p>
+         </div>
+    
 
-<style>
-
-html {
-  background-image: url('background_image.png');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-attachment: fixed;
-}
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  text-align: center;
-  margin:auto;
-  font-family: arial;
-  background-color:whitesmoke;
-}
-
-.price {
-  color: grey;
-  font-size: 22px;
-}
-
-.card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-.card button:hover {
-  opacity: 0.7;
-}
+    <p style="margin-left:20%;margin-top:5%; font-size: 58px; font-family: 'Blackadder ITC';">Wishlist</p>
+    <table id="wishlist" style="width: 70%; margin-left: auto; margin-right: auto; margin-top: 3%">
+        
+        
+        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+            <ItemTemplate>
+                <tr style="border-style: solid none solid none; border-width: thin; font-weight: bold; ">
+                    <td class="image">
+                        <asp:ImageButton ID="Image1" runat="server" ImageUrl='<%# Eval("artWorkUrl")%>' ImageAlign="Baseline" Width="100px" Height="100px" /></td>
+                    <td style="text-align: center; height: 200px;"><%# Eval("artworkName")%></td>
+                    <td style="text-align: center; height: 200px;">
+                        <asp:ImageButton ID="order" runat="server" /><i class="fas fa-close">clear</i>
+                    </td>
+                    <td style="text-align: center; height: 200px;">
+                        <asp:ImageButton ID="btnDelete" runat="server" /><i class="fa-cart-arrow-down">buy</i>
+                    </td>
+                </tr>
+            </ItemTemplate>
+        </asp:Repeater>
+    </table>
 
 
-</style>
-</head>
-<body>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artwork.artworkName, Artwork.price, Artwork.artWorkUrl FROM Artwork INNER JOIN WishArt ON Artwork.artworkID = WishArt.artworkID INNER JOIN Wishlist ON WishArt.wishlistID = Wishlist.wishlistID"></asp:SqlDataSource>
 
-    <form id="form1" runat="server">
+</asp:Content>
 
-<div style="margin-top:10%;display:flex">
-<div class="card" style="margin-left:5%">
-  <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/image01.jpg" />
-  <h1>Tailored Jeans
-    </h1>
-  <p class="price">$19.99</p>
-  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-
-<div class="card">
-  <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/image01.jpg" />
-  <h1>Tailored Jeans
-    </h1>
-  <p class="price">$19.99</p>
-  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-
-    <div class="card">
-  <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/image01.jpg" />
-  <h1>Tailored Jeans
-    </h1>
-  <p class="price">$19.99</p>
-  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-
-     <div class="card">
-  <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl="~/image01.jpg" />
-  <h1>Tailored Jeans
-    </h1>
-  <p class="price">$19.99</p>
-  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-    </div>
-    <div style="margin-top:10%;display:flex">
-<div class="card" style="margin-left:5%">
-  <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl="~/image01.jpg" />
-  <h1>Tailored Jeans
-    </h1>
-  <p class="price">$19.99</p>
-  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-
-<div class="card">
-  <asp:ImageButton ID="ImageButton6" runat="server" ImageUrl="~/image01.jpg" />
-  <h1>Tailored Jeans
-    </h1>
-  <p class="price">$19.99</p>
-  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-
-    <div class="card">
-  <asp:ImageButton ID="ImageButton7" runat="server" ImageUrl="~/image01.jpg" />
-  <h1>Tailored Jeans
-    </h1>
-  <p class="price">$19.99</p>
-  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-
-     <div class="card">
-  <asp:ImageButton ID="ImageButton8" runat="server" ImageUrl="~/image01.jpg" />
-  <h1>Tailored Jeans
-    </h1>
-  <p class="price">$19.99</p>
-  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-    </div>
-
-  <div style="margin-top:10%;display:flex">
-<div class="card" style="margin-left:5%">
-  <asp:ImageButton ID="ImageButton9" runat="server" ImageUrl="~/image01.jpg" />
-  <h1>Tailored Jeans
-    </h1>
-  <p class="price">$19.99</p>
-  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-
-<div class="card">
-  <asp:ImageButton ID="ImageButton10" runat="server" ImageUrl="~/image01.jpg" />
-  <h1>Tailored Jeans
-    </h1>
-  <p class="price">$19.99</p>
-  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-
-    <div class="card">
-  <asp:ImageButton ID="ImageButton11" runat="server" ImageUrl="~/image01.jpg" />
-  <h1>Tailored Jeans
-    </h1>
-  <p class="price">$19.99</p>
-  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-
-     <div class="card">
-  <asp:ImageButton ID="ImageButton12" runat="server" ImageUrl="~/image01.jpg" />
-  <h1>Tailored Jeans
-    </h1>
-  <p class="price">$19.99</p>
-  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-    </div>
-    </form>
-</body>
-</html>
