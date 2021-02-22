@@ -81,7 +81,6 @@
     <Content Include="Web.config" />
     <Content Include="Homepage.aspx" />
     <Content Include="Help.aspx" />
-    <Content Include="WebForm1.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="Wishlist.aspx" />
     <Content Include="whatsapp image.png" />

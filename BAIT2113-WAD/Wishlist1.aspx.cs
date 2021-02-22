@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace BAIT2113_WAD
 {
-    public partial class WebForm2 : System.Web.UI.Page
+    public partial class Wishlist1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
