@@ -22,7 +22,7 @@
             Password 
         </p>
         <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox><br\ />
-        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="Button1_Click" /><br\ />
+        <asp:Button ID="btnLogin" runat="server" Text="Login" /><br\ />
         <a href="WebForm4.aspx">Create Account</a>
         </div>
        
