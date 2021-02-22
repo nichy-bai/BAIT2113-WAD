@@ -38,16 +38,21 @@ namespace BAIT2113_WAD
             //    Label2.Text = rdr2["artworkName"].ToString();
             //}
             //con.Close();
+            
 
 
         }
 
-        //protected void viewMore_Click(object sender, EventArgs e)
-        //{
-        //    Context.Items.Add("imageURL", "<%#Eval('imageURL') %>");
-        //    Context.Items.Add("artworkName", "<%#Eval('artworkName') %>");
-        //    Server.Transfer("Order.aspx");
-        //}
+        protected void ViewMore_Click(object sender, EventArgs e)
+        {
+            //Context.Items.Add("imageURL", "<%#Eval('imageURL') %>");
+            //Context.Items.Add("artworkName", "<%#Eval('artworkName') %>");
+            //Server.Transfer("Order.aspx");
+
+            //String artworkName = artworkNameLabel.Text;
+            //Session["artworkName"] = artworkNameLabel.Text;
+            
+        }
 
 
     }

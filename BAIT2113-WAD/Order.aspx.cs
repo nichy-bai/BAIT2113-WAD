@@ -21,6 +21,7 @@ namespace BAIT2113_WAD
             //{
             //    Response.Write(ex.Message);
             //}
+            //string artworkName = Session["artworkName"].ToString();
         }
     }
 }
