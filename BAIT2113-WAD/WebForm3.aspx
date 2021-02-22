@@ -12,7 +12,7 @@
     
     <form id="form1" runat="server">
         <div class ="title">
-           <strong><img src="image/excellent.png" width="150" height="150"/> Gallerion</strong></div>
+           <strong><img src="icon.png" width="150" height="150"/> Gallerion</strong></div>
     <div class="login-box">
         <img src="avatar.png" class="avatar"/>
     <h1>Login</h1>
