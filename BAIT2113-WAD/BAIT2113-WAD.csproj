@@ -71,13 +71,9 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
-
     <Content Include="icon.png" />
     <Content Include="script.js" />
     <Content Include="style.css" />
-
-
-
     <Content Include="background_image.png" />
     <Content Include="facebook.png" />
     <Content Include="image01.jpg" />
@@ -89,20 +85,13 @@
     <Content Include="PurchaseHistory.aspx" />
     <Content Include="Wishlist.aspx" />
     <Content Include="whatsapp image.png" />
-    <Content Include="Wishlist1.aspx">
-      <BrowseToURL>/Wishlist.aspx</BrowseToURL>
-    </Content>
     <Content Include="youtube.jpg" />
-
-
     <Content Include="icon.png" />
     <Content Include="script.js" />
     <Content Include="style.css" />
     <Content Include="Web.config" />
     <Content Include="Homepage.aspx" />
     <Content Include="Help.aspx" />
-
-
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -137,13 +126,6 @@
     </Compile>
     <Compile Include="Wishlist.aspx.designer.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Wishlist1.aspx.cs">
-      <DependentUpon>Wishlist1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Wishlist1.aspx.designer.cs">
-      <DependentUpon>Wishlist1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
