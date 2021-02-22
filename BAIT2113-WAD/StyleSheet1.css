@@ -1,0 +1,309 @@
+﻿/*
+
+All grid code is placed in a 'supports' rule (feature query) at the bottom of the CSS (Line 77). 
+        
+The 'supports' rule will only run if your browser supports CSS grid.
+
+Flexbox is used as a fallback so that browsers which don't support grid will still recieve an identical layout.
+
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500);
+
+:root {
+    /* Base font size */
+    font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    background: #fff;
+    font-family: "Roboto";
+    font-size: 16px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 24px;
+}
+
+.gallery_container {
+    max-width: 140rem;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+}
+
+.heading {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.5;
+    text-align: center;
+    padding: 3.5rem 0;
+}
+
+    .heading span {
+        display: block;
+    }
+
+.gallery {
+    display: flex;
+    /* Compensate for excess margin on outer gallery flex items */
+    margin: -1rem -1rem;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.gallery_container .cart-nav {
+    position: absolute;
+    right: 80px;
+    top: 50px;
+    width: 130px;
+    background: #fff;
+    padding: 13px 15px;
+    border-radius: 3px;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-evenly;
+    box-shadow: 3px 3px 8px 0px rgba(0,0,0,0.15);
+}
+
+.cart-nav .icon {
+    color: black;
+}
+
+    .cart-nav .icon i {
+        font-size: 20px;
+    }
+
+    .cart-nav .icon span {
+        font-weight: 500;
+    }
+
+.cart-nav .item-count {
+    font-size: 15px;
+    height: 23px;
+    width: 23px;
+    color: black;
+    background: #808080;
+    text-align: center;
+    line-height: 22px;
+    border: 1px solid #808080;
+    border-radius: 50%;
+}
+
+.image_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.gallery-item {
+    /* Minimum width of 24rem and grow to fit available space */
+    position: relative;
+    flex: 1 0 24rem;
+    /* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+    margin: 1rem;
+    box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    border-radius: 0.75rem;
+    flex-basis: 30%;
+}
+
+.gallery-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 400ms ease-out;
+}
+
+/*
+
+The following rule will only run if your browser supports CSS grid.
+
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling. 
+
+*/
+
+/*@supports (display: grid) {
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(34rem, 1fr));
+        grid-gap: 10rem;
+    }
+
+    .gallery,
+    .gallery-item {
+        margin: 0;
+    }
+}*/
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    overflow: hidden;
+    width: 100%;
+    height: 45px;
+    padding: 10px 20px 22px 20px;
+    box-shadow: 0px -3px 10px 0px rgba(0,0,0,0.15);
+    transition: .5s ease;
+}
+
+.gallery-item:hover .overlay {
+    height: 250px;
+}
+
+/*.gallery-item .overlay .row,
+.content .view_more {
+    align-self:auto;
+    justify-content: flex-end;
+}*/
+
+.details span {
+    font-size: 22px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/*.details p {
+    color: #1d1d1d;
+    font-size: 17px;
+    font-weight: 400;
+}*/
+
+.price {
+    color: black;
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 10%;
+}
+
+.buttons {
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
+}
+/*.view_more {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items:center;
+}*/
+
+.view_more {
+    width: 80%;
+    padding: 9px 0;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Roboto';
+    font-size: 10px;
+    font-weight: 500;
+    border-radius: 0.75rem;
+    border: 2px solid black;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+.view_more:first-child {
+    color: black;
+    margin-right: 10px;
+    background: #fff;
+}
+
+.view_more:first-child:hover {
+    color: #fff;
+    background: black;
+}
+
+/*.buttons button:last-child {
+    color: #fff;
+    margin-left: 10px;
+    background: #4a4a4a
+}
+
+button:last-child:hover {
+    background: black;
+    border-color: black;
+}*/
+
+/*Side Menu*/
+.side_menu {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 22%;
+}
+
+.side_menu_content {
+    width: auto;
+    height: 250px;
+    background-color: white;
+    margin: 30px 0;
+    padding: 10px 20px;
+    text-align: left;
+}
+.side_menu_title {
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+.category_item, .category_item > a {
+    text-decoration: none;
+    list-style: none;
+    padding-bottom: 10px;
+    color: #2c2c2c;
+    transition: all .5s ease 0s, left .5s ease 0s;
+}
+
+.category_item:hover, .category_item:hover > a {
+    color: #000;
+}
+
+.category_item > a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 3px;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 50%;
+    position: relative;
+    background: #000;
+    transition: width .5s ease 0s, left .5s ease 0s;
+    width: 0;
+}
+
+.category_item > a:hover:after {
+    width: 20%;
+    left: 0;
+    height: 1px;
+}
+
+/*.details_view {
+
+}*/
+
+.add-to-cart .btn-qty {
+    width: 52px;
+    height: 46px;
+}
