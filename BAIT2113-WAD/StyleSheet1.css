@@ -38,20 +38,19 @@ body {
     line-height: 24px;
 }
 
-.container {
+.gallery_container {
     max-width: 140rem;
     margin: 0 auto;
     padding: 0 2rem 2rem;
 }
 
 .heading {
-    font-family: "Roboto";
+    font-family: 'Times New Roman', Times, serif;
     font-size: 4rem;
     font-weight: 800;
     line-height: 1.5;
     text-align: center;
     padding: 3.5rem 0;
-    color: #1a1a1a;
 }
 
     .heading span {
@@ -66,7 +65,7 @@ body {
     justify-content: flex-start;
 }
 
-.container .cart-nav {
+.gallery_container .cart-nav {
     position: absolute;
     right: 80px;
     top: 50px;
@@ -104,7 +103,7 @@ body {
     border-radius: 50%;
 }
 
-.gallery_container {
+.image_container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -120,6 +119,7 @@ body {
     box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
     overflow: hidden;
     border-radius: 0.75rem;
+    flex-basis: 30%;
 }
 
 .gallery-image {
@@ -170,14 +170,14 @@ Remove or comment-out the code block below to see how the browser will fall-back
 }
 
 .gallery-item:hover .overlay {
-    height: 200px;
+    height: 250px;
 }
 
-.gallery-item .overlay .row,
-.content .buttons {
+/*.gallery-item .overlay .row,
+.content .view_more {
     align-self:auto;
-    justify-content: space-between;
-}
+    justify-content: flex-end;
+}*/
 
 .details span {
     font-size: 22px;
@@ -185,30 +185,37 @@ Remove or comment-out the code block below to see how the browser will fall-back
     font-style: italic;
 }
 
-.details p {
+/*.details p {
     color: #1d1d1d;
     font-size: 17px;
     font-weight: 400;
-}
+}*/
 
-.overlay .row .price {
+.price {
     color: black;
-    font-size: 25px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 10%;
 }
 
-.overlay .buttons {
-    margin-top: 20px;
+.buttons {
+    margin-top: 20%;
     display: flex;
     justify-content: center;
-    align-items:center;
 }
+/*.view_more {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items:center;
+}*/
 
-.overlay .buttons button {
-    width: 40%;
+.view_more {
+    width: 80%;
     padding: 9px 0;
     outline: none;
     cursor: pointer;
+    font-family: 'Roboto';
     font-size: 10px;
     font-weight: 500;
     border-radius: 0.75rem;
@@ -216,19 +223,18 @@ Remove or comment-out the code block below to see how the browser will fall-back
     text-transform: uppercase;
     transition: all 0.3s ease;
 }
-
-.buttons button:first-child {
+.view_more:first-child {
     color: black;
     margin-right: 10px;
     background: #fff;
 }
 
-button:first-child:hover {
+.view_more:first-child:hover {
     color: #fff;
     background: black;
 }
 
-.buttons button:last-child {
+/*.buttons button:last-child {
     color: #fff;
     margin-left: 10px;
     background: #4a4a4a
@@ -237,7 +243,7 @@ button:first-child:hover {
 button:last-child:hover {
     background: black;
     border-color: black;
-}
+}*/
 
 /*Side Menu*/
 .side_menu {
@@ -291,4 +297,13 @@ button:last-child:hover {
     width: 20%;
     left: 0;
     height: 1px;
+}
+
+/*.details_view {
+
+}*/
+
+.add-to-cart .btn-qty {
+    width: 52px;
+    height: 46px;
 }

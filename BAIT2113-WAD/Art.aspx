@@ -13,7 +13,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-  <div class="container">
+  <div class="gallery_container">
     
 	<div class="heading">Art Gallery </div>
     <div class="cart-nav">
@@ -42,27 +42,29 @@
                 <hr />
             </div>
         </div>
-        <div class="gallery_container">
-            <div class="gallery-item">
-                <img class="gallery-image" src="https://onlinegallery.art/images/artworks/img-20200630-wa0006.jpg" alt="" />
-                <div class="overlay">
-                    <div class="row">
-                        <div class="details">
-                            <span>Wooden Vajra</span>
-                            <p><b>Artist</b> - Nir Karmazin</p>
+        <div class="image_container">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT imageURL, artworkName, price FROM Artwork"></asp:SqlDataSource>
+            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+                <ItemTemplate>
+                    <div class="gallery-item">
+                        <img class="gallery-image" src='<%#Eval("imageURL") %>' alt=""/>
+                        <div class="overlay">
+                            <div class="row">
+                                <div class="details">
+                                    <span><%#Eval("artworkName") %></span>
+                                </div>
+                                <div class="price"> $<%#Eval("price") %></div>
+                            </div>
+                            <div class="buttons">
+                                <asp:Button ID="viewMore" runat="server" Text="View More" PostBackUrl="~/Order.aspx" CssClass="view_more" /> 
+                                <%--<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />--%>
+                            </div>
                         </div>
-                        <div class="price">RM 1,938</div>
                     </div>
-                    <div class="buttons">
-                        <asp:Button ID="buyNow" runat="server" Text="Button" />
-                        <asp:Button ID="addToCart" runat="server" Text="Button" />
-                        <%--<button>Buy Now</button>
-                        <button class="cart-btn">Add to Cart</button>--%>
-                    </div>
-                </div>
-            </div>
+                </ItemTemplate>
+            </asp:Repeater>
 
-           <%-- <div class="gallery-item">
+            <%--<div class="gallery-item">
                 <img class="gallery-image" src="https://onlinegallery.art/images/artworks/john-ryland-bw-16-1000x.jpg" alt="" />
                 <div class="overlay">
                     <div class="row">
