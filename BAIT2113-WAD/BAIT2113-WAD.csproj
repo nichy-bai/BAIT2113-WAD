@@ -71,9 +71,13 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+
     <Content Include="icon.png" />
     <Content Include="script.js" />
     <Content Include="style.css" />
+
+
+
     <Content Include="background_image.png" />
     <Content Include="facebook.png" />
     <Content Include="image01.jpg" />
@@ -83,12 +87,23 @@
     <Content Include="Help.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="Profile.aspx" />
+    <Content Include="PurchaseHistory.aspx" />
     <Content Include="Wishlist.aspx" />
     <Content Include="whatsapp image.png" />
     <Content Include="Wishlist1.aspx">
       <BrowseToURL>/Wishlist.aspx</BrowseToURL>
     </Content>
     <Content Include="youtube.jpg" />
+
+
+    <Content Include="icon.png" />
+    <Content Include="script.js" />
+    <Content Include="style.css" />
+    <Content Include="Web.config" />
+    <Content Include="Homepage.aspx" />
+    <Content Include="Help.aspx" />
+
+
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,6 +124,13 @@
     </Compile>
     <Compile Include="Profile.aspx.designer.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseHistory.aspx.cs">
+      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PurchaseHistory.aspx.designer.cs">
+      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
