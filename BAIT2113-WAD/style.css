@@ -411,6 +411,10 @@ body {
     height: 100%;
 }
 
+.footer__body {
+    position: relative;
+}
+
 .footer__content {
     width: auto;
     height: auto;
@@ -485,6 +489,12 @@ body {
 
 .newsletter__terms {
     text-decoration: underline !important;
+}
+
+.newsletter__validate {
+    position: absolute;
+    left: 5px;
+    color: red;
 }
 
 .footer__item > .newsletter__terms:hover:after {
@@ -1029,3 +1039,4 @@ span .rw-title {
     color: #fff;
     box-shadow: 0px 1px 5px #b5b5b5;
 }
+

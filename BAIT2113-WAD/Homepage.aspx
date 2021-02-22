@@ -86,7 +86,7 @@
                 </div>
             </div>
         </div>
-        <a href="#" class="homepage__colfooter">
+        <a href="/Help.aspx" class="homepage__colfooter">
             Find out more
         </a>
     </div>
@@ -95,7 +95,7 @@
         <div class="homepage__typing">
             <div class="rw-wrapper">
                 <div class="rw-sentence">
-                    <span><span class="rw-title">Gallerion</span>allows</span>
+                    <span><span class="rw-title">gallerion</span>allows</span>
                     <br>
                      <div class="rw-words">
                         <div class="animation">

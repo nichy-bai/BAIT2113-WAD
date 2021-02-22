@@ -76,7 +76,7 @@
     <Content Include="style.css" />
     <Content Include="Web.config" />
     <Content Include="Homepage.aspx" />
-    <Content Include="WebForm2.aspx" />
+    <Content Include="Help.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,12 +87,9 @@
     <Compile Include="Gallerion.Master.designer.cs">
       <DependentUpon>Gallerion.Master</DependentUpon>
     </Compile>
-    <Compile Include="WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="Help.aspx.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
