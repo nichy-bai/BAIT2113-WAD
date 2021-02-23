@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="BAIT2113_WAD.WebForm3" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm5.aspx.cs" Inherits="BAIT2113_WAD.WebForm5" %>
 
 <!DOCTYPE html>
 
@@ -21,9 +21,9 @@
         <p>
             Password 
         </p>
-        <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox><br\ />
-        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" /><br\ />
-        <a href="NewArtwork.aspx">Create Account</a>
+        <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox><br\ />
+        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="Button1_Click" /><br\ />
+        <a href="WebForm4.aspx">Create Account</a>
         </div>
        
        

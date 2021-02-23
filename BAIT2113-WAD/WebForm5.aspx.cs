@@ -7,14 +7,19 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
 
+
 namespace BAIT2113_WAD
 {
-    public partial class WebForm3 : System.Web.UI.Page
+    public partial class WebForm5 : System.Web.UI.Page
     {
-       
-
-        protected void btnLogin_Click(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
             String CustomerID = txtID.Text;
             String PasswordUser = txtPassword.Text;
             String ArtistID = txtID.Text;
@@ -32,7 +37,7 @@ namespace BAIT2113_WAD
             cmd.Parameters.AddWithValue("@PasswordUser", PasswordUser);
             cmd1.Parameters.AddWithValue("@ArtistID", ArtistID);
             cmd1.Parameters.AddWithValue("@PasswordArtist", PasswordArtist);
-            Session ["CustomerID"] = txtID.Text;
+            Session["CustomerID"] = txtID.Text;
             Session["ArtistID"] = txtID.Text;
 
             con.Open();
@@ -41,11 +46,11 @@ namespace BAIT2113_WAD
 
             if (output == "1")
             {
-                Response.Redirect("Homepage.aspx");
+                Response.Redirect("Login.aspx");
             }
             else if (output1 == "1")
             {
-                Response.Redirect("AddArtwork.aspx");
+                Response.Redirect("newartwork.aspx");
             }
             else if (output == "0")
             {

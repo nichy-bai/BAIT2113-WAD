@@ -14,44 +14,32 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //string ID = Session["ArtistID"].ToString();
+            string ID = Session["ArtistID"].ToString();
 
-            //string sql2 = "Select * from Artist where artistID = @ID ";
-            //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-            //SqlCommand cmd = new SqlCommand(sql2, con);
-            //SqlDataReader rdr;
-            //cmd.Parameters.AddWithValue("@ID", ID);
-            //con.Open();
-            //rdr = cmd.ExecuteReader();
 
-            //while (rdr.Read())
-            //{
-            //    lblArtistID.Text = rdr["artistID"].ToString();
-            //    lblArtistName.Text = rdr["name"].ToString();
-            //    lbldob.Text = rdr["dob"].ToString();
-            //    lblphone.Text = rdr["phoneNum"].ToString();
-            //    lblemail.Text = rdr["email"].ToString();
+            string sql2 = "Select * from Artist where artistID = @ID ";
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand(sql2, con);
+            SqlDataReader rdr3;
+            cmd.Parameters.AddWithValue("@ID", ID);
+            con.Open();
+            rdr3 = cmd.ExecuteReader();
 
-            //}
+            while (rdr3.Read())
+            {
+                lblArtistID.Text = rdr3["artistID"].ToString();
+                lblArtistName.Text = rdr3["name"].ToString();
+                lbldob.Text = rdr3["dob"].ToString();
+                lblphone.Text = rdr3["phoneNum"].ToString();
+                lblemail.Text = rdr3["email"].ToString();
+                HyperLink1.NavigateUrl = rdr3["link"].ToString();
+
+            }
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //string ID = Session["ArtistID"].ToString();
 
-            //string sql2 = "Select * from Artwork where artistID = @ID ";
-            //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-            //SqlCommand cmd = new SqlCommand(sql2, con);
-            //SqlDataReader rdr1;
-            //cmd.Parameters.AddWithValue("@ID", ID);
-            //con.Open();
-            //rdr1 = cmd.ExecuteReader();
-
-            //while (rdr1.Read())
-            //{
-              
-
-            //}
         }
     }
 }

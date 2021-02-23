@@ -9,12 +9,12 @@ using System.Data.SqlClient;
 using System.IO;
 namespace BAIT2113_WAD
 {
-    public partial class WebForm4 : System.Web.UI.Page
+    public partial class AddArtwork : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            /*string ID = Session["ArtistID"].ToString();
+
+            string ID = Session["ArtistID"].ToString();
 
             string sql2 = "Select * from Artist where artistID = @ID ";
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
@@ -31,9 +31,9 @@ namespace BAIT2113_WAD
                 lbldob.Text = rdr["dob"].ToString();
                 lblphone.Text = rdr["phoneNum"].ToString();
                 lblemail.Text = rdr["email"].ToString();
+                HyperLink1.NavigateUrl = rdr["link"].ToString();
+            }
 
-            }*/
-           
         }
 
         protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -41,12 +41,12 @@ namespace BAIT2113_WAD
             string cgy = ddlCategory.SelectedItem.Text;
             string a;
             int c;
-            
-            
+
+
             string sql = "Select Top 1 artworkID from Artwork order by artworkID DESC ";
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand(sql, con);
-           
+
             SqlDataReader rdr1;
             con.Open();
             rdr1 = cmd.ExecuteReader();
@@ -80,9 +80,9 @@ namespace BAIT2113_WAD
                 {
                     lblArtworkID.Text = "IT00000" + c;
                 }
-                
+
             }
-                con.Close();
+            con.Close();
 
         }
 
@@ -90,11 +90,11 @@ namespace BAIT2113_WAD
         {
             if (FileUpload1.HasFile)
             {
-                string uploadpic = "~/" + FileUpload1.FileName.ToString();
-                //FileUpload1.SaveAs(Server.MapPath("image//" + uploadpic));
+                string uploadpic = "~/images/" + FileUpload1.FileName.ToString();
+                FileUpload1.SaveAs(Server.MapPath("images//" + FileUpload1.FileName));
                 //string uploadpic1 = Path.Combine(Server.MapPath("image"), FileUpload1.FileName);
                 //string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
-               //FileUpload1.PostedFile.SaveAs(Server.MapPath("image/") + fileName);
+                //FileUpload1.PostedFile.SaveAs(Server.MapPath("image/") + fileName);
                 //FileUpload1.SaveAs(uploadpic1);
                 string ID = Session["ArtistID"].ToString();
                 string cgy = ddlCategory.SelectedItem.Text;
@@ -117,7 +117,7 @@ namespace BAIT2113_WAD
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
-                
+
                 lblmsg.Visible = true;
                 lblmsg.Text = "Artwork Uploaded successfully";
 
@@ -127,7 +127,7 @@ namespace BAIT2113_WAD
                 lblmsg.Visible = true;
                 lblmsg.Text = "Please upload the image!!!!";
             }
-        
+
         }
     }
 }

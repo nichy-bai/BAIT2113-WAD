@@ -31,7 +31,7 @@
 
                     <li class="navigation__item"><a href="/Homepage.aspx" class="navigation__link">Home</a></li>
                     <li class="navigation__item"><a href="/Artwork.aspx" class="navigation__link">Artwork Sales</a></li>
-                    <li class="navigation__item"><a href="/mygallery.aspx" class="navigation__link">Display Gallery</a></li>
+                    <li class="navigation__item"><a href="/Artwork.aspx" class="navigation__link">Display Gallery</a></li>
                     <li class="navigation__item"><a href="/Wishlist.aspx" class="navigation__link">Wishlist</a></li>
                     <li class="navigation__item"><a href="/Login.aspx" class="navigation__link">Profile</a></li>
                     <li class="navigation__item"><a href="/Help.aspx" class="navigation__link">Help</a></li>
@@ -106,8 +106,6 @@
                             <li class="footer__item"><asp:TextBox ID="newsletter_email" runat="server" TextMode="Email" AutoCompleteType="Email" placeholder="Email" Width="250px" Height="25px" CssClass="newsletter__textbox"></asp:TextBox></li>
                             <li class="footer__item"><asp:CheckBox ID="newsletter_checkbox" runat="server" Text=" I accept the " CssClass="newsletter__checkbox" /><a href="#" class="newsletter__terms">terms and conditions</a></li>
                             <li class="footer__item"><asp:Button ID="newsletter_button" runat="server" Text="Subscribe" Width="100px" Height="30px" CssClass="newsletter__button" /></li>
-
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="newsletter_email" CssClass="newsletter__validate" ErrorMessage="Email is required" SetFocusOnError="True" ></asp:RequiredFieldValidator>
 
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid Email" CssClass="newsletter__validate" ControlToValidate="newsletter_email"
                                                              SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"> </asp:RegularExpressionValidator>
