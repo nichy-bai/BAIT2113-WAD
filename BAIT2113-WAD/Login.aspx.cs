@@ -41,11 +41,11 @@ namespace BAIT2113_WAD
 
             if (output == "1")
             {
-                Response.Redirect("Wishlist.aspx");
+                Response.Redirect("Homepage.aspx");
             }
             else if (output1 == "1")
             {
-                Response.Redirect("WebForm4.aspx");
+                Response.Redirect("AddArtwork.aspx");
             }
             else if (output == "0")
             {
