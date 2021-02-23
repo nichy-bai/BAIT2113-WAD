@@ -88,7 +88,7 @@
     <Content Include="Profile.aspx" />
     <Content Include="PurchaseHistory.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="WebForm4.aspx" />
+    <Content Include="AddArtwork.aspx" />
     <Content Include="Wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -99,9 +99,6 @@
     <Compile Include="Homepage.aspx.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Homepage.aspx.designer.cs">
-      <DependentUpon>Homepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="mygallery.aspx.cs">
       <DependentUpon>mygallery.aspx</DependentUpon>
@@ -139,11 +136,12 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm4.aspx.cs">
-      <DependentUpon>WebForm4.aspx</DependentUpon>
+    <Compile Include="AddArtwork.aspx.cs">
+      <DependentUpon>AddArtwork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm4.aspx.designer.cs">
-      <DependentUpon>WebForm4.aspx</DependentUpon>
+    <Compile Include="AddArtwork.aspx.designer.cs">
+      <DependentUpon>AddArtwork.aspx</DependentUpon>
     </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
