@@ -382,6 +382,7 @@ body {
 
 
 
+
 .content {
     width: 100%;
     position: relative;
@@ -600,14 +601,7 @@ body {
 }
 
 
-.slideshow__button {
-    width: 200px;
-    height: 200px;
-    background-color: red;
-    border-radius: 50%;
-    top: 50px;
-    left: 50%;
-}
+
 
 
 

@@ -1,48 +1,21 @@
 body {
     margin: 0;
     padding: 0;
-    background: url(https://lh4.googleusercontent.com/-XplyTa1Za-I/VMSgIyAYkHI/AAAAAAAADxM/oL-rD6VP4ts/w1184-h666/Android-Lollipop-wallpapers-Google-Now-Wallpaper-2.png);
-    background-size: cover;
-    font-family: sans-serif;
 }
 
-.title {
-    position: absolute;
-    left: 50%;
-    text-align: left;
-    margin-top: 3%;
-}
-
-strong {
-    font-size: 80px;
-    font-family: 'Bell MT';
-    color: #000;
-    text-shadow: 0 0 30px black;
-    top: 50px;
-    margin-top: 2%;
-   
-}
-
-h3 {
-    font-size:35px;
-    font-family: 'Bell MT';
-    color: #fff;
-    text-shadow: 0 0 30px white;
-   
-}
 
 .login-box {
-    width: 320px;
-    height: 420px;
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
+    min-width: 350px;
+    min-height: 450px;
+    background-color: #fff;
+    box-shadow: 0px 1px 5px #b5b5b5;
+    color: #000;
     top: 60%;
-     left: 50%;
-     position: absolute;
-     transform: translate(-50%,-50%);
-     box-sizing: border-box;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
     padding: 70px 30px;
-    outline-style: double;  
 }
 
 .login-box1 {
@@ -59,25 +32,26 @@ h3 {
     outline-style: double;
 }
 
-    .avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 150%;
-    position: absolute;
-    top: -50px;
-    left: calc(50% - 50px);
+.avatar {
+width: 100px;
+height: 100px;
+border-radius: 50%;
+position: absolute;
+top: -50px;
+left: calc(50% - 50px);
+box-shadow: 0px 1px 5px #b5b5b5;
 }
 
 p {
     top: -30%;
-
-
 }
+
 h1 {
-    margin: 0;
+    margin: 0px 0px 0px 10px;
     padding: 0 0 20px;
     text-align: center;
-    font-size: 22px;
+    font-size: 2rem;
+    font-variant: small-caps;
 }
 
 .auto-style3{
@@ -93,127 +67,257 @@ h1 {
 
 .login-box input {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    margin-top: 0px;
 }
 
-    .login-box input[type="text"], input[type="password"] {
+    .login-box input[type="text"], .login-box input[type="password"] {
         border: none;
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid #000;
         background: transparent;
         outline: none;
         height: 40px;
-        color: #fff;
+        color: #000;
         font-size: 16px;
     }
 
+    .login-box input[type="password"] {
+        margin-bottom: 50px;
+    }
+
     .login-box input[type="submit"] {
-        border: none;
-        outline: none;
-        height: 40px;
-        background: #fff;
-        color: #000;
-        font-size: 18px;
-        border-radius: 20px;
+        width: 100%;
+        background-color: #000;
+        color: #fff;
+        border: 1px solid #000;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: all .5s ease 0s, left .5s ease 0s;
+        border-radius: .5rem;
     }
 
         .login-box input[type="submit"]:hover {
             cursor: pointer;
-            background: #000000;
-            color: #fff;
+            background: #fff;
+            color: #000;
         }
 
 .login-box a {
-    text-decoration: none;
-    font-size: 14px;
-    color: #fff;
+    text-decoration: underline;
+    font-size: 16px;
+    color: #000;
 }
 
     .login-box a:hover {
-        text-decoration: solid;
-            color: #000;
+        opacity: .8;
     }
 
+.register-box {
+    min-width: 350px;
+    min-height: 450px;
+    background-color: #fff;
+    box-shadow: 0px 1px 5px #b5b5b5;
+    color: #000;
+    top: 60%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+}
 
+.register-single {
+    display: flex;
+    flex-direction: column;
+    margin: 0 30px;
+}
 
+.register-singlerow {
+    display: flex;
+    flex-direction: row;
+    margin: 10px auto;
+}
 
+.register-question {
+    color: #000;
+}
 
-.button input {
+.register-btn {
+    width: 50%;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all .5s ease 0s, left .5s ease 0s;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.register-btn:hover {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0px 1px 5px #b5b5b5;
+}
+
+.cancel-btn {
+    width: 50%;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all .5s ease 0s, left .5s ease 0s;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+    .cancel-btn:hover {
+        background-color: #000;
+        color: #fff;
+        box-shadow: 0px 1px 5px #b5b5b5;
+    }
+
+.profile-box {
     width: 100%;
+    min-height: 100%;
+    background-color: #fff;
+    color: #000;
+    position: relative;
+    padding: 70px 30px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-detail {
+    height: 480px;
+    width: 20%;
+    min-width: 20%;
+    background-color: #fff;
+    box-shadow: 0px 1px 5px #b5b5b5;
+    color: #000;
+    position: relative;
+    box-sizing: border-box;
+    padding: 30px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-table {
+    width: 75%;
+}
+
+.profile-btn-active {
+    width: 50%;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all .5s ease 0s, left .5s ease 0s;
+    border-radius: .5rem;
+    margin-top: 30px;
+    display: block;
+}
+
+    .profile-btn-active:hover {
+        background-color: #fff;
+        color: #000;
+        box-shadow: 0px 1px 5px #b5b5b5;
+    }
+
+.profile-btn {
+    width: 50%;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all .5s ease 0s, left .5s ease 0s;
+    border-radius: .5rem;
+    margin-top: 30px;
+    display: block;
+}
+
+    .profile-btn:hover {
+        background-color: #000;
+        color: #fff;
+        box-shadow: 0px 1px 5px #b5b5b5;
+    }
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
     margin-bottom: 20px;
 }
 
-    .button input[type="text"], input[type="password"] {
-        border: none;
-        border-bottom: 1px solid #fff;
-        background: transparent;
-        outline: none;
-        height: 40px;
-        color: #fff;
-        font-size: 16px;
-    }
-
-    .button input[type="submit"] {
-        border: none;
-        outline: none;
-        height: 40px;
-        background: #fff;
-        color: #000;
-        font-size: 18px;
-        border-radius: 20px;
-    }
-
-        .button input[type="submit"]:hover {
-            cursor: pointer;
-            background: #000000;
-            color: #fff;
-        }
-
-.button a {
+.profile-gridview {
     text-decoration: none;
-    font-size: 14px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+
+
+
+
+
+
+
+.profile-addartwork {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin-left: 50px;
+}
+
+.profile-artworkrow {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.profile-addtitle {
+    padding: 20px;
+    font-size: 2rem;
+}
+
+.profile-addquestion {
+    min-width: 150px;
+}
+
+.profile-uploadbtn {
+    width: 35%;
+    background-color: #000;
     color: #fff;
-}
-
-.button hover {
-        text-decoration: solid;
-        color: #000;
-  }
-
-
-
-
-
-
-
-
-.login-box1 input[type="submit"] {
-    border: none;
-    outline: none;
-    height: 40px;
-    background: #fff;
-    color: #000;
-    font-size: 18px;
-    border-radius: 20px;
-}
-
-    .login-box1 input[type="submit"]:hover {
-        cursor: pointer;
-        background: #000000;
-        color: #fff;
-    }
-
-.login-box1 a {
+    border: 1px solid #000;
+    padding: 10px 20px;
+    text-align: center;
     text-decoration: none;
-    font-size: 14px;
-    color: #fff;
+    font-size: 1.2rem;
+    transition: all .5s ease 0s, left .5s ease 0s;
+    border-radius: .5rem;
+    margin-top: 30px;
+    display: block;
+    cursor: pointer;
 }
 
-    .login-box1 a:hover {
-        text-decoration: solid;
-        color: #000;
-    }
-
-.auto-style5
-{
-
+.profile-uploadbtn:hover {
+    opacity: .8;
 }

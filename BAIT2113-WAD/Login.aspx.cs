@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace BAIT2113_WAD
 {
-    public partial class WebForm3 : System.Web.UI.Page
+    public partial class Login : System.Web.UI.Page
     {
        
 
@@ -41,7 +41,7 @@ namespace BAIT2113_WAD
 
             if (output == "1")
             {
-                Response.Redirect("Homepage.aspx");
+                Response.Redirect("Wishlist.aspx");
             }
             else if (output1 == "1")
             {

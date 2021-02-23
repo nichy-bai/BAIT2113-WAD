@@ -31,7 +31,6 @@ namespace BAIT2113_WAD
                 lbldob.Text = rdr["dob"].ToString();
                 lblphone.Text = rdr["phoneNum"].ToString();
                 lblemail.Text = rdr["email"].ToString();
-                HyperLink1.NavigateUrl = rdr["link"].ToString();
             }
 
         }
@@ -119,13 +118,13 @@ namespace BAIT2113_WAD
                 con.Close();
 
                 lblmsg.Visible = true;
-                lblmsg.Text = "Artwork Uploaded successfully";
+                lblmsg.Text = "Artwork Uploaded successfully.";
 
             }
             else
             {
                 lblmsg.Visible = true;
-                lblmsg.Text = "Please upload the image!!!!";
+                lblmsg.Text = "Error! Please input valid details.";
             }
 
         }
