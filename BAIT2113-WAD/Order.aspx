@@ -1,18 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Order.aspx.cs" Inherits="BAIT2113_WAD.Order" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Gallerion.Master" AutoEventWireup="true" CodeBehind="Order.aspx.cs" Inherits="BAIT2113_WAD.Order" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="StyleSheet1.css" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
     <%--<link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>--%>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"/>
-</head>
-<body>
-    <form id="form1" runat="server">
-    
+
     <div class="gallery_container">
 	<div class="heading" style="font-family:'Times New Roman', Times, serif">Product Information</div>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artist.name, Artwork.quantity, Artwork.artworkName, Artwork.artworkDesc, Artwork.price FROM Artist CROSS JOIN Artwork"></asp:SqlDataSource>
@@ -90,8 +83,8 @@
                 </div>
 
                 <div class="col-md-6">
-                    <img src="https://onlinegallery.art/images/artworks/img-20200630-wa0006.jpg" alt="" class="image-responsive image-fluid" style="width: 100%; height: auto ; box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4); border-radius: 0.75rem;"/>
-                </div>
+                    <img src="https://onlinegallery.art/images/artworks/img-20200630-wa0006.jpg" alt="" class="image-responsive image-fluid" style="width: 100%; height: auto ; box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4); border-radius: 0.75rem;"/><asp:HiddenField ID="HiddenField1" runat="server" Visible="False" />
+&nbsp;</div>
             </div>
             <!-- end row -->
         </div><!-- end container -->
@@ -102,6 +95,4 @@
     <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </div>
-        </form>
-</body>
-</html>
+</asp:Content>

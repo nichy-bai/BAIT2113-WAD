@@ -48,7 +48,7 @@
                                 <div class="price"> $<%#Eval("price") %></div>
                             </div>
                             <div class="buttons">
-                                <asp:Button ID="viewMore" runat="server" Text="View More" PostBackUrl="~/Order.aspx" CssClass="view_more" /> 
+                                <asp:Button ID="viewMore" runat="server" Text="View More" CssClass="view_more" /> 
                                 <%--<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />--%>
                             </div>
                         </div>

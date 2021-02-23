@@ -21,9 +21,6 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="image mr-3" style="margin-top:10%">
-                        <img src="https://i.imgur.com/ZSkeqnd.jpg" class="rounded-circle" width="100" />
-         </div>
     
 
     <p style="margin-left:20%;margin-top:5%; font-size: 58px; font-family: 'Blackadder ITC';">Purchase History</p>
@@ -50,5 +47,9 @@
         </asp:Repeater>
         
     </table>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Order].orderID, Artwork.image, Artwork.artworkName, [Order].subtotal FROM Customer INNER JOIN Wishlist ON Customer.customerID = Wishlist.customerID INNER JOIN WishArt ON Wishlist.wishlistID = WishArt.wishlistID INNER JOIN WishArt AS WishArt_1 ON Wishlist.wishlistID = WishArt_1.wishlistID INNER JOIN Artwork ON WishArt.artworkID = Artwork.artworkID AND WishArt_1.artworkID = Artwork.artworkID CROSS JOIN [Order]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Order].orderID, Artwork.image, Artwork.artworkName, [Order].subtotal FROM Customer INNER JOIN Wishlist ON Customer.customerID = Wishlist.customerID INNER JOIN WishArt ON Wishlist.wishlistID = WishArt.wishlistID INNER JOIN WishArt AS WishArt_1 ON Wishlist.wishlistID = WishArt_1.wishlistID INNER JOIN Artwork ON WishArt.artworkID = Artwork.artworkID AND WishArt_1.artworkID = Artwork.artworkID CROSS JOIN [Order] WHERE (Customer.customerID = @customerID)" OnSelecting="SqlDataSource1_Selecting">
+        <SelectParameters>
+            <asp:SessionParameter Name="customerID" SessionField="CustomerID" />
+        </SelectParameters>
+    </asp:SqlDataSource>
 </asp:Content>
