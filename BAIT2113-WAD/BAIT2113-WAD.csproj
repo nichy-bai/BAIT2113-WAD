@@ -74,16 +74,9 @@
     <Content Include="JavaScript.js" />
     <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
-    <Content Include="Art.aspx" />
     <Content Include="Order.aspx" />
-    <Content Include="cart.png" />
-    <Content Include="delete.png" />
-    <Content Include="icon.png" />
-    <Content Include="mygallary.aspx" />
-    <Content Include="order.png" />
     <Content Include="script.js" />
     <Content Include="style.css" />
-    <Content Include="image01.jpg" />
     <Content Include="Web.config" />
     <Content Include="Homepage.aspx" />
     <Content Include="Help.aspx" />
@@ -102,7 +95,6 @@
     <Content Include="mygallery.aspx" />
     <Content Include="images\order.png" />
     <Content Include="images\image01.jpg" />
-    <Content Include="Profile.aspx" />
     <Content Include="PurchaseHistory.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="AddArtwork.aspx" />
@@ -138,10 +130,6 @@
     </Compile>
     <Compile Include="ArtistProfile.aspx.cs">
       <DependentUpon>ArtistProfile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Profile.aspx.cs">
-      <DependentUpon>Profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ArtistProfile.aspx.designer.cs">
