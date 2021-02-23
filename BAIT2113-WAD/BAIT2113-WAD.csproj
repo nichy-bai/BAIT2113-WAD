@@ -71,16 +71,13 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
-
     <Content Include="JavaScript.js" />
     <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
     <Content Include="Art.aspx" />
     <Content Include="Order.aspx" />
-
     <Content Include="cart.png" />
     <Content Include="delete.png" />
-
     <Content Include="icon.png" />
     <Content Include="mygallary.aspx" />
     <Content Include="order.png" />
@@ -90,10 +87,11 @@
     <Content Include="Web.config" />
     <Content Include="Homepage.aspx" />
     <Content Include="Help.aspx" />
-    <Content Include="Profile.aspx" />
+    <Content Include="ArtistProfile.aspx" />
     <Content Include="PurchaseHistory.aspx" />
     <Content Include="WebForm3.aspx" />
     <Content Include="WebForm4.aspx" />
+    <Content Include="CustomerProfile.aspx" />
     <Content Include="Wishlist.aspx" />
     <Content Include="icon.png" />
     <Content Include="script.js" />
@@ -122,12 +120,12 @@
       <DependentUpon>Help.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Profile.aspx.cs">
-      <DependentUpon>Profile.aspx</DependentUpon>
+    <Compile Include="ArtistProfile.aspx.cs">
+      <DependentUpon>ArtistProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Profile.aspx.designer.cs">
-      <DependentUpon>Profile.aspx</DependentUpon>
+    <Compile Include="ArtistProfile.aspx.designer.cs">
+      <DependentUpon>ArtistProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="PurchaseHistory.aspx.cs">
       <DependentUpon>PurchaseHistory.aspx</DependentUpon>
@@ -147,6 +145,13 @@
     </Compile>
     <Compile Include="WebForm4.aspx.designer.cs">
       <DependentUpon>WebForm4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerProfile.aspx.cs">
+      <DependentUpon>CustomerProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerProfile.aspx.designer.cs">
+      <DependentUpon>CustomerProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>

@@ -11,7 +11,7 @@ namespace BAIT2113_WAD
 {
 
 
-    public partial class WebForm2
+    public partial class Order
     {
 
         /// <summary>
