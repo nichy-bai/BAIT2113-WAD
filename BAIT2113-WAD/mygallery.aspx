@@ -4,10 +4,6 @@
         .auto-style1 {
             width: 300px;
         }
-        .auto-style2 {
-            width: 300px;
-            height: 31px;
-        }
         .auto-style3 {
             height: 31px;
         }
@@ -49,7 +45,13 @@
         </tr>
         <tr>
             <td class="auto-style3">Select the category:
-                <asp:DropDownList ID="ddlshowctg" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="category" DataValueField="category" Height="32px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlshowctg" runat="server" AutoPostBack="True" Height="32px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                    <asp:ListItem>Painting</asp:ListItem>
+                    <asp:ListItem>Photography</asp:ListItem>
+                    <asp:ListItem>Design</asp:ListItem>
+                    <asp:ListItem>Sculpture</asp:ListItem>
+                    <asp:ListItem>Textile</asp:ListItem>
+                    <asp:ListItem>Illustration</asp:ListItem>
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Artwork] WHERE ([artistID] = @artistID)">
                     <SelectParameters>
