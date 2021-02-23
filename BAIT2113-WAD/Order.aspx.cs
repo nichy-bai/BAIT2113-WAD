@@ -79,6 +79,26 @@ namespace BAIT2113_WAD
 
 
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            //Button InkRowSelection = (Button)sender;
+            ////get the recipe id from command argument to link button
+            //string ArtworkID = InkRowSelection.CommandArgument.ToString();
+            //Session.Add("artworkID", ArtworkID);
+
+            String con = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            SqlConnection cnn = new SqlConnection(con);
+            cnn.Open();
+            String strWishlist = "INSERT INTO [dbo].[Wishlist] VALUES (@customerID, @artworkID)";
+            SqlCommand addToWishlist = new SqlCommand(strWishlist, cnn);
+            addToWishlist.Parameters.AddWithValue("@customerID", Session["CustomerID"].ToString());
+            addToWishlist.Parameters.AddWithValue("@artworkID", Session["ArtworkID"].ToString());
+
+            addToWishlist.ExecuteNonQuery();
+
+            cnn.Close();
+        }
         //protected void AddToWish_Click(object sender, EventArgs e)
         //{
         //    /*if (Session["userID"] != null)

@@ -42,7 +42,11 @@
         </asp:Repeater>
     </table>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artwork.artworkName, Artwork.price, Artwork.image FROM Artwork INNER JOIN WishArt ON Artwork.artworkID = WishArt.artworkID INNER JOIN Wishlist ON WishArt.wishlistID = Wishlist.wishlistID INNER JOIN Customer ON Wishlist.customerID = Customer.customerID"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artwork.image, Artwork.artworkName FROM Wishlist INNER JOIN Artwork ON Wishlist.artworkID = Artwork.artworkID WHERE(Wishlist.customerID=@customerID)">
+        <SelectParameters>
+            <asp:SessionParameter Name="customerID" SessionField="customerID" />
+        </SelectParameters>
+    </asp:SqlDataSource>
     
 </asp:Content>
 
