@@ -1,19 +1,9 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Gallerion.Master" AutoEventWireup="true" CodeBehind="Artwork.aspx.cs" %>
 
-<script runat="server">
-
-    protected void viewMore_Click(object sender, EventArgs e)
-    {
-
-    }
-</script>
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 
   <div class="gallery_container">
     
@@ -49,7 +39,7 @@
             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                 <ItemTemplate>
                     <div class="gallery-item">
-                       <asp:Image ID="Image1" runat="server" ImageURL='<%#Eval("image") %>' />
+                       <asp:Image ID="Image1" runat="server" ImageURL='<%#Eval("image") %>' CssClass="gallery-image" />
                         <div class="overlay">
                             <div class="row">
                                 <div class="details">
@@ -58,7 +48,7 @@
                                 <div class="price"> $<%#Eval("price") %></div>
                             </div>
                             <div class="buttons">
-                                <asp:Button ID="viewMore" runat="server" OnClick="viewMore_Click" Text="View More" CssClass="view_more" PostBackUrl="Order.aspx" />
+                                <asp:Button ID="viewMore" runat="server" Text="View More" CssClass="view_more" PostBackUrl="Order.aspx" />
                             </div>
                         </div>
                     </div>
