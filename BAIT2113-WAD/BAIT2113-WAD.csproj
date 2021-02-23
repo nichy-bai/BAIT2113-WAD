@@ -71,7 +71,6 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
-
     <Content Include="JavaScript.js" />
     <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
@@ -89,7 +88,6 @@
     <Content Include="Homepage.aspx" />
     <Content Include="Help.aspx" />
     <Content Include="ArtistProfile.aspx" />
-
     <Content Include="Help.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="images\icon.png" />
@@ -105,7 +103,6 @@
     <Content Include="images\order.png" />
     <Content Include="images\image01.jpg" />
     <Content Include="Profile.aspx" />
-
     <Content Include="PurchaseHistory.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="WebForm4.aspx" />
@@ -139,17 +136,16 @@
     <Compile Include="Gallerion.Master.designer.cs">
       <DependentUpon>Gallerion.Master</DependentUpon>
     </Compile>
-
     <Compile Include="Help.aspx.cs">
       <DependentUpon>Help.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ArtistProfile.aspx.cs">
       <DependentUpon>ArtistProfile.aspx</DependentUpon>
-
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
-
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ArtistProfile.aspx.designer.cs">
@@ -171,6 +167,7 @@
     </Compile>
     <Compile Include="WebForm4.aspx.cs">
       <DependentUpon>WebForm4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebForm4.aspx.designer.cs">
       <DependentUpon>WebForm4.aspx</DependentUpon>
