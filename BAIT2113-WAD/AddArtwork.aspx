@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Gallerion.Master" AutoEventWireup="true" CodeBehind="AddArtwork.aspx.cs" Inherits="BAIT2113_WAD.WebForm4" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Gallerion.Master" AutoEventWireup="true" CodeBehind="AddArtwork.aspx.cs" Inherits="BAIT2113_WAD.AddArtwork" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -17,7 +17,20 @@
     
     <table style="width:100%;">
         <tr>
-            <td class="auto-style1" rowspan="4">&nbsp;</td>
+            <td class="auto-style1" rowspan="4">
+                
+                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+                    <ItemTemplate>
+                        <asp:Image ID="profilepic" runat="server" class="propic" ImageUrl="profilePic"/>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [profilePic] FROM [Artist] WHERE ([artistID] = @artistID)">
+                    <SelectParameters>
+                        <asp:SessionParameter Name="artistID" SessionField="ArtistID" Type="String" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+                
+            </td>
             <td class="auto-style2">Add New Artwork</td>
             <td>&nbsp;</td>
         </tr>
@@ -86,19 +99,21 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style3"></td>
+            <td class="auto-style3">
+                &nbsp;<asp:HyperLink ID="HyperLink1" runat="server" Target="_blank">Watch Me</asp:HyperLink>
+            </td>
             <td class="auto-style4"></td>
             <td class="auto-style5"></td>
         </tr>
         <tr>
-            <td class="auto-style1">&nbsp;<a href="mygallary.aspx">My Gallary</a></td>
+            <td class="auto-style1">&nbsp;<a href="mygallery.aspx">My Gallery</a></td>
             <td class="auto-style2">Price (RM):</td>
             <td>
                 <asp:TextBox ID="txtPrice" runat="server" Width="220px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="auto-style3"></td>
+            <td class="auto-style3">&nbsp;<a href="newartwork.aspx">Add New Artwork</a></td>
             <td class="auto-style4"></td>
             <td class="auto-style5"></td>
         </tr>
@@ -164,6 +179,9 @@
         .auto-style6 {
             width: 220px;
             height: 43px;
+        }
+        .propic{
+            border-radius:50%;
         }
     </style>
 </asp:Content>
