@@ -35,9 +35,6 @@
                         <asp:ImageButton ID="Image1" runat="server" ImageUrl='<%# Eval("image")%>' ImageAlign="Baseline" Width="100px" Height="100px" /></td>
                     <td style="text-align: center; height: 200px;"><%# Eval("artworkName")%></td>
                     <td style="text-align: center; height: 200px;">
-                        <asp:ImageButton ID="order" runat="server" Imageurl ="images/cart.png" ImageAlign="Baseline" Height="50px" Width="50px" />
-                    </td>
-                    <td style="text-align: center; height: 200px;">
                         <asp:ImageButton ID="btnDelete" runat="server" Imageurl ="images/delete.png" ImageAlign="Baseline" Height="50px" Width="50px" />
                     </td>
                 </tr>

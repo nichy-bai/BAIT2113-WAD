@@ -23,8 +23,8 @@
                                         <asp:BoundField DataField="artworkName" SortExpression="artworkName" />
                                     </Fields>
                                 </asp:DetailsView>
-                                 <svg width="2rem" height="2rem" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                 <a href="#"><svg width="2rem" height="2rem" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg></a>
                             </h1>
                         </div>
                     </div><!-- end row-->
@@ -76,7 +76,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <img src="https://onlinegallery.art/images/artworks/img-20200630-wa0006.jpg" alt="" class="image-responsive image-fluid" style="width: 100%; height: auto ; box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4); border-radius: 0.75rem;"/><asp:HiddenField ID="HiddenField1" runat="server" Visible="False" />
+                    <img ImageURL="~/images/dreaming.jpg" alt="" class="image-responsive image-fluid" style="width: 100%; height: auto ; box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4); border-radius: 0.75rem;"/><asp:HiddenField ID="HiddenField1" runat="server" Visible="False" />
 &nbsp;</div>
             </div>
             <!-- end row -->

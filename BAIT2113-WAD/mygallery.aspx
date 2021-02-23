@@ -17,7 +17,13 @@
         </div>
         <div class="profile-table">
             <div>Select the category:</div>
-            <asp:DropDownList ID="ddlshowctg" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="category" DataValueField="category" Height="32px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+            <asp:DropDownList ID="ddlshowctg" runat="server" AutoPostBack="True" Height="32px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                <asp:ListItem>Painting</asp:ListItem>
+                <asp:ListItem>Photography</asp:ListItem>
+                <asp:ListItem>Design</asp:ListItem>
+                <asp:ListItem>Sculpture</asp:ListItem>
+                <asp:ListItem>Textile</asp:ListItem>
+                <asp:ListItem>Illustration</asp:ListItem>
                 </asp:DropDownList>
 
 
@@ -74,7 +80,7 @@
                         <asp:BoundField DataField="category" HeaderText="category" SortExpression="category" ItemStyle-Width="200px">
 <ItemStyle Width="200px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:ImageField HeaderText="image" SortExpression="image" DataImageURLField="image" ItemStyle-Width="200px" >
+                        <asp:ImageField HeaderText="image" SortExpression="image" DataImageURLField="image" ItemStyle-Width="200px" ItemStyle-Height="200px">
 <ItemStyle Width="200px"></ItemStyle>
                         </asp:ImageField>
                     </Columns>
