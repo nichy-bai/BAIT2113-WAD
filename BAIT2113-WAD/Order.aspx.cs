@@ -15,26 +15,7 @@ namespace BAIT2113_WAD
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            {
-                
-                /*
-                String strOrderCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-                SqlConnection orderCon = new SqlConnection(strOrderCon);
-                orderCon.Open();
-                String strSelectItem = "SELECT image FROM Artwork WHERE (Artwork.artworkID = @artworkID);";
-                SqlCommand cmdSelectItem = new SqlCommand(strSelectItem, orderCon);
-                cmdSelectItem.Parameters.AddWithValue("@ArtworkID", Session["artworkID"].ToString());
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = cmdSelectItem;
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                DetailsView1.DataSource = cmdSelectItem.ExecuteReader();
-                DetailsView1.DataBind();
-                orderCon.Close();*/
-            }
-
-            
-            string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            /*string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(strCon);
 
             con.Open();
@@ -59,7 +40,7 @@ namespace BAIT2113_WAD
             da.Fill(dt);
             orderDetails.DataSource = cmdSelect.ExecuteReader();
             orderDetails.DataBind();
-            con.Close();
+            con.Close();*/
 
 
             //String temp = " ";

@@ -47,10 +47,10 @@ namespace BAIT2113_WAD
         {
             Button InkRowSelection = (Button)sender;
             //get the recipe id from command argument to link button
-            string artworkID = InkRowSelection.CommandArgument.ToString();
+            string artworkName = InkRowSelection.CommandArgument.ToString();
 
-            Session["artworkID"] = artworkID;
-            Response.Redirect("~/Order.aspx");
+            Session["artworkName"] = artworkName;
+            Response.Redirect("Order.aspx");
             
         }
     }

@@ -8,17 +8,25 @@
 
     <div class="gallery_container">
 	<div class="heading" style="font-family:'Times New Roman', Times, serif">Product Information</div>
-       <%-- <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artist.name, Artwork.quantity, Artwork.artworkName, Artwork.artworkDesc, Artwork.price, Artwork.artworkID FROM Artist CROSS JOIN Artwork"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artist.name, Artwork.quantity, Artwork.artworkName, Artwork.artworkDesc, Artwork.price, Artwork.artworkID FROM Artist CROSS JOIN Artwork"></asp:SqlDataSource>
         
-       <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [artworkName], [artworkID] FROM [Artwork]"></asp:SqlDataSource>
-        --%>
+       <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [artworkName] FROM [Artwork] WHERE (([artworkID] = @artworkID) AND ([artworkName] = @artworkName))">
+           <SelectParameters>
+               <asp:SessionParameter Name="artworkID" SessionField="artworkID" Type="String" />
+               <asp:SessionParameter Name="artworkName" SessionField="artworkName" Type="String" />
+           </SelectParameters>
+        </asp:SqlDataSource>
+        
         <div class="container" id="product-section">
             <div class="row">
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-12">
                             <h1>
-                                <asp:DetailsView ID="artworkName" runat="server" AutoGenerateRows="False" Height="50px" Width="250px" GridLines="None" style="font-family: 'Roboto'">
+                                <asp:DetailsView ID="artworkName" runat="server" AutoGenerateRows="False" Height="50px" Width="250px" GridLines="None" style="font-family: 'Roboto'" DataSourceID="SqlDataSource2">
+                                    <Fields>
+                                        <asp:BoundField DataField="artworkName" HeaderText="artworkName" SortExpression="artworkName" />
+                                    </Fields>
                                 </asp:DetailsView>
                                  <svg width="2rem" height="2rem" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
