@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace BAIT2113_WAD
 {
@@ -14,39 +15,21 @@ namespace BAIT2113_WAD
         protected void Page_Load(object sender, EventArgs e)
         {
             {
-                String temp = " ";
-                if (!IsPostBack)
-                {
-                    try
-                    {
-                        temp = Context.Items["ArtworkID"].ToString();
-                    }
-                    catch (NullReferenceException ex)
-                    {
-                        Response.Write(ex.Message);
-                    }
-                }
-                else
-                {
-                    temp = Session["artworkID"].ToString();
-                }
+                
 
-                Session["artworkID"] = temp;
-                HiddenField1.Value = temp;
-
-                /*String strOrderCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                String strOrderCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 SqlConnection orderCon = new SqlConnection(strOrderCon);
                 orderCon.Open();
-                strSelectItem = "SELECT Image FROM Artwork WHERE (Artork.ArtworkID = @ArtworkID);";
-                cmdSelectItem = new SqlCommand(strSelectItem, orderCon);
-                cmdSelectItem.Parameters.AddWithValue("@ArtworkID", temp);
-                da = new SqlDataAdapter():
+                String strSelectItem = "SELECT image FROM Artwork WHERE (Artwork.artworkID = @artworkID);";
+                SqlCommand cmdSelectItem = new SqlCommand(strSelectItem, orderCon);
+                cmdSelectItem.Parameters.AddWithValue("@ArtworkID", Session["artworkID"].ToString());
+                SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = cmdSelectItem;
-                dt = new DataTable();
+                DataTable dt = new DataTable();
                 da.Fill(dt);
-                imageRepeater.DataSource = cmdSelectItem.ExecuteReader();
-                imageRepeater.DataBind();
-                orderCon.Close();*/
+                DetailsView1.DataSource = cmdSelectItem.ExecuteReader();
+                DetailsView1.DataBind();
+                orderCon.Close();
             }
 
            
