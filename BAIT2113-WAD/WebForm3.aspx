@@ -12,7 +12,7 @@
     
     <form id="form1" runat="server">
         <div class ="title">
-           <strong><img src="icon.png" width="150" height="150"/> Gallerion</strong></div>
+           <strong><img src="image/excellent.png" width="150" height="150"/> Gallerion</strong></div>
     <div class="login-box">
         <img src="avatar.png" class="avatar"/>
     <h1>Login</h1>
@@ -22,7 +22,7 @@
             Password 
         </p>
         <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox><br\ />
-        <asp:Button ID="btnLogin" runat="server" Text="Login" /><br\ />
+        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" /><br\ />
         <a href="WebForm4.aspx">Create Account</a>
         </div>
        

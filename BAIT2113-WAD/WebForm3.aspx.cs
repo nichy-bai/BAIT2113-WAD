@@ -11,12 +11,9 @@ namespace BAIT2113_WAD
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+       
 
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnLogin_Click(object sender, EventArgs e)
         {
             String CustomerID = txtID.Text;
             String PasswordUser = txtPassword.Text;
@@ -44,7 +41,7 @@ namespace BAIT2113_WAD
 
             if (output == "1")
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("Wishlist.aspx");
             }
             else if (output1 == "1")
             {

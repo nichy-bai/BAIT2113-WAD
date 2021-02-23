@@ -35,20 +35,20 @@
             <ItemTemplate>
                 <tr style="border-style: solid none solid none; border-width: thin; font-weight: bold; ">
                     <td class="image">
-                        <asp:ImageButton ID="Image1" runat="server" ImageUrl='<%# Eval("artWorkUrl")%>' ImageAlign="Baseline" Width="100px" Height="100px" /></td>
+                        <asp:ImageButton ID="Image1" runat="server" ImageUrl='<%# Eval("image")%>' ImageAlign="Baseline" Width="100px" Height="100px" /></td>
                     <td style="text-align: center; height: 200px;"><%# Eval("artworkName")%></td>
                     <td style="text-align: center; height: 200px;">
-                        <asp:ImageButton ID="order" runat="server" /><i class="material-icons">close</i>
+                        <asp:ImageButton ID="order" runat="server" Imageurl ="~/cart.png" ImageAlign="Baseline" Height="100px" Width="100px" />
                     </td>
                     <td style="text-align: center; height: 200px;">
-                        <asp:ImageButton ID="btnDelete" runat="server" /><i class="local_grocery_store">buy</i>
+                        <asp:ImageButton ID="btnDelete" runat="server" Imageurl ="~/delete.png" ImageAlign="Baseline" Height="100px" Width="100px" />
                     </td>
                 </tr>
             </ItemTemplate>
         </asp:Repeater>
     </table>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artwork.artworkName, Artwork.price, Artwork.artworkUrl FROM Artwork INNER JOIN WishArt ON Artwork.artworkID = WishArt.artworkID INNER JOIN Wishlist ON WishArt.wishlistID = Wishlist.wishlistID INNER JOIN Customer ON Wishlist.customerID = Customer.customerID"></asp:SqlDataSource>
-
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artwork.artworkName, Artwork.price, Artwork.image FROM Artwork INNER JOIN WishArt ON Artwork.artworkID = WishArt.artworkID INNER JOIN Wishlist ON WishArt.wishlistID = Wishlist.wishlistID INNER JOIN Customer ON Wishlist.customerID = Customer.customerID"></asp:SqlDataSource>
+    
 </asp:Content>
 

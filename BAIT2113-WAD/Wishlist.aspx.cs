@@ -9,13 +9,12 @@ namespace BAIT2113_WAD
 {
     public partial class WebForm4 : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Wishlist(object sender, EventArgs e)
         {
         }
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-
         }
     }
 }
