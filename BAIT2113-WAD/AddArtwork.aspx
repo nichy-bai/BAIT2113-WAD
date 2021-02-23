@@ -91,7 +91,7 @@
             <td class="auto-style5"></td>
         </tr>
         <tr>
-            <td class="auto-style1">&nbsp;<a href="mygallary.aspx">My Gallary</a></td>
+            <td class="auto-style1">&nbsp;<a href="mygallery.aspx">My Gallary</a></td>
             <td class="auto-style2">Price (RM):</td>
             <td>
                 <asp:TextBox ID="txtPrice" runat="server" Width="220px"></asp:TextBox>
