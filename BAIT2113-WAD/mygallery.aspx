@@ -39,7 +39,7 @@
                 <asp:Label ID="lblemail" runat="server"></asp:Label><br />
                 &nbsp;<asp:HyperLink ID="HyperLink1" runat="server" Target="_blank">Watch Me</asp:HyperLink><br />
                 &nbsp;<a href="mygallery.aspx">My Gallery</a><br />
-                &nbsp;<a href="newartwork.aspx">Add New Artwork</a>
+                &nbsp;<a href="AddArtwork.aspx">Add New Artwork</a>
             </td>
             <td colspan="2">My Gallery</td>
         </tr>

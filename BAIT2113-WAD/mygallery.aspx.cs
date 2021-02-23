@@ -16,6 +16,7 @@ namespace BAIT2113_WAD
         {
             string ID = Session["ArtistID"].ToString();
 
+
             string sql2 = "Select * from Artist where artistID = @ID ";
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand(sql2, con);

@@ -107,8 +107,6 @@
                             <li class="footer__item"><asp:CheckBox ID="newsletter_checkbox" runat="server" Text=" I accept the " CssClass="newsletter__checkbox" /><a href="#" class="newsletter__terms">terms and conditions</a></li>
                             <li class="footer__item"><asp:Button ID="newsletter_button" runat="server" Text="Subscribe" Width="100px" Height="30px" CssClass="newsletter__button" /></li>
 
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="newsletter_email" CssClass="newsletter__validate" ErrorMessage="Email is required" SetFocusOnError="True" ></asp:RequiredFieldValidator>
-
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid Email" CssClass="newsletter__validate" ControlToValidate="newsletter_email"
                                                              SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"> </asp:RegularExpressionValidator>
                             </ContentTemplate></asp:UpdatePanel>

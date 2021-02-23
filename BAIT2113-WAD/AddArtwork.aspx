@@ -113,7 +113,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style3">&nbsp;<a href="newartwork.aspx">Add New Artwork</a></td>
+            <td class="auto-style3">&nbsp;<a href="AddArtwork.aspx">Add New Artwork</a></td>
             <td class="auto-style4"></td>
             <td class="auto-style5"></td>
         </tr>
