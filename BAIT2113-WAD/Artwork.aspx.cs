@@ -45,12 +45,12 @@ namespace BAIT2113_WAD
 
         protected void viewMore_Click(object sender, System.EventArgs e)
         {
-            Button InkRowSelection = (Button)sender;
-            //get the recipe id from command argument to link button
-            string artworkName = InkRowSelection.CommandArgument.ToString();
+            //Button InkRowSelection = (Button)sender;
+            ////get the recipe id from command argument to link button
+            //string artworkID = InkRowSelection.CommandArgument.ToString();
 
-            Session["artworkName"] = artworkName;
-            Response.Redirect("Order.aspx");
+            //Session["artworkID"] = artworkID;
+            //Response.Redirect("~/Order.aspx");
             
         }
     }

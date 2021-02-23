@@ -8,14 +8,9 @@
 
     <div class="gallery_container">
 	<div class="heading" style="font-family:'Times New Roman', Times, serif">Product Information</div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artist.name, Artwork.quantity, Artwork.artworkName, Artwork.artworkDesc, Artwork.price, Artwork.artworkID FROM Artist CROSS JOIN Artwork"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT artworkName FROM Artwork"></asp:SqlDataSource>
         
-       <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [artworkName] FROM [Artwork] WHERE (([artworkID] = @artworkID) AND ([artworkName] = @artworkName))">
-           <SelectParameters>
-               <asp:SessionParameter Name="artworkID" SessionField="artworkID" Type="String" />
-               <asp:SessionParameter Name="artworkName" SessionField="artworkName" Type="String" />
-           </SelectParameters>
-        </asp:SqlDataSource>
+       <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artwork.artworkDesc, Artwork.quantity, Artwork.price, Artist.name, Artwork.image FROM Artwork INNER JOIN Artist ON Artwork.artistID = Artist.artistID"> </asp:SqlDataSource>
         
         <div class="container" id="product-section">
             <div class="row">
@@ -23,9 +18,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1>
-                                <asp:DetailsView ID="artworkName" runat="server" AutoGenerateRows="False" Height="50px" Width="250px" GridLines="None" style="font-family: 'Roboto'" DataSourceID="SqlDataSource2">
+                                <asp:DetailsView ID="artworkName" runat="server" AutoGenerateRows="False" Height="50px" Width="250px" GridLines="None" style="font-family: 'Roboto'" DataSourceID="SqlDataSource1">
                                     <Fields>
-                                        <asp:BoundField DataField="artworkName" HeaderText="artworkName" SortExpression="artworkName" />
+                                        <asp:BoundField DataField="artworkName" SortExpression="artworkName" />
                                     </Fields>
                                 </asp:DetailsView>
                                  <svg width="2rem" height="2rem" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +31,13 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="details_view" style="border: 0px none #FFFFFF; background-color: #FFFFFF; font-family: 'Roboto'; font-size: large; font-weight: normal; font-style: italic; font-variant: normal;">
-                                <asp:DetailsView ID="orderDetails" runat="server" AutoGenerateRows="False" GridLines="None" Height="50px" Width="635px" CssClass="auto-style1">
+                                <asp:DetailsView ID="orderDetails" runat="server" AutoGenerateRows="False" GridLines="None" Height="50px" Width="635px" CssClass="auto-style1" DataSourceID="SqlDataSource2">
+                                    <Fields>
+                                        <asp:BoundField DataField="name" HeaderText="Artist" SortExpression="name" />
+                                        <asp:BoundField DataField="quantity" HeaderText="Quantity" SortExpression="quantity" />
+                                        <asp:BoundField DataField="price" HeaderText="Price" SortExpression="price" />
+                                        <asp:BoundField DataField="artworkDesc" HeaderText="Description" SortExpression="artworkDesc" />
+                                    </Fields>
                                 </asp:DetailsView>
                             </div>
                         </div>

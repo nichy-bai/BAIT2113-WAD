@@ -15,32 +15,32 @@ namespace BAIT2113_WAD
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            /*string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            SqlConnection con = new SqlConnection(strCon);
+            //string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            //SqlConnection con = new SqlConnection(strCon);
 
-            con.Open();
-            string strSelect = "SELECT Artwork.ArtworkName FROM Artwork WHERE (Artwork.artworkID = @artworkID);";
-            SqlCommand cmdSelect = new SqlCommand(strSelect, con);
-            cmdSelect.Parameters.AddWithValue("@artworkID", Session["artworkID"].ToString());
-            SqlDataAdapter da = new SqlDataAdapter();
-            da.SelectCommand = cmdSelect;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            artworkName.DataSource = cmdSelect.ExecuteReader();
-            artworkName.DataBind();
-            con.Close();
+            //con.Open();
+            //string strSelect = "SELECT Artwork.ArtworkName FROM Artwork WHERE (Artwork.ArtworkID = @ArtworkID);";
+            //SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+            //cmdSelect.Parameters.AddWithValue("@ArtworkID", Session["artwworkID"].ToString());
+            //SqlDataAdapter da = new SqlDataAdapter();
+            //da.SelectCommand = cmdSelect;
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            //artworkName.DataSource = cmdSelect.ExecuteReader();
+            //artworkName.DataBind();
+            //con.Close();
 
-            con.Open();
-            strSelect = "SELECT Artist.name, Artwork.quantity, Artwork.artworkName, Artwork.artworkDesc, Artwork.price, Artwork.artworkID FROM Artist CROSS JOIN Artwork WHERE (Artwork.artworkID = @artworkID);";
-            cmdSelect = new SqlCommand(strSelect, con);
-            cmdSelect.Parameters.AddWithValue("@artworkID", Session["artworkID"].ToString());
-            da = new SqlDataAdapter();
-            da.SelectCommand = cmdSelect;
-            dt = new DataTable();
-            da.Fill(dt);
-            orderDetails.DataSource = cmdSelect.ExecuteReader();
-            orderDetails.DataBind();
-            con.Close();*/
+            //con.Open();
+            //strSelect = "SELECT Artist.name, Artwork.quantity, Artwork.artworkName, Artwork.artworkDesc, Artwork.price, Artwork.artworkID FROM Artist CROSS JOIN Artwork WHERE (Artwork.artworkID = @artworkID);";
+            //cmdSelect = new SqlCommand(strSelect, con);
+            //cmdSelect.Parameters.AddWithValue("@artworkID", Session["artworkID"].ToString());
+            //da = new SqlDataAdapter();
+            //da.SelectCommand = cmdSelect;
+            //dt = new DataTable();
+            //da.Fill(dt);
+            //orderDetails.DataSource = cmdSelect.ExecuteReader();
+            //orderDetails.DataBind();
+            //con.Close();
 
 
             //String temp = " ";
