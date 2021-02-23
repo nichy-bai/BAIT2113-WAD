@@ -13,57 +13,51 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+           // string strCon = ConfigurationManager.ConnectionStrings["WebConfigConString "].ConnectionString;
+            //SqlConnection con = new SqlConnection(strCon);
+           // SqlCommand cmd = new SqlCommand(sql, con);
 
+            //con.Open();
+            //cmd.ExecuteNonQuery();
+            //con.Close();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            String CustomerID = txtID.Text;
-            String PasswordUser = txtPassword.Text;
-            String ArtistID = txtID.Text;
-            String PasswordArtist = txtPassword.Text;
-
-            // string sql = "insert into Customer(customerID,name,password,email,phoneNum,dob,street ,city,zipCode,state ) values (@CustomerID,@Name,@Password,@Email,@PhoneNumber,@DOB,@Street,@City,@ZipCode, @State)";
-            string sql = "Select count(*) from Customer where customerID = @CustomerID AND password = @PasswordUser ";
-            string sql1 = "Select count(*) from Artist where artistID = @ArtistID AND password = @PasswordArtist ";
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand(sql, con);
-            SqlCommand cmd1 = new SqlCommand(sql1, con);
-
-            // SqlCommand cmd1 = new SqlCommand(sql1, con);
-            cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
-            cmd.Parameters.AddWithValue("@PasswordUser", PasswordUser);
-            cmd1.Parameters.AddWithValue("@ArtistID", ArtistID);
-            cmd1.Parameters.AddWithValue("@PasswordArtist", PasswordArtist);
-            Session ["CustomerID"] = txtID.Text;
-            Session["ArtistID"] = txtID.Text;
-
-            con.Open();
-            String output = cmd.ExecuteScalar().ToString();
-            String output1 = cmd1.ExecuteScalar().ToString();
-
-            if (output == "1")
+            //SqlConnection con = new SqlConnection(@"DataSource=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+            //SqlConnection con = new SqlConnection(strCon);
+            //SqlCommand cmd = new SqlCommand(sql, con);
+            if (FileUpload1.HasFile)
             {
-                Response.Redirect("Login.aspx");
-            }
-            else if (output1 == "1")
-            {
-                Response.Redirect("WebForm4.aspx");
-            }
-            else if (output == "0")
-            {
-                Response.Write("<script> alert('Your username or password is incorrect') </script>");
-            }
-            else if (output1 == "0")
-            {
-                Response.Write("<script> alert('Your username or password is incorrect') </script>");
+                string strname = FileUpload1.FileName.ToString();
+                string artid = TextBox1.Text;
+                string sql = "insert into Artwork(artworkID,image) values (@artworkID,@image)";
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+                // SqlConnection con = new SqlConnection(@"DataSource=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+                //string strCon = ConfigurationManager.ConnectionStrings["WebConfigConString "].ConnectionString;
+                //SqlConnection con = new SqlConnection(strCon);
+                SqlCommand cmd = new SqlCommand(sql, con);
+                //FileUpload1.PostedFile.SaveAs(Server.MapPath("~/upload/") + strname);
+                // con.Open();
+                // SqlCommand cmd = new SqlCommand("insert into upload1 values('" + "','" + strname + "')", con);
+                // cmd.ExecuteNonQuery();
+                //con.Close();
+                cmd.Parameters.AddWithValue("@artworkID", artid);
+                cmd.Parameters.AddWithValue("@image", strname);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                Label1.Visible = true;
+                Label1.Text = "Image Uploaded successfully";
+                
             }
             else
             {
-                Response.Write("<script> alert('ggwp') </script>");
+                Label1.Visible = true;
+                Label1.Text = "Plz upload the image!!!!";
             }
-
-            con.Close();
         }
+    
     }
 }
