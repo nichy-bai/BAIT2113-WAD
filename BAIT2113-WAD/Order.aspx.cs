@@ -19,9 +19,9 @@ namespace BAIT2113_WAD
             SqlConnection con = new SqlConnection(strCon);
 
             con.Open();
-            string strSelect = "SELECT Artwork.ArtworkName FROM Artwork WHERE (Artwork.artworkID = @artworkID);";
+            string strSelect = "SELECT [artworkName] FROM [Artwork] WHERE ([artworkName] = @artworkName)";
             SqlCommand cmdSelect = new SqlCommand(strSelect, con);
-            cmdSelect.Parameters.AddWithValue("@artworkID", Session["artworkID"].ToString());
+            cmdSelect.Parameters.AddWithValue("@artworkName", Session["artworkName"].ToString());
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmdSelect;
             DataTable dt = new DataTable();
@@ -31,15 +31,15 @@ namespace BAIT2113_WAD
             con.Close();
 
             con.Open();
-            strSelect = "SELECT Artist.name, Artwork.quantity, Artwork.artworkName, Artwork.artworkDesc, Artwork.price, Artwork.artworkID FROM Artist CROSS JOIN Artwork WHERE (Artwork.artworkID = @artworkID);";
+            strSelect = "SELECT [artworkDesc], [quantity], [price], [artistID] FROM [Artwork] WHERE ([artworkDesc] = @artworkDesc);";
             cmdSelect = new SqlCommand(strSelect, con);
-            cmdSelect.Parameters.AddWithValue("@artworkID", Session["artworkID"].ToString());
+            cmdSelect.Parameters.AddWithValue("@artworkDesc", Session["artworkDesc"].ToString());
             da = new SqlDataAdapter();
             da.SelectCommand = cmdSelect;
             dt = new DataTable();
             da.Fill(dt);
-            orderDetails.DataSource = cmdSelect.ExecuteReader();
-            orderDetails.DataBind();
+            artworkDesc.DataSource = cmdSelect.ExecuteReader();
+            artworkDesc.DataBind();
             con.Close();
 
             //String temp = " ";

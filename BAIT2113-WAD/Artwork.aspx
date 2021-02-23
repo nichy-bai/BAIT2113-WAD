@@ -49,7 +49,6 @@
                 <ItemTemplate>
                     <div class="gallery-item">
                         <img class="gallery-image" src='<%#Eval("image") %>' alt=""/>
-                        <%--<asp:Image ID="Image1" runat="server" ImageURL="image"/>--%>
                         <div class="overlay">
                             <div class="row">
                                 <div class="details">
