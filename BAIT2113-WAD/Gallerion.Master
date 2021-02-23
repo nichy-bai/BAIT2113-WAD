@@ -1,0 +1,124 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Gallerion.Master.cs" Inherits="BAIT2113_WAD.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link href="images/icon.png" rel="icon" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="script.js" type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <title>Gallerion</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="navigation">
+            <input type="checkbox" class="navigation__checkbox" id="navi-toggle" onclick="showNavMenu()">
+            <label for="navi-toggle" class="navigation__button">
+                <span class="navigation__icon">&nbsp;</span>
+            </label>
+
+            <div class="navigation__background">&nbsp;</div>
+
+            <nav class="navigation__nav">
+
+                <ul class="navigation__list" id="navi-menu">
+                    <asp:SiteMapPath ID="SiteMapPath1" runat="server" CssClass="navigation__sitemap"></asp:SiteMapPath>
+
+                    <li class="navigation__item"><a href="/Homepage.aspx" class="navigation__link">Home</a></li>
+                    <li class="navigation__item"><a href="/Artwork.aspx" class="navigation__link">Artwork Sales</a></li>
+                    <li class="navigation__item"><a href="/mygallery.aspx" class="navigation__link">Display Gallery</a></li>
+                    <li class="navigation__item"><a href="/Wishlist.aspx" class="navigation__link">Wishlist</a></li>
+                    <li class="navigation__item"><a href="/Login.aspx" class="navigation__link">Profile</a></li>
+                    <li class="navigation__item"><a href="/Help.aspx" class="navigation__link">Help</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+
+        <div class="horizontal__nav">
+            <ul>
+                <li class="horizontal__title"><a href="/Homepage.aspx" class="horizontal__link">gallerion</a></li>
+            </ul>
+            <ul>
+                <li class="horizontal__item">
+                    <svg width="2rem" height="2rem" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                </li>
+                
+            </ul>
+        </div>
+
+        <div class="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="footer">
+            <div class="footer__container">
+                <div class="footer__content">
+                    <div class="footer__title">Artwork</div>
+                    <div>
+                        <ul class="footer__body">
+                            <li class="footer__item"><a href="#">Painting</a></li>
+                            <li class="footer__item"><a href="#">Photography</a></li>
+                            <li class="footer__item"><a href="#">Design</a></li>
+                            <li class="footer__item"><a href="#">Sculpture</a></li>
+                            <li class="footer__item"><a href="#">Textile</a></li>
+                            <li class="footer__item"><a href="#">Illustration</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer__content">
+                    <div class="footer__title">About Us</div>
+                    <div>
+                        <ul class="footer__body">
+                            <li class="footer__item"><a href="/Homepage.aspx#about_us">About Us</a></li>
+                            <li class="footer__item"><a href="/Homepage.aspx#organization">Organisation</a></li>
+                            <li class="footer__item"><a href="#">Privacy Policy</a></li>
+                            <li class="footer__item"><a href="#">Terms and Conditions</a></li>
+                            <li class="footer__item"><a href="/Help.aspx">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer__content">
+                    <div class="footer__title">Social</div>
+                    <div>
+                        <ul>
+                            <li class="footer__social"><a href="https://www.facebook.com/" target="_blank"><svg  width="1.5rem" height="1.5rem" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m255.02 512 0.229 1e-3h-0.079l-0.15-1e-3zm1.806 1e-3h-0.079l0.229-1e-3 -0.15 1e-3zm-2.588-5e-3 0.247 1e-3h-0.142l-0.105-1e-3zm3.415 1e-3h-0.142l0.247-1e-3 -0.105 1e-3zm-4.169-7e-3 0.165 1e-3 -0.132-1e-3h-0.033zm4.995 0-0.132 1e-3 0.165-1e-3h-0.033zm0.826-9e-3 -0.058 1e-3 0.223-3e-3 -0.165 2e-3zm-6.779-2e-3 0.223 3e-3 -0.058-1e-3 -0.165-2e-3zm7.604-0.01-0.135 2e-3 0.275-4e-3 -0.14 2e-3zm-8.404-2e-3 0.275 4e-3 -0.135-2e-3 -0.14-2e-3zm9.228-0.012-0.182 3e-3 0.254-5e-3 -0.072 2e-3zm-9.984-2e-3 0.254 5e-3 -0.182-3e-3 -0.072-2e-3zm-0.937-0.019 0.225 5e-3 -0.04-1e-3 -0.185-4e-3zm11.745 4e-3 -0.04 1e-3 0.225-5e-3 -0.185 4e-3zm-12.567-0.025 0.309 8e-3 -0.125-3e-3 -0.184-5e-3zm13.39 5e-3 -0.125 3e-3 0.309-8e-3 -0.184 5e-3zm0.823-0.022-0.201 6e-3 0.316-9e-3 -0.115 3e-3zm-14.967-3e-3 0.316 9e-3 -0.201-6e-3 -0.115-3e-3zm-0.72-0.022 0.225 7e-3 -0.212-7e-3 -0.194-6e-3 0.181 6e-3zm16.509 0-0.212 7e-3 0.225-7e-3 0.181-6e-3 -0.194 6e-3zm0.821-0.027-0.112 4e-3 0.345-0.012-0.233 8e-3zm-18.371-8e-3 0.345 0.012-0.112-4e-3 -0.233-8e-3zm-0.749-0.028 0.362 0.013-0.201-7e-3 -0.161-6e-3zm19.941 6e-3 -0.201 7e-3 0.362-0.013-0.161 6e-3zm-20.676-0.036 0.354 0.015-0.277-0.011-0.077-4e-3zm21.495 4e-3 -0.277 0.011 0.354-0.015-0.077 4e-3zm-22.525-0.049 0.38 0.017-0.093-3e-3 -0.287-0.014zm23.345 0.014-0.093 3e-3 0.38-0.017-0.287 0.014zm-24.084-0.048 0.394 0.018-0.186-8e-3 -0.208-0.01zm24.902 0.01-0.186 8e-3 0.394-0.018-0.208 0.01zm-25.63-0.047 0.397 0.02-0.279-0.013-0.118-7e-3zm26.448 7e-3 -0.279 0.013 0.397-0.02-0.118 7e-3zm0.818-0.043-0.362 0.019 0.321-0.017 0.378-0.021-0.337 0.019zm-27.925 2e-3 0.321 0.017-0.362-0.019-0.337-0.019 0.378 0.021zm28.741-0.048-0.16 9e-3 0.406-0.023-0.246 0.014zm-29.844-0.014 0.406 0.023-0.16-9e-3 -0.246-0.014zm-0.722-0.043 0.405 0.024-0.253-0.014-0.152-0.01zm31.382 0.01-0.253 0.014 0.405-0.024-0.152 0.01zm-32.071-0.053 0.365 0.023-0.34-0.021-0.342-0.022 0.317 0.02zm32.887 2e-3 -0.34 0.021 0.365-0.023 0.317-0.02-0.342 0.022zm0.814-0.053-0.122 8e-3 0.387-0.026-0.265 0.018zm-34.755-0.018 0.387 0.026-0.122-8e-3 -0.265-0.018zm-0.721-0.05 0.38 0.027-0.208-0.014-0.172-0.013zm36.29 0.013-0.208 0.014 0.38-0.027-0.172 0.013zm-37.009-0.064 0.349 0.025-0.271-0.019-0.078-6e-3zm37.822 6e-3 -0.271 0.019 0.349-0.025-0.078 6e-3zm-38.789-0.079 0.306 0.023-0.074-5e-3 -0.232-0.018zm39.602 0.018-0.074 5e-3 0.306-0.023-0.232 0.018zm0.811-0.063-0.146 0.011 0.311-0.025-0.165 0.014zm-41.157-0.014 0.311 0.025-0.146-0.011-0.165-0.014zm-0.725-0.059 0.264 0.022-0.186-0.015-0.078-7e-3zm42.694 7e-3 -0.186 0.015 0.264-0.022-0.078 7e-3zm-43.492-0.074 0.079 7e-3 -0.013-1e-3 -0.066-6e-3zm44.302 6e-3 -0.013 1e-3 0.079-7e-3 -0.066 6e-3zm0.81-0.071-0.072 6e-3 0.181-0.016-0.109 0.01zm-45.965-0.01 0.181 0.016-0.072-6e-3 -0.109-0.01zm-0.75-0.068 0.135 0.013-0.084-8e-3 -0.051-5e-3zm47.523 5e-3 -0.084 8e-3 0.135-0.013-0.051 5e-3zm-63.736-2.025c-122.32-19.226-216-125.2-216-252.89 0-141.29 114.71-256 256-256s256 114.71 256 256c0 127.68-93.681 233.66-216 252.89v-178.89h59.65l11.35-74h-71v-48.021c0-20.245 9.918-39.979 41.719-39.979h32.281v-63s-29.296-5-57.305-5c-58.476 0-96.695 35.44-96.695 99.6v56.4h-65v74h65v178.89z"/><title>Facebook</title></svg></a></li>
+                            <li class="footer__social"><a href="https://twitter.com/" target="_blank"><svg width="1.5rem" height="1.5rem" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m256 0c141.29 0 256 114.71 256 256s-114.71 256-256 256-256-114.71-256-256 114.71-256 256-256zm-45.091 392.16c113.28 0 175.22-93.87 175.22-175.22 0-2.682 0-5.364-0.128-7.919 12.005-8.684 22.478-19.54 30.779-31.928-10.983 4.853-22.861 8.174-35.377 9.706 12.772-7.663 22.478-19.668 27.076-34.099-11.878 7.024-25.032 12.132-39.081 14.942-11.239-12.005-27.203-19.412-44.955-19.412-33.972 0-61.558 27.586-61.558 61.558 0 4.853 0.511 9.578 1.66 14.048-51.213-2.554-96.552-27.075-126.95-64.368-5.237 9.068-8.302 19.668-8.302 30.907 0 21.328 10.856 40.23 27.459 51.213-10.09-0.255-19.541-3.065-27.842-7.662v0.766c0 29.885 21.2 54.661 49.425 60.409-5.108 1.404-10.6 2.171-16.219 2.171-3.96 0-7.791-0.383-11.622-1.15 7.79 24.521 30.523 42.274 57.471 42.784-21.073 16.476-47.637 26.31-76.501 26.31-4.981 0-9.834-0.256-14.687-0.894 26.948 17.624 59.387 27.841 94.125 27.841z"/><title>Twitter</title></svg></a></li>
+                            <li class="footer__social"><a href="https://www.instagram.com/" target="_blank"><svg width="1.5rem" height="1.5rem" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m256 0c141.29 0 256 114.71 256 256s-114.71 256-256 256-256-114.71-256-256 114.71-256 256-256zm0 96c-43.453 0-48.902 0.184-65.968 0.963-17.03 0.777-28.661 3.482-38.839 7.437-10.521 4.089-19.444 9.56-28.339 18.455s-14.366 17.818-18.455 28.339c-3.955 10.177-6.659 21.808-7.437 38.838-0.778 17.066-0.962 22.515-0.962 65.968s0.184 48.902 0.962 65.968c0.778 17.03 3.482 28.661 7.437 38.838 4.089 10.521 9.56 19.444 18.455 28.34 8.895 8.895 17.818 14.366 28.339 18.455 10.178 3.954 21.809 6.659 38.839 7.436 17.066 0.779 22.515 0.963 65.968 0.963s48.902-0.184 65.968-0.963c17.03-0.777 28.661-3.482 38.838-7.436 10.521-4.089 19.444-9.56 28.34-18.455 8.895-8.896 14.366-17.819 18.455-28.34 3.954-10.177 6.659-21.808 7.436-38.838 0.779-17.066 0.963-22.515 0.963-65.968s-0.184-48.902-0.963-65.968c-0.777-17.03-3.482-28.661-7.436-38.838-4.089-10.521-9.56-19.444-18.455-28.339-8.896-8.895-17.819-14.366-28.34-18.455-10.177-3.955-21.808-6.66-38.838-7.437-17.066-0.779-22.515-0.963-65.968-0.963zm0 28.829c42.722 0 47.782 0.163 64.654 0.933 15.6 0.712 24.071 3.318 29.709 5.509 7.469 2.902 12.799 6.37 18.397 11.969 5.6 5.598 9.067 10.929 11.969 18.397 2.191 5.638 4.798 14.109 5.509 29.709 0.77 16.872 0.933 21.932 0.933 64.654s-0.163 47.782-0.933 64.654c-0.711 15.6-3.318 24.071-5.509 29.709-2.902 7.469-6.369 12.799-11.969 18.397-5.598 5.6-10.928 9.067-18.397 11.969-5.638 2.191-14.109 4.798-29.709 5.509-16.869 0.77-21.929 0.933-64.654 0.933s-47.784-0.163-64.654-0.933c-15.6-0.711-24.071-3.318-29.709-5.509-7.469-2.902-12.799-6.369-18.398-11.969-5.599-5.598-9.066-10.928-11.968-18.397-2.191-5.638-4.798-14.109-5.51-29.709-0.77-16.872-0.932-21.932-0.932-64.654s0.162-47.782 0.932-64.654c0.712-15.6 3.319-24.071 5.51-29.709 2.902-7.468 6.369-12.799 11.968-18.397 5.599-5.599 10.929-9.067 18.398-11.969 5.638-2.191 14.109-4.797 29.709-5.509 16.872-0.77 21.932-0.933 64.654-0.933zm0 49.009c-45.377 0-82.162 36.785-82.162 82.162s36.785 82.162 82.162 82.162 82.162-36.785 82.162-82.162-36.785-82.162-82.162-82.162zm0 135.5c-29.455 0-53.333-23.878-53.333-53.333s23.878-53.333 53.333-53.333 53.333 23.878 53.333 53.333-23.878 53.333-53.333 53.333zm104.61-138.74c0 10.604-8.597 19.199-19.201 19.199-10.603 0-19.199-8.595-19.199-19.199s8.596-19.2 19.199-19.2c10.604 0 19.201 8.596 19.201 19.2z"/><title>Instagram</title></svg></a></li>
+                            <li class="footer__social"><a href="https://www.whatsapp.com/" target="_blank"><svg width="1.5rem" height="1.5rem" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m256 0c141.29 0 256 114.71 256 256s-114.71 256-256 256-256-114.71-256-256 114.71-256 256-256zm121.53 134.84c-30.646-30.672-71.401-47.571-114.82-47.588-89.468 0-162.28 72.788-162.32 162.26-0.012 28.599 7.462 56.516 21.666 81.122l-23.028 84.086 86.048-22.564c23.708 12.927 50.401 19.739 77.568 19.751h0.067c89.459 0 162.28-72.797 162.32-162.27 0.017-43.358-16.851-84.127-47.497-114.8zm-114.82 249.66h-0.054c-24.209-0.01-47.953-6.511-68.667-18.799l-4.927-2.924-51.061 13.391 13.629-49.769-3.208-5.102c-13.505-21.473-20.637-46.293-20.627-71.776 0.03-74.362 60.552-134.86 134.97-134.86 36.035 0.014 69.908 14.062 95.38 39.554 25.472 25.493 39.492 59.379 39.478 95.416-0.03 74.367-60.551 134.87-134.91 134.87zm74.003-101.01c-4.056-2.029-23.996-11.838-27.715-13.191-3.717-1.353-6.42-2.03-9.124 2.029s-10.477 13.192-12.843 15.898c-2.365 2.705-4.731 3.045-8.787 1.014-4.056-2.028-17.124-6.31-32.615-20.124-12.057-10.75-20.197-24.029-22.563-28.087-2.365-4.059-0.252-6.253 1.779-8.275 1.824-1.816 4.055-4.735 6.083-7.103s2.704-4.059 4.056-6.764c1.352-2.707 0.676-5.074-0.338-7.104-1.014-2.029-9.125-21.986-12.505-30.104-3.291-7.906-6.635-6.836-9.125-6.96-2.363-0.118-5.069-0.143-7.773-0.143s-7.097 1.015-10.816 5.074c-3.717 4.059-14.194 13.868-14.194 33.824 0 19.957 14.533 39.236 16.561 41.943 2.028 2.706 28.599 43.659 69.284 61.221 9.676 4.177 17.231 6.672 23.121 8.541 9.716 3.085 18.557 2.65 25.546 1.606 7.792-1.164 23.996-9.809 27.375-19.279 3.379-9.471 3.379-17.589 2.366-19.28-1.014-1.691-3.718-2.706-7.773-4.736z"/><title>Whatsapp</title></svg></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer__content">
+                    <div class="footer__title">Newsletter</div>
+                    <div>
+                        <ul class="footer__body">
+                            <asp:ScriptManager ID="script1" runat="server"></asp:ScriptManager>
+                            <asp:UpdatePanel ID="panel1" runat="server"><ContentTemplate>
+                            <li class="footer__item">Subscribe to the newsletter and stay up to date with the latest artworks</li>
+                            <li class="footer__item"><asp:TextBox ID="newsletter_email" runat="server" TextMode="Email" AutoCompleteType="Email" placeholder="Email" Width="250px" Height="25px" CssClass="newsletter__textbox"></asp:TextBox></li>
+                            <li class="footer__item"><asp:CheckBox ID="newsletter_checkbox" runat="server" Text=" I accept the " CssClass="newsletter__checkbox" /><a href="#" class="newsletter__terms">terms and conditions</a></li>
+                            <li class="footer__item"><asp:Button ID="newsletter_button" runat="server" Text="Subscribe" Width="100px" Height="30px" CssClass="newsletter__button" /></li>
+
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="newsletter_email" CssClass="newsletter__validate" ErrorMessage="Email is required" SetFocusOnError="True" ></asp:RequiredFieldValidator>
+
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid Email" CssClass="newsletter__validate" ControlToValidate="newsletter_email"
+                                                             SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"> </asp:RegularExpressionValidator>
+                            </ContentTemplate></asp:UpdatePanel>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a onclick="topFunction()" id="top-btn"class="back-to-top">Back to top</a>
+        </div>
+    </form>
+</body>
+</html>
