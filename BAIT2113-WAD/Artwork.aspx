@@ -2,6 +2,11 @@
 
 <script runat="server">
 
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
     protected void viewMore_Click(object sender, EventArgs e)
     {
 
@@ -13,9 +18,12 @@
 
 
 
+<<<<<<< Updated upstream
 
 
 
+=======
+>>>>>>> Stashed changes
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

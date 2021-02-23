@@ -14,7 +14,11 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< Updated upstream
             Label1.Text = Session["artworkId"].ToString();
+=======
+
+>>>>>>> Stashed changes
             string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(strCon);
 
