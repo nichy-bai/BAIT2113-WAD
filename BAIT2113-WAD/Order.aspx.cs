@@ -14,14 +14,14 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+            /*string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(strCon);
 
             con.Open();
-            string strSelect = "SELECT [artworkName] FROM [Artwork] WHERE ([artworkName] = @artworkName)";
+            string strSelect = "SELECT Artwork.ArtworkName FROM Artwork WHERE (Artwork.artworkID = @artworkID);";
             SqlCommand cmdSelect = new SqlCommand(strSelect, con);
-            cmdSelect.Parameters.AddWithValue("@artworkName", Session["artworkName"].ToString());
+            cmdSelect.Parameters.AddWithValue("@artworkID", Session["artworkID"].ToString());
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmdSelect;
             DataTable dt = new DataTable();
@@ -31,16 +31,17 @@ namespace BAIT2113_WAD
             con.Close();
 
             con.Open();
-            strSelect = "SELECT [artworkDesc], [quantity], [price], [artistID] FROM [Artwork] WHERE ([artworkDesc] = @artworkDesc);";
+            strSelect = "SELECT Artist.name, Artwork.quantity, Artwork.artworkName, Artwork.artworkDesc, Artwork.price, Artwork.artworkID FROM Artist CROSS JOIN Artwork WHERE (Artwork.artworkID = @artworkID);";
             cmdSelect = new SqlCommand(strSelect, con);
-            cmdSelect.Parameters.AddWithValue("@artworkDesc", Session["artworkDesc"].ToString());
+            cmdSelect.Parameters.AddWithValue("@artworkID", Session["artworkID"].ToString());
             da = new SqlDataAdapter();
             da.SelectCommand = cmdSelect;
             dt = new DataTable();
             da.Fill(dt);
-            artworkDesc.DataSource = cmdSelect.ExecuteReader();
-            artworkDesc.DataBind();
-            con.Close();
+            orderDetails.DataSource = cmdSelect.ExecuteReader();
+            orderDetails.DataBind();
+            con.Close();*/
+
 
             //String temp = " ";
             //if (!IsPostBack)

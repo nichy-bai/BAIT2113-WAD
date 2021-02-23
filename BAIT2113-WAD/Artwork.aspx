@@ -14,6 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+
   <div class="gallery_container">
     
 	<div class="heading">Art Gallery </div>
@@ -48,7 +49,7 @@
             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                 <ItemTemplate>
                     <div class="gallery-item">
-                        <img class="gallery-image" src='<%#Eval("image") %>' alt=""/>
+                       <asp:Image ID="Image1" runat="server" ImageURL='<%#Eval("image") %>' />
                         <div class="overlay">
                             <div class="row">
                                 <div class="details">
@@ -57,7 +58,7 @@
                                 <div class="price"> $<%#Eval("price") %></div>
                             </div>
                             <div class="buttons">
-                                <asp:Button ID="viewMore" runat="server" OnClick="viewMore_Click" Text="View More" CssClass="view_more" />
+                                <asp:Button ID="viewMore" runat="server" OnClick="viewMore_Click" Text="View More" CssClass="view_more" PostBackUrl="Order.aspx" />
                             </div>
                         </div>
                     </div>

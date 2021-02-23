@@ -50,8 +50,7 @@ namespace BAIT2113_WAD
             string artworkName = InkRowSelection.CommandArgument.ToString();
 
             Session["artworkName"] = artworkName;
-            Session["artworkDesc"] = artworkName;
-            Response.Redirect("~/Order.aspx");
+            Response.Redirect("Order.aspx");
             
         }
     }

@@ -8,14 +8,11 @@
 
     <div class="gallery_container">
 	<div class="heading" style="font-family:'Times New Roman', Times, serif">Product Information</div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [artworkDesc], [quantity], [price], [artistID] FROM [Artwork] WHERE ([artworkDesc] = @artworkDesc)">
-            <SelectParameters>
-                <asp:SessionParameter Name="artworkDesc" SessionField="artworkDesc" Type="String" />
-            </SelectParameters>
-        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artist.name, Artwork.quantity, Artwork.artworkName, Artwork.artworkDesc, Artwork.price, Artwork.artworkID FROM Artist CROSS JOIN Artwork"></asp:SqlDataSource>
         
-       <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [artworkName] FROM [Artwork] WHERE ([artworkName] = @artworkName)">
+       <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [artworkName] FROM [Artwork] WHERE (([artworkID] = @artworkID) AND ([artworkName] = @artworkName))">
            <SelectParameters>
+               <asp:SessionParameter Name="artworkID" SessionField="artworkID" Type="String" />
                <asp:SessionParameter Name="artworkName" SessionField="artworkName" Type="String" />
            </SelectParameters>
         </asp:SqlDataSource>
@@ -39,13 +36,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="details_view" style="border: 0px none #FFFFFF; background-color: #FFFFFF; font-family: 'Roboto'; font-size: large; font-weight: normal; font-style: italic; font-variant: normal;">
-                                <asp:DetailsView ID="artworkDesc" runat="server" AutoGenerateRows="False" GridLines="None" Height="50px" Width="635px" CssClass="auto-style1" DataSourceID="SqlDataSource1">
-                                    <Fields>
-                                        <asp:BoundField DataField="artworkDesc" HeaderText="artworkDesc" SortExpression="artworkDesc" />
-                                        <asp:BoundField DataField="quantity" HeaderText="quantity" SortExpression="quantity" />
-                                        <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" />
-                                        <asp:BoundField DataField="artistID" HeaderText="artistID" SortExpression="artistID" />
-                                    </Fields>
+                                <asp:DetailsView ID="orderDetails" runat="server" AutoGenerateRows="False" GridLines="None" Height="50px" Width="635px" CssClass="auto-style1">
                                 </asp:DetailsView>
                             </div>
                         </div>
@@ -62,7 +53,7 @@
                     <div class="row add-to-cart">
                         
                         <div class="col-md-5 product-qty">
-                            <%-- <span class="btn btn-default btn-lg btn-qty">
+                           <%-- <span class="btn btn-default btn-lg btn-qty">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             </span>--%>
                             <span style="font-family: 'Roboto'; font-size: 22px; font-weight: bold">Quantity:</span>
