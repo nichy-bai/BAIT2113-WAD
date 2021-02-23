@@ -1,4 +1,4 @@
-﻿body {
+body {
     margin: 0;
     padding: 0;
     background: url(https://lh4.googleusercontent.com/-XplyTa1Za-I/VMSgIyAYkHI/AAAAAAAADxM/oL-rD6VP4ts/w1184-h666/Android-Lollipop-wallpapers-Google-Now-Wallpaper-2.png);
@@ -8,7 +8,7 @@
 
 .title {
     position: absolute;
-    left: 10%;
+    left: 50%;
     text-align: left;
     margin-top: 3%;
 }
@@ -17,32 +17,37 @@ strong {
     font-size: 80px;
     font-family: 'Bell MT';
     color: #000;
-    text-shadow: 0 0 30px darkgoldenrod;
-    top: 100px;
-    margin-top: 20%;
+    text-shadow: 0 0 30px black;
+    top: 50px;
+    margin-top: 2%;
+   
 }
 
-
+h3 {
+    font-size:35px;
+    font-family: 'Bell MT';
+    color: #fff;
+    text-shadow: 0 0 30px white;
+   
+}
 
 .login-box {
     width: 320px;
     height: 420px;
     background: rgba(0, 0, 0, 0.5);
-     color: #fff;
+    color: #fff;
     top: 60%;
      left: 50%;
      position: absolute;
      transform: translate(-50%,-50%);
      box-sizing: border-box;
     padding: 70px 30px;
-    outline-style: double;
-    
+    outline-style: double;  
 }
 
-
 .login-box1 {
-    width: 320px;
-    height: 1320px;
+    width: 520px;
+    height: 720px;
     background: rgba(0, 0, 0, 0.5);
     color: #fff;
     top: 60%;
@@ -50,7 +55,8 @@ strong {
     position: absolute;
     transform: translate(-50%,-50%);
     box-sizing: border-box;
-    padding: 70px 30px;
+    padding: 10px 30px;
+    outline-style: double;
 }
 
     .avatar {
@@ -62,6 +68,11 @@ strong {
     left: calc(50% - 50px);
 }
 
+p {
+    top: -30%;
+
+
+}
 h1 {
     margin: 0;
     padding: 0 0 20px;
@@ -126,6 +137,51 @@ h1 {
 
 
 
+.button input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+    .button input[type="text"], input[type="password"] {
+        border: none;
+        border-bottom: 1px solid #fff;
+        background: transparent;
+        outline: none;
+        height: 40px;
+        color: #fff;
+        font-size: 16px;
+    }
+
+    .button input[type="submit"] {
+        border: none;
+        outline: none;
+        height: 40px;
+        background: #fff;
+        color: #000;
+        font-size: 18px;
+        border-radius: 20px;
+    }
+
+        .button input[type="submit"]:hover {
+            cursor: pointer;
+            background: #000000;
+            color: #fff;
+        }
+
+.button a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+}
+
+.button hover {
+        text-decoration: solid;
+        color: #000;
+  }
+
+
+
+
 
 
 
@@ -156,3 +212,8 @@ h1 {
         text-decoration: solid;
         color: #000;
     }
+
+.auto-style5
+{
+
+}
