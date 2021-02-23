@@ -90,8 +90,8 @@
                 </div>
 
                 <div class="col-md-6">
-                    <img src="https://onlinegallery.art/images/artworks/img-20200630-wa0006.jpg" alt="" class="image-responsive image-fluid" style="width: 100%; height: auto ; box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4); border-radius: 0.75rem;"/>
-                </div>
+                    <img src="https://onlinegallery.art/images/artworks/img-20200630-wa0006.jpg" alt="" class="image-responsive image-fluid" style="width: 100%; height: auto ; box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4); border-radius: 0.75rem;"/><asp:HiddenField ID="HiddenField1" runat="server" Visible="False" />
+&nbsp;</div>
             </div>
             <!-- end row -->
         </div><!-- end container -->

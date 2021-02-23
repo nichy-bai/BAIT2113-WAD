@@ -43,11 +43,11 @@
             </div>
         </div>
         <div class="image_container">
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT imageURL, artworkName, price FROM Artwork"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT image, artworkName, price FROM Artwork"></asp:SqlDataSource>
             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                 <ItemTemplate>
                     <div class="gallery-item">
-                        <img class="gallery-image" src='<%#Eval("imageURL") %>' alt=""/>
+                        <img class="gallery-image" src='<%#Eval("image") %>' alt=""/>
                         <div class="overlay">
                             <div class="row">
                                 <div class="details">
@@ -56,7 +56,7 @@
                                 <div class="price"> $<%#Eval("price") %></div>
                             </div>
                             <div class="buttons">
-                                <asp:Button ID="viewMore" runat="server" Text="View More" PostBackUrl="~/Order.aspx" CssClass="view_more" /> 
+                                <asp:Button ID="viewMore" runat="server" Text="View More" CssClass="view_more" /> 
                                 <%--<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />--%>
                             </div>
                         </div>

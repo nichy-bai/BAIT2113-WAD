@@ -207,13 +207,17 @@
                         <img src="https://i.imgur.com/ZSkeqnd.jpg" class="rounded-circle" width="100" />
                         <asp:DetailsView ID="DetailsView1" CssClass="Grid" runat="server" Height="50px" Width="200px" AutoGenerateRows="False" DataSourceID="SqlDataSource1" Font-Bold="True">
                             <Fields>
-                                <asp:BoundField DataField="name" HeaderText="My Name" SortExpression="name" />
-                                <asp:BoundField DataField="email" HeaderText="My Email" SortExpression="email" />
-                                <asp:BoundField DataField="dob" HeaderText="Birthday" SortExpression="dob" />
-                                <asp:BoundField DataField="phoneNum" HeaderText="Contact" SortExpression="phoneNum" />
+                                <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
+                                <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
+                                <asp:BoundField DataField="dob" HeaderText="dob" SortExpression="dob" />
+                                <asp:BoundField DataField="phoneNum" HeaderText="phoneNum" SortExpression="phoneNum" />
                             </Fields>
                         </asp:DetailsView>
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name], [email], [dob], [phoneNum] FROM [Customer]"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [name], [email], [dob], [phoneNum] FROM [Customer] WHERE ([customerID] = @customerID)">
+                            <SelectParameters>
+                                <asp:SessionParameter Name="customerID" SessionField="CustomerID" Type="String" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                         <p class="information mt-3 text-justify">I'm doing this as a way to practice my design skills,explore different styles and have fun.I'm fully aware this challenge doesn't pose my real problem to solve,That's why i'm looking for criticism and feedback ,not just likes </p>
 
 
