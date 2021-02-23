@@ -17,7 +17,7 @@ namespace BAIT2113_WAD
 
             {
                 
-
+                /*
                 String strOrderCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 SqlConnection orderCon = new SqlConnection(strOrderCon);
                 orderCon.Open();
@@ -30,7 +30,7 @@ namespace BAIT2113_WAD
                 da.Fill(dt);
                 DetailsView1.DataSource = cmdSelectItem.ExecuteReader();
                 DetailsView1.DataBind();
-                orderCon.Close();
+                orderCon.Close();*/
             }
 
             
