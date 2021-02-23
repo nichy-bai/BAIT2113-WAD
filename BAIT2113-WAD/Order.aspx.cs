@@ -14,31 +14,12 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            {
-                
-
-                String strOrderCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-                SqlConnection orderCon = new SqlConnection(strOrderCon);
-                orderCon.Open();
-                String strSelectItem = "SELECT image FROM Artwork WHERE (Artwork.artworkID = @artworkID);";
-                SqlCommand cmdSelectItem = new SqlCommand(strSelectItem, orderCon);
-                cmdSelectItem.Parameters.AddWithValue("@ArtworkID", Session["artworkID"].ToString());
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = cmdSelectItem;
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                DetailsView1.DataSource = cmdSelectItem.ExecuteReader();
-                DetailsView1.DataBind();
-                orderCon.Close();
-            }
-
-            
+            Label1.Text = Session["artworkId"].ToString();
             string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(strCon);
 
             con.Open();
-            string strSelect = "SELECT Artwork.ArtworkName FROM Artwork WHERE (Artwork.artworkID = @artworkID);";
+            string strSelect = "SELECT Artwork.artworkName FROM Artwork WHERE (Artwork.artworkID = @artworkID);";
             SqlCommand cmdSelect = new SqlCommand(strSelect, con);
             cmdSelect.Parameters.AddWithValue("@artworkID", Session["artworkID"].ToString());
             SqlDataAdapter da = new SqlDataAdapter();

@@ -2,16 +2,14 @@
 
 <script runat="server">
 
-    protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
-
     protected void viewMore_Click(object sender, EventArgs e)
     {
 
     }
 </script>
+
+
+
 
 
 
@@ -68,6 +66,7 @@
                                     <asp:Label ID="Label2" runat="server" Text='<%#Eval("price") %>'></asp:Label> </div>
                                 
                             </div>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("artworkID") %>' ></asp:Label>
                             <div class="buttons">
                                 <asp:Button ID="viewMore" runat="server" OnClick="viewMore_Click" Text="View More" CssClass="view_more" PostBackUrl="~/Order.aspx" CommandArgument='<%# Eval("artworkID") %>' />
                                 <asp:HiddenField ID="artworkID" runat="server" Value = '<%# Eval("artworkID") %>' />
