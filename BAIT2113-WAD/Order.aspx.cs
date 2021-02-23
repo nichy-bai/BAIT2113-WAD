@@ -14,6 +14,7 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             {
                 
 
@@ -32,35 +33,86 @@ namespace BAIT2113_WAD
                 orderCon.Close();
             }
 
-           
+            
+            string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(strCon);
 
-            //try
+            con.Open();
+            string strSelect = "SELECT Artwork.ArtworkName FROM Artwork WHERE (Artwork.artworkID = @artworkID);";
+            SqlCommand cmdSelect = new SqlCommand(strSelect, con);
+            cmdSelect.Parameters.AddWithValue("@artworkID", Session["artworkID"].ToString());
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmdSelect;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            artworkName.DataSource = cmdSelect.ExecuteReader();
+            artworkName.DataBind();
+            con.Close();
+
+            con.Open();
+            strSelect = "SELECT Artist.name, Artwork.quantity, Artwork.artworkName, Artwork.artworkDesc, Artwork.price, Artwork.artworkID FROM Artist CROSS JOIN Artwork WHERE (Artwork.artworkID = @artworkID);";
+            cmdSelect = new SqlCommand(strSelect, con);
+            cmdSelect.Parameters.AddWithValue("@artworkID", Session["artworkID"].ToString());
+            da = new SqlDataAdapter();
+            da.SelectCommand = cmdSelect;
+            dt = new DataTable();
+            da.Fill(dt);
+            orderDetails.DataSource = cmdSelect.ExecuteReader();
+            orderDetails.DataBind();
+            con.Close();
+
+
+            //String temp = " ";
+            //if (!IsPostBack)
             //{
-            //    Response.Write(string.Format("My name is {0} and email address is {1}}",
-            //                                  Context.Items["imageURL"].ToString(),
-            //                                  Context.Items["artworkName"].ToString()));
+            //    try
+            //    {
+            //        temp = Context.Items["ArtworkID"].ToString();
+            //    }
+            //    catch (NullReferenceException ex)
+            //    {
+            //        Response.Write(ex.Message);
+            //    }
             //}
-            //catch (NullReferenceException ex)
+            //else
             //{
-            //    Response.Write(ex.Message);
+            //    temp = Session["artworkID"].ToString();
             //}
-            //string artworkName = Session["artworkName"].ToString();
+
+            //Session["artworkID"] = temp;
+            //HiddenField1.Value = temp;
+
+            /*String strOrderCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            SqlConnection orderCon = new SqlConnection(strOrderCon);
+            orderCon.Open();
+            strSelectItem = "SELECT Image FROM Artwork WHERE (Artork.ArtworkID = @ArtworkID);";
+            cmdSelectItem = new SqlCommand(strSelectItem, orderCon);
+            cmdSelectItem.Parameters.AddWithValue("@ArtworkID", temp);
+            da = new SqlDataAdapter():
+            da.SelectCommand = cmdSelectItem;
+            dt = new DataTable();
+            da.Fill(dt);
+            imageRepeater.DataSource = cmdSelectItem.ExecuteReader();
+            imageRepeater.DataBind();
+            orderCon.Close();*/
+
+
         }
-        protected void AddToWish_Click(object sender, EventArgs e)
-        {
-            /*if (Session["userID"] != null)
-            {
-                String strOrderCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-                SqlConnection orderCon = new SqlConnection(strOrderCon);
-                orderCon.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO Wishlist (UserID, ArtworkID) VALUES ('" + Session["userID"].ToString() + "','" + HiddenField1.Value + "')");
-                cmd.ExecuteNonQuery();
-                orderCon.Close();
-            }
-            else
-            {
-                Response.Redirect("~/Login.aspx");
-            }*/
-        }
+        //protected void AddToWish_Click(object sender, EventArgs e)
+        //{
+        //    /*if (Session["userID"] != null)
+        //    {
+        //        String strOrderCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        //        SqlConnection orderCon = new SqlConnection(strOrderCon);
+        //        orderCon.Open();
+        //        SqlCommand cmd = new SqlCommand("INSERT INTO Wishlist (UserID, ArtworkID) VALUES ('" + Session["userID"].ToString() + "','" + HiddenField1.Value + "')");
+        //        cmd.ExecuteNonQuery();
+        //        orderCon.Close();
+        //    }
+        //    else
+        //    {
+        //        Response.Redirect("~/Login.aspx");
+        //    }*/
+        //}
     }
 }
