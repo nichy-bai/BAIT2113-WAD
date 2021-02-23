@@ -133,7 +133,9 @@
     </Compile>
     <Compile Include="ArtistProfile.aspx.cs">
       <DependentUpon>ArtistProfile.aspx</DependentUpon>
+
       <SubType>ASPXCodeBehind</SubType>
+
     </Compile>
     <Compile Include="ArtistProfile.aspx.designer.cs">
       <DependentUpon>ArtistProfile.aspx</DependentUpon>

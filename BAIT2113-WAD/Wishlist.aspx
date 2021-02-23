@@ -21,9 +21,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="image mr-3" style="margin-top:10%">
-                        <img src="https://i.imgur.com/ZSkeqnd.jpg" class="rounded-circle" width="100" />
-         </div>
+     
     
 
     <p style="margin-left:20%;margin-top:5%; font-size: 58px; font-family: 'Blackadder ITC';">Wishlist</p>
@@ -51,4 +49,3 @@
     
 </asp:Content>
 
- 

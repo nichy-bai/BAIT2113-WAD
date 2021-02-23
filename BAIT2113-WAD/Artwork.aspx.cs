@@ -43,17 +43,15 @@ namespace BAIT2113_WAD
 
         }
 
-        protected void ViewMore_Click(object sender, EventArgs e)
+        protected void viewMore_Click(object sender, System.EventArgs e)
         {
-            //Context.Items.Add("imageURL", "<%#Eval('imageURL') %>");
-            //Context.Items.Add("artworkName", "<%#Eval('artworkName') %>");
-            //Server.Transfer("Order.aspx");
+            Button InkRowSelection = (Button)sender;
+            //get the recipe id from command argument to link button
+            string artworkID = InkRowSelection.CommandArgument.ToString();
 
-            //String artworkName = artworkNameLabel.Text;
-            //Session["artworkName"] = artworkNameLabel.Text;
+            Session["artworkID"] = artworkID;
+            Response.Redirect("~/Order.aspx");
             
         }
-
-
     }
 }
