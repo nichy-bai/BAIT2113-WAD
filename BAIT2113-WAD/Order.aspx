@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Order.aspx.cs" Inherits="BAIT2113_WAD.WebForm2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Order.aspx.cs" Inherits="BAIT2113_WAD.Order" %>
 
 <!DOCTYPE html>
 
@@ -78,7 +78,7 @@
                             </span>--%>
                         </div>
                          <div class="col-md-3">
-                            <button class="view_more" style=" ">
+                            <button class="view_more" style=" " onclick ="AddToWish_Click">
                                 Add to Cart
                             </button>
                         </div>

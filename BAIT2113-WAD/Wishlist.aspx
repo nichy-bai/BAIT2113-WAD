@@ -23,7 +23,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div class="image mr-3" style="margin-top:10%">
                         <img src="https://i.imgur.com/ZSkeqnd.jpg" class="rounded-circle" width="100" />
-         <p style="font-size: 20px">Anna Watson</p>
          </div>
     
 
@@ -52,3 +51,4 @@
     
 </asp:Content>
 
+ 

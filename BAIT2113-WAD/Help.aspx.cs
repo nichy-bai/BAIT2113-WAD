@@ -9,7 +9,7 @@ namespace BAIT2113_WAD
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Help_Page_Load(object sender, EventArgs e)
         {
 
         }

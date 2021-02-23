@@ -23,7 +23,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="image mr-3" style="margin-top:10%">
                         <img src="https://i.imgur.com/ZSkeqnd.jpg" class="rounded-circle" width="100" />
-         <p style="font-size: 20px">Anna Watson</p>
          </div>
     
 
@@ -43,7 +42,7 @@
                        <td style="text-align: center; height: 200px;"><%# Eval("orderID")%></td>
                     
                     <td class="image">
-                        <asp:ImageButton ID="Image1" runat="server" ImageUrl='<%# Eval("artWorkUrl")%>' ImageAlign="Baseline" Width="100px" Height="100px" /></td>
+                        <asp:ImageButton ID="Image1" runat="server" ImageUrl='<%# Eval("image")%>' ImageAlign="Baseline" Width="100px" Height="100px" /></td>
                     <td style="text-align: center; height: 200px;"><%# Eval("artworkName")%></td>
                     <td style ="text-align: center; height: 200px;"><%# Eval("subtotal")%></td>
                 </tr>
@@ -51,5 +50,5 @@
         </asp:Repeater>
         
     </table>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Order].orderID, Artwork.artworkUrl, Artwork.artworkName, [Order].subtotal FROM Customer INNER JOIN Wishlist ON Customer.customerID = Wishlist.customerID INNER JOIN WishArt ON Wishlist.wishlistID = WishArt.wishlistID INNER JOIN WishArt AS WishArt_1 ON Wishlist.wishlistID = WishArt_1.wishlistID INNER JOIN Artwork ON WishArt.artworkID = Artwork.artworkID AND WishArt_1.artworkID = Artwork.artworkID CROSS JOIN [Order]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Order].orderID, Artwork.image, Artwork.artworkName, [Order].subtotal FROM Customer INNER JOIN Wishlist ON Customer.customerID = Wishlist.customerID INNER JOIN WishArt ON Wishlist.wishlistID = WishArt.wishlistID INNER JOIN WishArt AS WishArt_1 ON Wishlist.wishlistID = WishArt_1.wishlistID INNER JOIN Artwork ON WishArt.artworkID = Artwork.artworkID AND WishArt_1.artworkID = Artwork.artworkID CROSS JOIN [Order]"></asp:SqlDataSource>
 </asp:Content>

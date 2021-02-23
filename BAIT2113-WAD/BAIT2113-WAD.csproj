@@ -71,6 +71,25 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+
+    <Content Include="JavaScript.js" />
+    <Content Include="StyleSheet1.css" />
+    <Content Include="Web.config" />
+    <Content Include="Art.aspx" />
+    <Content Include="Order.aspx" />
+    <Content Include="cart.png" />
+    <Content Include="delete.png" />
+    <Content Include="icon.png" />
+    <Content Include="mygallary.aspx" />
+    <Content Include="order.png" />
+    <Content Include="script.js" />
+    <Content Include="style.css" />
+    <Content Include="image01.jpg" />
+    <Content Include="Web.config" />
+    <Content Include="Homepage.aspx" />
+    <Content Include="Help.aspx" />
+    <Content Include="ArtistProfile.aspx" />
+
     <Content Include="Help.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="images\icon.png" />
@@ -86,6 +105,7 @@
     <Content Include="images\order.png" />
     <Content Include="images\image01.jpg" />
     <Content Include="Profile.aspx" />
+
     <Content Include="PurchaseHistory.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="AddArtwork.aspx" />
@@ -115,12 +135,21 @@
     <Compile Include="Gallerion.Master.designer.cs">
       <DependentUpon>Gallerion.Master</DependentUpon>
     </Compile>
-    <Compile Include="Profile.aspx.cs">
-      <DependentUpon>Profile.aspx</DependentUpon>
+
+    <Compile Include="Help.aspx.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Profile.aspx.designer.cs">
+    <Compile Include="ArtistProfile.aspx.cs">
+      <DependentUpon>ArtistProfile.aspx</DependentUpon>
+
+    <Compile Include="Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
+
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArtistProfile.aspx.designer.cs">
+      <DependentUpon>ArtistProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="PurchaseHistory.aspx.cs">
       <DependentUpon>PurchaseHistory.aspx</DependentUpon>
@@ -142,6 +171,13 @@
     </Compile>
     <Compile Include="AddArtwork.aspx.designer.cs">
       <DependentUpon>AddArtwork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerProfile.aspx.cs">
+      <DependentUpon>CustomerProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerProfile.aspx.designer.cs">
+      <DependentUpon>CustomerProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>

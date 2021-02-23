@@ -11,6 +11,7 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             //try
             //{
             //    Response.Write(string.Format("My name is {0} and email address is {1}}",
@@ -22,6 +23,10 @@ namespace BAIT2113_WAD
             //    Response.Write(ex.Message);
             //}
             //string artworkName = Session["artworkName"].ToString();
+        }
+        protected void AddToWish_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
