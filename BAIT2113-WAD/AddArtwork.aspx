@@ -19,7 +19,7 @@
         <tr>
             <td class="auto-style1" rowspan="4">
                 
-                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1" >
                     <ItemTemplate>
                         <asp:Image ID="profilepic" runat="server" class="propic" ImageUrl="profilePic"/>
                     </ItemTemplate>
@@ -29,6 +29,22 @@
                         <asp:SessionParameter Name="artistID" SessionField="ArtistID" Type="String" />
                     </SelectParameters>
                 </asp:SqlDataSource>
+                
+                <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" >
+                    <ItemTemplate>
+                        profilePic:
+                        <asp:Label ID="profilePicLabel" runat="server" Text='<%# Eval("profilePic") %>' />
+                        <asp:Image ID="Image2" runat="server" ImageUrl='<%# Eval("profilePic") %>' class="propic"/>
+                        <br />
+<br />
+                    </ItemTemplate>
+                </asp:DataList>
+                
+                <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1">
+                    <Columns>
+                    <asp:ImageField SortExpression="image" DataImageURLField="profilePic" />
+                    </Columns>
+                </asp:GridView>
                 
             </td>
             <td class="auto-style2">Add New Artwork</td>
