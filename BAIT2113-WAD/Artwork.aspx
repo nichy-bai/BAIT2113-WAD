@@ -1,5 +1,19 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Gallerion.Master" AutoEventWireup="true" CodeBehind="Artwork.aspx.cs" %>
 
+<script runat="server">
+
+    protected void viewMore_Click(object sender, EventArgs e)
+    {
+        Button InkRowSelection = (Button)sender;
+        //get the recipe id from command argument to link button
+        string ArtworkID = InkRowSelection.CommandArgument.ToString();
+        Session.Add("artworkID", ArtworkID);
+        //Session("artworkID") = ArtworkID;
+        Response.Redirect("Order.aspx");
+    }
+</script>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -35,11 +49,11 @@
             </div>
         </div>
         <div class="image_container">
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT image, artworkName, price FROM Artwork"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM Artwork"></asp:SqlDataSource>
             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                 <ItemTemplate>
                     <div class="gallery-item">
-                        <img class="gallery-image" src='<%#Eval("image") %>' alt=""/>
+                       <asp:Image ID="Image1" runat="server" ImageURL='<%#Eval("image") %>' CssClass="gallery-image" />
                         <div class="overlay">
                             <div class="row">
                                 <div class="details">
@@ -48,8 +62,8 @@
                                 <div class="price"> $<%#Eval("price") %></div>
                             </div>
                             <div class="buttons">
-                                <asp:Button ID="viewMore" runat="server" Text="View More" CssClass="view_more" /> 
-                                <%--<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />--%>
+                                <asp:Button ID="viewMore" runat="server" Text="View More" CssClass="view_more" OnClick="viewMore_Click" CommandArgument='<%# Eval("artworkID") %>'/>
+                                <%--<asp:Button ID="Button1" runat="server" Text="Button" />--%>
                             </div>
                         </div>
                     </div>
@@ -59,5 +73,4 @@
 	</div>
 </div>
 	<script src="JavaScript.js"></script>
-    </form>
 </asp:Content>

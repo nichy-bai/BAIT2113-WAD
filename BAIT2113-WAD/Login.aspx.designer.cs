@@ -11,7 +11,7 @@ namespace BAIT2113_WAD
 {
 
 
-    public partial class WebForm3
+    public partial class Login
     {
 
         /// <summary>

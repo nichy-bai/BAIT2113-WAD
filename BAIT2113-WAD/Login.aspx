@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="BAIT2113_WAD.WebForm3" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="BAIT2113_WAD.Login" %>
 
 <!DOCTYPE html>
 
@@ -11,19 +11,17 @@
 <body>
     
     <form id="form1" runat="server">
-        <div class ="title">
-           <strong><img src="image/excellent.png" width="150" height="150"/> Gallerion</strong></div>
+        
     <div class="login-box">
-        <img src="avatar.png" class="avatar"/>
-    <h1>Login</h1>
-        <p> User Id   </p><br />
+        <img src="images/icon.png" class="avatar"/>
+    <h1>gallerion</h1>
+        <p>User ID</p>
         <asp:TextBox ID="txtID" runat="server"></asp:TextBox><br\ />
-        <p>
-            Password 
-        </p>
+        
+        <p>Password</p>
         <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox><br\ />
         <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" /><br\ />
-        <a href="NewArtwork.aspx">Create Account</a>
+        <a href="Register.aspx">Create Account</a>
         </div>
        
        

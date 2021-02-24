@@ -8,42 +8,43 @@
 
     <div class="gallery_container">
 	<div class="heading" style="font-family:'Times New Roman', Times, serif">Product Information</div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artist.name, Artwork.quantity, Artwork.artworkName, Artwork.artworkDesc, Artwork.price FROM Artist CROSS JOIN Artwork"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT artworkName FROM Artwork WHERE (artworkID = @artworkID)">
+            <SelectParameters>
+                <asp:SessionParameter Name="artworkID" SessionField="artworkID" />
+            </SelectParameters>
+        </asp:SqlDataSource>
         
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT artworkName FROM Artwork"></asp:SqlDataSource>
+       <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artwork.artworkDesc, Artwork.quantity, Artwork.price, Artist.name FROM Artwork INNER JOIN Artist ON Artwork.artistID = Artist.artistID WHERE (Artwork.artworkID = @artworkID)">
+           <SelectParameters>
+               <asp:SessionParameter Name="artworkID" SessionField="artworkID" />
+           </SelectParameters>
+        </asp:SqlDataSource>
         
         <div class="container" id="product-section">
             <div class="row">
-                <%--<div class="col-md-6">
-                    <img src="https://onlinegallery.art/images/artworks/img-20200630-wa0006.jpg" alt="" class="image-responsive image-fluid" style="width: 100%; height: auto"/>
-                </div>--%>
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-12">
                             <h1>
-                                <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" DataSourceID="SqlDataSource2" Height="50px" Width="250px" GridLines="None" style="font-family: 'Roboto'">
+                                <asp:DetailsView ID="artworkName" runat="server" AutoGenerateRows="False" Height="50px" Width="250px" GridLines="None" style="font-family: 'Roboto'" DataSourceID="SqlDataSource1">
                                     <Fields>
                                         <asp:BoundField DataField="artworkName" SortExpression="artworkName" />
                                     </Fields>
                                 </asp:DetailsView>
-                                 <svg width="2rem" height="2rem" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"><svg width="2rem" height="2rem" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg></asp:LinkButton>
                             </h1>
-                            <%--<h1>Wooden Vajra</h1>--%>
                         </div>
                     </div><!-- end row-->
                     <div class="row">
                         <div class="col-md-12">
-                            <%--<span class="label label-primary">Vintage</span>
-                            <span class="monospaced">No. 1960140180</span>--%>
-
                             <div class="details_view" style="border: 0px none #FFFFFF; background-color: #FFFFFF; font-family: 'Roboto'; font-size: large; font-weight: normal; font-style: italic; font-variant: normal;">
-                                <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataSourceID="SqlDataSource1" GridLines="None" Height="50px" Width="635px" CssClass="auto-style1">
+                                <asp:DetailsView ID="orderDetails" runat="server" AutoGenerateRows="False" GridLines="None" Height="50px" Width="635px" CssClass="auto-style1" DataSourceID="SqlDataSource2">
                                     <Fields>
-                                        <asp:BoundField DataField="name" HeaderText="Artist" SortExpression="name" />
-                                        <asp:BoundField DataField="quantity" HeaderText="Quantity" SortExpression="quantity" />
-                                        <asp:BoundField DataField="price" HeaderText="Price" SortExpression="price" DataFormatString="{0:c}" />
-                                        <asp:BoundField DataField="artworkDesc" HeaderText="Description" SortExpression="artworkDesc" />
+                                        <asp:BoundField DataField="artworkDesc" HeaderText="artworkDesc" SortExpression="artworkDesc" />
+                                        <asp:BoundField DataField="quantity" HeaderText="quantity" SortExpression="quantity" />
+                                        <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" />
+                                        <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
                                     </Fields>
                                 </asp:DetailsView>
                             </div>
@@ -71,7 +72,7 @@
                             </span>--%>
                         </div>
                          <div class="col-md-3">
-                            <button class="view_more" style=" " onclick ="AddToWish_Click">
+                            <button class="view_more" style=" ">
                                 Add to Cart
                             </button>
                         </div>
@@ -83,13 +84,22 @@
                 </div>
 
                 <div class="col-md-6">
-                    <img src="https://onlinegallery.art/images/artworks/img-20200630-wa0006.jpg" alt="" class="image-responsive image-fluid" style="width: 100%; height: auto ; box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4); border-radius: 0.75rem;"/><asp:HiddenField ID="HiddenField1" runat="server" Visible="False" />
-&nbsp;</div>
+                    <asp:Repeater ID="Repeater1" DataSourceID="SqlDataSource3" runat="server">
+                        <ItemTemplate>
+                            <asp:Image ID="Image1" runat="server" ImageURL='<%#Eval("image") %>' CssClass="gallery-image" />
+                        </ItemTemplate>
+                    </asp:Repeater>
+         &nbsp;</div>
             </div>
             <!-- end row -->
         </div><!-- end container -->
         
         <br />
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT image FROM Artwork WHERE( artworkID= @artworkID)">
+            <SelectParameters>
+                <asp:SessionParameter Name="artworkID" SessionField="artworkID" />
+            </SelectParameters>
+        </asp:SqlDataSource>
         <div class="buttons">
         </div>
     <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
