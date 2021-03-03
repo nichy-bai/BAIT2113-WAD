@@ -65,12 +65,12 @@
                     <div class="footer__title">Artwork</div>
                     <div>
                         <ul class="footer__body">
-                            <li class="footer__item"><a href="#">Painting</a></li>
-                            <li class="footer__item"><a href="#">Photography</a></li>
-                            <li class="footer__item"><a href="#">Design</a></li>
-                            <li class="footer__item"><a href="#">Sculpture</a></li>
-                            <li class="footer__item"><a href="#">Textile</a></li>
-                            <li class="footer__item"><a href="#">Illustration</a></li>
+                            <li class="footer__item"><a href="/Artwork.aspx">Painting</a></li>
+                            <li class="footer__item"><a href="/Artwork.aspx">Photography</a></li>
+                            <li class="footer__item"><a href="/Artwork.aspx">Design</a></li>
+                            <li class="footer__item"><a href="/Artwork.aspx">Sculpture</a></li>
+                            <li class="footer__item"><a href="/Artwork.aspx">Textile</a></li>
+                            <li class="footer__item"><a href="/Artwork.aspx">Illustration</a></li>
                         </ul>
                     </div>
                 </div>
@@ -80,9 +80,9 @@
                         <ul class="footer__body">
                             <li class="footer__item"><a href="/Homepage.aspx#about_us">About Us</a></li>
                             <li class="footer__item"><a href="/Homepage.aspx#organization">Organisation</a></li>
-                            <li class="footer__item"><a href="#">Privacy Policy</a></li>
-                            <li class="footer__item"><a href="#">Terms and Conditions</a></li>
-                            <li class="footer__item"><a href="/Help.aspx">FAQ</a></li>
+                            <li class="footer__item"><a href="/Help.aspx#faq">FAQ</a></li>
+                            <li class="footer__item"><a href="/Help.aspx#privacy_policy">Privacy Policy</a></li>
+                            <li class="footer__item"><a href="/Help.aspx#terms_and_conditions">Terms and Conditions</a></li>
                         </ul>
                     </div>
                 </div>

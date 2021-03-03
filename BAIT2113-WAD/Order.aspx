@@ -2,31 +2,31 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="StyleSheet1.css" />
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
     <%--<link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>--%>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
 
     <div class="gallery_container">
-	<div class="heading" style="font-family:'Times New Roman', Times, serif">Product Information</div>
+        <div class="heading" style="font-family: 'Times New Roman', Times, serif">Product Information</div>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT artworkName FROM Artwork WHERE (artworkID = @artworkID)">
             <SelectParameters>
                 <asp:SessionParameter Name="artworkID" SessionField="artworkID" />
             </SelectParameters>
         </asp:SqlDataSource>
-        
-       <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artwork.artworkDesc, Artwork.quantity, Artwork.price, Artist.name FROM Artwork INNER JOIN Artist ON Artwork.artistID = Artist.artistID WHERE (Artwork.artworkID = @artworkID)">
-           <SelectParameters>
-               <asp:SessionParameter Name="artworkID" SessionField="artworkID" />
-           </SelectParameters>
+
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artwork.artworkDesc, Artwork.quantity, Artwork.price, Artist.name FROM Artwork INNER JOIN Artist ON Artwork.artistID = Artist.artistID WHERE (Artwork.artworkID = @artworkID)">
+            <SelectParameters>
+                <asp:SessionParameter Name="artworkID" SessionField="artworkID" />
+            </SelectParameters>
         </asp:SqlDataSource>
-        
+
         <div class="container" id="product-section">
             <div class="row">
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-12">
                             <h1>
-                                <asp:DetailsView ID="artworkName" runat="server" AutoGenerateRows="False" Height="50px" Width="250px" GridLines="None" style="font-family: 'Roboto'" DataSourceID="SqlDataSource1">
+                                <asp:DetailsView ID="artworkName" runat="server" AutoGenerateRows="False" Height="50px" Width="250px" GridLines="None" Style="font-family: 'Roboto'" DataSourceID="SqlDataSource1">
                                     <Fields>
                                         <asp:BoundField DataField="artworkName" SortExpression="artworkName" />
                                     </Fields>
@@ -35,7 +35,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg></asp:LinkButton>
                             </h1>
                         </div>
-                    </div><!-- end row-->
+                    </div>
+                    <!-- end row-->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="details_view" style="border: 0px none #FFFFFF; background-color: #FFFFFF; font-family: 'Roboto'; font-size: large; font-weight: normal; font-style: italic; font-variant: normal;">
@@ -49,7 +50,8 @@
                                 </asp:DetailsView>
                             </div>
                         </div>
-                    </div><!-- end row -->
+                    </div>
+                    <!-- end row -->
                     <%--<div class="row">
                         <div class="col-md-12">
                             <p class="description">
@@ -58,11 +60,11 @@
                             </p>
                         </div>
                     </div><!-- end row -->--%>
-                    <hr  style="border: 1px solid #000000"/>
+                    <hr style="border: 1px solid #000000" />
                     <div class="row add-to-cart">
-                        
+
                         <div class="col-md-5 product-qty">
-                           <%-- <span class="btn btn-default btn-lg btn-qty">
+                            <%-- <span class="btn btn-default btn-lg btn-qty">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             </span>--%>
                             <span style="font-family: 'Roboto'; font-size: 22px; font-weight: bold">Quantity:</span>
@@ -71,29 +73,32 @@
                                 <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                             </span>--%>
                         </div>
-                         <div class="col-md-3">
-                            <button class="view_more" style=" ">
+                        <div class="col-md-3">
+                            <button class="view_more" style="">
                                 Add to Cart
                             </button>
                         </div>
                         <div class="col-md-3">
-                            <button class="view_more" style=" ">
+                            <button class="view_more" style="">
                                 Buy Now</button>
                         </div>
-                    </div><!-- end row -->
+                    </div>
+                    <!-- end row -->
                 </div>
 
                 <div class="col-md-6">
                     <asp:Repeater ID="Repeater1" DataSourceID="SqlDataSource3" runat="server">
                         <ItemTemplate>
-                            <asp:Image ID="Image1" runat="server" ImageURL='<%#Eval("image") %>' CssClass="gallery-image" />
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#Eval("image") %>' CssClass="gallery-image" />
                         </ItemTemplate>
                     </asp:Repeater>
-         &nbsp;</div>
+                    &nbsp;
+                </div>
             </div>
             <!-- end row -->
-        </div><!-- end container -->
-        
+        </div>
+        <!-- end container -->
+
         <br />
         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT image FROM Artwork WHERE( artworkID= @artworkID)">
             <SelectParameters>
@@ -102,7 +107,7 @@
         </asp:SqlDataSource>
         <div class="buttons">
         </div>
-    <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </div>
 </asp:Content>

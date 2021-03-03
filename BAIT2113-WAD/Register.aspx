@@ -12,8 +12,13 @@
     <form id="form1" runat="server">
 
         <div class="register-box">
-            <img src="images/icon.png" class="avatar"/>
-            <h1>gallerion</h1>
+            <div>
+                <a href="Homepage.aspx" id="avatarBtn">
+                    <img src="images/icon.png" class="avatar" title="Back to homepage" />
+                </a>
+            </div>
+            
+            <%--<h1>gallerion</h1>--%>
             <div class="register-singlerow">
                 <div class="register-single">
                     <div class="register-question">User ID</div>
@@ -27,7 +32,7 @@
             <div class="register-singlerow">
                 <div class="register-single">
                     <div class="register-question">Password</div>
-                    <asp:TextBox ID="txtpassword" runat="server" Height="30px" Width="220px" BorderStyle="Solid"></asp:TextBox> 
+                    <asp:TextBox ID="txtpassword" runat="server" Height="30px" Width="220px" BorderStyle="Solid"></asp:TextBox>
                 </div>
                 <div class="register-single">
                     <div class="register-question">Re-enter Password</div>
@@ -41,7 +46,7 @@
                 </div>
                 <div class="register-single">
                     <div class="register-question">Date of Birth</div>
-                    <asp:TextBox ID="txtdob" runat="server" Height="30px" Width="220px" BorderStyle="Solid" ></asp:TextBox>
+                    <asp:TextBox ID="txtdob" runat="server" Height="30px" Width="220px" BorderStyle="Solid"></asp:TextBox>
                 </div>
             </div>
             <div class="register-singlerow">
@@ -70,31 +75,35 @@
                     <asp:TextBox ID="txtphone" runat="server" Height="30px" Width="220px" BorderStyle="Solid"></asp:TextBox>
                 </div>
             </div>
-            <div class="register-singlerow">
+            <div class="register-singlerow" style="justify-content: space-around; align-items: center; width: 100%">
                 <div class="register-single">
                     <div class="register-question">Register As</div>
                     <div class="register-singlerow" style="justify-content: flex-start">
                         <asp:RadioButton ID="radiobtn1" runat="server" GroupName="userType" Text="Artist" />&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <asp:RadioButton ID="radiobtn2" runat="server" GroupName="userType" Text="Customer" /> &nbsp&nbsp
+                        <asp:RadioButton ID="radiobtn2" runat="server" GroupName="userType" Text="Customer" />
+                        &nbsp&nbsp
                     </div>
                 </div>
-            </div>
-            <div class="register-singlerow">
-                <div class="register-single">
-                    <asp:CheckBox ID="checkBox1" runat="server" Text=" " /><a href="#"><span class="auto-style3">Term and conditions </span></a> &nbsp;&nbsp;
-
-                    <asp:Label ID="lblwarning2" runat="server" Text=" "></asp:Label>
-                    <asp:Label ID="lblwarning" runat="server" Text=" " ForeColor="Red"></asp:Label>
+                <div class="register-singlerow">
+                    <asp:CheckBox ID="checkBox1" runat="server" Text=" " /><a href="/Help.aspx#terms_and_conditions" target="_blank"><span style="color: black">Term and conditions </span></a>&nbsp;&nbsp;
                 </div>
             </div>
+            <br />
+            <div style="text-align: center">
+                <asp:Label ID="lblwarning2" runat="server" Text=" " ForeColor="Red"></asp:Label>
+                <asp:Label ID="lblwarning" runat="server" Text=" " ForeColor="Red"></asp:Label>
+            </div>
+            <br />
             <div class="register-singlerow">
                 <div class="register-single">
-                    <asp:Button ID="btn2" runat="server" OnClick="btn2_Click" Text="Reset" Width="150px" Height="39px" CssClass="cancel-btn"/>
+                    <asp:Button ID="btn2" runat="server" OnClick="btn2_Click" Text="Reset" Width="150px" Height="39px" CssClass="cancel-btn" />
                 </div>
                 <div class="register-single">
                     <asp:Button ID="btn1" runat="server" Height="39px" Text="Register" Width="150px" OnClick="btn1_Click" CssClass="register-btn" />
                 </div>
-            </div>        
+            </div>
+
+            <a href="Login.aspx" class="return-btn">Already have an account?</a>
         </div>
     </form>
 </body>
