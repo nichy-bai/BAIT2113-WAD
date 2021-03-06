@@ -21,7 +21,7 @@ view their purchase history.
 payment, the system generates the purchase summary and
 receipt to the customers.
 - The generated receipt must be e-mailed to customers as well.
-- 
+
 4. User Control
 - Pick a suitable portion of your website and convert it to a
 user control.
