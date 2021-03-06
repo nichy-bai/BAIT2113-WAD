@@ -15,3 +15,17 @@ them as gallery, and handle the number of stocks for sale.
 the artworks.
 - Customers can add their favorite arts into a wish list, and
 view their purchase history.
+
+3. Payment and Email Notification
+- This module will handle payment transactions. After
+payment, the system generates the purchase summary and
+receipt to the customers.
+- The generated receipt must be e-mailed to customers as well.
+- 
+4. User Control
+- Pick a suitable portion of your website and convert it to a
+user control.
+
+5. Validation & Exception Handling
+- All inputs must be validated.
+- Any potential error from method calls must be handled.
