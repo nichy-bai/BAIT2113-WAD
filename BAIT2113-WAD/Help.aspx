@@ -1,6 +1,7 @@
 ﻿<%@  Language="C#" MasterPageFile="~/Gallerion.Master" AutoEventWireup="true" CodeBehind="Help.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="help-title">Help Centre</div>
     <div class='faq'>
         <a class="anchor" id="faq"></a>
 
@@ -11,7 +12,7 @@
             <p class="faq-text">
                 14 Day Buyer Protection
                 <br>
-                Gallerion acts between buyer and seller. We ensure a smooth exchange between the item and the money paid. 
+                Gallerion acts between buyer and seller. We ensure a smooth exchange between the item and the money paid.
                 After the purchase Gallerion keeps the amount 14 days in its own account. In case of serious default by the artist supplying the goods, Gallerion will of course reimburse the purchase sum to the buyer.
                 <br>
                 <br>
@@ -26,8 +27,8 @@
             <p class="faq-heading">02. Dispatch and delivery</p>
             <div class='faq-arrow'></div>
             <p class="faq-text">
-                The artists are responsible for shipping the artwork. Immediately after your purchase the artist receives an e-mail with the request to ship the artwork and fill in a track & trace code. 
-                The artist has 72 hours to do this, and will notify you if more time is needed for shipment. After the artist has filled in a track & trace code you will receive an e-mail with more details about the shipment. 
+                The artists are responsible for shipping the artwork. Immediately after your purchase the artist receives an e-mail with the request to ship the artwork and fill in a track & trace code.
+                The artist has 72 hours to do this, and will notify you if more time is needed for shipment. After the artist has filled in a track & trace code you will receive an e-mail with more details about the shipment.
                 You will be able to follow the package and see the expected time of delivery.
                 <br>
                 <br>
@@ -59,8 +60,8 @@
                 Gallerion works on the principle beauty is in the eye of the beholder. If you regard yourself as an artist, you can present your work. Anyone is welcome to showcase his/her art on Gallerion.
                 <br>
                 <br>
-                It may take a bit of time before all of your work is displayed on the website. However, your personal artist’s page will be live immediately, to share with your friends and on your own network. 
-                The website shows the artworks in a random order for each visitor. After 24 hours, this order will be adjusted again. 
+                It may take a bit of time before all of your work is displayed on the website. However, your personal artist’s page will be live immediately, to share with your friends and on your own network.
+                The website shows the artworks in a random order for each visitor. After 24 hours, this order will be adjusted again.
                 If a sale has not taken place you can notify Gallerion by sending us an e-mail. We will verify and reimburse if the item has been billed incorrectly.
                 Shipping/delivery charges (including packaging) can be invoiced to the purchaser. When posting your item online you can mention the charges for national and international shipping.
 
@@ -78,19 +79,28 @@
 
             </p>
         </label>
-        <input id='settings' type='checkbox'>
         <input id='faq-f' type='checkbox'>
         <label for='faq-f'>
             <p class="faq-heading">06. My account</p>
             <div class='faq-arrow'></div>
             <p class="faq-text">
-                If you can’t log in, you can request a new password by contacting our customer service through <a href="mailto:contact@gallerion.com" style="color: #787878">contact@gallerion.com</a>. 
+                If you can’t log in, you can request a new password by contacting our customer service through <a href="mailto:contact@gallerion.com" style="color: #787878">contact@gallerion.com</a>.
                 If buyers or sellers do not adhere to the rules of Gallerion (by breaking the agreement made at the point of sale, or other breach of terms), Gallerion reserves the right to cancel the account of the client concerned. We will always notify you.
                 <br>
                 <br>
                 It frequently happens a first e-mail sent to you by our system ends up in your spam/junk box. Please check. Normally you should receive our confirmation e-mail within seconds after creating an account with us, and having taken the required steps to do so. If you still have not received our confirmation, and you have checked your spam/junk inbox, please contact us.
-
             </p>
+        </label>
+        <input id='faq-g' type='checkbox'>
+        <label for='faq-g'>
+            <p class="faq-heading">07. Others</p>
+            <div class='faq-arrow'></div>
+            <div class="faq-text">
+                <p>If you still encounter other problems while using Gallerion, you can try to contact our customer service via <a href="mailto:contact@gallerion.com" style="color: #787878">contact@gallerion.com</a> to send feedback. Our team will try our best to solve your problem.</p>
+                <div class="emoticon">
+		            (<span class="e-arm">╯</span>°□°）<span class="e-arm">╯</span><span class="e-trajectory">︵</span> <span class="e-table">┻━┻</span>
+	            </div>
+            </div>
         </label>
     </div>
 
@@ -140,7 +150,7 @@
                 <div class='faq-arrow'></div>
                 <div class="faq-text" style="margin-left: 15px">
                     <ol>
-                        <li>The Platform offers the Art Lover the possibility to buy Products from Sellers. Sellers may use the order or auction system on the Platform or choose to include their contact details in or with the Offer so that the Art Lover can contact the Seller directly to enter into a purchase agreement. In the latter case Gallerion is in no way involved 
+                        <li>The Platform offers the Art Lover the possibility to buy Products from Sellers. Sellers may use the order or auction system on the Platform or choose to include their contact details in or with the Offer so that the Art Lover can contact the Seller directly to enter into a purchase agreement. In the latter case Gallerion is in no way involved
                         in the conclusion and settlement of the aforementioned purchase agreements and accepts no liability whatsoever in this respect. In the case of an Agreement (thus as referred to in article 1.4 and which is concluded directly through the order or auction system on the Platform), Gallerion enters into the Agreement with the relevant Seller on behalf of the Art Lover. The Seller shall at all times independently take care of the delivery of the Products to the Art Lover. Within the framework of an Agreement, the Art Lover will fulfil its payment obligations under the Agreement to Gallerion.
                         </li>
                         <li>To be able to enter into agreements, the Art Lover, after he has registered on the Platform and after this registration has been approved by Gallerion, will receive login details to access his account on the Platform. When registering, the Art Lover must provide all the required mandatory information completely and truthfully.

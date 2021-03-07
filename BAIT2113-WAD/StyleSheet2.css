@@ -213,6 +213,16 @@ h1 {
     z-index: 99;
 }
 
+    .register-box input[type="text"], .register-box input[type="password"], .register-box input[type="email"] {
+        border: none;
+        border-bottom: 1px solid #000;
+        background: transparent;
+        outline: none;
+        color: #000;
+        font-size: 16px;
+    }
+
+
 .register-single {
     display: flex;
     flex-direction: column;

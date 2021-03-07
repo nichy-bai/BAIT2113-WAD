@@ -32,17 +32,17 @@
             <div class="register-singlerow">
                 <div class="register-single">
                     <div class="register-question">Password</div>
-                    <asp:TextBox ID="txtpassword" runat="server" Height="30px" Width="220px"></asp:TextBox>
+                    <asp:TextBox ID="txtpassword" TextMode="Password"  runat="server" Height="30px" Width="220px"></asp:TextBox>
                 </div>
                 <div class="register-single">
                     <div class="register-question">Re-enter Password</div>
-                    <asp:TextBox ID="txt4" runat="server" Height="30px" Width="220px"></asp:TextBox>
+                    <asp:TextBox ID="txt4" TextMode="Password"  runat="server" Height="30px" Width="220px"></asp:TextBox>
                 </div>
             </div>
             <div class="register-singlerow">
                 <div class="register-single">
                     <div class="register-question">Email</div>
-                    <asp:TextBox ID="txtemail" runat="server" Height="30px" Width="220px"></asp:TextBox>
+                    <asp:TextBox ID="txtemail" TextMode="Email" runat="server" Height="30px" Width="220px"></asp:TextBox>
                 </div>
                 <div class="register-single">
                     <div class="register-question">Date of Birth</div>

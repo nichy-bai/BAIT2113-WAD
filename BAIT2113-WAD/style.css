@@ -367,13 +367,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    fill: white;
+    fill: black;
     transition: all .5s ease 0s, left .5s ease 0s;
     height: 2rem;
 }
 
     .horizontal__item:hover {
-        fill: black;
+        fill: white;
     }
 
 
@@ -1052,7 +1052,6 @@ span .rw-title {
 }
 
 .faq-text {
-    font-family: Open Sans;
     font-weight: 400;
     color: #616161;
     width: 95%;
@@ -1064,7 +1063,7 @@ span .rw-title {
 
 .faq {
     width: 1000px;
-    margin: 100px auto;
+    margin: 0 auto 100px auto;
     background: white;
     border-radius: 4px;
     position: relative;
@@ -1133,7 +1132,7 @@ span .rw-title {
         display: block;
         background: rgba(255,255,255,255) !important;
         color: #4f7351;
-        height: 800px;
+        height: 850px;
         transition: height 0.8s;
         -webkit-transition-timing-function: cubic-bezier(0.68, -0.2, 0.265, 1.2);
     }
@@ -1144,6 +1143,72 @@ span .rw-title {
         height: 60px;
         -webkit-transition-timing-function: cubic-bezier(0.68, -0.2, 0.265, 1.2);
     }
+
+.help-title {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    margin: 80px auto 50px auto;
+}
+
+/* Emoticon parts */
+.emoticon {
+    margin-top: 120px;
+    font-size: 2.5rem;
+}
+
+.e-arm {
+    animation: e-armMove 1s linear infinite;
+    transform-origin: 25% 25%;
+    display: inline-block;
+}
+
+.e-trajectory {
+    animation: e-trajectory 1s linear infinite;
+    display: inline-block;
+}
+
+.e-table {
+    animation: e-tableFlip 1s linear infinite;
+    transform-origin: -33% 50%;
+    display: inline-block;
+}
+
+
+/* Animations */
+@keyframes e-armMove {
+    from {
+        transform: rotate(90deg)
+    }
+
+    12.5%, to {
+        transform: rotate(0deg)
+    }
+}
+
+@keyframes e-trajectory {
+    from {
+        opacity: 0
+    }
+
+    37.5%, to {
+        opacity: 1
+    }
+}
+
+@keyframes e-tableFlip {
+    from {
+        transform: rotate(-180deg)
+    }
+
+    37.5%, to {
+        transform: rotate(0)
+    }
+}
+
+
 
 
 
@@ -1254,7 +1319,7 @@ span .rw-title {
 
 The following rule will only run if your browser supports CSS grid.
 
-Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling. 
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling.
 
 */
 
