@@ -46,10 +46,11 @@
             </ItemTemplate>
         </asp:Repeater>
         
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Order].orderID, Artwork.image, Artwork.artworkName, [Order].subtotal FROM Artwork INNER JOIN [Order] ON Artwork.artworkID = [Order].artworkID WHERE ([Order].customerID = @customerID)">
+            <SelectParameters>
+                <asp:SessionParameter Name="customerID" SessionField="CustomerID" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        
     </table>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Order].orderID, Artwork.image, Artwork.artworkName, [Order].subtotal FROM Customer INNER JOIN Wishlist ON Customer.customerID = Wishlist.customerID INNER JOIN WishArt ON Wishlist.wishlistID = WishArt.wishlistID INNER JOIN WishArt AS WishArt_1 ON Wishlist.wishlistID = WishArt_1.wishlistID INNER JOIN Artwork ON WishArt.artworkID = Artwork.artworkID AND WishArt_1.artworkID = Artwork.artworkID CROSS JOIN [Order] WHERE (Customer.customerID = @customerID)" OnSelecting="SqlDataSource1_Selecting">
-        <SelectParameters>
-            <asp:SessionParameter Name="customerID" SessionField="CustomerID" />
-        </SelectParameters>
-    </asp:SqlDataSource>
-</asp:Content>
+    </asp:Content>
