@@ -80,8 +80,10 @@
                         <asp:BoundField DataField="category" HeaderText="category" SortExpression="category" ItemStyle-Width="200px">
 <ItemStyle Width="200px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:ImageField HeaderText="image" SortExpression="image" DataImageURLField="image" ItemStyle-Width="200px" ItemStyle-Height="200px">
-<ItemStyle Width="200px"></ItemStyle>
+                        <asp:ImageField HeaderText="image" SortExpression="image" DataImageURLField="image" ItemStyle-Width="200px" ItemStyle-Height="200px" ControlStyle-Height="200" ControlStyle-Width="200">
+<ItemStyle Width="200px">
+</ItemStyle>
+                            
                         </asp:ImageField>
                     </Columns>
                     <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
