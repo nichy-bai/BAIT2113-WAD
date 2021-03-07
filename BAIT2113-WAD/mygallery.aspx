@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Gallerion.Master" AutoEventWireup="true" CodeBehind="mygallery.aspx.cs" Inherits="BAIT2113_WAD.mygallary" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link href="StyleSheet2.css" rel="stylesheet" />
+    <link href="StyleSheet3.css" rel="stylesheet" />
     <div class="profile-box">
         <div class="profile-detail">
             <asp:Image ID="profilepic" runat="server" class="profile-pic" ImageUrl="images/avatar.png"/>
-                
+
                 <asp:Label ID="lblArtistName" runat="server"></asp:Label>
                 <asp:Label ID="lblArtistID" runat="server"></asp:Label>
                 <asp:Label ID="lbldob" runat="server"></asp:Label>
@@ -58,7 +58,7 @@
                         <asp:Parameter Name="artworkID" Type="String" />
                     </UpdateParameters>
                 </asp:SqlDataSource>
-                
+
                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="artworkID" DataSourceID="SqlDataSource2" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" CssClass="profile-gridview">
                     <Columns>
                         <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ButtonType="Button" />
