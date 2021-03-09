@@ -11,7 +11,7 @@ namespace BAIT2113_WAD
 {
     public partial class Login : System.Web.UI.Page
     {
-       
+
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
@@ -32,8 +32,8 @@ namespace BAIT2113_WAD
             cmd.Parameters.AddWithValue("@PasswordUser", PasswordUser);
             cmd1.Parameters.AddWithValue("@ArtistID", ArtistID);
             cmd1.Parameters.AddWithValue("@PasswordArtist", PasswordArtist);
-            Session ["CustomerID"] = txtID.Text;
-            Session["ArtistID"] = txtID.Text;
+
+
 
             con.Open();
             String output = cmd.ExecuteScalar().ToString();
@@ -41,11 +41,17 @@ namespace BAIT2113_WAD
 
             if (output == "1")
             {
+
+                Session["CustomerID"] = txtID.Text;
                 Response.Redirect("Artwork.aspx");
+
             }
             else if (output1 == "1")
             {
+
+                Session["ArtistID"] = txtID.Text;
                 Response.Redirect("AddArtwork.aspx");
+
             }
             else if (output == "0")
             {
@@ -61,6 +67,23 @@ namespace BAIT2113_WAD
             }
 
             con.Close();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["ArtistID"] != null || Session["CustomerID"] != null)
+            {
+                if (Session["ArtistID"] != null)
+                {
+
+                    Response.Redirect("AddArtwork.aspx");
+                }
+                else
+                {
+                    Response.Redirect("Artwork.aspx");
+                }
+
+            }
         }
     }
 }
