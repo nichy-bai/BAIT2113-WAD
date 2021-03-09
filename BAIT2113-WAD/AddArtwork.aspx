@@ -14,12 +14,12 @@
             }
         }
     </script>
-    <link href="StyleSheet2.css" rel="stylesheet" />
+    <link href="StyleSheet3.css" rel="stylesheet" />
 
     <div class="profile-box">
         <div class="profile-detail">
-            
-                <asp:Image ID="profilepic" runat="server" class="profile-pic" ImageUrl="images/avatar.png"/>    
+
+                <asp:Image ID="profilepic" runat="server" class="profile-pic" ImageUrl="images/avatar.png"/>
 
                 <asp:Label ID="lblArtistName" runat="server"></asp:Label>
                 <asp:Label ID="lblArtistID" runat="server"></asp:Label>
@@ -32,7 +32,7 @@
         </div>
         <div class="profile-addartwork">
             <div class="profile-addtitle">Add New Artwork</div>
-            
+
             <div class="profile-artworkrow">
                 <div class="profile-addquestion">Artwork Name</div>
                 <asp:TextBox ID="txtArtworkName" runat="server" Width="220px"></asp:TextBox>
@@ -83,7 +83,7 @@
         </div>
     </div>
 
-    
+
 </asp:Content>
 
 
