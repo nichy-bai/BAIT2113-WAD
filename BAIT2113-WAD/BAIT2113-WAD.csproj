@@ -73,6 +73,7 @@
     </Content>
     <Content Include="images\avatar.png" />
     <Content Include="JavaScript.js" />
+    <Content Include="ManageOrder.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="StyleSheet3.css" />
@@ -112,6 +113,13 @@
     <Compile Include="Homepage.aspx.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageOrder.aspx.cs">
+      <DependentUpon>ManageOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageOrder.aspx.designer.cs">
+      <DependentUpon>ManageOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="mygallery.aspx.cs">
       <DependentUpon>mygallery.aspx</DependentUpon>

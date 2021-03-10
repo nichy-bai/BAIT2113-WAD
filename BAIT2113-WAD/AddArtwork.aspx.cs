@@ -14,7 +14,7 @@ namespace BAIT2113_WAD
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            string ID = Session["ArtistID"].ToString();
+       string ID = Session["ArtistID"].ToString();
 
             string sql2 = "Select * from Artist where artistID = @ID ";
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
@@ -31,7 +31,8 @@ namespace BAIT2113_WAD
                 lbldob.Text = rdr["dob"].ToString();
                 lblphone.Text = rdr["phoneNum"].ToString();
                 lblemail.Text = rdr["email"].ToString();
-                //HyperLink1.NavigateUrl = rdr["link"].ToString();
+                HyperLink1.NavigateUrl = rdr["video"].ToString();
+                profilepic.ImageUrl = rdr["profilePic"].ToString();
             }
 
         }
