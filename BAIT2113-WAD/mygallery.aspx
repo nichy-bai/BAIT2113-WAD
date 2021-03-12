@@ -4,16 +4,17 @@
     <link href="StyleSheet3.css" rel="stylesheet" />
     <div class="profile-box">
         <div class="profile-detail">
-            <asp:Image ID="profilepic" runat="server" class="profile-pic" ImageUrl="images/avatar.png"/>
+            <asp:Image ID="profilepic" runat="server" class="profile-pic" />
 
                 <asp:Label ID="lblArtistName" runat="server"></asp:Label>
                 <asp:Label ID="lblArtistID" runat="server"></asp:Label>
                 <asp:Label ID="lbldob" runat="server"></asp:Label>
                 <asp:Label ID="lblphone" runat="server"></asp:Label>
                 <asp:Label ID="lblemail" runat="server"></asp:Label>
-            <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank">watch me</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" class="profile-btn">watch me</asp:HyperLink>
                 <a href="mygallery.aspx" class="profile-btn-active">My Gallery</a>
                 <a href="AddArtwork.aspx" class="profile-btn">Add New Artwork</a>
+            <a href="ManageOrder.aspx" class="profile-btn-active">Manage Order</a>
         </div>
         <div class="profile-table">
             <div>Select the category:</div>

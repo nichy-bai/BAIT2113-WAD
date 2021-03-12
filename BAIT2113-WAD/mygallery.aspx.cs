@@ -33,6 +33,7 @@ namespace BAIT2113_WAD
                 lblphone.Text = rdr3["phoneNum"].ToString();
                 lblemail.Text = rdr3["email"].ToString();
                 HyperLink1.NavigateUrl = rdr3["video"].ToString();
+                profilepic.ImageUrl = rdr3["profilePic"].ToString();
 
             }
         }
