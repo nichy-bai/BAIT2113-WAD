@@ -114,8 +114,8 @@
             <div class="homepage__title">
                 Join Us Now!
             </div>
-            <a href="#" class="homepage__loginbtn">Login</a>
-            <a href="#" class="homepage__signbtn">Sign Up</a>
+            <a href="Login.aspx" class="homepage__loginbtn">Login</a>
+            <a href="Register.aspx" class="homepage__signbtn">Sign Up</a>
         </div>
     </div>
 

@@ -73,8 +73,10 @@
     </Content>
     <Content Include="images\avatar.png" />
     <Content Include="JavaScript.js" />
+    <Content Include="ManageOrder.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="StyleSheet1.css" />
+    <Content Include="StyleSheet3.css" />
     <Content Include="StyleSheet2.css" />
     <Content Include="Web.config" />
     <Content Include="Order.aspx" />
@@ -112,6 +114,13 @@
       <DependentUpon>Homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="ManageOrder.aspx.cs">
+      <DependentUpon>ManageOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageOrder.aspx.designer.cs">
+      <DependentUpon>ManageOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="mygallery.aspx.cs">
       <DependentUpon>mygallery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -133,9 +142,7 @@
     </Compile>
     <Compile Include="ArtistProfile.aspx.cs">
       <DependentUpon>ArtistProfile.aspx</DependentUpon>
-
       <SubType>ASPXCodeBehind</SubType>
-
     </Compile>
     <Compile Include="ArtistProfile.aspx.designer.cs">
       <DependentUpon>ArtistProfile.aspx</DependentUpon>

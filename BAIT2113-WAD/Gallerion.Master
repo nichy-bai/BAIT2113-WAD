@@ -35,7 +35,6 @@
                     <li class="navigation__item"><a href="/Wishlist.aspx" class="navigation__link">Wishlist</a></li>
                     <li class="navigation__item"><a href="/CustomerProfile.aspx" class="navigation__link">Profile</a></li>
                     <li class="navigation__item"><a href="/Help.aspx" class="navigation__link">Help</a></li>
-                    
                 </ul>
             </nav>
         </div>
@@ -47,11 +46,10 @@
             <ul>
                 <li class="horizontal__item">
                     <a href="/Login.aspx">
-                        <svg width="2rem" height="2rem" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="2rem" height="2rem" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     </a>
                 </li>
-                
             </ul>
         </div>
 
@@ -65,12 +63,12 @@
                     <div class="footer__title">Artwork</div>
                     <div>
                         <ul class="footer__body">
-                            <li class="footer__item"><a href="#">Painting</a></li>
-                            <li class="footer__item"><a href="#">Photography</a></li>
-                            <li class="footer__item"><a href="#">Design</a></li>
-                            <li class="footer__item"><a href="#">Sculpture</a></li>
-                            <li class="footer__item"><a href="#">Textile</a></li>
-                            <li class="footer__item"><a href="#">Illustration</a></li>
+                            <li class="footer__item"><a href="/Artwork.aspx">Painting</a></li>
+                            <li class="footer__item"><a href="/Artwork.aspx">Photography</a></li>
+                            <li class="footer__item"><a href="/Artwork.aspx">Design</a></li>
+                            <li class="footer__item"><a href="/Artwork.aspx">Sculpture</a></li>
+                            <li class="footer__item"><a href="/Artwork.aspx">Textile</a></li>
+                            <li class="footer__item"><a href="/Artwork.aspx">Illustration</a></li>
                         </ul>
                     </div>
                 </div>
@@ -80,9 +78,9 @@
                         <ul class="footer__body">
                             <li class="footer__item"><a href="/Homepage.aspx#about_us">About Us</a></li>
                             <li class="footer__item"><a href="/Homepage.aspx#organization">Organisation</a></li>
-                            <li class="footer__item"><a href="#">Privacy Policy</a></li>
-                            <li class="footer__item"><a href="#">Terms and Conditions</a></li>
-                            <li class="footer__item"><a href="/Help.aspx">FAQ</a></li>
+                            <li class="footer__item"><a href="/Help.aspx#faq">FAQ</a></li>
+                            <li class="footer__item"><a href="/Help.aspx#privacy_policy">Privacy Policy</a></li>
+                            <li class="footer__item"><a href="/Help.aspx#terms_and_conditions">Terms and Conditions</a></li>
                         </ul>
                     </div>
                 </div>

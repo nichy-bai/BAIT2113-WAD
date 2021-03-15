@@ -1,8 +1,56 @@
 body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #404040;
 }
 
+    body::before, body::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        min-width: 300vw;
+        min-height: 300vw;
+        background-color: #ebebeb;
+        animation-name: rotate;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    body::before {
+        bottom: 15vh;
+        border-radius: 45%;
+        animation-duration: 10s;
+    }
+
+    body::after {
+        bottom: 12vh;
+        opacity: .5;
+        border-radius: 47%;
+        animation-duration: 10s;
+    }
+
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, 0) rotateZ(0deg);
+    }
+
+    50% {
+        transform: translate(-50%, -2%) rotateZ(180deg);
+    }
+
+    100% {
+        transform: translate(-50%, 0%) rotateZ(360deg);
+    }
+}
 
 .login-box {
     min-width: 350px;
@@ -10,12 +58,15 @@ body {
     background-color: #fff;
     box-shadow: 0px 1px 5px #b5b5b5;
     color: #000;
-    top: 60%;
+    top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
     box-sizing: border-box;
     padding: 70px 30px;
+    opacity: .9;
+    border-radius: .75rem;
+    z-index: 99;
 }
 
 .login-box1 {
@@ -33,30 +84,59 @@ body {
 }
 
 .avatar {
-width: 100px;
-height: 100px;
-border-radius: 50%;
-position: absolute;
-top: -50px;
-left: calc(50% - 50px);
-box-shadow: 0px 1px 5px #b5b5b5;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+    box-shadow: 0px 1px 5px #b5b5b5;
+    transform: translatey(0px);
+    animation: float 5s ease-in-out infinite;
 }
+
+#avatarBtn:hover {
+    opacity: 1;
+}
+
+
+    .avatar > img {
+        width: 100%;
+        height: auto;
+    }
+
+@keyframes float {
+    0% {
+        box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+        transform: translatey(0px);
+    }
+
+    50% {
+        box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+        transform: translatey(-4px);
+    }
+
+    100% {
+        box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+        transform: translatey(0px);
+    }
+}
+
 
 p {
     top: -30%;
 }
 
 h1 {
-    margin: 0px 0px 0px 10px;
-    padding: 0 0 20px;
+    margin: 0;
+    padding-bottom: 10px;
     text-align: center;
     font-size: 2rem;
     font-variant: small-caps;
 }
 
-.auto-style3{
+.auto-style3 {
     color: #ff0000;
-
 }
 
 .login-box p {
@@ -120,7 +200,7 @@ h1 {
     background-color: #fff;
     box-shadow: 0px 1px 5px #b5b5b5;
     color: #000;
-    top: 60%;
+    top: 40%;
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
@@ -129,7 +209,19 @@ h1 {
     margin: 100px auto;
     display: flex;
     flex-direction: column;
+    border-radius: .75rem;
+    z-index: 99;
 }
+
+    .register-box input[type="text"], .register-box input[type="password"], .register-box input[type="email"] {
+        border: none;
+        border-bottom: 1px solid #000;
+        background: transparent;
+        outline: none;
+        color: #000;
+        font-size: 16px;
+    }
+
 
 .register-single {
     display: flex;
@@ -140,7 +232,7 @@ h1 {
 .register-singlerow {
     display: flex;
     flex-direction: row;
-    margin: 10px auto;
+    margin: 5px auto;
 }
 
 .register-question {
@@ -148,24 +240,24 @@ h1 {
 }
 
 .register-btn {
-    width: 50%;
+    width: 100%;
     background-color: #000;
     color: #fff;
     border: 1px solid #000;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     transition: all .5s ease 0s, left .5s ease 0s;
     border-radius: .5rem;
     cursor: pointer;
 }
 
-.register-btn:hover {
-    background-color: #fff;
-    color: #000;
-    box-shadow: 0px 1px 5px #b5b5b5;
-}
+    .register-btn:hover {
+        background-color: #fff;
+        color: #000;
+        box-shadow: 0px 1px 5px #b5b5b5;
+    }
 
 .cancel-btn {
     width: 50%;
@@ -175,7 +267,7 @@ h1 {
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     transition: all .5s ease 0s, left .5s ease 0s;
     border-radius: .5rem;
     cursor: pointer;
@@ -187,139 +279,198 @@ h1 {
         box-shadow: 0px 1px 5px #b5b5b5;
     }
 
-.profile-box {
-    width: 100%;
-    min-height: 100%;
-    background-color: #fff;
+
+
+.return-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
     color: #000;
-    position: relative;
-    padding: 70px 30px;
-    margin: 0px auto;
-    display: flex;
-    flex-direction: row;
+    font-size: 1rem;
 }
 
-.profile-detail {
-    height: 480px;
-    width: 20%;
-    min-width: 20%;
-    background-color: #fff;
-    box-shadow: 0px 1px 5px #b5b5b5;
-    color: #000;
-    position: relative;
-    box-sizing: border-box;
-    padding: 30px;
-    margin-right: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.profile-table {
-    width: 75%;
-}
-
-.profile-btn-active {
-    width: 50%;
-    background-color: #000;
-    color: #fff;
-    border: 1px solid #000;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: all .5s ease 0s, left .5s ease 0s;
-    border-radius: .5rem;
-    margin-top: 30px;
-    display: block;
-}
-
-    .profile-btn-active:hover {
-        background-color: #fff;
-        color: #000;
-        box-shadow: 0px 1px 5px #b5b5b5;
-    }
-
-.profile-btn {
-    width: 50%;
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #000;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: all .5s ease 0s, left .5s ease 0s;
-    border-radius: .5rem;
-    margin-top: 30px;
-    display: block;
-}
-
-    .profile-btn:hover {
-        background-color: #000;
-        color: #fff;
-        box-shadow: 0px 1px 5px #b5b5b5;
-    }
-
-.profile-pic {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 20px;
-}
-
-.profile-gridview {
-    text-decoration: none;
-    text-align: center;
-    text-transform: capitalize;
-    grid-column-gap: 50px;
-
-}
-
-
-
-
-
-
-
-
-.profile-addartwork {
-    display: flex;
-    flex-direction: column;
-    width: 75%;
-    margin-left: 50px;
-}
-
-.profile-artworkrow {
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-}
-
-.profile-addtitle {
-    padding: 20px;
-    font-size: 2rem;
-}
-
-.profile-addquestion {
-    min-width: 150px;
-}
-
-.profile-uploadbtn {
-    width: 35%;
-    background-color: #000;
-    color: #fff;
-    border: 1px solid #000;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: all .5s ease 0s, left .5s ease 0s;
-    border-radius: .5rem;
-    margin-top: 30px;
-    display: block;
-    cursor: pointer;
-}
-
-.profile-uploadbtn:hover {
+.return-btn:hover {
     opacity: .8;
 }
+
+
+
+/*
+    rotating circle animation
+
+div {
+    display: block;
+    position: absolute;
+    top: calc(50% - 10em);
+    left: calc(50% - 10em);
+    width: 20em;
+    height: 20em;
+}
+
+    div.spin {
+        animation: spin 10s linear infinite;
+    }
+
+    div.spin-reverse {
+        animation: spin 30s linear infinite;
+    }
+
+divdui.pulse {
+    animation: spin-pulse 20s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateZ(0);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes spin-pulse {
+    0% {
+        transform: scale(1) rotateZ(0);
+    }
+
+    50% {
+        transform: scale(0.9) rotateZ(180deg);
+    }
+
+    100% {
+        transform: scale(1) rotateZ(360deg);
+    }
+}
+
+body {
+    background: #fff;
+    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #fff;
+    font-size: 24px;
+}
+
+.circle {
+    border-radius: 50%;
+    left: calc(50% - 6.25em);
+    top: calc(50% - 12.5em);
+    transform-origin: 50% 12.5em;
+}
+
+.squircle {
+    border-radius: 25%;
+}
+
+.circle, .squircle {
+    width: 12.5em;
+    height: 12.5em;
+    position: absolute;
+    border-top: 0.1em solid rgba(255,255,255,0.4);
+}
+
+.large.circle {
+    box-shadow: 0 1em 2em rgba(0,0,0,0.5);
+}
+
+.small {
+    width: 4em;
+    height: 4em;
+    left: calc(50% - 2em);
+    top: calc(50% - 15em);
+    transform-origin: 50% 15em;
+    box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.2);
+}
+
+.one {
+    background: rgba(170, 170, 170, 0.75);
+    transform: rotateZ(225deg);
+}
+
+.two {
+    background: rgba(238, 238, 238, 0.75);
+    transform: rotateZ(180deg);
+}
+
+.three {
+    background: rgba(68, 68, 68, 0.75);
+    transform: rotateZ(135deg);
+}
+
+.four {
+    background: rgba(136, 136, 136, 0.75);
+    transform: rotateZ(90deg);
+}
+
+.five {
+    background: rgba(170, 170, 170, 0.75);
+    transform: rotateZ(45deg);
+}
+
+.six {
+    background: rgba(204, 204, 204, 0.75);
+    transform: rotateZ(0);
+}
+
+.seven {
+    background: rgba(238, 238, 238, 0.75);
+    transform: rotateZ(-45deg);
+}
+
+.eight {
+    background: rgba(170, 170, 170, 0.75);
+    transform: rotateZ(-90deg);
+}
+
+.small.squircle {
+    background: none;
+    box-shadow: none;
+}
+
+    .small.squircle::after {
+        content: "";
+        border-radius: 25%;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(204, 204, 204, 0.75);
+        opacity: 0.75;
+        transform: rotateZ(-45deg);
+        box-shadow: -0.25em 0.25em 0.5em rgba(0,0,0,0.2);
+    }
+
+        .small.squircle::after.two::after {
+            background: rgba(37, 172, 162, 0.75);
+        }
+
+        .small.squircle::after.four::after {
+            background: rgba(235, 67, 35, 0.75);
+        }
+
+        .small.squircle::after.six::after {
+            background: rgba(208, 57, 159, 0.75);
+        }
+
+        .small.squircle::after.eight::after {
+            background: rgba(95, 33, 203, 0.75);
+        }
+
+}
+
+.large.squircle {
+    position: absolute;
+    background: rgba(30, 7, 66, 0.65);
+    border: none;
+    left: calc(50% - 7.5em);
+    top: calc(50% - 7.5em);
+    width: 500px;
+    height: 500px;
+    transform: none;
+}
+
+    .large.squircle .one {
+        transform: rotateZ(45deg);
+    }
+
+.content {
+    text-align: center;
+}*/

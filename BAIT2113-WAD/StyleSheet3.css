@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+    box-shadow: 0px 1px 5px #b5b5b5;
+}
+
+.profile-box {
+    width: 100%;
+    min-height: 100%;
+    background-color: #fff;
+    color: #000;
+    position: relative;
+    padding: 70px 30px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-detail {
+    height: 480px;
+    width: 20%;
+    min-width: 20%;
+    background-color: #fff;
+    box-shadow: 0px 1px 5px #b5b5b5;
+    color: #000;
+    position: relative;
+    box-sizing: border-box;
+    padding: 30px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-table {
+    width: 75%;
+}
+
+.profile-btn-active {
+    width: 50%;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all .5s ease 0s, left .5s ease 0s;
+    border-radius: .5rem;
+    margin-top: 30px;
+    display: block;
+}
+
+    .profile-btn-active:hover {
+        background-color: #fff;
+        color: #000;
+        box-shadow: 0px 1px 5px #b5b5b5;
+    }
+
+.profile-btn {
+    width: 50%;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all .5s ease 0s, left .5s ease 0s;
+    border-radius: .5rem;
+    margin-top: 30px;
+    display: block;
+}
+
+    .profile-btn:hover {
+        background-color: #000;
+        color: #fff;
+        box-shadow: 0px 1px 5px #b5b5b5;
+    }
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.profile-gridview {
+    text-decoration: none;
+    text-align: center;
+    text-transform: capitalize;
+    grid-column-gap: 50px;
+}
+
+
+
+
+
+
+
+
+.profile-addartwork {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin-left: 50px;
+}
+
+.profile-artworkrow {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.profile-addtitle {
+    padding: 20px;
+    font-size: 2rem;
+}
+
+.profile-addquestion {
+    min-width: 150px;
+}
+
+.profile-uploadbtn {
+    width: 35%;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all .5s ease 0s, left .5s ease 0s;
+    border-radius: .5rem;
+    margin-top: 30px;
+    display: block;
+    cursor: pointer;
+}
+
+    .profile-uploadbtn:hover {
+        opacity: .8;
+    }
