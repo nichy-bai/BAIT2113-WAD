@@ -28,6 +28,24 @@ function topFunction() {
     document.documentElement.scrollTop = 0;
 }
 
+/*Dropdown content*/
+function loginDropdown() {
+    document.getElementById("login-dropdown").classList.toggle("show-dropdown");
+}
+
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show-dropdown')) {
+                openDropdown.classList.remove('show-dropdown');
+            }
+        }
+    }
+}
+
 
 /*Auto hide nav*/
 /*

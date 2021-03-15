@@ -6,15 +6,25 @@
         <div class="profile-detail">
             <asp:Image ID="profilepic" runat="server" class="profile-pic" />
 
-                <asp:Label ID="lblArtistName" runat="server"></asp:Label>
-                <asp:Label ID="lblArtistID" runat="server"></asp:Label>
-                <asp:Label ID="lbldob" runat="server"></asp:Label>
-                <asp:Label ID="lblphone" runat="server"></asp:Label>
-                <asp:Label ID="lblemail" runat="server"></asp:Label>
-            <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" class="profile-btn">watch me</asp:HyperLink>
-                <a href="mygallery.aspx" class="profile-btn-active">My Gallery</a>
-                <a href="AddArtwork.aspx" class="profile-btn">Add New Artwork</a>
-            <a href="ManageOrder.aspx" class="profile-btn-active">Manage Order</a>
+            <span class="profile-detail-label">name</span>
+            <asp:Label ID="lblArtistName" runat="server" CssClass="profile-detail-text"></asp:Label>
+
+            <span class="profile-detail-label">user id</span>
+            <asp:Label ID="lblArtistID" runat="server" CssClass="profile-detail-text"></asp:Label>
+
+            <span class="profile-detail-label">date of birth</span>
+                <asp:Label ID="lbldob" runat="server" CssClass="profile-detail-text"></asp:Label>
+
+            <span class="profile-detail-label">phone</span>
+            <asp:Label ID="lblphone" runat="server" CssClass="profile-detail-text"></asp:Label>
+
+            <span class="profile-detail-label">email</span>
+            <asp:Label ID="lblemail" runat="server" CssClass="profile-detail-text"></asp:Label>
+
+            <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" class="profile-btn">Watch Me</asp:HyperLink>
+            <a href="mygallery.aspx" class="profile-btn-active">My Gallery</a>
+            <a href="AddArtwork.aspx" class="profile-btn">Add New Artwork</a>
+            <a href="ManageOrder.aspx" class="profile-btn">Manage Order</a>
         </div>
         <div class="profile-table">
             <div>Select the category:</div>
@@ -61,9 +71,9 @@
                     </UpdateParameters>
                 </asp:SqlDataSource>
 
-                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="artworkID" DataSourceID="SqlDataSource2" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" CssClass="profile-gridview">
+                <asp:GridView ID="GridView1" runat="server" PageSize="10" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="artworkID" DataSourceID="SqlDataSource2" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" CssClass="profile-gridview">
                     <Columns>
-                        <asp:BoundField DataField="artworkID" HeaderText="artworkID" ReadOnly="True" SortExpression="artworkID" ItemStyle-Width="200px" >
+                        <asp:BoundField DataField="artworkID" HeaderText="artworkID" ReadOnly="True" SortExpression="artworkID" ItemStyle-Width="200px">
                         </asp:BoundField>
                         <asp:BoundField DataField="artworkName" HeaderText="artworkName" SortExpression="artworkName" ItemStyle-Width="200px" >
                         </asp:BoundField>

@@ -381,6 +381,52 @@ body {
 
 
 
+.dropbtn {
+    border: none;
+    cursor: pointer;
+}
+
+    .dropbtn:hover, .dropbtn:focus {
+        fill: white;
+    }
+
+.dropdown {
+    float: right;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    top: 4rem;
+    z-index: 99;
+    text-align: center;
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+.dropdown-content a:hover {
+    background-color: black;
+    color: white;
+}
+
+.show-dropdown {
+    display: block;
+}
+
+
+
 
 
 .content {
@@ -510,7 +556,7 @@ body {
     background-color: #fff;
     border-radius: 0.5rem;
     border-style: solid;
-    border-width: 2px;
+    border-width: 1px;
     font-size: 1rem;
     cursor: pointer;
     transition: all .5s ease 0s, left .5s ease 0s;
@@ -763,7 +809,7 @@ section {
     justify-content: space-between;
     height: 100%;
     width: 80%;
-    margin: 0 auto 50px auto;
+    margin: 100px auto 150px auto;
     padding: 0px;
     background-color: #fff;
 }
@@ -813,8 +859,8 @@ a.anchor {
     align-items: center;
     width: 100%;
     height: auto;
-    margin: 0 auto 50px auto;
-    padding: 40px 0px;
+    margin: 0 auto 150px auto;
+    padding: 80px 0px;
     background-color: #f0f0f0;
 }
 

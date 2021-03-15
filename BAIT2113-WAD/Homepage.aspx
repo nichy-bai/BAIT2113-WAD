@@ -14,8 +14,6 @@
         <a href="#scroll-down" title="Scroll Down"><span></span></a>
     </section>
 
-    
-
     <div class="homepage__bodyrow">
         <div class="homepage__text">
             <div class="homepage__textrow">
@@ -27,10 +25,10 @@
                         <a class="anchor" id="about_us"></a>
                     </div>
                     <div class="homepage__subtitle">
-                        Gallerion is the world’s fastest growing online art gallery, connecting people with art and artists they love. 
-                        Gallerion offers a beautiful selection of paintings, drawings, sculpture, design, jewellery and photography in 
-                        various price ranges. It provides artists from around the world with an expertly curated environment in which to 
-                        exhibit and sell their work. 
+                        Gallerion is the world’s fastest growing online art gallery, connecting people with art and artists they love.
+                        Gallerion offers a beautiful selection of paintings, drawings, sculpture, design, jewellery and photography in
+                        various price ranges. It provides artists from around the world with an expertly curated environment in which to
+                        exhibit and sell their work.
                     </div>
                 </div>
                 <div>
@@ -39,13 +37,13 @@
                         <a class="anchor" id="organization"></a>
                     </div>
                     <div class="homepage__subtitle">
-                        Every artist, photographer, designer or jewellery maker can create his/her own artist page on Gallerion. 
+                        Every artist, photographer, designer or jewellery maker can create his/her own artist page on Gallerion.
                         Publication on our website is on condition the page meets our requirements and must have been approved by
-                        Gallerion. A page not meeting our criteria will not be included in the overview. 
+                        Gallerion. A page not meeting our criteria will not be included in the overview.
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
         <div class="fadein">
             <img src="https://picsum.photos/id/939/600/500">
             <img src="https://picsum.photos/id/942/600/500">
@@ -109,7 +107,7 @@
                     </div>
                 </div>
           </div>
-        </div> 
+        </div>
         <div class="homepage__login">
             <div class="homepage__title">
                 Join Us Now!
