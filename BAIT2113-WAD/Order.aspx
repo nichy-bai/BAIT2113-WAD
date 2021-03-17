@@ -68,19 +68,26 @@
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             </span>--%>
                             <span style="font-family: 'Roboto'; font-size: 22px; font-weight: bold">Quantity:</span>
-                            <input class="btn btn-default btn-lg btn-qty" type="number" id="quantity" name="quantity" min="1" max="100" style="padding: 5px" />
+                            <%--<input class="btn btn-default btn-lg btn-qty" type="number" id="quantity" name="quantity" min="1" max="100" style="padding: 5px" />--%>
                             <%--<span class="btn btn-default btn-lg btn-qty">
                                 <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                             </span>--%>
+                            <asp:Button ID="btnMinusClick" runat="server" Text="-" class="btn btn-default btn-lg btn-qty" OnClick="btnMinusClick_Click"/>
+                            <asp:TextBox ID="txtQuantity" runat="server" class="btn btn-default btn-lg btn-qty"></asp:TextBox>
+                            <asp:Button ID="btnAddClick" runat="server" Text="+" class="btn btn-default btn-lg btn-qty" OnClick="btnAddClick_Click"/>
                         </div>
                         <div class="col-md-3">
-                            <button class="view_more" style="">
+                            <%--<button class="view_more" style="">
                                 Add to Cart
-                            </button>
+                            </button>--%>
+                            <asp:Button ID="Button2" runat="server" Text="Add to Cart" OnClick="Button1_Click" class="view_more" style="margin-left: 50px"/>
                         </div>
                         <div class="col-md-3">
-                            <button class="view_more" style="">
-                                Buy Now</button>
+                            <%--<button class="view_more" style="">
+                                Buy Now</button>--%>
+
+                            <asp:Button ID="Button3" runat="server" Text="Buy Now" class="view_more" style="margin-left: 50px" />
+
                         </div>
                     </div>
                     <!-- end row -->
