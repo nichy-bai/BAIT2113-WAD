@@ -43,20 +43,16 @@
             <div>
                 <div class="horizontal__title"><a href="/Homepage.aspx" class="horizontal__link">gallerion</a></div>
             </div>
-            <div>
-                <div class="horizontal__item dropbtn" onclick="loginDropdown()">
-                    <div>
-                        <svg width="2rem" height="2rem" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                    </div>
-                    <div id="login-dropdown" class="dropdown-content">
-                        <a href="#"><asp:Label runat="server" ID="dropdownlbl1" Text="View Profile"></asp:Label></a>
-                        <a href="/Login.aspx"><asp:Label runat="server" ID="dropdownlbl2" Text="Login"></asp:Label></a>
-                        <a href="#">"if no use</a>
-                        <a href="#">i will remove</a>
-                        <a href="#">it later"</a>
-                    </div>
+            <div class="horizontal__item dropbtn" onclick="loginDropdown()">
+                <div class="horizontal__icon">
+                    <svg width="2rem" height="2rem" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                 </div>
+
+            </div>
+            <div id="login-dropdown" class="dropdown-content">
+                <a href="#"><asp:Label runat="server" ID="dropdownlbl1" Text="View Profile"></asp:Label></a>
+                <a href="/Login.aspx"><asp:Label runat="server" ID="dropdownlbl2" Text="Login"></asp:Label></a>
             </div>
         </div>
 
