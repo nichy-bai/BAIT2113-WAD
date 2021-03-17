@@ -27,6 +27,9 @@
             <a href="ManageOrder.aspx" class="profile-btn">Manage Order</a>
         </div>
         <div class="profile-table">
+            <div class="profile-addtitle">My Gallery</div>
+
+            <div style="padding: 20px; padding-top: 0;">
             <div>Select the category:</div>
             <asp:DropDownList ID="ddlshowctg" runat="server" AutoPostBack="True" Height="32px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                 <asp:ListItem>Painting</asp:ListItem>
@@ -37,6 +40,7 @@
                 <asp:ListItem>Illustration</asp:ListItem>
                 </asp:DropDownList>
 
+                <div style="height: 20px;"></div>
 
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Artwork] WHERE ([artistID] = @artistID)">
                     <SelectParameters>
@@ -98,6 +102,7 @@
                 </asp:GridView>
                 <asp:Repeater ID="Repeater1" runat="server">
                 </asp:Repeater>
+            </div>
         </div>
     </div>
 </asp:Content>

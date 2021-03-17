@@ -74,6 +74,7 @@
     <Content Include="images\avatar.png" />
     <Content Include="JavaScript.js" />
     <Content Include="ManageOrder.aspx" />
+    <Content Include="Profile.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="StyleSheet3.css" />
@@ -127,6 +128,13 @@
     </Compile>
     <Compile Include="mygallery.aspx.designer.cs">
       <DependentUpon>mygallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Gallerion.Master.cs">
