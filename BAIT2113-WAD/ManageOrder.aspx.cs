@@ -27,7 +27,7 @@ namespace BAIT2113_WAD
             cmd.Parameters.AddWithValue("@ID", ID);
             con.Open();
             rdr = cmd.ExecuteReader();
-            
+
             while (rdr.Read())
             {
                 lblArtistID.Text = rdr["artistID"].ToString();
@@ -37,21 +37,19 @@ namespace BAIT2113_WAD
                 lblemail.Text = rdr["email"].ToString();
                 HyperLink1.NavigateUrl = rdr["video"].ToString();
                 profilepic.ImageUrl = rdr["profilePic"].ToString();
-                
+
             }
             con.Close();
             con.Open();
-            
+
                 int c = Convert.ToInt32(cmd1.ExecuteScalar());
-                lblpending.Text = c.ToString();
-            Button1.Text = c.ToString() + Environment.NewLine + "Pending Shipment";
-            
+            Button1.Text = "Pending Shipment (" + c.ToString() + ")";
+
             con.Close();
             con.Open();
 
             int d = Convert.ToInt32(cmd2.ExecuteScalar());
-            lbldelivered.Text = d.ToString();
-            Button2.Text = d.ToString() + Environment.NewLine + "Delivered";
+            Button2.Text = "Delivered (" + d.ToString() + ")";
 
             con.Close();
 
@@ -66,12 +64,22 @@ namespace BAIT2113_WAD
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            Button1.ForeColor = System.Drawing.Color.Red;
+            Button1.BackColor = System.Drawing.Color.Black;
+            Button2.ForeColor = System.Drawing.Color.Black;
+            Button2.BackColor = System.Drawing.Color.White;
             this.Repeater1.Visible = true;
+            this.Repeater2.Visible = false;
             this.Repeater1.DataBind();
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            Button1.ForeColor = System.Drawing.Color.Black;
+            Button1.BackColor = System.Drawing.Color.White;
+            Button2.ForeColor = System.Drawing.Color.Chartreuse;
+            Button2.BackColor = System.Drawing.Color.Black;
+            this.Repeater1.Visible = false;
             this.Repeater2.Visible = true;
             this.Repeater2.DataBind();
         }

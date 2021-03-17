@@ -40,7 +40,7 @@ namespace BAIT2113_WAD
         protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             string cgy = ddlCategory.SelectedItem.Text;
-            
+
 
 
             string sql = "Select count(artworkID) from Artwork ";
@@ -84,7 +84,7 @@ namespace BAIT2113_WAD
                     lblArtworkID.Text = "IT000" + c.ToString();
                 }
 
-            
+
             con.Close();
 
         }
@@ -122,13 +122,13 @@ namespace BAIT2113_WAD
                 con.Close();
 
                 lblmsg.Visible = true;
-                lblmsg.Text = "Artwork Uploaded successfully";
+                lblmsg.Text = "Artwork Uploaded successfully.";
 
             }
             else
             {
                 lblmsg.Visible = true;
-                lblmsg.Text = "Please upload the image!!!!";
+                lblmsg.Text = "ERROR! Invalid input detected.";
             }
 
         }

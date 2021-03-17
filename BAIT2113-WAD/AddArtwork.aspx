@@ -19,17 +19,27 @@
     <div class="profile-box">
         <div class="profile-detail">
 
-                <asp:Image ID="profilepic" runat="server" class="profile-pic" />
+               <asp:Image ID="profilepic" runat="server" class="profile-pic" />
 
-                <asp:Label ID="lblArtistName" runat="server"></asp:Label>
-                <asp:Label ID="lblArtistID" runat="server"></asp:Label>
-                <asp:Label ID="lbldob" runat="server"></asp:Label>
-                <asp:Label ID="lblphone" runat="server"></asp:Label>
-                <asp:Label ID="lblemail" runat="server"></asp:Label>
-            <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" class="profile-btn">watch me</asp:HyperLink>
-                <a href="mygallery.aspx" class="profile-btn">My Gallery</a>
-                <a href="AddArtwork.aspx" class="profile-btn-active">Add New Artwork</a>
-            <a href="ManageOrder.aspx" class="profile-btn-active">Manage Order</a>
+            <span class="profile-detail-label">name</span>
+            <asp:Label ID="lblArtistName" runat="server" CssClass="profile-detail-text"></asp:Label>
+
+            <span class="profile-detail-label">user id</span>
+            <asp:Label ID="lblArtistID" runat="server" CssClass="profile-detail-text"></asp:Label>
+
+            <span class="profile-detail-label">date of birth</span>
+                <asp:Label ID="lbldob" runat="server" CssClass="profile-detail-text"></asp:Label>
+
+            <span class="profile-detail-label">phone</span>
+            <asp:Label ID="lblphone" runat="server" CssClass="profile-detail-text"></asp:Label>
+
+            <span class="profile-detail-label">email</span>
+            <asp:Label ID="lblemail" runat="server" CssClass="profile-detail-text"></asp:Label>
+
+            <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" class="profile-btn">Watch Me</asp:HyperLink>
+            <a href="mygallery.aspx" class="profile-btn">My Gallery</a>
+            <a href="AddArtwork.aspx" class="profile-btn-active">Add New Artwork</a>
+            <a href="ManageOrder.aspx" class="profile-btn">Manage Order</a>
         </div>
         <div class="profile-addartwork">
             <div class="profile-addtitle">Add New Artwork</div>
@@ -74,13 +84,13 @@
 
             <div class="profile-artworkrow">
                 <div class="profile-addquestion">Description</div>
-                <textarea id="taDescription" class="auto-style6" name="taDescription" runat="server"></textarea>
+                <textarea id="taDescription" class="auto-style6" name="taDescription" runat="server"  rows="10" cols="28"></textarea>
             </div>
 
             <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" CssClass="profile-uploadbtn" />
                 <br />
                 <br />
-                <asp:Label ID="lblmsg" runat="server"></asp:Label>
+                <asp:Label ID="lblmsg" runat="server" CssClass="upload-msg"></asp:Label>
         </div>
     </div>
 
