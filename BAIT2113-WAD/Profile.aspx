@@ -26,7 +26,7 @@
 
             <a href="Profile.aspx" class="profile-btn-active">Profile Details</a>
             <a href="Wishlist.aspx" class="profile-btn">Wishlist</a>
-            <a href="#" class="profile-btn">Shopping Cart</a>
+            <a href="AddToCart.aspx" class="profile-btn">Shopping Cart</a>
             <a href="PurchaseHistory.aspx" class="profile-btn">Purchase History</a>
         </div>
 
