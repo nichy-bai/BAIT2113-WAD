@@ -58,20 +58,20 @@
         <div class="homepage__colcontent">
             <div class="homepage__coltext">
                 <svg width="4rem" height="4rem" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                <div>Selection</div>
-                <br />
-                <div>
-                    Our experts select the best art galleries around the world.
-                </div>
-            </div>
-            <div class="homepage__coltext">
-                <svg width="4rem" height="4rem" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 <div>Browse</div>
                 <br />
                 <div>
-                    Our galleries put their best artworks online with Artsper.
+                    Browse the most complete and beautiful art galleries provided by Gallerion, which will amaze you.
+                </div>
+            </div>
+            <div class="homepage__coltext">
+                <svg width="4rem" height="4rem" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <div>Selection</div>
+                <br />
+                <div>
+                    Select your favorite artwork from the many available artworks from artists all over the world.
                 </div>
             </div>
             <div class="homepage__coltext">
@@ -80,7 +80,7 @@
                 <div>Order</div>
                 <br />
                 <div>
-                    Order a work online and have it delivered to you thanks to a trustworthy and secure service.
+                    Order an artwork online and have it delivered to you thanks to a trustworthy and secure service.
                 </div>
             </div>
         </div>
