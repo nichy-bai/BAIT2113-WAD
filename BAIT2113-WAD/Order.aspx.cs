@@ -105,7 +105,7 @@ namespace BAIT2113_WAD
             cnn.Close();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnAddToCart_Click(object sender, EventArgs e)
         {
             //int c;
             //string ID = Session["CustomerID"].ToString();
@@ -140,71 +140,119 @@ namespace BAIT2113_WAD
             //cmd.Parameters.AddWithValue("@subtotal", subtotal);
             //Response.Redirect("~/Checkout.aspx");
 
+            int a = Convert.ToInt32(txtQuantity.Text);
 
-            string artworkID = Session["ArtworkID"].ToString();
-            string customerID = Session["CustomerID"].ToString();
-
-            string sql1 = "Select * from Artwork where artworkID = @ID ";
-            string sql2 = "SELECT COUNT(*) FROM Cart";
-            string sql3 = "INSERT INTO Cart(No,artworkID,image,artworkName,price,customerID) VALUES (@No,@ID, @image,@artworkName,@price,@customerID)";
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand(sql1, con);
-            SqlCommand cmd2 = new SqlCommand(sql2, con);
-            SqlCommand cmd3 = new SqlCommand(sql3, con);
-            SqlDataReader rdr;
-            cmd.Parameters.AddWithValue("@ID", artworkID);
-            con.Open();
-            rdr = cmd.ExecuteReader();
-
-            while (rdr.Read())
+            if (a > 0)
             {
-                Session["a"] = rdr["image"].ToString();
-                Session["b"] = rdr["artworkName"].ToString();
-                Session["d"] = rdr["price"].ToString();
+
+
+
+                string artworkID = Session["ArtworkID"].ToString();
+                string customerID = Session["CustomerID"].ToString();
+
+                string sql1 = "Select * from Artwork where artworkID = @ID ";
+                string sql2 = "SELECT COUNT(*) FROM Cart";
+                string sql3 = "INSERT INTO Cart(No,artworkID,image,artworkName,price,customerID,quantity) VALUES (@No,@ID, @image,@artworkName,@price,@customerID,@quantity)";
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+                SqlCommand cmd = new SqlCommand(sql1, con);
+                SqlCommand cmd2 = new SqlCommand(sql2, con);
+                SqlCommand cmd3 = new SqlCommand(sql3, con);
+                SqlDataReader rdr;
+                cmd.Parameters.AddWithValue("@ID", artworkID);
+                
+                con.Open();
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Session["a"] = rdr["image"].ToString();
+                    Session["b"] = rdr["artworkName"].ToString();
+                    Session["d"] = rdr["price"].ToString();
+                }
+                con.Close();
+                con.Open();
+                int c = Convert.ToInt32(cmd2.ExecuteScalar());
+                c++;
+                Session["e"] = c;
+                con.Close();
+                string image = Session["a"].ToString();
+                string artworkName = Session["b"].ToString();
+                string price = Session["d"].ToString();
+                string f = Session["e"].ToString();
+                string quantity = txtQuantity.Text;
+                cmd3.Parameters.AddWithValue("@ID", artworkID);
+                cmd3.Parameters.AddWithValue("@customerID", customerID);
+                cmd3.Parameters.AddWithValue("@image", image);
+                cmd3.Parameters.AddWithValue("@artworkName", artworkName);
+                cmd3.Parameters.AddWithValue("@price", price);
+                cmd3.Parameters.AddWithValue("@No", f);
+                cmd3.Parameters.AddWithValue("@quantity", quantity);
+                con.Open();
+                cmd3.ExecuteNonQuery();
+                con.Close();
+                errLabel.Visible = false;
+
             }
-            con.Close();
-            con.Open();
-            int c = Convert.ToInt32(cmd2.ExecuteScalar());
-            c++;
-            Session["e"] = c;
-            con.Close();
-            string image = Session["a"].ToString();
-            string artworkName = Session["b"].ToString();
-            string price = Session["d"].ToString();
-            string f = Session["e"].ToString();
-            cmd3.Parameters.AddWithValue("@ID", artworkID);
-            cmd3.Parameters.AddWithValue("@customerID", customerID);
-            cmd3.Parameters.AddWithValue("@image", image);
-            cmd3.Parameters.AddWithValue("@artworkName",artworkName);
-            cmd3.Parameters.AddWithValue("@price", price);
-            cmd3.Parameters.AddWithValue("@No", f);
-            con.Open();
-            cmd3.ExecuteNonQuery();
-            con.Close();
-            
+            else
+            {
+                errLabel.Text = "Cannot add 0 item(s) to cart!";
+                errLabel.Visible = true;
+            }
 
         }
 
-        protected void btnMinusClick_Click(object sender, EventArgs e)
+        protected void btnMinus_Click(object sender, EventArgs e)
         {
+            
             int a = Convert.ToInt32(txtQuantity.Text);
 
             if (a > 0)
             {
                 a--;
                 txtQuantity.Text = Convert.ToString(a);
+                errLabel.Visible = false;
+            }
+            else
+            {
+                errLabel.Visible = false;
             }
         }
 
-        protected void btnAddClick_Click(object sender, EventArgs e)
+
+        protected void btnAdd_Click(object sender, EventArgs e)
         {
-            int a = Convert.ToInt32(txtQuantity.Text);
-            int maxQty = Convert.ToInt32(Session["quantity"].ToString());
-            if (a < maxQty)
+            string artworkID = Session["ArtworkID"].ToString();
+            string sql1 = "Select * from Artwork where artworkID = @ID ";
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand(sql1, con);
+
+            SqlDataReader rdr1;
+            cmd.Parameters.AddWithValue("@ID", artworkID);
+            con.Open();
+            rdr1 = cmd.ExecuteReader();
+
+            while (rdr1.Read())
             {
-                a++;
-                txtQuantity.Text = Convert.ToString(a);
+                string v_quantity = rdr1["quantity"].ToString();
+                
+                int a = Convert.ToInt32(txtQuantity.Text);
+                int maxQty = Convert.ToInt32(v_quantity);
+                if (a < maxQty)
+                {
+                    errLabel.Visible = false;
+                    a++;
+                    txtQuantity.Text = Convert.ToString(a);
+                    
+                }
+                else
+                {
+                    errLabel.Text = "Maximum stock is reached!";
+                    errLabel.Visible = true;
+                }
             }
+            con.Close();
+
+            
         }
         //protected void AddToWish_Click(object sender, EventArgs e)
         //{

@@ -72,15 +72,15 @@
                             <%--<span class="btn btn-default btn-lg btn-qty">
                                 <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                             </span>--%>
-                            <asp:Button ID="btnMinusClick" runat="server" Text="-" class="btn btn-default btn-lg btn-qty" OnClick="btnMinusClick_Click"/>
-                            <asp:TextBox ID="txtQuantity" runat="server" class="btn btn-default btn-lg btn-qty"></asp:TextBox>
-                            <asp:Button ID="btnAddClick" runat="server" Text="+" class="btn btn-default btn-lg btn-qty" OnClick="btnAddClick_Click"/>
+                            <asp:Button ID="btnMinusClick" runat="server" Text="-" class="btn btn-default btn-lg btn-qty" OnClick="btnMinus_Click"/>
+                            <asp:TextBox ID="txtQuantity" runat="server" class="btn btn-default btn-lg btn-qty" Text="0"></asp:TextBox>
+                            <asp:Button ID="btnAddClick" runat="server" Text="+" class="btn btn-default btn-lg btn-qty" OnClick="btnAdd_Click"/>
                         </div>
                         <div class="col-md-3">
                             <%--<button class="view_more" style="">
                                 Add to Cart
                             </button>--%>
-                            <asp:Button ID="Button2" runat="server" Text="Add to Cart" OnClick="Button1_Click" class="view_more" style="margin-left: 50px"/>
+                            <asp:Button ID="Button2" runat="server" Text="Add to Cart" OnClick="btnAddToCart_Click" class="view_more" style="margin-left: 50px"/>
                         </div>
                         <div class="col-md-3">
                             <%--<button class="view_more" style="">
@@ -89,6 +89,7 @@
                             <asp:Button ID="Button3" runat="server" Text="Buy Now" class="view_more" style="margin-left: 50px" />
 
                         </div>
+                        <asp:Label ID="errLabel" runat="server" Text=""></asp:Label>
                     </div>
                     <!-- end row -->
                 </div>

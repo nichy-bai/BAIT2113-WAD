@@ -22,13 +22,13 @@
   <div class="gallery_container">
     
 	<div class="heading">Art Gallery </div>
-    <div class="cart-nav">
+    <div class="cart-nav"><a href="AddToCart.aspx">
             <div class="icon">
                 <i class="fas fa-shopping-cart"></i>
                 <span>Cart</span>
             </div>
-            <div class="item-count">0</div>
-    </div>
+            <%--<div class="item-count">0</div>--%>
+    </a></div>
     
 	<div class="gallery">
         <div class="side_menu">
