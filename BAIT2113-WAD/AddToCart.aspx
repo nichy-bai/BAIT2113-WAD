@@ -33,21 +33,29 @@
         <div>
             <div class="profile-addtitle">Shopping Cart</div>
 
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="No">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="No" PageSize="10" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" CssClass="profile-gridview">
                 <Columns>
                     <%--<asp:BoundField DataField="No" HeaderText="No" SortExpression="No" ReadOnly="True" />--%>
-                    <asp:CommandField ShowDeleteButton="True" />
-                    <asp:BoundField DataField="artworkID" HeaderText="artworkID" SortExpression="artworkID" />
+                    <asp:CommandField ShowDeleteButton="True" ItemStyle-Width="100px" />
+                    <%--<asp:BoundField DataField="artworkID" HeaderText="artworkID" SortExpression="artworkID" />--%>
                     <asp:ImageField HeaderText="image" SortExpression="image" DataImageURLField="image" ItemStyle-Width="200px" ItemStyle-Height="200px" ControlStyle-Height="200" ControlStyle-Width="200" >
-<ControlStyle Height="200px" Width="200px"></ControlStyle>
+<ControlStyle Height="250px" Width="250px"></ControlStyle>
 
 <ItemStyle Height="200px" Width="200px"></ItemStyle>
                     </asp:ImageField>
-                    <asp:BoundField DataField="artworkName" HeaderText="artworkName" SortExpression="artworkName" />
-                    <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" />
-                    <asp:BoundField DataField="quantity" HeaderText="quantity" SortExpression="quantity" />
-                    <asp:BoundField DataField="subtotal" HeaderText="subtotal" SortExpression="subtotal" />
+                    <asp:BoundField DataField="artworkName" HeaderText="artworkName" SortExpression="artworkName" ItemStyle-Width="350px" />
+                    <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" ItemStyle-Width="150px" />
+                    <asp:BoundField DataField="quantity" HeaderText="quantity" SortExpression="quantity" ItemStyle-Width="150px" />
+                    <asp:BoundField DataField="subtotal" HeaderText="subtotal" SortExpression="subtotal" ItemStyle-Width="150px" />
                 </Columns>
+                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                    <SortedDescendingHeaderStyle BackColor="#242121" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [No], [artworkID], [image], [artworkName], [price], [quantity], [subtotal] FROM [Cart]" DeleteCommand="DELETE FROM [Cart] WHERE [No] = @No" InsertCommand="INSERT INTO [Cart] ([No], [artworkID], [image], [artworkName], [price], [quantity], [subtotal]) VALUES (@No, @artworkID, @image, @artworkName, @price, @quantity, @subtotal)" UpdateCommand="UPDATE [Cart] SET [artworkID] = @artworkID, [image] = @image, [artworkName] = @artworkName, [price] = @price, [quantity] = @quantity, [subtotal] = @subtotal WHERE [No] = @No">
                 <DeleteParameters>

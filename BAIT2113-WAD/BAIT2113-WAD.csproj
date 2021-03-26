@@ -78,6 +78,7 @@
     <Content Include="Profile.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ShinStyle2.css" />
+    <Content Include="styleArtwork.css" />
     <Content Include="StyleSheet1.css" />
     <Content Include="StyleSheet3.css" />
     <Content Include="StyleSheet2.css" />

@@ -15,21 +15,19 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="styleArtwork.css" rel="stylesheet" />
 
   <div class="gallery_container">
-    
+
 	<div class="heading">Art Gallery </div>
     <div class="cart-nav"><a href="AddToCart.aspx">
             <div class="icon">
-                <i class="fas fa-shopping-cart"></i>
-                <span>Cart</span>
+                <svg width="2rem" height="2rem" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+
             </div>
             <%--<div class="item-count">0</div>--%>
     </a></div>
-    
+
 	<div class="gallery">
         <div class="side_menu">
             <div class="side_menu_content">
@@ -59,7 +57,7 @@
                                 <div class="details">
                                     <span><%#Eval("artworkName") %></span>
                                 </div>
-                                <div class="price"> $<%#Eval("price") %></div>
+                                <div class="price"> $ <%#Eval("price") %></div>
                             </div>
                             <div class="buttons">
                                 <asp:Button ID="viewMore" runat="server" Text="View More" CssClass="view_more" OnClick="viewMore_Click" CommandArgument='<%# Eval("artworkID") %>'/>

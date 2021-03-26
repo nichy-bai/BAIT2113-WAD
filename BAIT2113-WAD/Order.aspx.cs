@@ -159,7 +159,7 @@ namespace BAIT2113_WAD
                 SqlCommand cmd3 = new SqlCommand(sql3, con);
                 SqlDataReader rdr;
                 cmd.Parameters.AddWithValue("@ID", artworkID);
-                
+
                 con.Open();
                 rdr = cmd.ExecuteReader();
 
@@ -203,7 +203,7 @@ namespace BAIT2113_WAD
 
         protected void btnMinus_Click(object sender, EventArgs e)
         {
-            
+
             int a = Convert.ToInt32(txtQuantity.Text);
 
             if (a > 0)
@@ -234,7 +234,7 @@ namespace BAIT2113_WAD
             while (rdr1.Read())
             {
                 string v_quantity = rdr1["quantity"].ToString();
-                
+
                 int a = Convert.ToInt32(txtQuantity.Text);
                 int maxQty = Convert.ToInt32(v_quantity);
                 if (a < maxQty)
@@ -242,17 +242,17 @@ namespace BAIT2113_WAD
                     errLabel.Visible = false;
                     a++;
                     txtQuantity.Text = Convert.ToString(a);
-                    
+
                 }
                 else
                 {
-                    errLabel.Text = "Maximum stock is reached!";
+                    errLabel.Text = "Maximum quantity reached!";
                     errLabel.Visible = true;
                 }
             }
             con.Close();
 
-            
+
         }
         //protected void AddToWish_Click(object sender, EventArgs e)
         //{

@@ -31,9 +31,9 @@
 
                     <li class="navigation__item"><a href="/Homepage.aspx" class="navigation__link">Home</a></li>
                     <li class="navigation__item"><a href="/Artwork.aspx" class="navigation__link">Artwork Sales</a></li>
-                    <li class="navigation__item"><a href="/Artwork.aspx" class="navigation__link">Display Gallery</a></li>
+                    <li class="navigation__item"><a href="/PurchaseHistory.aspx" class="navigation__link">Purchase History</a></li>
+                    <li class="navigation__item"><a href="/AddToCart.aspx" class="navigation__link">Shopping Cart</a></li>
                     <li class="navigation__item"><a href="/Wishlist.aspx" class="navigation__link">Wishlist</a></li>
-                    <li class="navigation__item"><a href="/Profile.aspx" class="navigation__link">Profile</a></li>
                     <li class="navigation__item"><a href="/Help.aspx" class="navigation__link">Help</a></li>
                 </ul>
             </nav>
@@ -51,7 +51,7 @@
 
             </div>
             <div id="login-dropdown" class="dropdown-content">
-                <a href="#"><asp:Label runat="server" ID="dropdownlbl1" Text="View Profile"></asp:Label></a>
+                <a href="#"><asp:Label runat="server" ID="dropdownlbl1" Text="Profile"></asp:Label></a>
                 <a href="/Login.aspx"><asp:Label runat="server" ID="dropdownlbl2" Text="Login"></asp:Label></a>
             </div>
         </div>

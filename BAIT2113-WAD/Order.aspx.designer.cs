@@ -87,22 +87,22 @@ namespace BAIT2113_WAD
         protected global::System.Web.UI.WebControls.Button btnAddClick;
 
         /// <summary>
-        /// Button2 control.
+        /// Button5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button Button5;
 
         /// <summary>
-        /// Button3 control.
+        /// Button6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button Button6;
 
         /// <summary>
         /// errLabel control.
