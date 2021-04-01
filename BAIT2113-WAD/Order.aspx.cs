@@ -107,91 +107,72 @@ namespace BAIT2113_WAD
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
-            //int c;
-            //string ID = Session["CustomerID"].ToString();
-            //string artwork = Session["ArtworkID"].ToString();
-            //string cgy = ddlCategory.SelectedItem.Text;
-            //string artid = lblArtworkID.Text;
-            //string artworkname = txtArtworkName.Text;
-            //string desc = taDescription.Value;
-            //int qty = Convert.ToInt32(txtQuantity.Text);
-            //double prc = Convert.ToDouble(txtPrice.Text);
-            //string sql2 = "SELECT COUNT(*) FROM Cart";
-            //string sql1 = "insert into Cart(artworkID,image,artworkName,price) SELECT artworkID, image, artworkName, price FROM Artwork LEFT JOIN Cart ON Cart.artworkID = @artworkID WHERE customerID = @customerID ";
-            //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-            //SqlCommand cmd = new SqlCommand(sql1, con);
-            //SqlCommand cmd2 = new SqlCommand(sql2, con);
-            //con.Open();
-            //c = Convert.ToInt32(cmd2.ExecuteScalar());
-            //c++;
-            //con.Close();
-            //cmd.Parameters.AddWithValue("@No", c);
-            //cmd.Parameters.AddWithValue("@artworkID", artwork);
-            //cmd.Parameters.AddWithValue("@customerID", ID);
-            //con.Open();
-            //cmd.ExecuteNonQuery();
-            //con.Close();
-
-
-            //cmd.Parameters.AddWithValue("@image", image);
-            //cmd.Parameters.AddWithValue("@artworkName", artworkname);
-            //cmd.Parameters.AddWithValue("@quantity", qty);
-            //cmd.Parameters.AddWithValue("@price", prc);
-            //cmd.Parameters.AddWithValue("@subtotal", subtotal);
-            //Response.Redirect("~/Checkout.aspx");
-
             int a = Convert.ToInt32(txtQuantity.Text);
 
             if (a > 0)
             {
-
-
 
                 string artworkID = Session["ArtworkID"].ToString();
                 string customerID = Session["CustomerID"].ToString();
 
                 string sql1 = "Select * from Artwork where artworkID = @ID ";
                 string sql2 = "SELECT COUNT(*) FROM Cart";
-                string sql3 = "INSERT INTO Cart(No,artworkID,image,artworkName,price,customerID,quantity) VALUES (@No,@ID, @image,@artworkName,@price,@customerID,@quantity)";
+                string sql3 = "INSERT INTO Cart(No,artworkID,image,artworkName,price,customerID,quantity) VALUES (@No,@artworkID, @image,@artworkName,@price,@customerID,@quantity)";
+                string sql5 = "Update Cart SET quantity = quantity + " + txtQuantity.Text + " WHERE artworkID = @ArtworkID AND customerID = @CustomerID";
                 SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
                 SqlCommand cmd = new SqlCommand(sql1, con);
                 SqlCommand cmd2 = new SqlCommand(sql2, con);
                 SqlCommand cmd3 = new SqlCommand(sql3, con);
+                SqlCommand cmd5 = new SqlCommand(sql5, con);
                 SqlDataReader rdr;
                 cmd.Parameters.AddWithValue("@ID", artworkID);
+               
 
                 con.Open();
                 rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
-                    Session["a"] = rdr["image"].ToString();
-                    Session["b"] = rdr["artworkName"].ToString();
-                    Session["d"] = rdr["price"].ToString();
+                    Session["Image"] = rdr["image"].ToString();
+                    Session["ArtworkName"] = rdr["artworkName"].ToString();
+                    Session["Price"] = rdr["price"].ToString();
                 }
                 con.Close();
                 con.Open();
-                int c = Convert.ToInt32(cmd2.ExecuteScalar());
-                c++;
-                Session["e"] = c;
+                int cartNo = Convert.ToInt32(cmd2.ExecuteScalar());
+                cartNo++;
+                Session["CartNo"] = cartNo;
                 con.Close();
-                string image = Session["a"].ToString();
-                string artworkName = Session["b"].ToString();
-                string price = Session["d"].ToString();
-                string f = Session["e"].ToString();
+                string image = Session["Image"].ToString();
+                string artworkName = Session["ArtworkName"].ToString();
+                string price = Session["Price"].ToString();
+                string CartNo = Session["CartNo"].ToString();
                 string quantity = txtQuantity.Text;
-                cmd3.Parameters.AddWithValue("@ID", artworkID);
-                cmd3.Parameters.AddWithValue("@customerID", customerID);
-                cmd3.Parameters.AddWithValue("@image", image);
-                cmd3.Parameters.AddWithValue("@artworkName", artworkName);
-                cmd3.Parameters.AddWithValue("@price", price);
-                cmd3.Parameters.AddWithValue("@No", f);
-                cmd3.Parameters.AddWithValue("@quantity", quantity);
-                con.Open();
-                cmd3.ExecuteNonQuery();
-                con.Close();
-                errLabel.Visible = false;
 
+                //string CartExisted = Session["CartExisted"].ToString();
+                if (Session["ArtworkID"].ToString().Equals("false"))
+                {
+                    cmd3.Parameters.AddWithValue("@artworkID", artworkID);
+                    cmd3.Parameters.AddWithValue("@customerID", customerID);
+                    cmd3.Parameters.AddWithValue("@image", image);
+                    cmd3.Parameters.AddWithValue("@artworkName", artworkName);
+                    cmd3.Parameters.AddWithValue("@price", price);
+                    cmd3.Parameters.AddWithValue("@No", CartNo);
+                    cmd3.Parameters.AddWithValue("@quantity", quantity);
+                    con.Open();
+                    cmd3.ExecuteNonQuery();
+                    con.Close();
+                    errLabel.Visible = false;
+                }
+                else 
+                {
+                    cmd5.Parameters.AddWithValue("@ArtworkID", artworkID);
+                    cmd5.Parameters.AddWithValue("@CustomerID", customerID);
+                    con.Open();
+                    cmd5.ExecuteNonQuery();
+                    con.Close();
+                }
+                Response.Redirect("~/AddToCart.aspx");
             }
             else
             {
