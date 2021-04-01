@@ -9,7 +9,18 @@
     <script src="script.js" type="text/javascript"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script type="text/javascript">
+        window.scrollTo = function () { }
+        /*
+        function subscribe(source, args) {
+            var email = args.value;
+            var pattern = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 
+            if (pattern.test(email)) {
+                alert("Subscribed");
+            }
+        }*/
+    </script>
     <title>Gallerion</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -106,12 +117,15 @@
                             <asp:ScriptManager ID="script1" runat="server"></asp:ScriptManager>
                             <asp:UpdatePanel ID="panel1" runat="server"><ContentTemplate>
                             <li class="footer__item">Subscribe to the newsletter and stay up to date with the latest artworks</li>
-                            <li class="footer__item"><asp:TextBox ID="newsletter_email" runat="server" TextMode="Email" AutoCompleteType="Email" placeholder="Email" Width="250px" Height="25px" CssClass="newsletter__textbox"></asp:TextBox></li>
-                            <li class="footer__item"><asp:CheckBox ID="newsletter_checkbox" runat="server" Text=" I accept the " CssClass="newsletter__checkbox" /><a href="/Help.aspx#terms_and_conditions" class="newsletter__terms">terms and conditions</a></li>
+                            <li class="footer__item"><asp:TextBox ID="newsletter_email" runat="server" TextMode="Email" AutoCompleteType="Email" placeholder="Email" Width="250px" Height="25px" CssClass="newsletter__textbox"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="newsletter_email" ErrorMessage="Email is required" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="newsletter_email" Display="Dynamic" ErrorMessage="Email is not valid" ForeColor="Red" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">*</asp:RegularExpressionValidator>
+                                </li>
+                            <li class="footer__item"><asp:CheckBox ID="newsletter_checkbox" runat="server" Text=" I accept the " CssClass="newsletter__checkbox" /><a href="/Help.aspx#terms_and_conditions" class="newsletter__terms">terms and conditions</a>
+                                </li>
                             <li class="footer__item"><asp:Button ID="newsletter_button" runat="server" Text="Subscribe" Width="100px" Height="30px" CssClass="newsletter__button" /></li>
 
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid Email" CssClass="newsletter__validate" ControlToValidate="newsletter_email"
-                                                             SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"> </asp:RegularExpressionValidator>
+                                <asp:ValidationSummary ID="ValidationSummary1" runat="server" DisplayMode="List" ForeColor="Red" />
                             </ContentTemplate></asp:UpdatePanel>
                         </ul>
                     </div>

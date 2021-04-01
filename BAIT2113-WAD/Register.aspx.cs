@@ -34,10 +34,10 @@ namespace BAIT2113_WAD
            if (radiobtn1.Checked == true)
             {
                string sql = "insert into Artist(artistID,name,email,dob, password,phoneNum) values (@ArtistID,@Name,@Email,@DOB,@Password,@PhoneNumber)";
-               SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");          
+               SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
                SqlCommand cmd = new SqlCommand(sql, con);
 
-               
+
                   con.Open();
                   cmd.Parameters.AddWithValue("@ArtistID", ID);
                   cmd.Parameters.AddWithValue("@Name", Name);
@@ -49,13 +49,13 @@ namespace BAIT2113_WAD
                   con.Close();
 
                 Response.Redirect("Login.aspx");
-              
+
 
             }
             else if (radiobtn2.Checked == true)
             {
                  string sql1 = "insert into Customer(customerID,name,password,email,phoneNum,dob,street,city,zipCode,state ) values (@CustomerID,@Name,@Password,@Email,@PhoneNumber,@DOB,@Street,@City,@ZipCode, @State)";;
-                 SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");              
+                 SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
                  SqlCommand cmd1 = new SqlCommand(sql1, con);
                  con.Open();
                  cmd1.Parameters.AddWithValue("@CustomerID", ID);
@@ -69,18 +69,18 @@ namespace BAIT2113_WAD
                  cmd1.Parameters.AddWithValue("@ZipCode", ZipCode);
                  cmd1.Parameters.AddWithValue("@State ", State);
 
-             
+
                     cmd1.ExecuteNonQuery();
                     con.Close();
                 Response.Redirect("Login.aspx");
 
             }
-              
+
             else
             {
                 lblwarning.Text = "Please select your role";
             }
-           
+
         }
 
         protected void btn2_Click(object sender, EventArgs e)

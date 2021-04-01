@@ -40,12 +40,12 @@
 
 
             <div class="profile-ordercol">
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Order].orderID, [Order].quantity, [Order].totalAmount, Customer.name, [Order].customerID, Artwork.image, Artwork.artworkName FROM Artist INNER JOIN Artwork ON Artist.artistID = @artistID INNER JOIN [Order] ON Artwork.artworkID = [Order].artworkID INNER JOIN Customer ON [Order].customerID = Customer.customerID WHERE ([Order].status = 'Pending')">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Order].orderID, [Order].quantity, [Order].totalAmount, Customer.name, [Order].customerID, Artwork.image, Artwork.artworkName FROM Artist INNER JOIN Artwork ON Artist.artistID = Artwork.artistID INNER JOIN [Order] ON Artwork.artworkID = [Order].artworkID INNER JOIN Customer ON [Order].customerID = Customer.customerID WHERE ([Order].status = 'Pending' AND Artwork.artistID = @artistID)">
                     <SelectParameters>
                         <asp:SessionParameter Name="artistID" SessionField="ArtistID" />
                     </SelectParameters>
                 </asp:SqlDataSource>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artwork.artworkName, Artwork.image, [Order].totalAmount, [Order].orderID, [Order].quantity, [Order].customerID, [Order].status, Customer.name FROM Artist INNER JOIN Artwork ON Artist.artistID = @artistID INNER JOIN [Order] ON Artwork.artworkID = [Order].artworkID INNER JOIN Customer ON [Order].customerID = Customer.customerID WHERE ([Order].status = 'Delivered')">
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artwork.artworkName, Artwork.image, [Order].totalAmount, [Order].orderID, [Order].quantity, [Order].customerID, [Order].status, Customer.name FROM Artist INNER JOIN Artwork ON Artist.artistID = Artwork.artistID INNER JOIN [Order] ON Artwork.artworkID = [Order].artworkID INNER JOIN Customer ON [Order].customerID = Customer.customerID WHERE ([Order].status = 'Delivered' AND Artwork.artistID = @artistID)">
                     <SelectParameters>
                         <asp:SessionParameter Name="artistID" SessionField="ArtistID" />
                     </SelectParameters>
