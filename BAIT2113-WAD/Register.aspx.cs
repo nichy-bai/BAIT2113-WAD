@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Net.Mail;
 
 namespace BAIT2113_WAD
 {
@@ -16,6 +17,22 @@ namespace BAIT2113_WAD
 
         }
 
+        protected void email()
+        {
+            String message1 = "Congratulation! You have successfully register as Gallerion member.";
+
+            //SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+
+            //smtpClient.Credentials = new System.Net.NetworkCredential("Gallerion2021@gmail.com", "Gallerion_2021?");
+            //smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            MailMessage mail = new MailMessage();
+            mail.IsBodyHtml = true;
+            mail.From = new MailAddress("Gallerion2021@gmail.com", "Gallerion");
+            mail.To.Add(new MailAddress(txtemail.Text));
+            mail.Body = message1;
+            SmtpClient smtpClient = new SmtpClient();
+            smtpClient.Send(mail);
+        }
         protected void btn1_Click(object sender, EventArgs e)
         {
             String ID = txtid.Text;
@@ -48,6 +65,7 @@ namespace BAIT2113_WAD
                   cmd.ExecuteNonQuery();
                   con.Close();
 
+                email();
                 Response.Redirect("Login.aspx");
               
 

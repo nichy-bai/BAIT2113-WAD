@@ -65,6 +65,7 @@
                     </div>
                     <div>
                         <asp:Label ID="errLabel" runat="server" Text=""></asp:Label>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="The quantity text field cannot be blank." ControlToValidate="txtQuantity">*The quantity text field cannot be blank.</asp:RequiredFieldValidator>
                     </div>
                 </div>
 
