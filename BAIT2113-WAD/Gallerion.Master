@@ -118,8 +118,8 @@
                             <asp:UpdatePanel ID="panel1" runat="server"><ContentTemplate>
                             <li class="footer__item">Subscribe to the newsletter and stay up to date with the latest artworks</li>
                             <li class="footer__item"><asp:TextBox ID="newsletter_email" runat="server" TextMode="Email" AutoCompleteType="Email" placeholder="Email" Width="250px" Height="25px" CssClass="newsletter__textbox"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="newsletter_email" ErrorMessage="Email is required" ForeColor="Red">*</asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="newsletter_email" Display="Dynamic" ErrorMessage="Email is not valid" ForeColor="Red" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">*</asp:RegularExpressionValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="newsletter_email" ValidationGroup="newsletter" ErrorMessage="Email is required" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="newsletter_email" ValidationGroup="newsletter" Display="Dynamic" ErrorMessage="Email is not valid" ForeColor="Red" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">*</asp:RegularExpressionValidator>
                                 </li>
                             <li class="footer__item"><asp:CheckBox ID="newsletter_checkbox" runat="server" Text=" I accept the " CssClass="newsletter__checkbox" /><a href="/Help.aspx#terms_and_conditions" class="newsletter__terms">terms and conditions</a>
                                 </li>
