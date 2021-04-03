@@ -35,7 +35,6 @@ namespace BAIT2113_WAD
                 lbldob.Text = rdr["dob"].ToString();
                 lblphone.Text = rdr["phoneNum"].ToString();
                 lblemail.Text = rdr["email"].ToString();
-                HyperLink1.NavigateUrl = rdr["video"].ToString();
                 profilepic.ImageUrl = rdr["profilePic"].ToString();
 
             }
@@ -55,10 +54,10 @@ namespace BAIT2113_WAD
 
             if (!IsPostBack)
             {
-                this.SqlDataSource1.SelectCommand = null;
-                this.GridView1.Visible = false;
-                this.SqlDataSource2.SelectCommand = null;
-                this.GridView2.Visible = false;
+                //this.SqlDataSource1.SelectCommand = null;
+                //this.GridView1.Visible = false;
+                //this.SqlDataSource2.SelectCommand = null;
+                //this.GridView2.Visible = false;
             }
         }
 
@@ -68,9 +67,9 @@ namespace BAIT2113_WAD
             Button1.BackColor = System.Drawing.Color.Black;
             Button2.ForeColor = System.Drawing.Color.Black;
             Button2.BackColor = System.Drawing.Color.White;
-            this.GridView1.Visible = true;
-            this.GridView2.Visible = false;
-            this.GridView1.DataBind();
+            //this.GridView1.Visible = true;
+            //this.GridView2.Visible = false;
+            //this.GridView1.DataBind();
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -79,9 +78,9 @@ namespace BAIT2113_WAD
             Button1.BackColor = System.Drawing.Color.White;
             Button2.ForeColor = System.Drawing.Color.Chartreuse;
             Button2.BackColor = System.Drawing.Color.Black;
-            this.GridView1.Visible = false;
-            this.GridView2.Visible = true;
-            this.GridView2.DataBind();
+            //this.GridView1.Visible = false;
+            //this.GridView2.Visible = true;
+            //this.GridView2.DataBind();
         }
 
         protected void GridView1_ItemCommand(Object sender, DataGridCommandEventArgs e)

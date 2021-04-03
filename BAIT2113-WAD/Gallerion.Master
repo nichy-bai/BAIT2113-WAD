@@ -62,10 +62,14 @@
 
             </div>
             <div id="login-dropdown" class="dropdown-content">
-                <a href="#"><asp:Label runat="server" ID="dropdownlbl1" Text="Profile"></asp:Label></a>
-                <a href="/Login.aspx"><asp:Label runat="server" ID="dropdownlbl2" Text="Login"></asp:Label></a>
+                <asp:LinkButton runat="server" ID="dropbtn1" Text="Profile" BorderStyle="None" Width="80%"></asp:LinkButton>
+                <asp:LinkButton runat="server" ID="dropbtn2" Text="Login" BorderStyle="None" Width="80%"></asp:LinkButton>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="myBar"></div>
             </div>
         </div>
+
 
         <div class="content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
