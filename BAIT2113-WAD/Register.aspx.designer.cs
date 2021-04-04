@@ -78,6 +78,15 @@ namespace BAIT2113_WAD
         protected global::System.Web.UI.WebControls.TextBox txtemail;
 
         /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+
+        /// <summary>
         /// RegularExpressionValidator1 control.
         /// </summary>
         /// <remarks>
@@ -96,6 +105,15 @@ namespace BAIT2113_WAD
         protected global::System.Web.UI.WebControls.TextBox txtpassword;
 
         /// <summary>
+        /// RequiredFieldValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+
+        /// <summary>
         /// txt4 control.
         /// </summary>
         /// <remarks>
@@ -103,6 +121,15 @@ namespace BAIT2113_WAD
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt4;
+
+        /// <summary>
+        /// RequiredFieldValidator10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
 
         /// <summary>
         /// CompareValidator2 control.
@@ -123,6 +150,15 @@ namespace BAIT2113_WAD
         protected global::System.Web.UI.WebControls.TextBox txtphone;
 
         /// <summary>
+        /// RequiredFieldValidator5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+
+        /// <summary>
         /// RegularExpressionValidator2 control.
         /// </summary>
         /// <remarks>
@@ -141,6 +177,15 @@ namespace BAIT2113_WAD
         protected global::System.Web.UI.WebControls.TextBox txtstreet;
 
         /// <summary>
+        /// RequiredFieldValidator6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+
+        /// <summary>
         /// txtcity control.
         /// </summary>
         /// <remarks>
@@ -148,6 +193,15 @@ namespace BAIT2113_WAD
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtcity;
+
+        /// <summary>
+        /// RequiredFieldValidator7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
 
         /// <summary>
         /// txtzip control.
@@ -159,6 +213,15 @@ namespace BAIT2113_WAD
         protected global::System.Web.UI.WebControls.TextBox txtzip;
 
         /// <summary>
+        /// RequiredFieldValidator8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
+
+        /// <summary>
         /// txtstate control.
         /// </summary>
         /// <remarks>
@@ -166,6 +229,15 @@ namespace BAIT2113_WAD
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtstate;
+
+        /// <summary>
+        /// RequiredFieldValidator9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
 
         /// <summary>
         /// txtdob control.
@@ -213,6 +285,24 @@ namespace BAIT2113_WAD
         protected global::System.Web.UI.WebControls.FileUpload FileUpload2;
 
         /// <summary>
+        /// lblwarning2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblwarning2;
+
+        /// <summary>
+        /// lblwarning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblwarning;
+
+        /// <summary>
         /// checkBox1 control.
         /// </summary>
         /// <remarks>
@@ -231,6 +321,15 @@ namespace BAIT2113_WAD
         protected global::System.Web.UI.WebControls.TextBox txtCaptcha;
 
         /// <summary>
+        /// CustomValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+
+        /// <summary>
         /// rfvCaptcha control.
         /// </summary>
         /// <remarks>
@@ -238,24 +337,6 @@ namespace BAIT2113_WAD
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCaptcha;
-
-        /// <summary>
-        /// lblwarning2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblwarning2;
-
-        /// <summary>
-        /// lblwarning control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblwarning;
 
         /// <summary>
         /// btn2 control.
