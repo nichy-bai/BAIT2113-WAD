@@ -64,9 +64,6 @@ namespace BAIT2113_WAD
             newsletter_email.Text = "";
         }
 
-        protected void newsletter_button_Click(object sender, EventArgs e)
-        {
-            Label2.Text = "Success";
-        }
+        
     }
 }

@@ -46,7 +46,7 @@
                         <asp:SessionParameter Name="artistID" SessionField="ArtistID" Type="String" />
                     </SelectParameters>
                 </asp:SqlDataSource>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [Artwork] WHERE [artworkID] = @artworkID" InsertCommand="INSERT INTO [Artwork] ([artworkID], [artworkName], [artworkDesc], [quantity], [price], [category], [image]) VALUES (@artworkID, @artworkName, @artworkDesc, @quantity, @price, @category, @image)" SelectCommand="SELECT [artworkID], [artworkName], [artworkDesc], [quantity], [price], [category], [image] FROM [Artwork] WHERE ([artistID] = @artistID)" UpdateCommand="UPDATE [Artwork] SET [artworkName] = @artworkName, [artworkDesc] = @artworkDesc, [quantity] = @quantity, [price] = @price, [category] = @category, [image] = @image WHERE [artworkID] = @artworkID">
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [Artwork] WHERE [artworkID] = @artworkID" InsertCommand="INSERT INTO [Artwork] ([artworkID], [artworkName], [artworkDesc], [quantity], [price], [category], [image]) VALUES (@artworkID, @artworkName, @artworkDesc, @quantity, @price, @category, @image)" SelectCommand="SELECT [artworkID], [artworkName], [artworkDesc], [quantity], [price], [category], [image] FROM [Artwork] WHERE (([category] = @category) AND ([artistID] = @artistID))" UpdateCommand="UPDATE [Artwork] SET [artworkName] = @artworkName, [artworkDesc] = @artworkDesc, [quantity] = @quantity, [price] = @price, [category] = @category, [image] = @image WHERE [artworkID] = @artworkID">
                     <DeleteParameters>
                         <asp:Parameter Name="artworkID" Type="String" />
                     </DeleteParameters>
@@ -60,7 +60,8 @@
                         <asp:Parameter Name="image" Type="String" />
                     </InsertParameters>
                     <SelectParameters>
-                        <asp:SessionParameter Name="artistID" SessionField="Artist" Type="String" />
+                        <asp:ControlParameter ControlID="ddlshowctg" Name="category" PropertyName="SelectedValue" Type="String" />
+                        <asp:SessionParameter Name="artistID" SessionField="ArtistID" Type="String" />
                     </SelectParameters>
                     <UpdateParameters>
                         <asp:Parameter Name="artworkName" Type="String" />

@@ -52,6 +52,7 @@
             <div class="profile-artworkrow">
                 <div class="profile-addquestion">Category</div>
                 <asp:DropDownList ID="ddlCategory" runat="server" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged" AutoPostBack="True" Height="28px" ValidationGroup="addartwork">
+                    <asp:ListItem>Select One</asp:ListItem>
                     <asp:ListItem>Painting</asp:ListItem>
                     <asp:ListItem>Photography</asp:ListItem>
                     <asp:ListItem>Design</asp:ListItem>
@@ -59,7 +60,7 @@
                     <asp:ListItem>Textile</asp:ListItem>
                     <asp:ListItem>Illustration</asp:ListItem>
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="addartwork" ControlToValidate="ddlCategory" Display="Dynamic" ErrorMessage="Please select the category" ForeColor="Red">*</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="addartwork" ControlToValidate="ddlCategory" Display="Dynamic" ErrorMessage="Please select the category" ForeColor="Red" InitialValue="Select One">*</asp:RequiredFieldValidator>
             </div>
 
             <div class="profile-artworkrow">
@@ -75,17 +76,17 @@
             </div>
 
             <div class="profile-artworkrow">
-                <div class="profile-addquestion">Price</div>
+                <div class="profile-addquestion">Price($)(e.g xx.xx)</div>
                 <asp:TextBox ID="txtPrice" runat="server" Width="220px" ValidationGroup="addartwork"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ValidationGroup="addartwork" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="The price must insert" ForeColor="Red">*</asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="Must be a number" ForeColor="Red" ValidationGroup="addartwork" ValidationExpression="^\d+.\d{0,2}$">*</asp:RegularExpressionValidator>
             </div>
 
             <div class="profile-artworkrow">
-                <div class="profile-addquestion">Artwork</div>
+                <div class="profile-addquestion">Artwork (.JPG Format)</div>
                 <asp:FileUpload ID="FileUpload1" runat="server" onchange="ImagePreview(this);" />
                 <asp:Image ID="Image1" runat="server" />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="addartwork" runat="server" ControlToValidate="FileUpload1" Display="Dynamic" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="addartwork" runat="server" ControlToValidate="FileUpload1" Display="Dynamic" ErrorMessage="Please insert the artwork picture" ForeColor="Red">*</asp:RequiredFieldValidator>
             </div>
 
             <div class="profile-artworkrow">
