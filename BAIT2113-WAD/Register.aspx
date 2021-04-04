@@ -180,7 +180,7 @@
                     <asp:FileUpload ID="FileUpload2" runat="server" onchange="ImagePreview(this);" />
                 </div>
             </div>
-            <div style="text-align: center">
+            <div style="text-align: left; margin-left:150px;">
                 <asp:Label ID="lblwarning2" runat="server" Text=" " ForeColor="Red"></asp:Label>
                 <asp:Label ID="lblwarning" runat="server" Text=" " ForeColor="Red"></asp:Label>
             </div>
