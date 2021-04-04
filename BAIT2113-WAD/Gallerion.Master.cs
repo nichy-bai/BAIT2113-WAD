@@ -37,5 +37,10 @@ namespace BAIT2113_WAD
             }
             
         }
+
+        protected void newsletter_button_Click(object sender, EventArgs e)
+        {
+            Label2.Text = "Success";
+        }
     }
 }

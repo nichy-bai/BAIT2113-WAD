@@ -123,8 +123,8 @@
                                 </li>
                             <li class="footer__item"><asp:CheckBox ID="newsletter_checkbox" runat="server" Text=" I accept the " CssClass="newsletter__checkbox" /><a href="/Help.aspx#terms_and_conditions" class="newsletter__terms">terms and conditions</a>
                                 </li>
-                            <li class="footer__item"><asp:Button ID="newsletter_button" runat="server" Text="Subscribe" Width="100px" Height="30px" CssClass="newsletter__button" /></li>
-
+                            <li class="footer__item"><asp:Button ID="newsletter_button" runat="server" Text="Subscribe" Width="100px" Height="30px" CssClass="newsletter__button" OnClick="newsletter_button_Click" /><asp:Label ID="Label2" runat="server" Text=""></asp:Label></li>
+                                
                                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" DisplayMode="List" ForeColor="Red" />
                             </ContentTemplate></asp:UpdatePanel>
                         </ul>
