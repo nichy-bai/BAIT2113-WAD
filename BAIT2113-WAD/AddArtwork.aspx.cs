@@ -90,47 +90,33 @@ namespace BAIT2113_WAD
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-            if (FileUpload1.HasFile)
-            {
-                string uploadpic = "~/images/" + FileUpload1.FileName.ToString();
-                FileUpload1.SaveAs(Server.MapPath("images//" + FileUpload1.FileName));
-                //string uploadpic1 = Path.Combine(Server.MapPath("image"), FileUpload1.FileName);
-                //string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
-                //FileUpload1.PostedFile.SaveAs(Server.MapPath("image/") + fileName);
-                //FileUpload1.SaveAs(uploadpic1);
-                string ID = Session["ArtistID"].ToString();
-                string cgy = ddlCategory.SelectedItem.Text;
-                string artid = lblArtworkID.Text;
-                string artworkname = txtArtworkName.Text;
-                string desc = taDescription.Value;
-                int qty = Convert.ToInt32(txtQuantity.Text);
-                double prc = Convert.ToDouble(txtPrice.Text);
-                string sql1 = "insert into Artwork(artworkID,image,artworkName,artworkDesc,quantity,price,category,artistID) values (@artworkID,@image,@artworkName,@artworkDesc,@quantity,@price,@category,@artistID)";
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-                SqlCommand cmd = new SqlCommand(sql1, con);
-                cmd.Parameters.AddWithValue("@artworkID", artid);
-                cmd.Parameters.AddWithValue("@image", uploadpic);
-                cmd.Parameters.AddWithValue("@artworkName", artworkname);
-                cmd.Parameters.AddWithValue("@artworkDesc", desc);
-                cmd.Parameters.AddWithValue("@quantity", qty);
-                cmd.Parameters.AddWithValue("@price", prc);
-                cmd.Parameters.AddWithValue("@category", cgy);
-                cmd.Parameters.AddWithValue("@artistID", ID);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-
-                lblmsg.Visible = true;
-                lblmsg.ForeColor = System.Drawing.Color.Green;
-                lblmsg.Text = "Artwork Uploaded successfully.";
-
-            }
-            else
-            {
-                lblmsg.Visible = true;
-                lblmsg.ForeColor = System.Drawing.Color.Red;
-                lblmsg.Text = "ERROR! Invalid input detected.";
-            }
+            string uploadpic = "~/images/" + FileUpload1.FileName.ToString();
+            FileUpload1.SaveAs(Server.MapPath("images//" + FileUpload1.FileName));
+            //string uploadpic1 = Path.Combine(Server.MapPath("image"), FileUpload1.FileName);
+            //string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
+            //FileUpload1.PostedFile.SaveAs(Server.MapPath("image/") + fileName);
+            //FileUpload1.SaveAs(uploadpic1);
+            string ID = Session["ArtistID"].ToString();
+            string cgy = ddlCategory.SelectedItem.Text;
+            string artid = lblArtworkID.Text;
+            string artworkname = txtArtworkName.Text;
+            string desc = taDescription.Value;
+            int qty = Convert.ToInt32(txtQuantity.Text);
+            double prc = Convert.ToDouble(txtPrice.Text);
+            string sql1 = "insert into Artwork(artworkID,image,artworkName,artworkDesc,quantity,price,category,artistID) values (@artworkID,@image,@artworkName,@artworkDesc,@quantity,@price,@category,@artistID)";
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand(sql1, con);
+            cmd.Parameters.AddWithValue("@artworkID", artid);
+            cmd.Parameters.AddWithValue("@image", uploadpic);
+            cmd.Parameters.AddWithValue("@artworkName", artworkname);
+            cmd.Parameters.AddWithValue("@artworkDesc", desc);
+            cmd.Parameters.AddWithValue("@quantity", qty);
+            cmd.Parameters.AddWithValue("@price", prc);
+            cmd.Parameters.AddWithValue("@category", cgy);
+            cmd.Parameters.AddWithValue("@artistID", ID);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
 
         }
     }

@@ -72,6 +72,10 @@
                 <asp:LinkButton runat="server" ID="dropbtn1" Text="Profile" BorderStyle="None" Width="80%"></asp:LinkButton>
                 <asp:LinkButton runat="server" ID="dropbtn2" Text="Login" BorderStyle="None" Width="80%" OnClick="dropbtn2_Click"></asp:LinkButton>
             </div>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="myBar"></div>
+            </div>
         </div>
 
         <div class="content">
