@@ -21,7 +21,6 @@
             <span class="profile-detail-label">email</span>
             <asp:Label ID="lblemail" runat="server" CssClass="profile-detail-text"></asp:Label>
 
-            <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" class="profile-btn">Watch Me</asp:HyperLink>
             <a href="mygallery.aspx" class="profile-btn-active">My Gallery</a>
             <a href="AddArtwork.aspx" class="profile-btn">Add New Artwork</a>
             <a href="ManageOrder.aspx" class="profile-btn">Manage Order</a>
