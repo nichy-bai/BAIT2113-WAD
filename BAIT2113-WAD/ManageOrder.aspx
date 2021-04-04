@@ -54,7 +54,7 @@
                         <asp:SessionParameter Name="artistID" SessionField="ArtistID" />
                     </SelectParameters>
                 </asp:SqlDataSource>
-                <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" HorizontalAlign="Center" RepeatColumns="1" CssClass="profile-orderrow" CellPadding="2" CellSpacing="15" ShowFooter="False" ShowHeader="False" OnItemCommand="DataList1_ItemCommand"  >
+                <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" HorizontalAlign="Center" RepeatColumns="1" CssClass="profile-orderrow" CellPadding="2" CellSpacing="15" ShowFooter="False" ShowHeader="False" OnItemCommand="DataList1_ItemCommand" >
                     <ItemTemplate>
                         <table style="width:100%; border:solid">
                             <tr style="width:100%; background-color:lightgrey">
