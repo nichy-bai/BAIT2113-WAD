@@ -12,7 +12,7 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
             if (Session["ArtistID"] != null || Session["CustomerID"] != null)
             {
                 dropbtn2.Text = "Logout";
@@ -26,7 +26,7 @@ namespace BAIT2113_WAD
 
         protected void dropbtn2_Click(object sender, EventArgs e)
         {
-            
+
             if (dropbtn2.Text == "Logout")
             {
                 Session.Abandon();
@@ -36,7 +36,7 @@ namespace BAIT2113_WAD
             {
                 Response.Redirect("Login.aspx");
             }
-            
+
         }
         protected void newsletter_button_Click(object sender, EventArgs e)
         {
