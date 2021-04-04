@@ -32,7 +32,7 @@ namespace BAIT2113_WAD
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-
+                Response.Redirect("~/Cart.aspx");
             }
         }
     }
