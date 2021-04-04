@@ -9,7 +9,7 @@
         string ArtworkID = InkRowSelection.CommandArgument.ToString();
         Session.Add("artworkID", ArtworkID);
         //Session("artworkID") = ArtworkID;
-        Response.Redirect("Order.aspx");
+        Response.Redirect("~/Order.aspx");
     }
 </script>
 

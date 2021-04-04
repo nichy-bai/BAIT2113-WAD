@@ -82,6 +82,7 @@
     <Content Include="StyleSheet1.css" />
     <Content Include="StyleSheet3.css" />
     <Content Include="StyleSheet2.css" />
+    <Content Include="User Control\Notification.ascx" />
     <Content Include="Web.config" />
     <Content Include="Order.aspx" />
     <Content Include="script.js" />
@@ -196,6 +197,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User Control\Notification.ascx.cs">
+      <DependentUpon>Notification.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User Control\Notification.ascx.designer.cs">
+      <DependentUpon>Notification.ascx</DependentUpon>
     </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
