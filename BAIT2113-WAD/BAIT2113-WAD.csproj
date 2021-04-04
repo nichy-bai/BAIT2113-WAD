@@ -113,6 +113,7 @@
     <Content Include="PurchaseHistory.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="AddArtwork.aspx" />
+    <Content Include="WebForm1.aspx" />
     <Content Include="Wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +213,13 @@
     </Compile>
     <Compile Include="User Control\Notification.ascx.designer.cs">
       <DependentUpon>Notification.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>

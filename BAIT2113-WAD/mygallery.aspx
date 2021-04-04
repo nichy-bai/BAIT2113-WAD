@@ -46,7 +46,7 @@
                         <asp:SessionParameter Name="artistID" SessionField="ArtistID" Type="String" />
                     </SelectParameters>
                 </asp:SqlDataSource>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [Artwork] WHERE [artworkID] = @artworkID" InsertCommand="INSERT INTO [Artwork] ([artworkID], [artworkName], [artworkDesc], [quantity], [price], [category], [image]) VALUES (@artworkID, @artworkName, @artworkDesc, @quantity, @price, @category, @image)" SelectCommand="SELECT [artworkID], [artworkName], [artworkDesc], [quantity], [price], [category], [image] FROM [Artwork] WHERE (([artistID] = @artistID) AND ([category] = @category))" UpdateCommand="UPDATE [Artwork] SET [artworkName] = @artworkName, [artworkDesc] = @artworkDesc, [quantity] = @quantity, [price] = @price, [category] = @category, [image] = @image WHERE [artworkID] = @artworkID">
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [Artwork] WHERE [artworkID] = @artworkID" InsertCommand="INSERT INTO [Artwork] ([artworkID], [artworkName], [artworkDesc], [quantity], [price], [category], [image]) VALUES (@artworkID, @artworkName, @artworkDesc, @quantity, @price, @category, @image)" SelectCommand="SELECT [artworkID], [artworkName], [artworkDesc], [quantity], [price], [category], [image] FROM [Artwork] WHERE (([category] = @category) AND ([artistID] = @artistID))" UpdateCommand="UPDATE [Artwork] SET [artworkName] = @artworkName, [artworkDesc] = @artworkDesc, [quantity] = @quantity, [price] = @price, [category] = @category, [image] = @image WHERE [artworkID] = @artworkID">
                     <DeleteParameters>
                         <asp:Parameter Name="artworkID" Type="String" />
                     </DeleteParameters>
@@ -60,8 +60,8 @@
                         <asp:Parameter Name="image" Type="String" />
                     </InsertParameters>
                     <SelectParameters>
-                        <asp:SessionParameter Name="artistID" SessionField="ArtistID" Type="String" />
                         <asp:ControlParameter ControlID="ddlshowctg" Name="category" PropertyName="SelectedValue" Type="String" />
+                        <asp:SessionParameter Name="artistID" SessionField="ArtistID" Type="String" />
                     </SelectParameters>
                     <UpdateParameters>
                         <asp:Parameter Name="artworkName" Type="String" />
@@ -74,21 +74,32 @@
                     </UpdateParameters>
                 </asp:SqlDataSource>
 
-                <asp:GridView ID="GridView1" runat="server" PageSize="10" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="artworkID" DataSourceID="SqlDataSource2" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" CssClass="profile-gridview">
+                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="artworkID" DataSourceID="SqlDataSource2" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" CssClass="profile-gridview">
                     <Columns>
+                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                         <asp:BoundField DataField="artworkID" HeaderText="artworkID" ReadOnly="True" SortExpression="artworkID" ItemStyle-Width="200px">
+<ItemStyle Width="200px"></ItemStyle>
                         </asp:BoundField>
                         <asp:BoundField DataField="artworkName" HeaderText="artworkName" SortExpression="artworkName" ItemStyle-Width="200px" >
+<ItemStyle Width="200px"></ItemStyle>
                         </asp:BoundField>
                         <asp:BoundField DataField="artworkDesc" HeaderText="artworkDesc" SortExpression="artworkDesc" ItemStyle-Width="200px" >
+<ItemStyle Width="200px"></ItemStyle>
                         </asp:BoundField>
                         <asp:BoundField DataField="quantity" HeaderText="quantity" SortExpression="quantity" ItemStyle-Width="200px" >
+<ItemStyle Width="200px"></ItemStyle>
                         </asp:BoundField>
                         <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" ItemStyle-Width="200px" >
+<ItemStyle Width="200px"></ItemStyle>
                         </asp:BoundField>
                         <asp:BoundField DataField="category" HeaderText="category" SortExpression="category" ItemStyle-Width="200px">
+<ItemStyle Width="200px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:ImageField HeaderText="image" SortExpression="image" DataImageURLField="image" ItemStyle-Width="200px" ItemStyle-Height="200px" ControlStyle-Height="200" ControlStyle-Width="200" />
+                        <asp:ImageField HeaderText="image" SortExpression="image" DataImageURLField="image" ItemStyle-Width="200px" ItemStyle-Height="200px" ControlStyle-Height="200" ControlStyle-Width="200" >
+<ControlStyle Height="200px" Width="200px"></ControlStyle>
+
+<ItemStyle Height="200px" Width="200px"></ItemStyle>
+                        </asp:ImageField>
                     </Columns>
                     <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                     <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />

@@ -1,34 +1,72 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="BAIT2113_WAD.Register" %>
 
 <!DOCTYPE html>
+<%@ Register TagPrefix="recaptcha" Namespace="Recaptcha" Assembly="Recaptcha" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
     <link href="StyleSheet2.css" rel="stylesheet" />
+   <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
+
 
 <body>
     <form id="form1" runat="server">
-
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer></script>
+<script type="text/javascript">
+    var onloadCallback = function () {
+        grecaptcha.render('dvCaptcha', {
+            'sitekey': '<%=ReCaptcha_Key %>',
+            'callback': function (response) {
+                $.ajax({
+                    type: "POST",
+                    url: "Register.aspx/VerifyCaptcha",
+                    data: "{response: '" + response + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (r) {
+                        var captchaResponse = jQuery.parseJSON(r.d);
+                        if (captchaResponse.success) {
+                            $("[id*=txtCaptcha]").val(captchaResponse.success);
+                            $("[id*=rfvCaptcha]").hide();
+                        } else {
+                            $("[id*=txtCaptcha]").val("");
+                            $("[id*=rfvCaptcha]").show();
+                            var error = captchaResponse["error-codes"][0];
+                            $("[id*=rfvCaptcha]").html("RECaptcha error. " + error);
+                        }
+                    }
+                });
+            }
+        });
+    };
+</script>
         <div class="register-box">
             <div>
                 <a href="Homepage.aspx" id="avatarBtn">
                     <img src="images/icon.png" class="avatar" title="Back to homepage" />
-                </a>
+                    
+                   </a>
             </div>
-            
+            <%--<recaptcha:RecaptchaControl ID="recaptcha" runat="server"
+                    PublicKey="6LdWepkaAAAAAFnu4apC9Bt-3Qd6Du_HKrvPrqTh"
+                    PrivateKey="6LdWepkaAAAAAG_Lc50He3XXd98hj7BZ688suh-2" BorderStyle="Dotted" class="g-recaptcha" 
+                   />--%>
+             
             <%--<h1>gallerion</h1>--%>
             <div class="register-singlerow">
                 <div class="register-single">
                     <div class="register-question">User ID</div>
                     <asp:TextBox ID="txtid" runat="server" Height="30px" Width="220px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtid" ErrorMessage="UserID is required" ForeColor="Red">UserID is required</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtid" ErrorMessage="UserID is required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
                 <div class="register-single">
                     <div class="register-question">Full Name</div>
                     <asp:TextBox ID="txtname" runat="server" Height="30px" Width="220px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtname" Display="Dynamic" ErrorMessage="Name is required" ForeColor="Red">Name is required</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtname" ErrorMessage="Name is required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="register-singlerow">
@@ -39,7 +77,7 @@
                 <div class="register-single">
                     <div class="register-question">Re-enter Password</div>
                     <asp:TextBox ID="txt4" TextMode="Password"  runat="server" Height="30px" Width="220px"></asp:TextBox>
-                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtpassword" ControlToValidate="txt4" ErrorMessage="Password Incorrect" ForeColor="Red"></asp:CompareValidator>
+                    <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToCompare="txtpassword" ControlToValidate="txt4" ErrorMessage="Password Incorrect" ForeColor="Red"></asp:CompareValidator>
                 </div>
             </div>
             <div class="register-singlerow">
@@ -51,7 +89,7 @@
                 <div class="register-single">
                     <div class="register-question">Date of Birth</div>
                     <asp:TextBox ID="txtdob" runat="server" Height="30px" Width="220px"></asp:TextBox>
-                    <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="txtdob" ErrorMessage="Date Invalid" ForeColor="Red" Operator="DataTypeCheck" Type="Date"></asp:CompareValidator>
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtdob" ErrorMessage="Date Invalid" ForeColor="Red" Operator="DataTypeCheck" Type="Date"></asp:CompareValidator>
                 </div>
             </div>
             <div class="register-singlerow">
@@ -67,7 +105,7 @@
                 </div>
                 <div class="register-single">
                     <div class="register-question">Zip Code</div>
-                    <asp:TextBox ID="txtzip" runat="server" Height="30px" Width="220px" OnTextChanged="txtzip_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="txtzip" runat="server" Height="30px" Width="220px"></asp:TextBox>
                 </div>
             </div>
             <div class="register-singlerow">
@@ -78,7 +116,17 @@
                 <div class="register-single">
                     <div class="register-question">Phone Number</div>
                     <asp:TextBox ID="txtphone" runat="server" Height="30px" Width="220px"></asp:TextBox>
-                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtphone" ErrorMessage="Phone Number Invalid" ForeColor="Red" ValidationExpression="^(\+?6?01)[0-46-9]-*[0-9]{7,8}$"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtphone" ErrorMessage="Phone Number Invalid" ForeColor="Red" ValidationExpression="\d{3}-\d{7}"></asp:RegularExpressionValidator>
+                </div>
+            </div>
+            <div class="register-singlerow">
+                <div class="register-single">
+                    <div class="register-question">Profile Picture</div>
+                      <asp:FileUpload ID="FileUpload2" runat="server" onchange="ImagePreview(this);" />
+                </div>
+                <div class="register-single">
+                    <div class="register-question">Intoduce Video (Only for Artist)</div>
+                    <asp:TextBox ID="txtVideo" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="register-singlerow" style="justify-content: space-around; align-items: center; width: 100%">
@@ -93,6 +141,9 @@
                 <div class="register-singlerow">
                     <asp:CheckBox ID="checkBox1" runat="server" Text=" " /><a href="/Help.aspx#terms_and_conditions" target="_blank"><span style="color: black">Terms and conditions </span></a>&nbsp;&nbsp;
                 </div>
+                 
+                
+                
             </div>
             <br />
             <div style="text-align: center">
@@ -104,13 +155,23 @@
                 <div class="register-single">
                     <asp:Button ID="btn2" runat="server" OnClick="btn2_Click" Text="Reset" Width="230px" Height="40px" CssClass="cancel-btn" />
                 </div>
+                <div id="dvCaptcha">
+</div>
+<asp:TextBox ID="txtCaptcha" runat="server" Style="display: none" />
+<asp:RequiredFieldValidator ID="rfvCaptcha" ErrorMessage="Captcha validation is required." ControlToValidate="txtCaptcha"
+    runat="server" ForeColor="Red" Display="Dynamic" />
+<br />
+               
                 <div class="register-single">
                     <asp:Button ID="btn1" runat="server" OnClick="btn1_Click" Text="Register" Width="230px" Height="40px" CssClass="register-btn" />
                 </div>
+               
             </div>
 
             <a href="Login.aspx" class="return-btn">Already have an account?</a>
         </div>
     </form>
 </body>
+
 </html>
+
