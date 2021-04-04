@@ -19,36 +19,117 @@ namespace BAIT2113_WAD
 
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
+        protected void AddToWishlist_Click(object sender, EventArgs e)
         {
             //Button InkRowSelection = (Button)sender;
             ////get the recipe id from command argument to link button
             //string ArtworkID = InkRowSelection.CommandArgument.ToString();
             //Session.Add("artworkID", ArtworkID);
-            if (Session["ArtworkID"].ToString().Equals("false"))
+
+            if (Session["CustomerID"] != null)
             {
-                String con = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-                SqlConnection cnn = new SqlConnection(con);
-                cnn.Open();
-                String strWishlist = "INSERT INTO [dbo].[Wishlist] VALUES (@customerID, @artworkID)";
-                SqlCommand addToWishlist = new SqlCommand(strWishlist, cnn);
-                addToWishlist.Parameters.AddWithValue("@customerID", Session["CustomerID"].ToString());
-                addToWishlist.Parameters.AddWithValue("@artworkID", Session["ArtworkID"].ToString());
 
-                addToWishlist.ExecuteNonQuery();
+                int a = Convert.ToInt32(txtQuantity.Text);
 
-                cnn.Close();
+                if (a > 0)
+                {
+
+                    string artworkID = Session["ArtworkID"].ToString();
+                    string customerID = Session["CustomerID"].ToString();
+
+                    //string sql1 = "Select * from Artwork where artworkID = @ID ";
+                    //string sql2 = "SELECT COUNT(*) FROM Cart";
+                    string sql3 = "INSERT INTO Cart(No,artworkID,image,artworkName,price,customerID,quantity) VALUES (@No,@artworkID, @image,@artworkName,@price,@customerID,@quantity)";
+                    string sql4 = "SELECT artworkID FROM Wishlist";
+                    //string sql5 = "Update Cart SET quantity = quantity + " + txtQuantity.Text + " WHERE artworkID = @ArtworkID AND customerID = @CustomerID";
+                    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+                    //SqlCommand cmd = new SqlCommand(sql1, con);
+                    //SqlCommand cmd2 = new SqlCommand(sql2, con);
+                    SqlCommand cmd3 = new SqlCommand(sql3, con);
+                    SqlCommand cmd4 = new SqlCommand(sql4, con);
+                    //SqlCommand cmd5 = new SqlCommand(sql5, con);
+                    SqlDataReader rdr;
+                    //cmd.Parameters.AddWithValue("@ID", artworkID);
+
+
+
+                    con.Open();
+                    rdr = cmd4.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        Session["Image"] = rdr["image"].ToString();
+                        Session["ArtworkName"] = rdr["artworkName"].ToString();
+                        Session["Price"] = rdr["price"].ToString();
+
+                    }
+                    con.Close();
+
+                    string image = Session["Image"].ToString();
+                    string artworkName = Session["ArtworkName"].ToString();
+                    string price = Session["Price"].ToString();
+                    string CartNo = Session["CartNo"].ToString();
+                    string quantity = txtQuantity.Text;
+
+                
+                    if (Session["ArtworkID"].Equals(Session["AddArtworkID"]))
+                    {
+                        Response.Write("<script> alert('This artwork is already in your wishlist :D') </script>");
+                    }
+                    else
+                    {
+                        cmd3.Parameters.AddWithValue("@artworkID", artworkID);
+                        cmd3.Parameters.AddWithValue("@customerID", customerID);
+                        cmd3.Parameters.AddWithValue("@image", image);
+                        cmd3.Parameters.AddWithValue("@artworkName", artworkName);
+                        cmd3.Parameters.AddWithValue("@price", price);
+                        cmd3.Parameters.AddWithValue("@No", CartNo);
+                        cmd3.Parameters.AddWithValue("@quantity", quantity);
+                        con.Open();
+                        cmd3.ExecuteNonQuery();
+                        con.Close();
+                        errLabel.Visible = false;
+
+                    }
+                    Response.Redirect("~/Cart.aspx");
+                }
+                else
+                {
+                    errLabel.Text = "Cannot add 0 item(s) to cart!";
+                    errLabel.Visible = true;
+                }
             }
             else
             {
-              
-               Response.Write("<script> alert('This artwork is already in your wishlist :D') </script>");
-                
+                Response.Redirect("Login.aspx");
             }
+
+
+
+            //if (Session["ArtworkID"].Equals("false"))
+            //{
+            //    String con = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            //    SqlConnection cnn = new SqlConnection(con);
+            //    cnn.Open();
+            //    String strWishlist = "INSERT INTO [dbo].[Wishlist] VALUES (@customerID, @artworkID)";
+            //    SqlCommand addToWishlist = new SqlCommand(strWishlist, cnn);
+            //    addToWishlist.Parameters.AddWithValue("@customerID", Session["CustomerID"].ToString());
+            //    addToWishlist.Parameters.AddWithValue("@artworkID", Session["ArtworkID"].ToString());
+
+            //    addToWishlist.ExecuteNonQuery();
+
+            //    cnn.Close();
+            //}
+            //else
+            //{
+              
+            //   Response.Write("<script> alert('This artwork is already in your wishlist :D') </script>");
+                
+            //}
         }
         
     protected void btnAddToCart_Click(object sender, EventArgs e)
-        {
+    {
             if (Session["CustomerID"] != null)
             {
 
@@ -108,7 +189,7 @@ namespace BAIT2113_WAD
                     string quantity = txtQuantity.Text;
 
                     //string CartExisted = Session["AddArtworkID"].ToString();
-                    if (Session["ArtworkID"].ToString().Equals(Session["AddArtworkID"].ToString()))
+                    if (Session["ArtworkID"].Equals(Session["AddArtworkID"]))
                     {
                         cmd5.Parameters.AddWithValue("@ArtworkID", artworkID);
                         cmd5.Parameters.AddWithValue("@CustomerID", customerID);
@@ -131,7 +212,7 @@ namespace BAIT2113_WAD
                         errLabel.Visible = false;
 
                     }
-                    Response.Redirect("~/AddToCart.aspx");
+                    Response.Redirect("~/Cart.aspx");
                 }
                 else
                 {

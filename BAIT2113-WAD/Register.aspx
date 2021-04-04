@@ -41,6 +41,15 @@
     <title></title>
     <link href="StyleSheet2.css" rel="stylesheet" />
     <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script type="text/javascript">
+        function ValidateCheckBox(sender, args) {
+            if (document.getElementById("<%=checkBox1.ClientID %>").checked == true) {
+                args.IsValid = true;
+            } else {
+                args.IsValid = false;
+            }
+        }
+    </script>
 </head>
 
 
@@ -106,6 +115,7 @@
                 <div class="register-single">
                     <div class="register-question">Email</div>
                     <asp:TextBox ID="txtemail" TextMode="Email" runat="server" Height="30px" Width="220px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtemail" ErrorMessage="Email is required" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtemail" ErrorMessage="Email Invalid" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </div>
             </div>
@@ -113,15 +123,18 @@
                 <div class="register-single">
                     <div class="register-question">Password</div>
                     <asp:TextBox ID="txtpassword" TextMode="Password"  runat="server" Height="30px" Width="220px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtpassword" ErrorMessage="Password is required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
                 <div class="register-single">
                     <div class="register-question">Re-enter Password</div>
                     <asp:TextBox ID="txt4" TextMode="Password"  runat="server" Height="30px" Width="220px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txt4" ErrorMessage="Re-enter password is required" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToCompare="txtpassword" ControlToValidate="txt4" ErrorMessage="Password Incorrect" ForeColor="Red"></asp:CompareValidator>
                 </div>
                 <div class="register-single">
                     <div class="register-question">Phone Number</div>
                     <asp:TextBox ID="txtphone" runat="server" Height="30px" Width="220px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtphone" ErrorMessage="Phone Number is required" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtphone" ErrorMessage="Phone Number Invalid" ForeColor="Red" ValidationExpression="\d{3}-\d{7}"></asp:RegularExpressionValidator>
                 </div>
             </div>
@@ -129,20 +142,24 @@
                 <div class="register-single">
                     <div class="register-question">Street</div>
                     <asp:TextBox ID="txtstreet" runat="server" Height="30px" Width="510px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtstreet" ErrorMessage="Street is Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
                 <div class="register-single">
                     <div class="register-question">City</div>
                     <asp:TextBox ID="txtcity" runat="server" Height="30px" Width="220px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtcity" ErrorMessage="City is required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="register-singlerow">
                 <div class="register-single">
                     <div class="register-question">Zip Code</div>
                     <asp:TextBox ID="txtzip" runat="server" Height="30px" Width="220px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtzip" ErrorMessage="Zip Code is required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
                 <div class="register-single">
                     <div class="register-question">State</div>
                     <asp:TextBox ID="txtstate" runat="server" Height="30px" Width="220px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtstate" ErrorMessage="State is required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
                 <div class="register-single">
                     <div class="register-question">Date of Birth</div>
@@ -163,6 +180,10 @@
                     <asp:FileUpload ID="FileUpload2" runat="server" onchange="ImagePreview(this);" />
                 </div>
             </div>
+            <div style="text-align: left; margin-left:150px;">
+                <asp:Label ID="lblwarning2" runat="server" Text=" " ForeColor="Red"></asp:Label>
+                <asp:Label ID="lblwarning" runat="server" Text=" " ForeColor="Red"></asp:Label>
+            </div>
             <div class="register-singlerow">
             </div>
             <div class="register-singlerow">
@@ -173,12 +194,9 @@
                 </div>
                 <asp:TextBox ID="txtCaptcha" runat="server" Style="display: none" />
             </div>
+                    <asp:CustomValidator ID="CustomValidator1" runat="server" ClientValidationFunction="ValidateCheckBox" ErrorMessage="Please accept the terms and conditions before subscribe." ForeColor="Red"></asp:CustomValidator>
                 <asp:RequiredFieldValidator ID="rfvCaptcha" ErrorMessage="Captcha validation is required." ControlToValidate="txtCaptcha"
                     runat="server" ForeColor="Red" Display="Dynamic" />
-            <div style="text-align: center">
-                <asp:Label ID="lblwarning2" runat="server" Text=" " ForeColor="Red"></asp:Label>
-                <asp:Label ID="lblwarning" runat="server" Text=" " ForeColor="Red"></asp:Label>
-            </div>
             <br />
             <div class="register-singlerow">
                 <div class="register-single">

@@ -232,7 +232,7 @@ h1 {
 .register-singlerow {
     display: flex;
     flex-direction: row;
-    margin: 5px auto;
+    margin: 5px auto 0px auto;
 }
 
 .tnc {
