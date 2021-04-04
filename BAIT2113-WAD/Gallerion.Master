@@ -132,7 +132,7 @@
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="newsletter_email" ValidationGroup="newsletter" ErrorMessage="Email is required." ForeColor="Red">*</asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="newsletter_email" ValidationGroup="newsletter" Display="Dynamic" ErrorMessage="Email is not valid." ForeColor="Red" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">*</asp:RegularExpressionValidator>
                                 </li>
-                                <li class="footer__item" style="margin-bottom: -20px;"><asp:CheckBox ID="newsletter_checkbox" runat="server" ValidationGroup="newsletter" Text=" I have read and agree to the website " CssClass="newsletter__checkbox" /><a href="/Help.aspx#terms_and_conditions" class="newsletter__terms">terms and conditions
+                                <li class="footer__item" style="margin-bottom: -20px;"><asp:CheckBox ID="newsletter_checkbox" runat="server" ValidationGroup="newsletter" Text="I have read and agree to the " CssClass="newsletter__checkbox" /><a href="/Help.aspx#terms_and_conditions" class="newsletter__terms">terms and conditions
                                     <asp:CustomValidator ID="CustomValidator1" runat="server" ClientValidationFunction="ValidateCheckBox" Display="Dynamic" ErrorMessage="Please accept the terms and conditions before subscribe." ForeColor="Red" ValidationGroup="newsletter">*</asp:CustomValidator>
                                     </a>
                                 &nbsp;</li>
