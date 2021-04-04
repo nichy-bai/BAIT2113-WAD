@@ -45,13 +45,13 @@
 
             <div class="profile-artworkrow">
                 <div class="profile-addquestion">Artwork Name</div>
-                <asp:TextBox ID="txtArtworkName" runat="server" Width="220px"></asp:TextBox>
+                <asp:TextBox ID="txtArtworkName" runat="server" Width="220px" ValidationGroup="addartwork"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="addartwork" runat="server" Display="Dynamic" ErrorMessage="Artwork Name is required" ControlToValidate="txtArtworkName" ForeColor="Red">*</asp:RequiredFieldValidator>
             </div>
 
             <div class="profile-artworkrow">
                 <div class="profile-addquestion">Category</div>
-                <asp:DropDownList ID="ddlCategory" runat="server" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged" AutoPostBack="True" Height="28px">
+                <asp:DropDownList ID="ddlCategory" runat="server" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged" AutoPostBack="True" Height="28px" ValidationGroup="addartwork">
                     <asp:ListItem>Painting</asp:ListItem>
                     <asp:ListItem>Photography</asp:ListItem>
                     <asp:ListItem>Design</asp:ListItem>
@@ -69,16 +69,16 @@
 
             <div class="profile-artworkrow">
                 <div class="profile-addquestion">Quantity</div>
-                <asp:TextBox ID="txtQuantity" runat="server" Width="220px"></asp:TextBox>
+                <asp:TextBox ID="txtQuantity" runat="server" Width="220px" ValidationGroup="addartwork"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ValidationGroup="addartwork" runat="server" ControlToValidate="txtQuantity" Display="Dynamic" ErrorMessage="The quantity must insert" ForeColor="Red">*</asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtQuantity" Display="Dynamic" ErrorMessage="Must be a number" ForeColor="Red">*</asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtQuantity" Display="Dynamic" ErrorMessage="Must be a number" ForeColor="Red" ValidationGroup="addartwork" ValidationExpression="\d{1,5}">*</asp:RegularExpressionValidator>
             </div>
 
             <div class="profile-artworkrow">
                 <div class="profile-addquestion">Price</div>
-                <asp:TextBox ID="txtPrice" runat="server" Width="220px"></asp:TextBox>
+                <asp:TextBox ID="txtPrice" runat="server" Width="220px" ValidationGroup="addartwork"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ValidationGroup="addartwork" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="The price must insert" ForeColor="Red">*</asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="Must be a number" ForeColor="Red">*</asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="Must be a number" ForeColor="Red" ValidationGroup="addartwork" ValidationExpression="^\d+.\d{0,2}$">*</asp:RegularExpressionValidator>
             </div>
 
             <div class="profile-artworkrow">
@@ -90,14 +90,14 @@
 
             <div class="profile-artworkrow">
                 <div class="profile-addquestion">Description</div>
-                <textarea id="taDescription" class="auto-style6" name="taDescription" runat="server"  rows="10" cols="28"></textarea>
+                <textarea id="taDescription" class="auto-style6" name="taDescription" runat="server"  rows="5" cols="28"></textarea>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ValidationGroup="addartwork" runat="server" ControlToValidate="taDescription" Display="Dynamic" ErrorMessage="Description field is required" ForeColor="Red">*</asp:RequiredFieldValidator>
             </div>
 
-            <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" CssClass="profile-uploadbtn" />
+            <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" CssClass="profile-uploadbtn" ValidationGroup="addartwork" />
                 <br />
+                <asp:ValidationSummary ID="ValidationSummary2" runat="server" DisplayMode="List" ForeColor="Red" ValidationGroup="addartwork" />
                 <br />
-                <asp:Label ID="lblmsg" runat="server" CssClass="upload-msg"></asp:Label>
         </div>
     </div>
 
