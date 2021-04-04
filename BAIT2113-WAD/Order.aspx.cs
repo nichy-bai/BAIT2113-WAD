@@ -19,36 +19,88 @@ namespace BAIT2113_WAD
 
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
+        protected void AddToWishlist_Click(object sender, EventArgs e)
         {
             //Button InkRowSelection = (Button)sender;
             ////get the recipe id from command argument to link button
             //string ArtworkID = InkRowSelection.CommandArgument.ToString();
             //Session.Add("artworkID", ArtworkID);
-            if (Session["ArtworkID"].ToString().Equals("false"))
+
+            if (Session["CustomerID"] != null)
             {
-                String con = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-                SqlConnection cnn = new SqlConnection(con);
-                cnn.Open();
-                String strWishlist = "INSERT INTO [dbo].[Wishlist] VALUES (@customerID, @artworkID)";
-                SqlCommand addToWishlist = new SqlCommand(strWishlist, cnn);
-                addToWishlist.Parameters.AddWithValue("@customerID", Session["CustomerID"].ToString());
-                addToWishlist.Parameters.AddWithValue("@artworkID", Session["ArtworkID"].ToString());
+                string artworkID = Session["ArtworkID"].ToString();
+                string customerID = Session["CustomerID"].ToString();
 
-                addToWishlist.ExecuteNonQuery();
+                string sql3 = "INSERT INTO Wishlist(artworkID,customerID) VALUES (@artworkID,@customerID)";
+                string sql4 = "SELECT artworkID, customerID FROM Wishlist WHERE customerID = @CustomerID";
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
 
-                cnn.Close();
+                SqlCommand cmd3 = new SqlCommand(sql3, con);
+                SqlCommand cmd4 = new SqlCommand(sql4, con);
+
+                SqlDataReader rdr;
+
+                con.Open();
+                cmd4.Parameters.AddWithValue("@CustomerID", customerID);
+                rdr = cmd4.ExecuteReader();
+
+
+                while (rdr.Read())
+                {
+                    Session["ArtworkkkkkID"] = rdr["artworkID"].ToString();
+                    Session["CustomerrrrID"] = rdr["customerID"].ToString();
+                }
+                con.Close();
+
+                if (Session["ArtworkID"].Equals(Session["ArtworkkkkkID"]))
+                {
+                    Response.Write("<script> alert('This artwork is already in your wishlist :D') </script>");
+                }
+                else
+                {
+                    cmd3.Parameters.AddWithValue("@artworkID", artworkID);
+                    cmd3.Parameters.AddWithValue("@customerID", customerID);
+                    con.Open();
+                    cmd3.ExecuteNonQuery();
+                    con.Close();
+
+                }
+                if(Session["ArtworkID"].Equals(Session["ArtworkkkkkID"]) && Session["CustomerID"].Equals(Session["CustomerrrrID"]))
+                {
+                    Response.Write("<script> alert('Errorrrrrrrrrrrr') </script>");
+                }
             }
             else
             {
-              
-               Response.Write("<script> alert('This artwork is already in your wishlist :D') </script>");
-                
+                Response.Redirect("Login.aspx");
             }
+
+
+
+            //if (Session["ArtworkID"].Equals("false"))
+            //{
+            //    String con = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            //    SqlConnection cnn = new SqlConnection(con);
+            //    cnn.Open();
+            //    String strWishlist = "INSERT INTO [dbo].[Wishlist] VALUES (@customerID, @artworkID)";
+            //    SqlCommand addToWishlist = new SqlCommand(strWishlist, cnn);
+            //    addToWishlist.Parameters.AddWithValue("@customerID", Session["CustomerID"].ToString());
+            //    addToWishlist.Parameters.AddWithValue("@artworkID", Session["ArtworkID"].ToString());
+
+            //    addToWishlist.ExecuteNonQuery();
+
+            //    cnn.Close();
+            //}
+            //else
+            //{
+              
+            //   Response.Write("<script> alert('This artwork is already in your wishlist :D') </script>");
+                
+            //}
         }
         
     protected void btnAddToCart_Click(object sender, EventArgs e)
-        {
+    {
             if (Session["CustomerID"] != null)
             {
 
@@ -63,7 +115,7 @@ namespace BAIT2113_WAD
                     string sql1 = "Select * from Artwork where artworkID = @ID ";
                     string sql2 = "SELECT COUNT(*) FROM Cart";
                     string sql3 = "INSERT INTO Cart(No,artworkID,image,artworkName,price,customerID,quantity) VALUES (@No,@artworkID, @image,@artworkName,@price,@customerID,@quantity)";
-                    string sql4 = "SELECT artworkID FROM Cart";
+                    string sql4 = "SELECT artworkID FROM Cart WHERE customerID = @CustomerID";
                     string sql5 = "Update Cart SET quantity = quantity + " + txtQuantity.Text + " WHERE artworkID = @ArtworkID AND customerID = @CustomerID";
                     SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
                     SqlCommand cmd = new SqlCommand(sql1, con);
@@ -89,6 +141,8 @@ namespace BAIT2113_WAD
                     con.Close();
 
                     con.Open();
+
+                    cmd4.Parameters.AddWithValue("@CustomerID", customerID);
                     rdr1 = cmd4.ExecuteReader();
                     while (rdr1.Read())
                     {
@@ -108,7 +162,7 @@ namespace BAIT2113_WAD
                     string quantity = txtQuantity.Text;
 
                     //string CartExisted = Session["AddArtworkID"].ToString();
-                    if (Session["ArtworkID"].ToString().Equals(Session["AddArtworkID"].ToString()))
+                    if (Session["ArtworkID"].Equals(Session["AddArtworkID"]))
                     {
                         cmd5.Parameters.AddWithValue("@ArtworkID", artworkID);
                         cmd5.Parameters.AddWithValue("@CustomerID", customerID);
@@ -131,7 +185,7 @@ namespace BAIT2113_WAD
                         errLabel.Visible = false;
 
                     }
-                    Response.Redirect("~/AddToCart.aspx");
+                    Response.Redirect("~/Cart.aspx");
                 }
                 else
                 {

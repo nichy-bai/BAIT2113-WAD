@@ -74,7 +74,7 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
-    <Content Include="AddToCart.aspx" />
+    <Content Include="Cart.aspx" />
     <Content Include="errors\400.html" />
     <Content Include="errors\403.html" />
     <Content Include="errors\404.html" />
@@ -121,9 +121,12 @@
     <Content Include="Wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddToCart.aspx.cs">
-      <DependentUpon>AddToCart.aspx</DependentUpon>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
