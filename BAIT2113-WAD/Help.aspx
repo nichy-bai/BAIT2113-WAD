@@ -96,7 +96,7 @@
             <p class="faq-heading">07. Others</p>
             <div class='faq-arrow'></div>
             <div class="faq-text">
-                <p>If you still encounter other problems when using Gallerion such as <a href="/errors/400.html" style="color: #787878">400 Bad Request</a>, <a href="/errors/404.html" style="color: #787878">404 Page Not Found</a>, or <a href="/errors/500.html" style="color: #787878">500 Internal Server Error</a>, you can try to contact us via <a href="mailto:contact@gallerion.com" style="color: #787878">contact@gallerion.com</a> to send feedback. Our customer service team will try our best to solve your problem.</p>
+                <p>If you still encounter other problems such as <a href="/errors/400.html" style="color: #787878">400 Bad Request</a>, <a href="/errors/403.html" style="color: #787878">403 Forbidden Error</a>, <a href="/errors/404.html" style="color: #787878">404 Page Not Found</a>, or <a href="/errors/500.html" style="color: #787878">500 Internal Server Error</a>, you can try to contact us via <a href="mailto:contact@gallerion.com" style="color: #787878">contact@gallerion.com</a> to send feedback. Our customer service team will try our best to solve your problem.</p>
                 <div class="emoticon">
 		            (<span class="e-arm">╯</span>°□°）<span class="e-arm">╯</span><span class="e-trajectory">︵</span> <span class="e-table">┻━┻</span>
 	            </div>

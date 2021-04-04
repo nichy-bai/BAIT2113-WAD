@@ -18,8 +18,18 @@
         body {
             background: #121212;
             color: #242424;
-            font: 1em "Hind", Arial, sans-serif;
             line-height: 1.5;
+            user-select: none;
+        }
+
+        ::-moz-selection {
+            background-color: transparent;
+            color: #000;
+        }
+
+        ::selection {
+            background-color: transparent;
+            color: #000;
         }
 
         a {
@@ -72,7 +82,7 @@
 
         @media (prefers-color-scheme: dark) {
             body {
-                background: #242424;
+                background: #fff;
                 color: #f1f1f1;
             }
 
@@ -265,11 +275,11 @@
 <body>
     <main>
         <div class="wrap">
-            <h1 style="text-align:center;font-family:'Times New Roman';margin-top:-20px;">500 Internal Server Error</h1>
+            <h1 style="text-align:center;font-family:'Times New Roman';margin-top:-20px;color:#000;">500 Internal Server Error</h1>
             <canvas width="560" height="300"></canvas>
-            <p style="text-align:center;font-family:'Times New Roman';font-size: 20px;">You’re in the middle of nowhere. This may be due to the server being unable to process the request for unknown reasons.</p>
-            <p style="text-align:left;font-family:'Times New Roman';font-size: 18px;margin-bottom: 0px;margin-top:0px;">What you can do:</p>
-            <ul style="text-align:left;font-family:'Times New Roman';font-size: 18px;margin-bottom: 0px;">
+            <p style="text-align:center;font-family:'Times New Roman';font-size: 20px;color:#000;">You’re in the middle of nowhere. This may be due to the server being unable to process the request for unknown reasons.</p>
+            <p style="text-align:left;font-family:'Times New Roman';font-size: 18px;margin-bottom: 0px;margin-top:0px;color:#000;">What you can do:</p>
+            <ul style="text-align:left;font-family:'Times New Roman';font-size: 18px;margin-bottom: 0px;color:#000;">
                 <li>Go back <a href="/Homepage.aspx" style="color:rgb(50, 102, 213); text-decoration: underline;">home</a></li>
                 <li><a href="mailto:contact@gallerion.com" style="color:rgb(50, 102, 213); text-decoration: underline;">Contact</a> the customer service if you believe this happened in error</li>
             </ul>

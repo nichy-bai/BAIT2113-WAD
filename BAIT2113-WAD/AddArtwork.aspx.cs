@@ -121,12 +121,14 @@ namespace BAIT2113_WAD
                 con.Close();
 
                 lblmsg.Visible = true;
+                lblmsg.ForeColor = System.Drawing.Color.Green;
                 lblmsg.Text = "Artwork Uploaded successfully.";
 
             }
             else
             {
                 lblmsg.Visible = true;
+                lblmsg.ForeColor = System.Drawing.Color.Red;
                 lblmsg.Text = "ERROR! Invalid input detected.";
             }
 
