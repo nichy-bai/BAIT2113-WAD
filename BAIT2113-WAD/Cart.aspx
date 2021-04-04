@@ -26,7 +26,7 @@
 
             <a href="Profile.aspx" class="profile-btn">Profile Details</a>
             <a href="Wishlist.aspx" class="profile-btn">Wishlist</a>
-            <a href="AddToCart.aspx" class="profile-btn-active">Shopping Cart</a>
+            <a href="Cart.aspx" class="profile-btn-active">Shopping Cart</a>
             <a href="PurchaseHistory.aspx" class="profile-btn">Purchase History</a>
         </div>
 
@@ -84,7 +84,7 @@
                                 <td>
                                     <asp:Label ID="artworkID" runat="server" Text='<%# Eval("artworkID") %>'></asp:Label>
                                 </td>
-                                <td> 
+                                <td>
                                     <asp:Image ID="image" runat="server" ImageUrl='<%# Eval("image") %>' Height="100px" Width="100px"/>
                                 </td>
                                 <td>
