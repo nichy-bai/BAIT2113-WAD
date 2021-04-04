@@ -73,6 +73,7 @@
     </Content>
     <Content Include="AddToCart.aspx" />
     <Content Include="errors\400.html" />
+    <Content Include="errors\403.html" />
     <Content Include="errors\404.html" />
     <Content Include="errors\500.html" />
     <Content Include="Global.asax" />

@@ -20,6 +20,13 @@
                 alert("Subscribed");
             }
         }*/
+        function ValidateCheckBox(sender, args) {
+            if (document.getElementById("<%=newsletter_checkbox.ClientID %>").checked == true) {
+                args.IsValid = true;
+            } else {
+                args.IsValid = false;
+            }
+        }
     </script>
     <title>Gallerion</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -121,16 +128,20 @@
                             <asp:ScriptManager ID="script1" runat="server"></asp:ScriptManager>
                             <asp:UpdatePanel ID="panel1" runat="server"><ContentTemplate>
                             <li class="footer__item">Subscribe to the newsletter and stay up to date with the latest artworks</li>
-                            <li class="footer__item"><asp:TextBox ID="newsletter_email" runat="server" TextMode="Email" AutoCompleteType="Email" placeholder="Email" Width="250px" Height="25px" CssClass="newsletter__textbox"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="newsletter_email" ValidationGroup="newsletter" ErrorMessage="Email is required" ForeColor="Red">*</asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="newsletter_email" ValidationGroup="newsletter" Display="Dynamic" ErrorMessage="Email is not valid" ForeColor="Red" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">*</asp:RegularExpressionValidator>
+                            <li class="footer__item"><asp:TextBox ID="newsletter_email" runat="server" TextMode="Email" AutoCompleteType="Email" placeholder="Email" ValidationGroup="newsletter" Width="250px" Height="25px" CssClass="newsletter__textbox"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="newsletter_email" ValidationGroup="newsletter" ErrorMessage="Email is required." ForeColor="Red">*</asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="newsletter_email" ValidationGroup="newsletter" Display="Dynamic" ErrorMessage="Email is not valid." ForeColor="Red" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">*</asp:RegularExpressionValidator>
                                 </li>
-                            <li class="footer__item"><asp:CheckBox ID="newsletter_checkbox" runat="server" Text=" I accept the " CssClass="newsletter__checkbox" /><a href="/Help.aspx#terms_and_conditions" class="newsletter__terms">terms and conditions</a>
-                                </li>
-                            <li class="footer__item"><asp:Button ID="newsletter_button" runat="server" Text="Subscribe" Width="100px" Height="30px" CssClass="newsletter__button" /></li>
+                                <li class="footer__item" style="margin-bottom: -20px;"><asp:CheckBox ID="newsletter_checkbox" runat="server" ValidationGroup="newsletter" Text=" I have read and agree to the website " CssClass="newsletter__checkbox" /><a href="/Help.aspx#terms_and_conditions" class="newsletter__terms">terms and conditions
+                                    <asp:CustomValidator ID="CustomValidator1" runat="server" ClientValidationFunction="ValidateCheckBox" Display="Dynamic" ErrorMessage="Please accept the terms and conditions before subscribe." ForeColor="Red" ValidationGroup="newsletter">*</asp:CustomValidator>
+                                    </a>
+                                &nbsp;</li>
+                                <li class="footer__item" style="margin-bottom:-10px;"><asp:Button ID="newsletter_button" runat="server" Text="Subscribe" ValidationGroup="newsletter" Width="100px" Height="30px" CssClass="newsletter__button" OnClick="newsletter_button_Click" /></li>
+                                <li class="footer__item"><asp:Label ID="newsletter_msg" runat="server" Text=""></asp:Label></li>
 
-                                <asp:ValidationSummary ID="ValidationSummary1" runat="server" DisplayMode="List" ForeColor="Red" />
-                            </ContentTemplate></asp:UpdatePanel>
+                                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="newsletter" DisplayMode="List" ForeColor="Red" Height="0"/>
+
+                                </ContentTemplate></asp:UpdatePanel>
                         </ul>
                     </div>
                 </div>

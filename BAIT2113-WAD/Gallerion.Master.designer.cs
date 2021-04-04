@@ -123,6 +123,15 @@ namespace BAIT2113_WAD
         protected global::System.Web.UI.WebControls.CheckBox newsletter_checkbox;
 
         /// <summary>
+        /// CustomValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+
+        /// <summary>
         /// newsletter_button control.
         /// </summary>
         /// <remarks>
@@ -130,6 +139,15 @@ namespace BAIT2113_WAD
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button newsletter_button;
+
+        /// <summary>
+        /// newsletter_msg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label newsletter_msg;
 
         /// <summary>
         /// ValidationSummary1 control.
