@@ -14,6 +14,10 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            var ctl = Page.LoadControl("~/User Control/Header.ascx");
+            HeaderPlaceHolder.Controls.Add(ctl);
+
             string ID = Session["ArtistID"].ToString();
 
 

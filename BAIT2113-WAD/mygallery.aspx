@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="StyleSheet3.css" rel="stylesheet" />
+    <div>
+        <asp:PlaceHolder ID="HeaderPlaceHolder" runat ="server" />
+    </div>
     <div class="profile-box">
         <div class="profile-detail">
             <asp:Image ID="profilepic" runat="server" class="profile-pic" />
