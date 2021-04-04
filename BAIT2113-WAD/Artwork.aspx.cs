@@ -16,9 +16,5 @@ namespace BAIT2113_WAD
 
         }
 
-        protected void viewMore_Click(object sender, System.EventArgs e)
-        {
-
-        }
     }
 }

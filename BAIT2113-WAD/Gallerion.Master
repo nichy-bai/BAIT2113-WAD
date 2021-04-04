@@ -41,7 +41,7 @@
                     <asp:SiteMapPath ID="SiteMapPath1" runat="server" CssClass="navigation__sitemap"></asp:SiteMapPath>
 
                     <li class="navigation__item"><a href="/Homepage.aspx" class="navigation__link">Home</a></li>
-                    <li class="navigation__item"><a href="/Artwork.aspx" class="navigation__link">Artwork Sales</a></li>
+                    <li class="navigation__item"><a href="Artwork.aspx" class="navigation__link">Artwork Sales</a></li>
                     <li class="navigation__item"><a href="/PurchaseHistory.aspx" class="navigation__link">Purchase History</a></li>
                     <li class="navigation__item"><a href="/AddToCart.aspx" class="navigation__link">Shopping Cart</a></li>
                     <li class="navigation__item"><a href="/Wishlist.aspx" class="navigation__link">Wishlist</a></li>
