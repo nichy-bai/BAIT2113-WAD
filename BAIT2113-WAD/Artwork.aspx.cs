@@ -13,12 +13,8 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-         
+
         }
 
-        protected void viewMore_Click(object sender, System.EventArgs e)
-        {
-            
-        }
     }
 }

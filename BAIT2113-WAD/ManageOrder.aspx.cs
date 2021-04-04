@@ -87,7 +87,7 @@ namespace BAIT2113_WAD
                 string lblText = lbl.Text;
                 string lblText1 = lbl1.Text;
                 string lblText2 = lbl2.Text;
-                
+
                 string sql4 = "Select dateOrder from [Order] where orderID = @orderID AND artworkID = @artworkID";
                 SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
                 SqlCommand cmd4 = new SqlCommand(sql4, con);
@@ -122,7 +122,7 @@ namespace BAIT2113_WAD
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
-            
+
 
             if (e.CommandName == "reference")
             {
@@ -131,66 +131,61 @@ namespace BAIT2113_WAD
                 string artid = ((Label)e.Item.FindControl("lblartid")).Text;
                 string logistic = ((Label)e.Item.FindControl("lbllgt")).Text;
 
+                ((Label)e.Item.FindControl("errref")).Visible = false;
+
                 if (logistic == "PosLaju")
                 {
-                    if (reference != null)
+                    if (reference.Substring(0, 2) == "PL")
                     {
+                        string sql1 = "Update [Order] set referencesNo = @reference, status = 'Shipped out', dateDelivered = '" + DateTime.Today + "' where orderID = @orderID AND artworkID = @artworkID";
+                        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+                        SqlCommand cmd = new SqlCommand(sql1, con);
+                        cmd.Parameters.AddWithValue("@reference", reference);
+                        cmd.Parameters.AddWithValue("@orderID", orderid);
+                        cmd.Parameters.AddWithValue("@artworkID", artid);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
                         ((Label)e.Item.FindControl("errref")).Visible = false;
-                        if (reference.Substring(0, 2) == "PL")
-                        {
-                            string sql1 = "Update [Order] set referencesNo = @reference, status = 'Shipped out', dateDelivered = '" + DateTime.Today + "' where orderID = @orderID AND artworkID = @artworkID";
-                            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-                            SqlCommand cmd = new SqlCommand(sql1, con);
-                            cmd.Parameters.AddWithValue("@reference", reference);
-                            cmd.Parameters.AddWithValue("@orderID", orderid);
-                            cmd.Parameters.AddWithValue("@artworkID", artid);
-                            con.Open();
-                            cmd.ExecuteNonQuery();
-                            con.Close();
-                            ((Label)e.Item.FindControl("errref")).Visible = false;
-                            this.DataList1.Visible = true;
-                            this.GridView2.Visible = false;
-                            this.DataList1.DataBind();
+                        this.DataList1.Visible = true;
+                        this.GridView2.Visible = false;
+                        this.DataList1.DataBind();
 
-                        }
-                        else
-                        {
-                            ((Label)e.Item.FindControl("errref")).Visible = true;
-                            ((Label)e.Item.FindControl("errref")).Text = "Please confirm the reference number is match with the logistic";
-                        }
-                    }
-                    if (logistic == "J&T Express")
-                    {
-                        if (reference.Substring(0, 2) == "JT")
-                        {
-                            string sql1 = "Update [Order] set referencesNo = @reference, status = 'Shipped out', dateDelivered = '" + DateTime.Today + "' where orderID = @orderID AND artworkID = @artworkID";
-                            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-                            SqlCommand cmd = new SqlCommand(sql1, con);
-                            cmd.Parameters.AddWithValue("@reference", reference);
-                            cmd.Parameters.AddWithValue("@orderID", orderid);
-                            cmd.Parameters.AddWithValue("@artworkID", artid);
-                            con.Open();
-                            cmd.ExecuteNonQuery();
-                            con.Close();
-                            ((Label)e.Item.FindControl("errref")).Visible = false;
-                            this.DataList1.Visible = true;
-                            this.GridView2.Visible = false;
-                            this.DataList1.DataBind();
-
-                        }
-                        else
-                        {
-                            ((Label)e.Item.FindControl("errref")).Visible = true;
-                            ((Label)e.Item.FindControl("errref")).Text = "Please confirm the reference number is match with the logistic";
-                        }
                     }
                     else
                     {
                         ((Label)e.Item.FindControl("errref")).Visible = true;
-                        ((Label)e.Item.FindControl("errref")).Text = "Please insert the reference number";
+                        ((Label)e.Item.FindControl("errref")).Text = "Please confirm the reference number is match with the logistic";
+                    }
+
+                }
+                if (logistic == "J&T Express")
+                {
+                    if (reference.Substring(0, 2) == "JT")
+                    {
+                        string sql1 = "Update [Order] set referencesNo = @reference, status = 'Shipped out', dateDelivered = '" + DateTime.Today + "' where orderID = @orderID AND artworkID = @artworkID";
+                        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+                        SqlCommand cmd = new SqlCommand(sql1, con);
+                        cmd.Parameters.AddWithValue("@reference", reference);
+                        cmd.Parameters.AddWithValue("@orderID", orderid);
+                        cmd.Parameters.AddWithValue("@artworkID", artid);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        ((Label)e.Item.FindControl("errref")).Visible = false;
+                        this.DataList1.Visible = true;
+                        this.GridView2.Visible = false;
+                        this.DataList1.DataBind();
+
+                    }
+                    else
+                    {
+                        ((Label)e.Item.FindControl("errref")).Visible = true;
+                        ((Label)e.Item.FindControl("errref")).Text = "Please confirm the reference number is match with the logistic";
                     }
                 }
             }
+            
         }
 
         //protected void GridView1_RowCommand(Object sender, GridViewCommandEventArgs e)

@@ -51,8 +51,6 @@
                 <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" /><br />
                 <a href="Register.aspx" class="return-btn">Don't have an account?</a>
             </div>
-        </div>
-
     </form>
 </body>
 </html>
