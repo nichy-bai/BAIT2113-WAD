@@ -4,7 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="StyleSheet3.css" rel="stylesheet" />
-
+    <div>
+        <asp:PlaceHolder ID="HeaderPlaceHolder" runat ="server" />
+    </div>
     <div class="profile-box">
         <div class="profile-detail">
 
@@ -99,7 +101,7 @@
                     <Columns>
                         <asp:TemplateField HeaderText="Customer">
                             <ItemTemplate>
-                            <asp:Label runat="server" Text='<%# Eval("customerID")%>'></asp:Label><p> 
+                            <asp:Label runat="server" Text='<%# Eval("customerID")%>'></asp:Label><p>
                             <asp:Label runat="server" Text='<%# Eval("name")%>'></asp:Label>
                             </ItemTemplate>
                             </asp:TemplateField>
@@ -110,10 +112,10 @@
                                         <td>
                                     <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("image")%>' Height="100px" Width="100px" /></td>
                                    <td> <asp:Label ID="Label1" runat="server" Text='<%# "Order ID:" + Eval("orderID")%>'></asp:Label><p>
-                                       <asp:Label runat="server" Text='<%# "Artwork ID:" + Eval("artworkID")%>'></asp:Label><p> 
+                                       <asp:Label runat="server" Text='<%# "Artwork ID:" + Eval("artworkID")%>'></asp:Label><p>
                             <asp:Label runat="server" Text='<%# Eval("artworkName")%>'></asp:Label></td>
                                     </tr>
-                                </table> 
+                                </table>
                             </ItemTemplate>
                             </asp:TemplateField>
                         <asp:BoundField DataField="quantity" HeaderText="Qty" SortExpression="quantity" ItemStyle-Width="100px"/>
@@ -122,7 +124,7 @@
                         <asp:BoundField DataField="Logistics" HeaderText="Logistics" SortExpression="Logistics" ItemStyle-Width="200px"/>
                         <asp:BoundField DataField="referencesNo" HeaderText="referencesNo" SortExpression="referencesNo" ItemStyle-Width="200px"/>
                         <asp:BoundField DataField="dateDelivered" HeaderText="dateDelivered" SortExpression="dateDelivered" ItemStyle-Width="200px"/>
-                   
+
                         </Columns>
                 </asp:GridView>
             </div>

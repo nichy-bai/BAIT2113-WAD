@@ -84,7 +84,7 @@
                                 <td>
                                     <asp:Label ID="artworkID" runat="server" Text='<%# Eval("artworkID") %>'></asp:Label>
                                 </td>
-                                <td> 
+                                <td>
                                     <asp:Image ID="image" runat="server" ImageUrl='<%# Eval("image") %>' Height="100px" Width="100px"/>
                                 </td>
                                 <td>

@@ -14,7 +14,10 @@ namespace BAIT2113_WAD
         protected void Page_Load(object sender, EventArgs e)
         {
 
-       string ID = Session["ArtistID"].ToString();
+            var ctl = Page.LoadControl("~/User Control/Header.ascx");
+            HeaderPlaceHolder.Controls.Add(ctl);
+
+            string ID = Session["ArtistID"].ToString();
 
             string sql2 = "Select * from Artist where artistID = @ID ";
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
@@ -90,7 +93,8 @@ namespace BAIT2113_WAD
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-            
+            if (FileUpload1.HasFile)
+            {
                 string uploadpic = "~/images/" + FileUpload1.FileName.ToString();
                 FileUpload1.SaveAs(Server.MapPath("images//" + FileUpload1.FileName));
                 //string uploadpic1 = Path.Combine(Server.MapPath("image"), FileUpload1.FileName);
@@ -119,11 +123,10 @@ namespace BAIT2113_WAD
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                
-
-            
-           
-
+                lblmsg.Visible = true;
+                lblmsg.ForeColor = System.Drawing.Color.Green;
+                lblmsg.Text = "Artwork Uploaded successfully.";
+            }
         }
     }
 }
