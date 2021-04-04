@@ -90,8 +90,7 @@ namespace BAIT2113_WAD
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-            if (FileUpload1.HasFile)
-            {
+            
                 string uploadpic = "~/images/" + FileUpload1.FileName.ToString();
                 FileUpload1.SaveAs(Server.MapPath("images//" + FileUpload1.FileName));
                 //string uploadpic1 = Path.Combine(Server.MapPath("image"), FileUpload1.FileName);
@@ -120,17 +119,10 @@ namespace BAIT2113_WAD
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                lblmsg.Visible = true;
-                lblmsg.ForeColor = System.Drawing.Color.Green;
-                lblmsg.Text = "Artwork Uploaded successfully.";
+                
 
-            }
-            else
-            {
-                lblmsg.Visible = true;
-                lblmsg.ForeColor = System.Drawing.Color.Red;
-                lblmsg.Text = "ERROR! Invalid input detected.";
-            }
+            
+           
 
         }
     }

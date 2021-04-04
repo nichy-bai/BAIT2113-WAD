@@ -63,5 +63,7 @@ namespace BAIT2113_WAD
 
             newsletter_email.Text = "";
         }
+
+        
     }
 }
