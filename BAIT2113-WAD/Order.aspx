@@ -59,7 +59,7 @@
                             <asp:Button ID="Button5" runat="server" Text="Add to Cart" OnClick="btnAddToCart_Click" class="view_more" CssClass="order-add-btn" />
                         </div>
                         <div class="">
-                            <asp:Button ID="Button6" runat="server" Text="Buy Now" class="view_more" CssClass="order-buy-btn" />
+                            <asp:Button ID="Button6" runat="server" Text="Buy Now" class="view_more" CssClass="order-buy-btn" OnClick="buyNow_Click" />
 
                         </div>
                     </div>

@@ -4,17 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Configuration;
-using System.Data.SqlClient;
 
-namespace BAIT2113_WAD
+namespace BAIT2113_WAD.User_Control
 {
-    public partial class Artwork : System.Web.UI.Page
+    public partial class Notification : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
     }
 }
