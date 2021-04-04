@@ -19,7 +19,7 @@ namespace BAIT2113_WAD
 
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
+        protected void AddToWishlist_Click(object sender, EventArgs e)
         {
             //Button InkRowSelection = (Button)sender;
             ////get the recipe id from command argument to link button
@@ -108,7 +108,7 @@ namespace BAIT2113_WAD
                     string quantity = txtQuantity.Text;
 
                     //string CartExisted = Session["AddArtworkID"].ToString();
-                    if (Session["ArtworkID"].ToString().Equals(Session["AddArtworkID"].ToString()))
+                    if (Session["ArtworkID"].Equals(Session["AddArtworkID"]))
                     {
                         cmd5.Parameters.AddWithValue("@ArtworkID", artworkID);
                         cmd5.Parameters.AddWithValue("@CustomerID", customerID);
@@ -131,7 +131,7 @@ namespace BAIT2113_WAD
                         errLabel.Visible = false;
 
                     }
-                    Response.Redirect("~/AddToCart.aspx");
+                    Response.Redirect("~/Cart.aspx");
                 }
                 else
                 {
