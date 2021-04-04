@@ -19,7 +19,8 @@ namespace BAIT2113_WAD
 
         protected void email()
         {
-            String message1 = "Congratulation! You have successfully register as Gallerion member.";
+            String emailSubject = "Gallerion Member";
+            String emailBody = "Congratulation! You have successfully register as Gallerion member.";
 
             //SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
 
@@ -29,7 +30,8 @@ namespace BAIT2113_WAD
             mail.IsBodyHtml = true;
             mail.From = new MailAddress("Gallerion2021@gmail.com", "Gallerion");
             mail.To.Add(new MailAddress(txtemail.Text));
-            mail.Body = message1;
+            mail.Subject = emailSubject;
+            mail.Body = emailBody;
             SmtpClient smtpClient = new SmtpClient();
             smtpClient.Send(mail);
         }
