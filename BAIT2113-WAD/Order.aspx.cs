@@ -28,75 +28,46 @@ namespace BAIT2113_WAD
 
             if (Session["CustomerID"] != null)
             {
+                string artworkID = Session["ArtworkID"].ToString();
+                string customerID = Session["CustomerID"].ToString();
 
-                int a = Convert.ToInt32(txtQuantity.Text);
+                string sql3 = "INSERT INTO Wishlist(artworkID,customerID) VALUES (@artworkID,@customerID)";
+                string sql4 = "SELECT artworkID, customerID FROM Wishlist WHERE customerID = @CustomerID";
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
 
-                if (a > 0)
+                SqlCommand cmd3 = new SqlCommand(sql3, con);
+                SqlCommand cmd4 = new SqlCommand(sql4, con);
+
+                SqlDataReader rdr;
+
+                con.Open();
+                cmd4.Parameters.AddWithValue("@CustomerID", customerID);
+                rdr = cmd4.ExecuteReader();
+
+
+                while (rdr.Read())
                 {
+                    Session["ArtworkkkkkID"] = rdr["artworkID"].ToString();
+                    Session["CustomerrrrID"] = rdr["customerID"].ToString();
+                }
+                con.Close();
 
-                    string artworkID = Session["ArtworkID"].ToString();
-                    string customerID = Session["CustomerID"].ToString();
-
-                    //string sql1 = "Select * from Artwork where artworkID = @ID ";
-                    //string sql2 = "SELECT COUNT(*) FROM Cart";
-                    string sql3 = "INSERT INTO Cart(No,artworkID,image,artworkName,price,customerID,quantity) VALUES (@No,@artworkID, @image,@artworkName,@price,@customerID,@quantity)";
-                    string sql4 = "SELECT artworkID FROM Wishlist";
-                    //string sql5 = "Update Cart SET quantity = quantity + " + txtQuantity.Text + " WHERE artworkID = @ArtworkID AND customerID = @CustomerID";
-                    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-                    //SqlCommand cmd = new SqlCommand(sql1, con);
-                    //SqlCommand cmd2 = new SqlCommand(sql2, con);
-                    SqlCommand cmd3 = new SqlCommand(sql3, con);
-                    SqlCommand cmd4 = new SqlCommand(sql4, con);
-                    //SqlCommand cmd5 = new SqlCommand(sql5, con);
-                    SqlDataReader rdr;
-                    //cmd.Parameters.AddWithValue("@ID", artworkID);
-
-
-
-                    con.Open();
-                    rdr = cmd4.ExecuteReader();
-
-                    while (rdr.Read())
-                    {
-                        Session["Image"] = rdr["image"].ToString();
-                        Session["ArtworkName"] = rdr["artworkName"].ToString();
-                        Session["Price"] = rdr["price"].ToString();
-
-                    }
-                    con.Close();
-
-                    string image = Session["Image"].ToString();
-                    string artworkName = Session["ArtworkName"].ToString();
-                    string price = Session["Price"].ToString();
-                    string CartNo = Session["CartNo"].ToString();
-                    string quantity = txtQuantity.Text;
-
-                
-                    if (Session["ArtworkID"].Equals(Session["AddArtworkID"]))
-                    {
-                        Response.Write("<script> alert('This artwork is already in your wishlist :D') </script>");
-                    }
-                    else
-                    {
-                        cmd3.Parameters.AddWithValue("@artworkID", artworkID);
-                        cmd3.Parameters.AddWithValue("@customerID", customerID);
-                        cmd3.Parameters.AddWithValue("@image", image);
-                        cmd3.Parameters.AddWithValue("@artworkName", artworkName);
-                        cmd3.Parameters.AddWithValue("@price", price);
-                        cmd3.Parameters.AddWithValue("@No", CartNo);
-                        cmd3.Parameters.AddWithValue("@quantity", quantity);
-                        con.Open();
-                        cmd3.ExecuteNonQuery();
-                        con.Close();
-                        errLabel.Visible = false;
-
-                    }
-                    Response.Redirect("~/Cart.aspx");
+                if (Session["ArtworkID"].Equals(Session["ArtworkkkkkID"]))
+                {
+                    Response.Write("<script> alert('This artwork is already in your wishlist :D') </script>");
                 }
                 else
                 {
-                    errLabel.Text = "Cannot add 0 item(s) to cart!";
-                    errLabel.Visible = true;
+                    cmd3.Parameters.AddWithValue("@artworkID", artworkID);
+                    cmd3.Parameters.AddWithValue("@customerID", customerID);
+                    con.Open();
+                    cmd3.ExecuteNonQuery();
+                    con.Close();
+
+                }
+                if(Session["ArtworkID"].Equals(Session["ArtworkkkkkID"]) && Session["CustomerID"].Equals(Session["CustomerrrrID"]))
+                {
+                    Response.Write("<script> alert('Errorrrrrrrrrrrr') </script>");
                 }
             }
             else
@@ -144,7 +115,7 @@ namespace BAIT2113_WAD
                     string sql1 = "Select * from Artwork where artworkID = @ID ";
                     string sql2 = "SELECT COUNT(*) FROM Cart";
                     string sql3 = "INSERT INTO Cart(No,artworkID,image,artworkName,price,customerID,quantity) VALUES (@No,@artworkID, @image,@artworkName,@price,@customerID,@quantity)";
-                    string sql4 = "SELECT artworkID FROM Cart";
+                    string sql4 = "SELECT artworkID FROM Cart WHERE customerID = @CustomerID";
                     string sql5 = "Update Cart SET quantity = quantity + " + txtQuantity.Text + " WHERE artworkID = @ArtworkID AND customerID = @CustomerID";
                     SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
                     SqlCommand cmd = new SqlCommand(sql1, con);
@@ -170,6 +141,8 @@ namespace BAIT2113_WAD
                     con.Close();
 
                     con.Open();
+
+                    cmd4.Parameters.AddWithValue("@CustomerID", customerID);
                     rdr1 = cmd4.ExecuteReader();
                     while (rdr1.Read())
                     {
