@@ -35,7 +35,7 @@ namespace BAIT2113_WAD
                 lbldob.Text = rdr["dob"].ToString();
                 lblphone.Text = rdr["phoneNum"].ToString();
                 lblemail.Text = rdr["email"].ToString();
-                HyperLink1.NavigateUrl = rdr["video"].ToString();
+                //HyperLink1.NavigateUrl = rdr["video"].ToString();
                 profilepic.ImageUrl = rdr["profilePic"].ToString();
 
             }
