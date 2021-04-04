@@ -10,14 +10,15 @@ using System.Net;
 using System.Net.Mail;
 using System.IO;
 using System.Data;
+using Recaptcha;
 using System.Web.Services;
 
 namespace BAIT2113_WAD
 {
     public partial class Register : System.Web.UI.Page
     {
-        protected static string ReCaptcha_Key = "6Lf0qpsaAAAAAI-YH5zd_MYyR-oxn_UHIiaOaDzY";
-        protected static string ReCaptcha_Secret = "6Lf0qpsaAAAAALnm7UJlOQeqXUhAmsVIPrK0nKeB";
+        protected static string ReCaptcha_Key = "6LdWepkaAAAAAFnu4apC9Bt-3Qd6Du_HKrvPrqTh";
+        protected static string ReCaptcha_Secret = "6LdWepkaAAAAAG_Lc50He3XXd98hj7BZ688suh-2";
 
         [WebMethod]
         public static string VerifyCaptcha(string response)
@@ -42,7 +43,6 @@ namespace BAIT2113_WAD
             String City = txtcity.Text;
             String ZipCode = txtzip.Text;
             String State = txtstate.Text;
-            String video = txtVideo.Text;
 
 
             if (radiobtn1.Checked == true)
@@ -51,7 +51,7 @@ namespace BAIT2113_WAD
                 {
                     string uploadpic = "~/images/" + FileUpload2.FileName.ToString();
                     FileUpload2.SaveAs(Server.MapPath("images//" + FileUpload2.FileName));
-                    string sql = "insert into Artist(artistID,name,email,password,phoneNum,dob,street,city,zipCode,state,profilePic,video) values (@ArtistID,@Name,@Email,@Password,@PhoneNumber,@DOB,@Street,@City,@ZipCode, @State, @ProfilePic, @video)";
+                    string sql = "insert into Artist(artistID,name,email,password,phoneNum,dob,street,city,zipCode,state,profilePic) values (@ArtistID,@Name,@Email,@Password,@PhoneNumber,@DOB,@Street,@City,@ZipCode, @State, @ProfilePic)";
                     SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
                     SqlCommand cmd = new SqlCommand(sql, con);
 
@@ -67,11 +67,9 @@ namespace BAIT2113_WAD
                     cmd.Parameters.AddWithValue("@ZipCode", ZipCode);
                     cmd.Parameters.AddWithValue("@State", State);
                     cmd.Parameters.AddWithValue("@ProfilePic", uploadpic);
-                    cmd.Parameters.AddWithValue("@Video", video);
                     cmd.ExecuteNonQuery();
                     con.Close();
                     Response.Redirect("Login.aspx");
-                    email();
                 }
                 else
                 {
@@ -92,11 +90,9 @@ namespace BAIT2113_WAD
                     cmd.Parameters.AddWithValue("@ZipCode", ZipCode);
                     cmd.Parameters.AddWithValue("@State", State);
                     cmd.Parameters.AddWithValue("@ProfilePic", uploadpic1);
-                    cmd.Parameters.AddWithValue("@Video", video);
                     cmd.ExecuteNonQuery();
                     con.Close();
                     Response.Redirect("Login.aspx");
-                    email();
                 }
             }
             else if (radiobtn2.Checked == true)
@@ -122,7 +118,6 @@ namespace BAIT2113_WAD
                     cmd1.Parameters.AddWithValue("@ProfilePic ", uploadpic);
                     con.Close();
                     Response.Redirect("Login.aspx");
-                    email();
                 }
                 else
                 {
@@ -144,7 +139,6 @@ namespace BAIT2113_WAD
                     cmd1.Parameters.AddWithValue("@ProfilePic ", uploadpic);
                     con.Close();
                     Response.Redirect("Login.aspx");
-                    email();
                 }
             }
 
@@ -172,24 +166,6 @@ namespace BAIT2113_WAD
             checkBox1.Checked = false;
             txt4.Text = String.Empty;
 
-        }
-        protected void email()
-        {
-            String emailSubject = "Gallerion Member";
-            String emailBody = "Congratulation! You have successfully register as Gallerion member.";
-
-            //SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-
-            //smtpClient.Credentials = new System.Net.NetworkCredential("Gallerion2021@gmail.com", "Gallerion_2021?");
-            //smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-            MailMessage mail = new MailMessage();
-            mail.IsBodyHtml = true;
-            mail.From = new MailAddress("Gallerion2021@gmail.com", "Gallerion");
-            mail.To.Add(new MailAddress(txtemail.Text));
-            mail.Subject = emailSubject;
-            mail.Body = emailBody;
-            SmtpClient smtpClient = new SmtpClient();
-            smtpClient.Send(mail);
         }
     }
 }
