@@ -43,8 +43,6 @@ namespace BAIT2113_WAD
         {
             string cgy = ddlCategory.SelectedItem.Text;
 
-
-
             string sql = "Select Top(1) artworkID from Artwork Where category = @cgy order by [artworkID] DESC";
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand(sql, con);
