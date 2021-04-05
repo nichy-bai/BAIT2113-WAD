@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace BAIT2113_WAD
 {
-    public partial class WebForm5 : System.Web.UI.Page
+    public partial class PurchaseHistory : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,5 +41,17 @@ namespace BAIT2113_WAD
             Response.Redirect("/errors/Error.html");
         }
 
+    }
+}
+            if (Session["CustomerID"] != null)
+            {
+
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(),"alert", "alert('You must log in as a customer to access this feature.');window.location ='Homepage.aspx';", true);
+                
+            }
+        }
     }
 }

@@ -33,6 +33,15 @@ namespace BAIT2113_WAD
                 lbladdress.Text = rdr["street"].ToString() + ", " + rdr["city"].ToString() + ", " + rdr["zipCode"].ToString() + ", " + rdr["state"].ToString();
             }
         }
+            if (Session["CustomerID"] != null)
+            {
+               
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You must log in as a customer to access this feature.');window.location ='Homepage.aspx';", true);
+            }
+        }
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
