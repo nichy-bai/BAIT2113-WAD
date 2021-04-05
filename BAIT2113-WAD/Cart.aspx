@@ -24,6 +24,9 @@
             <span class="profile-detail-label">email</span>
             <asp:Label ID="lblemail" runat="server" CssClass="profile-detail-text"></asp:Label>
 
+            <span class="profile-detail-label">address</span>
+            <asp:Label ID="lbladdress" runat="server" CssClass="profile-detail-text"></asp:Label>
+
             <a href="Profile.aspx" class="profile-btn">Profile Details</a>
             <a href="Wishlist.aspx" class="profile-btn">Wishlist</a>
             <a href="Cart.aspx" class="profile-btn-active">Shopping Cart</a>
@@ -68,49 +71,49 @@
                     <SortedDescendingCellStyle BackColor="#E5E5E5" />
                     <SortedDescendingHeaderStyle BackColor="#242121" />
             </asp:GridView>--%>
-
-            <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="DataList1_ItemCommand">
-                <ItemTemplate>
-                    <table style="width:100%; border:hidden; border-collapse: collapse">
+            <table style="width:100%; border:hidden; border-collapse: collapse">
                             <tr style="width:100%; background-color:lightgrey">
-                                <td style="text-align:center">Artwork ID</td>
-                                <td style="text-align:center">Image</td>
-                                <td style="text-align:center">Artwork Name</td>
-                                <td style="text-align:center">Price</td>
-                                <td style="text-align:center">Quantity</td>
-                                <td style="text-align:center">Subtotal</td>
+                                <td style="text-align:center;width:200px;">Image</td>
+                                <td style="text-align:center;width:150px;">Artwork Name</td>
+                                <td style="text-align:center;width:150px;">Price</td>
+                                <td style="text-align:center;width:150px;">Quantity</td>
+                                <td style="text-align:center;width:150px;">Subtotal</td>
                                 <td> </td>
                             </tr>
+                 </table>
+            <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="DataList1_ItemCommand">
+
+                <ItemTemplate>
+                    <table style="width:100%; border:hidden; border-collapse: collapse">
                             <tr style="width:100%">
                                 <td>
-                                    <asp:Label ID="artworkID" runat="server" Text='<%# Eval("artworkID") %>'></asp:Label>
+                                    <asp:Label ID="artworkID" runat="server" Visible="false" Text='<%# Eval("artworkID") %>'></asp:Label>
+                                    <asp:Image ID="image" runat="server" ImageUrl='<%# Eval("image") %>' Height="200px" Width="200px"/>
                                 </td>
                                 <td>
-                                    <asp:Image ID="image" runat="server" ImageUrl='<%# Eval("image") %>' Height="100px" Width="100px"/>
+                                    <asp:Label ID="artworkName" runat="server" Width="200px" Text='<%# Eval("artworkName") %>'></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:Label ID="artworkName" runat="server" Text='<%# Eval("artworkName") %>'></asp:Label>
+                                    <asp:Label ID="price" runat="server" Width="150px" Text='<%# String.Format("$ {0:0.00}", Eval("price")) %>'></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:Label ID="price" runat="server" Text='<%# Eval("price") %>'></asp:Label>
+                                    <asp:Label ID="quantity" runat="server" Width="150px" Text='<%# Eval("quantity") %>'></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:Label ID="quantity" runat="server" Text='<%# Eval("quantity") %>'></asp:Label>
-                                </td>
-                                <td>
-                                    <asp:Label ID="subtotal" runat="server" Text='<%# Eval("subtotal") %>'></asp:Label>
+                                    <asp:Label ID="subtotal" runat="server" Width="150px" Text='<%# String.Format("$ {0:0.00}", Eval("subtotal")) %>'></asp:Label>
                                 </td>
                                 <td>
                                     <%--<asp:Button ID="btnDelete" runat="server" Text="Delete" CommandName="delete_Button" />--%>
                                     <%--<asp:LinkButton ID="linkButtonDelete" runat="server" CommandName="deleteButton">Delete</asp:LinkButton>--%>
-                                    <asp:Button ID="deleteSingleRow" runat="server" CommandName="deleteButton" Text="Delete" CssClass="delete-btn" Width="100px" Height="30px" ForeColor="Red" Font-Size="Medium"/>
+                                    <asp:Button ID="deleteSingleRow" runat="server" CommandName="deleteButton" Text="×" CssClass="delete-btn" Width="20px" Height="20px" BackColor="White" Font-Size="Large"/>
                                 </td>
                         </tr>
                         </table>
                 </ItemTemplate>
             </asp:DataList>
-            <asp:Button ID="Delete" runat="server" Text="Delete" OnClick="Delete_Click" CssClass="delete-btn" Width="100px" Height="30px" ForeColor="Red" Font-Size="Large"/>
-            <asp:Button ID="addMoreItems" runat="server" Text="Add More Items" OnClick="addMoreItems_Click" CssClass="delete-btn" Width="150px" Height="30px" Font-Size="Large"/>
+            <br />
+            <asp:Button ID="Delete" runat="server" Text="Clear All" OnClick="Delete_Click" CssClass="delete-btn" Width="150px" Height="26px" BackColor="White" Font-Size="Medium"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="addMoreItems" runat="server" Text="Add More Items" OnClick="addMoreItems_Click" CssClass="delete-btn" Width="150px" Height="30px" BackColor="Black" ForeColor="White" BorderStyle="None" Font-Size="Medium"/>
 
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT artworkID, image, artworkName, price, quantity, quantity * price AS subtotal FROM Cart WHERE (customerID = @customerID)" DeleteCommand="DELETE FROM [Cart] WHERE [No] = @No" InsertCommand="INSERT INTO [Cart] ([No], [artworkID], [image], [artworkName], [price], [quantity], [subtotal]) VALUES (@No, @artworkID, @image, @artworkName, @price, @quantity, @subtotal)" UpdateCommand="UPDATE [Cart] SET [artworkID] = @artworkID, [image] = @image, [artworkName] = @artworkName, [price] = @price, [quantity] = @quantity, [subtotal] = @subtotal WHERE [No] = @No">
                 <DeleteParameters>

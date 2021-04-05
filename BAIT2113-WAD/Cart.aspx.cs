@@ -12,7 +12,26 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string ID = Session["CustomerID"].ToString();
 
+            string sql2 = "Select * from Customer where customerID = @ID ";
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand(sql2, con);
+            SqlDataReader rdr;
+            cmd.Parameters.AddWithValue("@ID", ID);
+            con.Open();
+            rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                lblCustomerID.Text = rdr["customerID"].ToString();
+                lblCustomerName.Text = rdr["name"].ToString();
+                lbldob.Text = rdr["dob"].ToString();
+                lblphone.Text = rdr["phoneNum"].ToString();
+                lblemail.Text = rdr["email"].ToString();
+                profilepic.ImageUrl = rdr["profilePic"].ToString();
+                lbladdress.Text = rdr["street"].ToString() + ", " + rdr["city"].ToString() + ", " + rdr["zipCode"].ToString() + ", " + rdr["state"].ToString();
+            }
         }
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
@@ -60,7 +79,7 @@ namespace BAIT2113_WAD
         {
             Exception Ex = Server.GetLastError();
             Server.ClearError();
-            Response.Redirect("Error.html");
+            Response.Redirect("/errors/Error.html");
         }
     }
 }

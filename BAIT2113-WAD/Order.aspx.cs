@@ -14,7 +14,7 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
 
 
         }
@@ -41,7 +41,7 @@ namespace BAIT2113_WAD
 
                 string sql3 = "INSERT INTO Wishlist(WishNo,artworkID,customerID) VALUES (@wishNo,@artworkID,@customerID)";
                 string sql4 = "SELECT artworkID, customerID FROM Wishlist WHERE customerID = @CustomerID";
-               
+
                 SqlCommand cmd3 = new SqlCommand(sql3, con);
                 SqlCommand cmd4 = new SqlCommand(sql4, con);
 
@@ -99,9 +99,9 @@ namespace BAIT2113_WAD
             //}
             //else
             //{
-              
+
             //   Response.Write("<script> alert('This artwork is already in your wishlist :D') </script>");
-                
+
             //}
         }
 
@@ -116,7 +116,7 @@ namespace BAIT2113_WAD
 
                 string sql = "Select * from Cart where artworkID = @AartworkID";
                 string sql1 = "Select * from Artwork where artworkID = @ID ";
-                
+
                 SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
 
                 SqlCommand cmd = new SqlCommand(sql, con);
@@ -161,13 +161,13 @@ namespace BAIT2113_WAD
                     string sql3 = "INSERT INTO Cart(No,artworkID,image,artworkName,price,customerID,quantity) VALUES (@No,@artworkID, @image,@artworkName,@price,@customerID,@quantity)";
                     string sql4 = "SELECT artworkID FROM Cart WHERE customerID = @CustomerID";
                     string sql5 = "Update Cart SET quantity = quantity + " + txtQuantity.Text + " WHERE artworkID = @ArtworkID AND customerID = @CustomerID";
-                    
+
                     SqlCommand cmd2 = new SqlCommand(sql2, con);
                     SqlCommand cmd3 = new SqlCommand(sql3, con);
                     SqlCommand cmd4 = new SqlCommand(sql4, con);
                     SqlCommand cmd5 = new SqlCommand(sql5, con);
                     SqlDataReader rdr1;
-                    
+
 
                     con.Open();
 
@@ -326,5 +326,12 @@ namespace BAIT2113_WAD
         //        Response.Redirect("~/Login.aspx");
         //    }*/
         //}
+
+        protected void Page_Error(object sender, EventArgs e)
+        {
+            Exception Ex = Server.GetLastError();
+            Server.ClearError();
+            Response.Redirect("/errors/Error.html");
+        }
     }
 }

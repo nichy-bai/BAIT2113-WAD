@@ -89,7 +89,7 @@ namespace BAIT2113_WAD
         {
             Exception Ex = Server.GetLastError();
             Server.ClearError();
-            Response.Redirect("Error.html");
+            Response.Redirect("/errors/Error.html");
         }
     }
 }

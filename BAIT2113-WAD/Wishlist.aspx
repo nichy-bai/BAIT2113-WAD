@@ -38,6 +38,9 @@
             <span class="profile-detail-label">email</span>
             <asp:Label ID="lblemail" runat="server" CssClass="profile-detail-text"></asp:Label>
 
+            <span class="profile-detail-label">address</span>
+            <asp:Label ID="lbladdress" runat="server" CssClass="profile-detail-text"></asp:Label>
+
             <a href="Profile.aspx" class="profile-btn">Profile Details</a>
             <a href="Wishlist.aspx" class="profile-btn-active">Wishlist</a>
             <a href="Cart.aspx" class="profile-btn">Shopping Cart</a>

@@ -275,8 +275,9 @@ button:last-child:hover {
 
 
 
-
-
+.cart-btn {
+    border-radius: .75rem;
+}
 
 
 

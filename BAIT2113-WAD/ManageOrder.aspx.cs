@@ -194,7 +194,7 @@ namespace BAIT2113_WAD
         {
             Exception Ex = Server.GetLastError();
             Server.ClearError();
-            Response.Redirect("Error.html");
+            Response.Redirect("/errors/Error.html");
         }
 
         //protected void GridView1_RowCommand(Object sender, GridViewCommandEventArgs e)
