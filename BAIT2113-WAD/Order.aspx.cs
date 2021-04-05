@@ -104,47 +104,70 @@ namespace BAIT2113_WAD
                 
             //}
         }
-        
-    protected void btnAddToCart_Click(object sender, EventArgs e)
-    {
+
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
             if (Session["CustomerID"] != null)
             {
 
                 int a = Convert.ToInt32(txtQuantity.Text);
 
-                if (a > 0)
+                string artworkID = Session["ArtworkID"].ToString();
+
+                string sql = "Select * from Cart where artworkID = @AartworkID";
+                string sql1 = "Select * from Artwork where artworkID = @ID ";
+                
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlCommand cmd1 = new SqlCommand(sql1, con);
+                SqlDataReader rdr0,rdr;
+
+                cmd.Parameters.AddWithValue("@AartworkID", artworkID);
+                cmd1.Parameters.AddWithValue("@ID", artworkID);
+
+                con.Open();
+                rdr0 = cmd.ExecuteReader();
+
+                while (rdr0.Read())
+                {
+                    Session["CartQty"] = rdr0["quantity"].ToString();
+                }
+                con.Close();
+
+                int cartqty = Convert.ToInt32(Session["CartQty"]);
+                int totalQty = a + cartqty;
+                con.Open();
+                rdr = cmd1.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Session["quantity"] = rdr["quantity"].ToString();
+                    Session["Image"] = rdr["image"].ToString();
+                    Session["ArtworkName"] = rdr["artworkName"].ToString();
+                    Session["Price"] = rdr["price"].ToString();
+
+                }
+                con.Close();
+
+                int StoreQty = Convert.ToInt32(Session["quantity"]);
+
+                if (a > 0 && totalQty <= StoreQty)
                 {
 
-                    string artworkID = Session["ArtworkID"].ToString();
                     string customerID = Session["CustomerID"].ToString();
 
-                    string sql1 = "Select * from Artwork where artworkID = @ID ";
                     string sql2 = "SELECT COUNT(*) FROM Cart";
                     string sql3 = "INSERT INTO Cart(No,artworkID,image,artworkName,price,customerID,quantity) VALUES (@No,@artworkID, @image,@artworkName,@price,@customerID,@quantity)";
                     string sql4 = "SELECT artworkID FROM Cart WHERE customerID = @CustomerID";
                     string sql5 = "Update Cart SET quantity = quantity + " + txtQuantity.Text + " WHERE artworkID = @ArtworkID AND customerID = @CustomerID";
-                    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-                    SqlCommand cmd = new SqlCommand(sql1, con);
+                    
                     SqlCommand cmd2 = new SqlCommand(sql2, con);
                     SqlCommand cmd3 = new SqlCommand(sql3, con);
                     SqlCommand cmd4 = new SqlCommand(sql4, con);
                     SqlCommand cmd5 = new SqlCommand(sql5, con);
-                    SqlDataReader rdr, rdr1;
-                    cmd.Parameters.AddWithValue("@ID", artworkID);
-
+                    SqlDataReader rdr1;
                     
-
-                    con.Open();
-                    rdr = cmd.ExecuteReader();
-                    
-                    while (rdr.Read())
-                    {
-                        Session["Image"] = rdr["image"].ToString();
-                        Session["ArtworkName"] = rdr["artworkName"].ToString();
-                        Session["Price"] = rdr["price"].ToString();
-                       
-                    }
-                    con.Close();
 
                     con.Open();
 
@@ -193,11 +216,27 @@ namespace BAIT2113_WAD
                     }
                     Response.Redirect("~/Cart.aspx");
                 }
-                else
+                else if(a == 0)
                 {
                     errLabel.Text = "Cannot add 0 item(s) to cart!";
                     errLabel.Visible = true;
                 }
+                else if(totalQty >= StoreQty)
+                {
+                    errLabel.Text = "Cannot add items more than available item stock in store!";
+                    errLabel.Visible = true;
+                }
+                //else if (a == 0)
+                //{
+                //    errLabel.Text = "Cannot add 0 item(s) to cart!";
+                //    errLabel.Visible = true;
+                //}
+
+                //else if(totalQty == StoreQty)
+                //{
+                //    errLabel.Visible = true;
+                //    errLabel.Text = "Cannot add items more than available item stock in store!";
+                //}
             }
             else
             {
