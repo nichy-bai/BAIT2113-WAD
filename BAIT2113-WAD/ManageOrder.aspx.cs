@@ -104,7 +104,7 @@ namespace BAIT2113_WAD
                     string orderdate = rdr1["dateOrder"].ToString();
                     DateTime ordate = Convert.ToDateTime(orderdate);
                     DateTime odate = ordate.AddDays(7);
-                    lbl.Text = "To prevent delay shipments, please arrange the shipment before" + odate.ToShortDateString();
+                    lbl.Text = "To prevent delay shipments, please arrange the shipment before " + odate.ToShortDateString();
                     //Session["odate"] = odate.ToShortDateString();
                 }
             }

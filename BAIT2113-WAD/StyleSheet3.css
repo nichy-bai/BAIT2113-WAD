@@ -3,6 +3,10 @@ body {
     padding: 0;
 }
 
+td {
+    padding: 10px;
+}
+
 .avatar {
     width: 100px;
     height: 100px;
