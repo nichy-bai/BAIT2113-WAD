@@ -11,9 +11,15 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-       
+        protected void Page_Error(object sender, EventArgs e)
+        {
+            Exception Ex = Server.GetLastError();
+            Server.ClearError();
+            Response.Redirect("Error.html");
+        }
+
     }
 }

@@ -37,6 +37,11 @@ namespace BAIT2113_WAD
             //Application.UnLock();
             //Response.Write("Error");
             //Server.ClearError();
+
+            // Code that runs when an unhandled error occurs
+            Exception Ex = Server.GetLastError();
+            Server.ClearError();
+            HttpContext.Current.RewritePath("Error.html");
         }
 
         protected void Session_End(object sender, EventArgs e)

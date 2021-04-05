@@ -190,6 +190,13 @@ namespace BAIT2113_WAD
 
         }
 
+        protected void Page_Error(object sender, EventArgs e)
+        {
+            Exception Ex = Server.GetLastError();
+            Server.ClearError();
+            Response.Redirect("Error.html");
+        }
+
         //protected void GridView1_RowCommand(Object sender, GridViewCommandEventArgs e)
         //{
         //    if (e.CommandName == "references")

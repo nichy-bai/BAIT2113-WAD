@@ -14,7 +14,7 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
 
 
         }
@@ -41,7 +41,7 @@ namespace BAIT2113_WAD
 
                 string sql3 = "INSERT INTO Wishlist(WishNo,artworkID,customerID) VALUES (@wishNo,@artworkID,@customerID)";
                 string sql4 = "SELECT artworkID, customerID FROM Wishlist WHERE customerID = @CustomerID";
-               
+
                 SqlCommand cmd3 = new SqlCommand(sql3, con);
                 SqlCommand cmd4 = new SqlCommand(sql4, con);
 
@@ -99,12 +99,12 @@ namespace BAIT2113_WAD
             //}
             //else
             //{
-              
+
             //   Response.Write("<script> alert('This artwork is already in your wishlist :D') </script>");
-                
+
             //}
         }
-        
+
     protected void btnAddToCart_Click(object sender, EventArgs e)
     {
             if (Session["CustomerID"] != null)
@@ -132,17 +132,17 @@ namespace BAIT2113_WAD
                     SqlDataReader rdr, rdr1;
                     cmd.Parameters.AddWithValue("@ID", artworkID);
 
-                    
+
 
                     con.Open();
                     rdr = cmd.ExecuteReader();
-                    
+
                     while (rdr.Read())
                     {
                         Session["Image"] = rdr["image"].ToString();
                         Session["ArtworkName"] = rdr["artworkName"].ToString();
                         Session["Price"] = rdr["price"].ToString();
-                       
+
                     }
                     con.Close();
 
@@ -287,5 +287,12 @@ namespace BAIT2113_WAD
         //        Response.Redirect("~/Login.aspx");
         //    }*/
         //}
+
+        protected void Page_Error(object sender, EventArgs e)
+        {
+            Exception Ex = Server.GetLastError();
+            Server.ClearError();
+            Response.Redirect("Error.html");
+        }
     }
 }
