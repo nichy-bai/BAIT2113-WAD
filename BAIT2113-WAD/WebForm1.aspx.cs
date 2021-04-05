@@ -41,13 +41,14 @@ namespace BAIT2113_WAD
 
 
 
-            string sql = "Select artworkID from Artwork order by [artworkID] DESC LIMIT 1";
+            string sql = "Select Top(1) artworkID from Artwork Where category = @cgy order by [artworkID] DESC";
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlDataReader rdr1;
+            cmd.Parameters.AddWithValue("@cgy", cgy);
             con.Open();
             rdr1 = cmd.ExecuteReader();
-
+            
             while (rdr1.Read())
             {
                 lblArtistID.Text = rdr1["artworkID"].ToString();
@@ -55,11 +56,12 @@ namespace BAIT2113_WAD
             }
             con.Close();
             string lblart = Session["lblart"].ToString();
-            string lblart1 = lblart.Substring(-1, 1);
+            string lblart1 = lblart.Substring(2, 4);
             int d = Convert.ToInt32(lblart1);
+            d++;
             //textBox2.Text = data.GetValue(0).ToString();
             //int c = Convert.ToInt32(cmd.ExecuteScalar());
-            d++;
+            
             //SqlDataReader rdr1;
             //con.Open();
             //rdr5 = cmd.ExecuteScalar();

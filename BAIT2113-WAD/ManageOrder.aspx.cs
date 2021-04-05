@@ -15,8 +15,8 @@ namespace BAIT2113_WAD
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            var ctl = Page.LoadControl("~/User Control/Header.ascx");
-            HeaderPlaceHolder.Controls.Add(ctl);
+            //var ctl = Page.LoadControl("~/User Control/Header.ascx");
+            //HeaderPlaceHolder.Controls.Add(ctl);
 
             string ID = Session["ArtistID"].ToString();
             string sql = "Select COUNT(*) from [Order] WHERE status = 'Pending' ";
@@ -90,7 +90,7 @@ namespace BAIT2113_WAD
                 string lblText1 = lbl1.Text;
                 string lblText2 = lbl2.Text;
 
-                string sql4 = "Select dateOrder from [Order] where orderID = @orderID AND artworkID = @artworkID";
+                string sql4 = "Select [order].dateOrder from [Order] INNER JOIN OrderDetails ON [Order].orderID = OrderDetails.orderID where [Order].orderID = @orderID AND OrderDetails.artworkID = @artworkID";
                 SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
                 SqlCommand cmd4 = new SqlCommand(sql4, con);
                 SqlDataReader rdr1;
@@ -139,7 +139,7 @@ namespace BAIT2113_WAD
                 {
                     if (reference.Substring(0, 2) == "PL")
                     {
-                        string sql1 = "Update [Order] set referencesNo = @reference, status = 'Shipped out', dateDelivered = '" + DateTime.Today + "' where orderID = @orderID AND artworkID = @artworkID";
+                        string sql1 = "Update o set o.referencesNo = @reference, o.status = 'Shipped out', o.dateDelivered = '" + DateTime.Today + "' FROM [Order] o INNER JOIN OrderDetails d ON o.orderID = d.orderID where o.orderID = @orderID AND d.artworkID = @artworkID";
                         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
                         SqlCommand cmd = new SqlCommand(sql1, con);
                         cmd.Parameters.AddWithValue("@reference", reference);
@@ -165,7 +165,7 @@ namespace BAIT2113_WAD
                 {
                     if (reference.Substring(0, 2) == "JT")
                     {
-                        string sql1 = "Update [Order] set referencesNo = @reference, status = 'Shipped out', dateDelivered = '" + DateTime.Today + "' where orderID = @orderID AND artworkID = @artworkID";
+                        string sql1 = "Update o set o.referencesNo = @reference, o.status = 'Shipped out', o.dateDelivered = '" + DateTime.Today + "' FROM [Order] o INNER JOIN OrderDetails d ON o.orderID = d.orderID where o.orderID = @orderID AND d.artworkID = @artworkID";
                         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
                         SqlCommand cmd = new SqlCommand(sql1, con);
                         cmd.Parameters.AddWithValue("@reference", reference);
