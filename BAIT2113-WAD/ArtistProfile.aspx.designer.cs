@@ -258,13 +258,13 @@ namespace BAIT2113_WAD
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
 
         /// <summary>
-        /// UpdateProfile control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton UpdateProfile;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
         /// ValidationSummary2 control.

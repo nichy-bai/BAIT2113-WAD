@@ -135,7 +135,7 @@
                     <div class="register-question">Phone Number</div>
                     <asp:TextBox ID="txtphone" runat="server" Height="30px" Width="220px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtphone" ErrorMessage="Phone Number is required" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtphone" ErrorMessage="Phone Number Invalid" ForeColor="Red" ValidationExpression="\d{3}-\d{7}"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtphone" ErrorMessage="Phone Number Invalid (cannot inclued '-')" ForeColor="Red" ValidationExpression="\d{3}\d{7}"></asp:RegularExpressionValidator>
                 </div>
             </div>
             <div class="register-singlerow" style="padding-bottom:18px;">
@@ -163,7 +163,7 @@
                 </div>
                 <div class="register-single">
                     <div class="register-question">Date of Birth</div>
-                    <asp:TextBox ID="txtdob" runat="server" Height="30px" Width="220px"></asp:TextBox>
+                    <asp:TextBox ID="txtdob" runat="server" TextMode="Date" Height="30px" Width="220px"></asp:TextBox>
                     <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtdob" ErrorMessage="Date Invalid" ForeColor="Red" Operator="DataTypeCheck" Type="Date"></asp:CompareValidator>
                 </div>
             </div>

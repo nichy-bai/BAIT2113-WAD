@@ -49,44 +49,60 @@
             <a href="ManageOrder.aspx" class="profile-btn">Manage Order</a>
         </div>
 
-        <div>
+        <div class="profile-addartwork">
 			<div class="profile-addtitle">Profile Details</div>
-			<div>
-                    <asp:FileUpload ID="FileUpload1" runat="server" onchange="ImagePreview(this);" Height="50px" />
-                    <asp:Image ID="Image1" runat="server" CssClass="img-preview"/>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ValidationGroup="addartwork" runat="server" ControlToValidate="FileUpload1" Display="Dynamic" ErrorMessage="Profile picture is required" ForeColor="Red">*</asp:RequiredFieldValidator>
-                </div>
-			<div><asp:Label runat="server" Text="Name: "></asp:Label><asp:TextBox ID="Name" runat="server"></asp:TextBox>
-				<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Name" Display="Dynamic" ErrorMessage="Name is required" ForeColor="Red">*</asp:RequiredFieldValidator>
 
+			<div class="profile-artworkrow">
+                <div class="profile-addquestion">Profile Picture</div>
+				<div class="img-upload">
+					<asp:FileUpload ID="FileUpload1" runat="server" onchange="ImagePreview(this);" Height="50px" />
+					<asp:Image ID="Image1" runat="server" CssClass="img-preview"/>
+					<asp:RequiredFieldValidator ID="RequiredFieldValidator8" ValidationGroup="editprofile" runat="server" ControlToValidate="FileUpload1" Display="Dynamic" ErrorMessage="Profile picture is required" ForeColor="Red">*</asp:RequiredFieldValidator>
+				</div>
+            </div>
+			<div class="profile-artworkrow">
+                <div class="profile-addquestion">Full Name</div>
+				<asp:TextBox ID="Name" runat="server" Width="250px"></asp:TextBox>
+				<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Name" Display="Dynamic" ErrorMessage="Name is required" ForeColor="Red" ValidationGroup="editprofile">*</asp:RequiredFieldValidator>
 			</div>
-			<div>
-				<asp:Label runat="server" Text="DOB: ">
-					<asp:TextBox ID="DOB" runat="server" TextMode="Date"></asp:TextBox>
-			</asp:Label></div>
-			<div><asp:Label runat="server" Text="Phone: "></asp:Label><asp:TextBox ID="Phone" runat="server"></asp:TextBox>
-
-				<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Phone" ErrorMessage="Phone Number is required." Display="Dynamic" ForeColor="Red">*</asp:RequiredFieldValidator>
+			<div class="profile-artworkrow">
+                <div class="profile-addquestion">Date of Birth</div>
+				<asp:TextBox ID="DOB" runat="server" TextMode="Date" Width="250px"></asp:TextBox>
 			</div>
-			<div><asp:Label runat="server" Text="Email: "></asp:Label><asp:TextBox ID="Email" runat="server"></asp:TextBox>
-				<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Email" ErrorMessage="Email is required" Display="Dynamic" ForeColor="Red">*</asp:RequiredFieldValidator>
-				<asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Email is invalid" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" ControlToValidate="Email" Display="Dynamic" ForeColor="Red">*</asp:RegularExpressionValidator>
+			<div class="profile-artworkrow">
+                <div class="profile-addquestion">Phone Number</div>
+				<asp:TextBox ID="Phone" runat="server" Width="250px"></asp:TextBox>
+				<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Phone" ErrorMessage="Phone Number is required." Display="Dynamic" ForeColor="Red" ValidationGroup="editprofile">*</asp:RequiredFieldValidator>
 			</div>
-			<div><asp:Label runat="server" Text="Street: "></asp:Label><asp:TextBox ID="Street" runat="server"></asp:TextBox>
-				<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Street" ErrorMessage="Street is required" Display="Dynamic" ForeColor="Red">*</asp:RequiredFieldValidator>
+			<div class="profile-artworkrow">
+                <div class="profile-addquestion">Email</div>
+				<asp:TextBox ID="Email" runat="server" Width="250px"></asp:TextBox>
+				<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Email" ErrorMessage="Email is required" Display="Dynamic" ForeColor="Red" ValidationGroup="editprofile">*</asp:RequiredFieldValidator>
+				<asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Email is invalid" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" ControlToValidate="Email" Display="Dynamic" ForeColor="Red" ValidationGroup="editprofile">*</asp:RegularExpressionValidator>
 			</div>
-			<div><asp:Label runat="server" Text="City: "></asp:Label><asp:TextBox ID="City" runat="server"></asp:TextBox>
-				<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="City" ErrorMessage="City is required" Display="Dynamic" ForeColor="Red">*</asp:RequiredFieldValidator>
+			<div class="profile-artworkrow">
+                <div class="profile-addquestion">Street</div>
+				<asp:TextBox ID="Street" runat="server" Width="250px"></asp:TextBox>
+				<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Street" ErrorMessage="Street is required" Display="Dynamic" ForeColor="Red" ValidationGroup="editprofile">*</asp:RequiredFieldValidator>
 			</div>
-			<div><asp:Label runat="server" Text="ZipCode: "></asp:Label><asp:TextBox ID="ZipCode" runat="server"></asp:TextBox>
-				<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ZipCode" ErrorMessage="Zip code is required" Display="Dynamic" ForeColor="Red">*</asp:RequiredFieldValidator>
-				<asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="Zip code invalid" ValidationExpression="^[0-9]{5}$" ControlToValidate="ZipCode" Display="Dynamic" ForeColor="Red">*</asp:RegularExpressionValidator>
+			<div class="profile-artworkrow">
+                <div class="profile-addquestion">City</div>
+				<asp:TextBox ID="City" runat="server" Width="250px"></asp:TextBox>
+				<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="City" ErrorMessage="City is required" Display="Dynamic" ForeColor="Red" ValidationGroup="editprofile">*</asp:RequiredFieldValidator>
 			</div>
-			<div><asp:Label runat="server" Text="State: "></asp:Label><asp:TextBox ID="State" runat="server"></asp:TextBox>
-				<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="State" ErrorMessage="State is required" Display="Dynamic" ForeColor="Red">*</asp:RequiredFieldValidator>
+			<div class="profile-artworkrow">
+                <div class="profile-addquestion">Zip Code</div>
+				<asp:TextBox ID="ZipCode" runat="server" Width="250px"></asp:TextBox>
+				<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ZipCode" ErrorMessage="Zip code is required" Display="Dynamic" ForeColor="Red" ValidationGroup="editprofile">*</asp:RequiredFieldValidator>
+				<asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="Zip code invalid" ValidationExpression="^[0-9]{5}$" ControlToValidate="ZipCode" Display="Dynamic" ForeColor="Red" ValidationGroup="editprofile">*</asp:RegularExpressionValidator>
 			</div>
-			<asp:LinkButton ID="UpdateProfile" runat="server" OnClick="UpdateProfile_Click">LinkButton</asp:LinkButton>
-	        <asp:ValidationSummary ID="ValidationSummary2" runat="server" DisplayMode="List" ForeColor="Red" />
+			<div class="profile-artworkrow">
+                <div class="profile-addquestion">State</div>
+				<asp:TextBox ID="State" runat="server" Width="250px"></asp:TextBox>
+				<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="State" ErrorMessage="State is required" Display="Dynamic" ForeColor="Red" ValidationGroup="editprofile">*</asp:RequiredFieldValidator>
+			</div>
+			<asp:Button ID="Button1" runat="server" Text="Update Profile"  OnClick="UpdateProfile_Click" ValidationGroup="editprofile" CssClass="profile-uploadbtn"/>
+	        <asp:ValidationSummary ID="ValidationSummary2" runat="server" DisplayMode="List" ForeColor="Red" ValidationGroup="editprofile" />
 	</div>
 		</div>
 
