@@ -12,6 +12,7 @@ namespace BAIT2113_WAD.User_Control
         protected void Page_Load(object sender, EventArgs e)
         {
             Label1.Text = DateTime.Now.ToShortDateString();
+            Label2.Text = DateTime.Now.ToLongTimeString();
         }
     }
 }

@@ -147,7 +147,7 @@
                 </div>
             </div>
 
-            <a onclick="topFunction()" id="top-btn"class="back-to-top">Back to top</a>
+            <a onclick="topFunction()" id="top-btn" class="back-to-top">&uarr; <span style="text-decoration:underline">Back to top</span></a>
         </div>
     </form>
 </body>

@@ -47,7 +47,7 @@
 
             <div class="profile-artworkrow">
                 <div class="profile-addquestion">Artwork Name</div>
-                <asp:TextBox ID="txtArtworkName" runat="server" Width="220px" ValidationGroup="addartwork"></asp:TextBox>
+                <asp:TextBox ID="txtArtworkName" runat="server" Width="250px" ValidationGroup="addartwork"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="addartwork" runat="server" Display="Dynamic" ErrorMessage="Artwork Name is required" ControlToValidate="txtArtworkName" ForeColor="Red">*</asp:RequiredFieldValidator>
             </div>
 
@@ -72,14 +72,14 @@
 
             <div class="profile-artworkrow">
                 <div class="profile-addquestion">Quantity</div>
-                <asp:TextBox ID="txtQuantity" runat="server" Width="220px" ValidationGroup="addartwork"></asp:TextBox>
+                <asp:TextBox ID="txtQuantity" runat="server" Width="250px" ValidationGroup="addartwork"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ValidationGroup="addartwork" runat="server" ControlToValidate="txtQuantity" Display="Dynamic" ErrorMessage="The quantity must insert" ForeColor="Red">*</asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtQuantity" Display="Dynamic" ErrorMessage="Must be a number" ForeColor="Red" ValidationGroup="addartwork" ValidationExpression="\d{1,5}">*</asp:RegularExpressionValidator>
             </div>
 
             <div class="profile-artworkrow">
                 <div class="profile-addquestion">Price($)</div>
-                <asp:TextBox ID="txtPrice" runat="server" Width="220px" ValidationGroup="addartwork"></asp:TextBox>
+                <asp:TextBox ID="txtPrice" runat="server" Width="250px" ValidationGroup="addartwork"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ValidationGroup="addartwork" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="The price must insert" ForeColor="Red">*</asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="Must be a decimal number (eg. 420.69)" ForeColor="Red" ValidationGroup="addartwork" ValidationExpression="^\d+.\d{0,2}$">*</asp:RegularExpressionValidator>
             </div>
@@ -95,7 +95,7 @@
 
             <div class="profile-artworkrow">
                 <div class="profile-addquestion">Description</div>
-                <textarea id="taDescription" class="auto-style6" name="taDescription" runat="server"  rows="5" cols="28"></textarea>
+                <textarea id="taDescription" class="auto-style6" name="taDescription" runat="server"  rows="2" cols="33"></textarea>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ValidationGroup="addartwork" runat="server" ControlToValidate="taDescription" Display="Dynamic" ErrorMessage="Description field is required" ForeColor="Red">*</asp:RequiredFieldValidator>
             </div>
 

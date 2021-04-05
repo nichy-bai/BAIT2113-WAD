@@ -19,7 +19,8 @@
         border: none;
         font-size: 16px;
         color: #fff;
-        padding: 0 25px;
+        padding: 0 30px;
+        letter-spacing: 0.2px;
     }
     .text {
         margin-left: 80px;
@@ -50,7 +51,9 @@
                 <span class="city text">Yeah ＼(＾o＾)／</span>
             </td>
             <td class="auto-style4">
-                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                You logged on at&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label> &nbsp;&nbsp;&nbsp;
+                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
             </td>
         </tr>
     </table>

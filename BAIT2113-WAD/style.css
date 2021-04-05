@@ -584,7 +584,6 @@ body {
     bottom: 1.5rem;
     right: 1.5rem;
     color: #000;
-    text-decoration: underline;
     cursor: pointer;
     font-family: 'Times New Roman', Times, serif;
     transition: all .3s ease 0s, left .3s ease 0s;
