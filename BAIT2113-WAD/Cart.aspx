@@ -71,7 +71,7 @@
 
             <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="DataList1_ItemCommand">
                 <ItemTemplate>
-                    <table style="width:100%; border:solid">
+                    <table style="width:100%; border:hidden; border-collapse: collapse">
                             <tr style="width:100%; background-color:lightgrey">
                                 <td style="text-align:center">Artwork ID</td>
                                 <td style="text-align:center">Image</td>
@@ -79,6 +79,7 @@
                                 <td style="text-align:center">Price</td>
                                 <td style="text-align:center">Quantity</td>
                                 <td style="text-align:center">Subtotal</td>
+                                <td> </td>
                             </tr>
                             <tr style="width:100%">
                                 <td>
@@ -101,12 +102,15 @@
                                 </td>
                                 <td>
                                     <%--<asp:Button ID="btnDelete" runat="server" Text="Delete" CommandName="delete_Button" />--%>
-                                    <asp:LinkButton ID="linkButtonDelete" runat="server" CommandName="deleteButton">Delete</asp:LinkButton>
+                                    <%--<asp:LinkButton ID="linkButtonDelete" runat="server" CommandName="deleteButton">Delete</asp:LinkButton>--%>
+                                    <asp:Button ID="deleteSingleRow" runat="server" CommandName="deleteButton" Text="Delete" CssClass="delete-btn" Width="100px" Height="30px" ForeColor="Red" Font-Size="Medium"/>
                                 </td>
-                            </tr>
+                        </tr>
                         </table>
                 </ItemTemplate>
             </asp:DataList>
+            <asp:Button ID="Delete" runat="server" Text="Delete" OnClick="Delete_Click" CssClass="delete-btn" Width="100px" Height="30px" ForeColor="Red" Font-Size="Large"/>
+            <asp:Button ID="addMoreItems" runat="server" Text="Add More Items" OnClick="addMoreItems_Click" CssClass="delete-btn" Width="150px" Height="30px" Font-Size="Large"/>
 
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT artworkID, image, artworkName, price, quantity, quantity * price AS subtotal FROM Cart WHERE (customerID = @customerID)" DeleteCommand="DELETE FROM [Cart] WHERE [No] = @No" InsertCommand="INSERT INTO [Cart] ([No], [artworkID], [image], [artworkName], [price], [quantity], [subtotal]) VALUES (@No, @artworkID, @image, @artworkName, @price, @quantity, @subtotal)" UpdateCommand="UPDATE [Cart] SET [artworkID] = @artworkID, [image] = @image, [artworkName] = @artworkName, [price] = @price, [quantity] = @quantity, [subtotal] = @subtotal WHERE [No] = @No">
                 <DeleteParameters>

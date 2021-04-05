@@ -28,13 +28,20 @@ namespace BAIT2113_WAD
 
             if (Session["CustomerID"] != null)
             {
+                string sql = "Select Top(1) WishNo from Wishlist ORDER BY WishNo DESC";
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                int wishNo = Convert.ToInt32(cmd.ExecuteScalar());
+                wishNo++;
+                con.Close();
+
                 string artworkID = Session["ArtworkID"].ToString();
                 string customerID = Session["CustomerID"].ToString();
 
-                string sql3 = "INSERT INTO Wishlist(artworkID,customerID) VALUES (@artworkID,@customerID)";
+                string sql3 = "INSERT INTO Wishlist(WishNo,artworkID,customerID) VALUES (@wishNo,@artworkID,@customerID)";
                 string sql4 = "SELECT artworkID, customerID FROM Wishlist WHERE customerID = @CustomerID";
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-
+               
                 SqlCommand cmd3 = new SqlCommand(sql3, con);
                 SqlCommand cmd4 = new SqlCommand(sql4, con);
 
@@ -54,20 +61,19 @@ namespace BAIT2113_WAD
 
                 if (Session["ArtworkID"].Equals(Session["ArtworkkkkkID"]))
                 {
-                    Response.Write("<script> alert('This artwork is already in your wishlist :D') </script>");
+                    //Response.Write("<script> alert('This artwork is already in your wishlist.') </script>");
+                    errLabel.Text = "This artwork is already in your wishlist.";
                 }
                 else
                 {
+                    cmd3.Parameters.AddWithValue("@wishNo", wishNo);
                     cmd3.Parameters.AddWithValue("@artworkID", artworkID);
                     cmd3.Parameters.AddWithValue("@customerID", customerID);
                     con.Open();
                     cmd3.ExecuteNonQuery();
                     con.Close();
-
-                }
-                if(Session["ArtworkID"].Equals(Session["ArtworkkkkkID"]) && Session["CustomerID"].Equals(Session["CustomerrrrID"]))
-                {
-                    Response.Write("<script> alert('Errorrrrrrrrrrrr') </script>");
+                    errLabel.Text = "This item has added to your wishlist successfully.";
+                    //Response.Write("<script> alert('This item has added to your wishlist successfully.') </script>");
                 }
             }
             else

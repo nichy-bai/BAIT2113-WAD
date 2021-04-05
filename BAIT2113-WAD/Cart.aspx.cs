@@ -35,5 +35,26 @@ namespace BAIT2113_WAD
                 Response.Redirect("~/Cart.aspx");
             }
         }
+
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            string customerID = Session["CustomerID"].ToString();
+
+            string sql = "DELETE FROM Cart WHERE customerID = @CustomerID";
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand(sql, con);
+
+            con.Open();
+            cmd.Parameters.AddWithValue("@CustomerID", customerID);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            Response.Redirect("~/Cart.aspx");
+        }
+
+        protected void addMoreItems_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Artwork.aspx");
+        }
     }
 }
