@@ -11,15 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script type="text/javascript">
         window.scrollTo = function () { }
-        /*
-        function subscribe(source, args) {
-            var email = args.value;
-            var pattern = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 
-            if (pattern.test(email)) {
-                alert("Subscribed");
-            }
-        }*/
         function ValidateCheckBox(sender, args) {
             if (document.getElementById("<%=newsletter_checkbox.ClientID %>").checked == true) {
                 args.IsValid = true;
