@@ -84,6 +84,7 @@
     <Content Include="JavaScript.js" />
     <Content Include="ManageOrder.aspx" />
     <Content Include="Profile.aspx" />
+    <Content Include="PurchaseHistory.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ShinStyle2.css" />
     <Content Include="styleArtwork.css" />
@@ -114,7 +115,6 @@
     <Content Include="mygallery.aspx" />
     <Content Include="images\order.png" />
     <Content Include="images\image01.jpg" />
-    <Content Include="PurchaseHistory.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="AddArtwork.aspx" />
     <Content Include="WebForm1.aspx" />
@@ -179,13 +179,6 @@
     <Compile Include="ArtistProfile.aspx.designer.cs">
       <DependentUpon>ArtistProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PurchaseHistory.aspx.cs">
-      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PurchaseHistory.aspx.designer.cs">
-      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -206,6 +199,13 @@
     </Compile>
     <Compile Include="CustomerProfile.aspx.designer.cs">
       <DependentUpon>CustomerProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseHistory.aspx.cs">
+      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PurchaseHistory.aspx.designer.cs">
+      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>

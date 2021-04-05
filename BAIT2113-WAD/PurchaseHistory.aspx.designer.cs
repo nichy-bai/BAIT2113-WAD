@@ -11,7 +11,7 @@ namespace BAIT2113_WAD
 {
 
 
-    public partial class WebForm5
+    public partial class PurchaseHistory
     {
 
         /// <summary>

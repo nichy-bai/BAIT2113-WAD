@@ -1,5 +1,35 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Gallerion.Master" AutoEventWireup="true" CodeBehind="Homepage.aspx.cs"%>
 
+<script runat="server">
+
+    protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["ArtistID"] != null || Session["CustomerID"] != null)
+            {
+                login_Btn.Text = "Logout";
+            }
+            else
+            {
+                login_Btn.Text = "Login";
+            }
+        }
+
+        protected void login_Btn_Click(object sender, EventArgs e)
+        {
+            if (login_Btn.Text == "Logout")
+            {
+                Session.Abandon();
+                Response.Redirect("Homepage.aspx");
+            }
+            if (login_Btn.Text == "Login")
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
+
+</script>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="slideshow">
         <div class="slideshow__3"></div>
@@ -112,7 +142,9 @@
             <div class="homepage__title">
                 Join Us Now!
             </div>
-            <a href="Login.aspx" class="homepage__loginbtn">Login</a>
+            <asp:LinkButton ID="login_Btn" runat="server" CssClass="homepage__loginbtn" OnClick="login_Btn_Click">Login</asp:LinkButton>
+            <%--<asp:LinkButton ID="signIn_Btn" runat="server" CssClass="homepage__signbtn">Sign Up</asp:LinkButton>--%>
+            <%--<a href="Login.aspx" class="homepage__loginbtn">Login</a>--%>
             <a href="Register.aspx" class="homepage__signbtn">Sign Up</a>
         </div>
     </div>

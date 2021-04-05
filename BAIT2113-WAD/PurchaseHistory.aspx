@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Gallerion.Master" AutoEventWireup="true" CodeBehind="PurchaseHistory.aspx.cs" Inherits="BAIT2113_WAD.WebForm5" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Gallerion.Master" AutoEventWireup="true" CodeBehind="PurchaseHistory.aspx.cs" Inherits="BAIT2113_WAD.PurchaseHistory" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-         <style>
+    <style>
         .image {
             text-align: center;
         }
@@ -77,5 +77,4 @@
             </table>
         </div>
     </div>
-
 </asp:Content>

@@ -4,12 +4,19 @@
 
     protected void viewMore_Click(object sender, EventArgs e)
     {
-        Button InkRowSelection = (Button)sender;
-        //get the recipe id from command argument to link button
-        string artworkID = InkRowSelection.CommandArgument.ToString();
-        Session.Add("ArtworkID", artworkID);
-        //Session("artworkID") = ArtworkID;
-        Response.Redirect("~/Order.aspx");
+        if(Session["CustomerID"] != null)
+        {
+            Button InkRowSelection = (Button)sender;
+            //get the recipe id from command argument to link button
+            string artworkID = InkRowSelection.CommandArgument.ToString();
+            Session.Add("ArtworkID", artworkID);
+            //Session("artworkID") = ArtworkID;
+            Response.Redirect("~/Order.aspx");
+        }
+        else
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(),"alert","alert('You must log in as a customer to access this feature.');window.location ='Artwork.aspx';", true);
+        }
     }
 
     protected void Button1_Click(object sender, EventArgs e)

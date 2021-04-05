@@ -157,7 +157,7 @@ namespace BAIT2113_WAD
 
                     string customerID = Session["CustomerID"].ToString();
 
-                    string sql2 = "SELECT COUNT(*) FROM Cart";
+                    string sql2 = "SELECT Top(1) No FROM Cart ORDER BY No DESC";
                     string sql3 = "INSERT INTO Cart(No,artworkID,image,artworkName,price,customerID,quantity) VALUES (@No,@artworkID, @image,@artworkName,@price,@customerID,@quantity)";
                     string sql4 = "SELECT artworkID FROM Cart WHERE customerID = @CustomerID";
                     string sql5 = "Update Cart SET quantity = quantity + " + txtQuantity.Text + " WHERE artworkID = @ArtworkID AND customerID = @CustomerID";
@@ -221,7 +221,7 @@ namespace BAIT2113_WAD
                     errLabel.Text = "Cannot add 0 item(s) to cart!";
                     errLabel.Visible = true;
                 }
-                else if(totalQty >= StoreQty)
+                else if(totalQty > StoreQty)
                 {
                     errLabel.Text = "Cannot add items more than available item stock in store!";
                     errLabel.Visible = true;
@@ -302,7 +302,8 @@ namespace BAIT2113_WAD
         {
             if (Session["CustomerID"] != null)
             {
-
+                Session["QuantityBuy"] = txtQuantity.Text;
+                //Response.Redirect("Checkout.aspx");
                 //here put ur add to cart code
             }
             else

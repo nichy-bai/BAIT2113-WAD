@@ -68,7 +68,7 @@
                     <SortedDescendingCellStyle BackColor="#E5E5E5" />
                     <SortedDescendingHeaderStyle BackColor="#242121" />
             </asp:GridView>--%>
-
+            <div>
             <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="DataList1_ItemCommand">
                 <ItemTemplate>
                     <table style="width:100%; border:hidden; border-collapse: collapse">
@@ -109,6 +109,7 @@
                         </table>
                 </ItemTemplate>
             </asp:DataList>
+            </div>
             <asp:Button ID="Delete" runat="server" Text="Delete" OnClick="Delete_Click" CssClass="delete-btn" Width="100px" Height="30px" ForeColor="Red" Font-Size="Large"/>
             <asp:Button ID="addMoreItems" runat="server" Text="Add More Items" OnClick="addMoreItems_Click" CssClass="delete-btn" Width="150px" Height="30px" Font-Size="Large"/>
 

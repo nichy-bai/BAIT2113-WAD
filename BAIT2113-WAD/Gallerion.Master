@@ -61,7 +61,7 @@
 
             </div>
             <div id="login-dropdown" class="dropdown-content">
-                <asp:LinkButton runat="server" ID="dropbtn1" Text="Profile" BorderStyle="None" Width="80%"></asp:LinkButton>
+                <asp:LinkButton runat="server" ID="dropbtn1" Text="Profile" BorderStyle="None" Width="80%" OnClick="dropbtn1_Click"></asp:LinkButton>
                 <asp:LinkButton runat="server" ID="dropbtn2" Text="Login" BorderStyle="None" Width="80%" OnClick="dropbtn2_Click"></asp:LinkButton>
             </div>
 

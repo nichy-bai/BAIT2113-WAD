@@ -64,6 +64,24 @@ namespace BAIT2113_WAD
             newsletter_email.Text = "";
         }
 
-        
+        protected void dropbtn1_Click(object sender, EventArgs e)
+        {
+            if (Session["ArtistID"] != null)
+            {
+
+                Response.Redirect("ArtistProfile.aspx");
+            }
+            else if (Session["CustomerID"] != null)
+            {
+                Response.Redirect("Profile.aspx");
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You must log in to access to this feature.');window.location ='Login.aspx';", true);
+
+            }
+
+
+        }
     }
 }
