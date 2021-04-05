@@ -4,9 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="StyleSheet3.css" rel="stylesheet" />
-    <div>
-        <asp:PlaceHolder ID="HeaderPlaceHolder" runat ="server" />
-    </div>
+
     <div class="profile-box">
         <div class="profile-detail">
 
@@ -41,7 +39,7 @@
 
 
             <div class="profile-ordercol">
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Order].orderID, [Order].quantity, [Order].totalAmount, Customer.name, [Order].customerID, Artwork.image, Artwork.artworkName, Artwork.artworkID, [Order].status, [Order].Logistics, [Order].referencesNo, [Order].dateOrder FROM Artist INNER JOIN Artwork ON Artist.artistID = Artwork.artistID INNER JOIN [Order] ON Artwork.artworkID = [Order].artworkID INNER JOIN Customer ON [Order].customerID = Customer.customerID WHERE ([Order].status = 'Pending' AND Artwork.artistID = @artistID)" UpdateCommand="UPDATE [Order] SET [referencesNo] = @reference, [status] = 'Shipped Out', [dateDelivered] = @date WHERE [orderID] = @orderID">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [OrderDetails].quantity, Customer.name, Artwork.image, Artwork.artworkName, Artwork.artworkID, Customer.customerID, [Order].orderID, [Order].status, [Order].Logistics, [Order].referencesNo, [Order].dateOrder, OrderDetails.subtotal FROM [Order] INNER JOIN Customer ON [Order].customerID = Customer.customerID INNER JOIN OrderDetails ON [Order].orderID = OrderDetails.OrderID INNER JOIN Artist INNER JOIN Artwork ON Artist.artistID = Artwork.artistID ON OrderDetails.artworkID = Artwork.artworkID WHERE ([Order].status = 'Pending') AND (Artwork.artistID = @artistID)" UpdateCommand="UPDATE [Order] SET [referencesNo] = @reference, [status] = 'Shipped Out', [dateDelivered] = @date WHERE [orderID] = @orderID">
                     <SelectParameters>
                         <asp:SessionParameter Name="artistID" SessionField="ArtistID" />
                     </SelectParameters>
@@ -51,12 +49,12 @@
                         <asp:Parameter Name="orderID" Type="String" />
                     </UpdateParameters>
                 </asp:SqlDataSource>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artwork.artworkName, Artwork.image, [Order].totalAmount, [Order].orderID, [Order].quantity, [Order].customerID, [Order].status, Customer.name, [Order].Logistics, [Order].referencesNo, [Order].dateDelivered, [Order].artworkID, Customer.customerID AS Expr1 FROM Artist INNER JOIN Artwork ON Artist.artistID = Artwork.artistID INNER JOIN [Order] ON Artwork.artworkID = [Order].artworkID INNER JOIN Customer ON [Order].customerID = Customer.customerID WHERE ([Order].status = 'Shipped Out' AND Artwork.artistID = @artistID)">
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Artwork.artworkName, Artwork.image, [OrderDetails].quantity, Customer.name, Customer.customerID, [Order].orderID, [Order].status, [Order].Logistics, [Order].referencesNo, [Order].dateDelivered, OrderDetails.subtotal, Artwork.artworkID FROM [Order] INNER JOIN Customer ON [Order].customerID = Customer.customerID INNER JOIN OrderDetails ON [Order].orderID = OrderDetails.OrderID INNER JOIN Artist INNER JOIN Artwork ON Artist.artistID = Artwork.artistID ON OrderDetails.artworkID = Artwork.artworkID WHERE ([Order].status = 'Shipped Out') AND (Artwork.artistID = @artistID)">
                     <SelectParameters>
                         <asp:SessionParameter Name="artistID" SessionField="ArtistID" />
                     </SelectParameters>
                 </asp:SqlDataSource>
-                <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" HorizontalAlign="Center" RepeatColumns="1" CssClass="profile-orderrow" CellPadding="2" CellSpacing="15" ShowFooter="False" ShowHeader="False" OnItemCommand="DataList1_ItemCommand"  >
+                <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" HorizontalAlign="Center" RepeatColumns="1" CssClass="profile-orderrow" CellPadding="2" CellSpacing="15" ShowFooter="False" ShowHeader="False" OnItemCommand="DataList1_ItemCommand" >
                     <ItemTemplate>
                         <table style="width:100%; border:solid">
                             <tr style="width:100%; background-color:lightgrey">
@@ -77,7 +75,7 @@
                                     <asp:Label ID="lblqty" runat="server" Text='<%# Eval("quantity") %>'></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:Label ID="lblamt" runat="server" Text='<%# Eval("totalAmount") %>'></asp:Label>
+                                    <asp:Label ID="lblamt" runat="server" Text='<%# Eval("subtotal") %>'></asp:Label>
                                 </td>
                                 <td>
                                     <asp:Label ID="lblstatus" runat="server" Text='<%# Eval("status") %>'></asp:Label><p>
@@ -99,9 +97,9 @@
                 </asp:DataList>
                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" CssClass="profile-orderrow" GridLines="None">
                     <Columns>
-                        <asp:TemplateField HeaderText="Customer">
+                       <asp:TemplateField HeaderText="Customer">
                             <ItemTemplate>
-                            <asp:Label runat="server" Text='<%# Eval("customerID")%>'></asp:Label><p>
+                            <asp:Label runat="server" Text='<%# Eval("customerID")%>'></asp:Label><p> 
                             <asp:Label runat="server" Text='<%# Eval("name")%>'></asp:Label>
                             </ItemTemplate>
                             </asp:TemplateField>
@@ -112,19 +110,20 @@
                                         <td>
                                     <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("image")%>' Height="100px" Width="100px" /></td>
                                    <td> <asp:Label ID="Label1" runat="server" Text='<%# "Order ID:" + Eval("orderID")%>'></asp:Label><p>
-                                       <asp:Label runat="server" Text='<%# "Artwork ID:" + Eval("artworkID")%>'></asp:Label><p>
+                                       <asp:Label runat="server" Text='<%# "Artwork ID:" + Eval("artworkID")%>'></asp:Label><p> 
                             <asp:Label runat="server" Text='<%# Eval("artworkName")%>'></asp:Label></td>
                                     </tr>
-                                </table>
+                                </table> 
                             </ItemTemplate>
                             </asp:TemplateField>
                         <asp:BoundField DataField="quantity" HeaderText="Qty" SortExpression="quantity" ItemStyle-Width="100px"/>
-                        <asp:BoundField DataField="totalAmount" HeaderText="totalAmount" SortExpression="totalAmount" ItemStyle-Width="100px"/>
+                        <asp:BoundField DataField="subtotal" HeaderText="Subtotal" SortExpression="subtotal" ItemStyle-Width="100px"/>
                         <asp:BoundField DataField="status" HeaderText="status" SortExpression="status" ItemStyle-Width="200px"/>
                         <asp:BoundField DataField="Logistics" HeaderText="Logistics" SortExpression="Logistics" ItemStyle-Width="200px"/>
                         <asp:BoundField DataField="referencesNo" HeaderText="referencesNo" SortExpression="referencesNo" ItemStyle-Width="200px"/>
                         <asp:BoundField DataField="dateDelivered" HeaderText="dateDelivered" SortExpression="dateDelivered" ItemStyle-Width="200px"/>
-
+                   
+                   
                         </Columns>
                 </asp:GridView>
             </div>
