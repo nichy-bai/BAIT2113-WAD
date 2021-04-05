@@ -89,7 +89,7 @@ namespace BAIT2113_WAD
                 else
                 {
                     string uploadpic1 = "~/images/avatar.png";
-                    string sql = "insert into Artist(artistID,name,email,password,phoneNum,dob,street,city,zipCode,state,profilePic,video) values (@ArtistID,@Name,@Email,@Password,@PhoneNumber,@DOB,@Street,@City,@ZipCode, @State, @ProfilePic, @video)";
+                    string sql = "insert into Artist(artistID,name,email,password,phoneNum,dob,street,city,zipCode,state,profilePic) values (@ArtistID,@Name,@Email,@Password,@PhoneNumber,@DOB,@Street,@City,@ZipCode, @State, @ProfilePic)";
                     SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
                     SqlCommand cmd = new SqlCommand(sql, con);
 

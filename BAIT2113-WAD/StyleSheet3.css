@@ -161,7 +161,7 @@ td {
 }
 
 .profile-uploadbtn {
-    width: 180px;
+    width: 215px;
     background-color: #000;
     color: #fff;
     border: 1px solid #000;
@@ -171,7 +171,7 @@ td {
     font-size: 1.2rem;
     transition: all .5s ease 0s, left .5s ease 0s;
     border-radius: .5rem;
-    margin: 30px 0 0 170px;
+    margin: 30px 0 0 220px;
     display: block;
     cursor: pointer;
 }
