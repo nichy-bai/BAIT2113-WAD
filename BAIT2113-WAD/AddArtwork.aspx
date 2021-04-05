@@ -83,7 +83,7 @@
             </div>
 
             <div class="profile-artworkrow">
-                <div class="profile-addquestion">Artwork (.JPG Format)</div>
+                <div class="profile-addquestion">Artwork</div>
                 <asp:FileUpload ID="FileUpload1" runat="server" onchange="ImagePreview(this);" />
                 <asp:Image ID="Image1" runat="server" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="addartwork" runat="server" ControlToValidate="FileUpload1" Display="Dynamic" ErrorMessage="Please insert the artwork picture" ForeColor="Red">*</asp:RequiredFieldValidator>
