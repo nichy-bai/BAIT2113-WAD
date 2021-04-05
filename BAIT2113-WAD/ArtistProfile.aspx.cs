@@ -60,18 +60,51 @@ namespace BAIT2113_WAD
             String city = City.Text;
             String state = State.Text;
             String Zipcode = ZipCode.Text;
+            String opassword = OPassword.Text;
+            String password = Password.Text;
+
             String ID = Session["ArtistID"].ToString();
 
             SqlConnection UpdateCon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+
             string uploadpic = "~/images/" + FileUpload1.FileName.ToString();
             FileUpload1.SaveAs(Server.MapPath("images//" + FileUpload1.FileName));
 
-            SqlCommand cmd = new SqlCommand(string.Format("Update [Artist] SET name = '{0}',Email = '{1}', phoneNum = '{2}', dob = '{3}', street = '{4}', city = '{5}', state = '{6}', zipCode = '{7}',profilePic = '{8}' WHERE artistID = @ID", name, email, PhoneNo, dob, street, city, state, Zipcode, uploadpic), UpdateCon);
-            cmd.Parameters.AddWithValue("@ID", ID);
+
+            String sql = "SELECT password FROM Artist WHERE artistID = @artistID";
+            SqlCommand cmd1 = new SqlCommand(sql, UpdateCon);
+            cmd1.Parameters.AddWithValue("@artistID", ID);
+
             UpdateCon.Open();
-            cmd.ExecuteNonQuery();
+            String oldPassword = cmd1.ExecuteScalar().ToString();
             UpdateCon.Close();
-            Response.Redirect("~/ArtistProfile.aspx");
+
+            if(opassword == oldPassword)
+            {
+                UpdateCon.Open();
+                SqlDataReader rdr;
+                rdr = cmd1.ExecuteReader();
+                while (rdr.Read())
+                {
+                    oldPassword = rdr["password"].ToString();
+                }
+                UpdateCon.Close();
+
+                SqlCommand cmd = new SqlCommand(string.Format("Update [Artist] SET name = '{0}',Email = '{1}', phoneNum = '{2}', dob = '{3}', street = '{4}', city = '{5}', state = '{6}', zipCode = '{7}',profilePic = '{8}',password = '{9}' WHERE artistID = @ID", name, email, PhoneNo, dob, street, city, state, Zipcode, uploadpic, password), UpdateCon);
+                cmd.Parameters.AddWithValue("@ID", ID);
+                UpdateCon.Open();
+                cmd.ExecuteNonQuery();
+                UpdateCon.Close();
+                Response.Redirect("~/ArtistProfile.aspx");
+
+                lblopass.ForeColor = System.Drawing.Color.Green;
+                lblopass.Text = "Old password not match.";
+            }
+            else
+            {
+                lblopass.ForeColor = System.Drawing.Color.Red;
+                lblopass.Text = "Old password not match.";
+            }
         }
 
         protected void Page_Error(object sender, EventArgs e)

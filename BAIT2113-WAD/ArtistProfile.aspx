@@ -101,6 +101,17 @@
 				<asp:TextBox ID="State" runat="server" Width="250px"></asp:TextBox>
 				<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="State" ErrorMessage="State is required" Display="Dynamic" ForeColor="Red" ValidationGroup="editprofile">*</asp:RequiredFieldValidator>
 			</div>
+			<div class="profile-artworkrow">
+                <div class="profile-addquestion">Old Password</div>
+				<asp:TextBox ID="OPassword" runat="server" Width="250px"></asp:TextBox>
+				<asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="OPassword" ErrorMessage="Old Password is required" Display="Dynamic" ForeColor="Red" ValidationGroup="editprofile">*</asp:RequiredFieldValidator>
+			</div>
+			<div class="profile-artworkrow">
+                <div class="profile-addquestion">New Password</div>
+				<asp:TextBox ID="Password" runat="server" Width="250px"></asp:TextBox>
+				<asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="Password" ErrorMessage="New Password is required" Display="Dynamic" ForeColor="Red" ValidationGroup="editprofile">*</asp:RequiredFieldValidator>
+			</div>
+			<asp:Label ID="lblopass" runat="server"></asp:Label>
 			<asp:Button ID="Button1" runat="server" Text="Update Profile"  OnClick="UpdateProfile_Click" ValidationGroup="editprofile" CssClass="profile-uploadbtn"/>
 	        <asp:ValidationSummary ID="ValidationSummary2" runat="server" DisplayMode="List" ForeColor="Red" ValidationGroup="editprofile" />
 	</div>
