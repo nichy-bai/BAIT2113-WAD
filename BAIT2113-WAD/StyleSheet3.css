@@ -153,7 +153,7 @@ body {
 }
 
 .profile-addquestion {
-    min-width: 150px;
+    min-width: 200px;
 }
 
 .profile-uploadbtn {
@@ -183,8 +183,15 @@ body {
     color: #696969;
 }
 
+.img-upload {
+    display: flex;
+    flex-direction: column;
 
+}
 
+.img-preview {
+    border: 1px solid black;
+}
 
 
 

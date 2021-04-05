@@ -7,15 +7,17 @@
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     $('#<%=Image1.ClientID%>').prop('src', e.target.result)
-                        .width(100)
-                        .height(100);
+                        .width(300)
+                        .height("auto");
                 };
                 reader.readAsDataURL(input.files[0]);
             }
         }
     </script>
     <link href="StyleSheet3.css" rel="stylesheet" />
-
+    <div>
+        <asp:PlaceHolder ID="HeaderPlaceHolder" runat ="server" />
+    </div>
     <div class="profile-box">
         <div class="profile-detail">
 
@@ -76,17 +78,19 @@
             </div>
 
             <div class="profile-artworkrow">
-                <div class="profile-addquestion">Price($)(e.g xx.xx)</div>
+                <div class="profile-addquestion">Price($)</div>
                 <asp:TextBox ID="txtPrice" runat="server" Width="220px" ValidationGroup="addartwork"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ValidationGroup="addartwork" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="The price must insert" ForeColor="Red">*</asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="Must be a number" ForeColor="Red" ValidationGroup="addartwork" ValidationExpression="^\d+.\d{0,2}$">*</asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="Must be a decimal number (eg. 420.69)" ForeColor="Red" ValidationGroup="addartwork" ValidationExpression="^\d+.\d{0,2}$">*</asp:RegularExpressionValidator>
             </div>
 
             <div class="profile-artworkrow">
                 <div class="profile-addquestion">Artwork</div>
-                <asp:FileUpload ID="FileUpload1" runat="server" onchange="ImagePreview(this);" />
-                <asp:Image ID="Image1" runat="server" />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="addartwork" runat="server" ControlToValidate="FileUpload1" Display="Dynamic" ErrorMessage="Please insert the artwork picture" ForeColor="Red">*</asp:RequiredFieldValidator>
+                <div class="img-upload">
+                    <asp:FileUpload ID="FileUpload1" runat="server" onchange="ImagePreview(this);" Height="50px" />
+                    <asp:Image ID="Image1" runat="server" CssClass="img-preview"/>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="addartwork" runat="server" ControlToValidate="FileUpload1" Display="Dynamic" ErrorMessage="Please insert the artwork picture" ForeColor="Red">*</asp:RequiredFieldValidator>
+                </div>
             </div>
 
             <div class="profile-artworkrow">
@@ -99,6 +103,8 @@
                 <br />
                 <asp:ValidationSummary ID="ValidationSummary2" runat="server" DisplayMode="List" ForeColor="Red" ValidationGroup="addartwork" />
                 <br />
+
+            <asp:Label ID="lblmsg" runat="server" CssClass="upload-msg"></asp:Label>
         </div>
     </div>
 
