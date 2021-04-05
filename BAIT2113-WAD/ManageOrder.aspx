@@ -5,6 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="StyleSheet3.css" rel="stylesheet" />
 
+    <div>
+        <asp:PlaceHolder ID="HeaderPlaceHolder" runat ="server" />
+    </div>
     <div class="profile-box">
         <div class="profile-detail">
 
@@ -67,7 +70,7 @@
                                 <td style="width:100px; height:100px">
                                     <asp:Image ID="product" runat="server" ImageUrl='<%# Eval("image") %>' Height="200px" Width="200px"/>
                                 </td>
-                                <td style="text-align:left; width:100px">
+                                <td style="text-align:left; width:200px">
                                     <asp:Label ID="lblartid" runat="server" Text='<%# Eval("artworkID") %>'></asp:Label><p></p>
                                     <asp:Label ID="lblart" runat="server" Text='<%# Eval("artworkName") %>'></asp:Label>
                                 </td>
@@ -88,44 +91,58 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtref" runat="server" placeholder="Reference Number"></asp:TextBox><p>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtref" ValidationGroup="ref" ErrorMessage="Reference Number is required" ForeColor="Red"></asp:RequiredFieldValidator>
                                     <asp:Label ID="errref" runat="server" Text="" ForeColor="Red"></asp:Label>
-                                    <asp:Button ID="btnsubmit" runat="server" Text="Update" CommandName="reference" />
+                                    <asp:Button ID="btnsubmit" runat="server" Text="Update" CommandName="reference" ValidationGroup="ref" />
                                 </td>
                             </tr>
                         </table>
                     </ItemTemplate>
                 </asp:DataList>
-                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" CssClass="profile-orderrow" GridLines="None">
-                    <Columns>
-                       <asp:TemplateField HeaderText="Customer">
-                            <ItemTemplate>
-                            <asp:Label runat="server" Text='<%# Eval("customerID")%>'></asp:Label><p>
-                            <asp:Label runat="server" Text='<%# Eval("name")%>'></asp:Label>
-                            </ItemTemplate>
-                            </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Artwork">
-                            <ItemTemplate>
-                                <table>
-                                    <tr>
-                                        <td>
-                                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("image")%>' Height="100px" Width="100px" /></td>
-                                   <td> <asp:Label ID="Label1" runat="server" Text='<%# "Order ID:" + Eval("orderID")%>'></asp:Label><p>
-                                       <asp:Label runat="server" Text='<%# "Artwork ID:" + Eval("artworkID")%>'></asp:Label><p>
-                            <asp:Label runat="server" Text='<%# Eval("artworkName")%>'></asp:Label></td>
-                                    </tr>
-                                </table>
-                            </ItemTemplate>
-                            </asp:TemplateField>
-                        <asp:BoundField DataField="quantity" HeaderText="Qty" SortExpression="quantity" ItemStyle-Width="100px"/>
-                        <asp:BoundField DataField="subtotal" HeaderText="Subtotal" SortExpression="subtotal" ItemStyle-Width="100px"/>
-                        <asp:BoundField DataField="status" HeaderText="status" SortExpression="status" ItemStyle-Width="200px"/>
-                        <asp:BoundField DataField="Logistics" HeaderText="Logistics" SortExpression="Logistics" ItemStyle-Width="200px"/>
-                        <asp:BoundField DataField="referencesNo" HeaderText="referencesNo" SortExpression="referencesNo" ItemStyle-Width="200px"/>
-                        <asp:BoundField DataField="dateDelivered" HeaderText="dateDelivered" SortExpression="dateDelivered" ItemStyle-Width="200px"/>
+                <asp:DataList ID="DataList2" runat="server" DataSourceID="SqlDataSource2" HorizontalAlign="Center" RepeatColumns="1" CssClass="profile-orderrow" CellPadding="2" CellSpacing="15" ShowFooter="False" ShowHeader="False">
+                    <ItemTemplate>
+                        <table style="width:100%; border-bottom: none; border-collapse: collapse;">
+                            <tr style="width:100%; background-color:lightgrey">
+                                <td style="text-align:left" colspan="6">
+                                    <asp:Label ID="lblcus" runat="server" Text='<%# Eval("customerID") +" "+ Eval("name") %>'></asp:Label></td>
+                                   <td style="text-align:right" colspan="2"><asp:Label ID="lblord" runat="server" Text="Order ID:"></asp:Label>  <asp:Label ID="lblorder" runat="server" Text='<%# Eval("orderID") %>'></asp:Label>
+                                </td>
+                            </tr>
+                            <tr style="width:100%">
+                                <td style="width:100px; height:100px">
+                                    <asp:Image ID="product" runat="server" ImageUrl='<%# Eval("image") %>' Height="200px" Width="200px"/>
+                                </td>
+                                <td style="text-align:left; width:200px">
+                                    <asp:Label ID="lblartid" runat="server" Text='<%# Eval("artworkID") %>'></asp:Label><p></p>
+                                    <asp:Label ID="lblart" runat="server" Text='<%# Eval("artworkName") %>'></asp:Label>
+                                </td>
+                                <td style="width:50px">
+                                    <asp:Label ID="lblqty" runat="server" Text='<%# Eval("quantity") %>'></asp:Label>
+                                    <asp:Label ID="Label2" runat="server" Text="x"></asp:Label>
+                                </td>
+                                <td style="width:50px">
+                                    <asp:Label ID="Label3" runat="server" Text="$"></asp:Label>
+                                    <asp:Label ID="lblamt" runat="server" Text='<%# Eval("subtotal") %>'></asp:Label>
+                                </td>
+                                <td style="width:200px">
+                                    <asp:Label ID="lblstatus" runat="server" Text='<%# Eval("status") %>'></asp:Label>
 
+                                </td>
+                                <td>
+                                    <asp:Label ID="lbllgt" runat="server" Text='<%# Eval("Logistics") %>'></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="Labeldel" runat="server" Text='<%# Eval("dateDelivered") %>'></asp:Label>
 
-                        </Columns>
-                </asp:GridView>
+                                    </td>
+                                <td>
+                                    <asp:Label ID="Labelref" runat="server" Text='<%# Eval("referencesNo") %>'></asp:Label>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </ItemTemplate>
+                </asp:DataList>
             </div>
         </div>
     </div>

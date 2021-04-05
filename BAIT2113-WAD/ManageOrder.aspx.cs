@@ -15,8 +15,8 @@ namespace BAIT2113_WAD
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //var ctl = Page.LoadControl("~/User Control/Header.ascx");
-            //HeaderPlaceHolder.Controls.Add(ctl);
+            var ctl = Page.LoadControl("~/User Control/Header.ascx");
+            HeaderPlaceHolder.Controls.Add(ctl);
 
             string ID = Session["ArtistID"].ToString();
             string sql = "Select COUNT(*) from [Order] WHERE status = 'Pending' ";
@@ -60,7 +60,7 @@ namespace BAIT2113_WAD
                 this.SqlDataSource1.SelectCommand = null;
                 this.DataList1.Visible = false;
                 this.SqlDataSource2.SelectCommand = null;
-                this.GridView2.Visible = false;
+                this.DataList2.Visible = false;
             }
 
         }
@@ -78,7 +78,7 @@ namespace BAIT2113_WAD
             Button2.ForeColor = System.Drawing.Color.Black;
             Button2.BackColor = System.Drawing.Color.White;
             this.DataList1.Visible = true;
-            this.GridView2.Visible = false;
+            this.DataList2.Visible = false;
             this.DataList1.DataBind();
             int count = DataList1.Items.Count;
             for (int i = 0; i < count; i++)
@@ -118,8 +118,8 @@ namespace BAIT2113_WAD
             Button2.ForeColor = System.Drawing.Color.Chartreuse;
             Button2.BackColor = System.Drawing.Color.Black;
             this.DataList1.Visible = false;
-            this.GridView2.Visible = true;
-            this.GridView2.DataBind();
+            this.DataList2.Visible = true;
+            this.DataList2.DataBind();
         }
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
@@ -150,7 +150,7 @@ namespace BAIT2113_WAD
                         con.Close();
                         ((Label)e.Item.FindControl("errref")).Visible = false;
                         this.DataList1.Visible = true;
-                        this.GridView2.Visible = false;
+                        this.DataList2.Visible = false;
                         this.DataList1.DataBind();
 
                     }
@@ -176,7 +176,7 @@ namespace BAIT2113_WAD
                         con.Close();
                         ((Label)e.Item.FindControl("errref")).Visible = false;
                         this.DataList1.Visible = true;
-                        this.GridView2.Visible = false;
+                        this.DataList2.Visible = false;
                         this.DataList1.DataBind();
 
                     }
