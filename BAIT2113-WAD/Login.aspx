@@ -40,7 +40,7 @@
                         <img src="images/icon.png" class="avatar" title="Back to homepage" />
                     </a>
                 </div>
-                
+
                 <%--<h1>gallerion</h1>--%>
 
                 <p>User ID</p>
@@ -49,6 +49,7 @@
                 <p>Password</p>
                 <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox><br /><br /><br />
                 <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" /><br />
+                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" OnClientClick="if (!confirm('Do you want to reset password?')) return false;" Text="Forgot Password"></asp:LinkButton><br />
                 <a href="Register.aspx" class="return-btn">Don't have an account?</a>
             </div>
     </form>

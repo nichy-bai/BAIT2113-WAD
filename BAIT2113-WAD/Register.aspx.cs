@@ -133,6 +133,7 @@ namespace BAIT2113_WAD
                     cmd1.Parameters.AddWithValue("@ZipCode", ZipCode);
                     cmd1.Parameters.AddWithValue("@State ", State);
                     cmd1.Parameters.AddWithValue("@ProfilePic ", uploadpic);
+                    cmd1.ExecuteNonQuery();
                     con.Close();
 
                     email();
@@ -156,6 +157,7 @@ namespace BAIT2113_WAD
                     cmd1.Parameters.AddWithValue("@ZipCode", ZipCode);
                     cmd1.Parameters.AddWithValue("@State ", State);
                     cmd1.Parameters.AddWithValue("@ProfilePic ", uploadpic);
+                    cmd1.ExecuteNonQuery();
                     con.Close();
 
                     email();

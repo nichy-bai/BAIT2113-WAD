@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Net.Mail;
 
 namespace BAIT2113_WAD
 {
@@ -85,11 +86,116 @@ namespace BAIT2113_WAD
 
             }
         }
-        protected void Page_Error(object sender, EventArgs e)
+
+        public static string CreateRandomPassword(int PasswordLength)
         {
-            Exception Ex = Server.GetLastError();
-            Server.ClearError();
-            Response.Redirect("/errors/Error.html");
+            string _allowedChars = "0123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ";
+            Random randNum = new Random();
+            char[] chars = new char[PasswordLength];
+            int allowedCharCount = _allowedChars.Length;
+            for (int i = 0; i < PasswordLength; i++)
+            {
+                chars[i] = _allowedChars[(int)((_allowedChars.Length) * randNum.NextDouble())];
+            }
+            return new string(chars);
+        }
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            string id = txtID.Text;
+            if (id == null)
+            {
+                Response.Write("<script> alert('User not exist') </script>");
+            }
+            else
+            {
+                string id1 = id.Substring(0, 1);
+                if (id1 == "C")
+                {
+                    String CustomerID = txtID.Text;
+                    String newpassword = CreateRandomPassword(8);
+                    string email;
+
+                    string sql = "Select email from Customer where customerID = @CustomerID";
+                    string sql1 = "Update Customer set password=@newpassword where customerID = @CustomerID";
+                    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    SqlCommand cmd1 = new SqlCommand(sql1, con);
+                    SqlDataReader rdr;
+                    cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
+                    cmd1.Parameters.AddWithValue("@CustomerID", CustomerID);
+                    cmd1.Parameters.AddWithValue("@newpassword", newpassword);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd1.ExecuteNonQuery();
+                    con.Close();
+                    con.Open();
+                    rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        email = rdr["email"].ToString();
+                        String emailSubject = "Gallerion Reset Password Successfully";
+                        String emailBody = "Your password of user ID : " + CustomerID + " have successfully reset to " + newpassword + ". Thank You";
+                        MailMessage mail = new MailMessage();
+                        mail.IsBodyHtml = true;
+                        mail.From = new MailAddress("Gallerion2021@gmail.com", "Gallerion");
+                        mail.To.Add(new MailAddress(email));
+                        mail.Subject = emailSubject;
+                        mail.Body = emailBody;
+                        SmtpClient smtpClient = new SmtpClient();
+                        smtpClient.Send(mail);
+                    }
+                    con.Close();
+
+                    Response.Write("<script> alert('New temporary password has been sent to your email.') </script>");
+
+                }
+                else if (id1 == "A")
+                {
+                    String ArtistID = txtID.Text;
+                    String newpassword = CreateRandomPassword(8);
+                    String email;
+
+                    string sql = "Select email from Artist where artistID = @ArtistID";
+                    string sql1 = "Update Artist set password=@newpassword where artistID = @ArtistID";
+                    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    SqlCommand cmd1 = new SqlCommand(sql1, con);
+                    SqlDataReader rdr;
+                    cmd.Parameters.AddWithValue("@ArtistID", ArtistID);
+                    cmd1.Parameters.AddWithValue("@ArtistID", ArtistID);
+                    cmd1.Parameters.AddWithValue("@newpassword", newpassword);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd1.ExecuteNonQuery();
+                    con.Close();
+                    con.Open();
+                    rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        email = rdr["email"].ToString();
+                        String emailSubject = "Gallerion Reset Password Successfully";
+                        String emailBody = "Your password of Artist ID : " + ArtistID + " have successfully reset to " + newpassword + ". Thank You";
+                        MailMessage mail = new MailMessage();
+                        mail.IsBodyHtml = true;
+                        mail.From = new MailAddress("Gallerion2021@gmail.com", "Gallerion");
+                        mail.To.Add(new MailAddress(email));
+                        mail.Subject = emailSubject;
+                        mail.Body = emailBody;
+                        SmtpClient smtpClient = new SmtpClient();
+                        smtpClient.Send(mail);
+                    }
+                    con.Close();
+
+                    Response.Write("<script> alert('New temporary password has been sent to your email.') </script>");
+
+                }
+                else
+                {
+                    Response.Write("<script> alert('User not exist') </script>");
+                }
+            }
         }
     }
 }
