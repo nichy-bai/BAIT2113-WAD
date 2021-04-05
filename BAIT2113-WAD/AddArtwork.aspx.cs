@@ -43,48 +43,61 @@ namespace BAIT2113_WAD
         {
             string cgy = ddlCategory.SelectedItem.Text;
 
-
-
-            string sql = "Select count(artworkID) from Artwork ";
+            string sql = "Select Top(1) artworkID from Artwork Where category = @cgy order by [artworkID] DESC";
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader rdr1;
+            cmd.Parameters.AddWithValue("@cgy", cgy);
             con.Open();
-            int c = Convert.ToInt32(cmd.ExecuteScalar());
-            c++;
+            rdr1 = cmd.ExecuteReader();
+
+            while (rdr1.Read())
+            {
+                lblArtistID.Text = rdr1["artworkID"].ToString();
+                Session["lblart"] = lblArtistID.Text;
+            }
+            con.Close();
+            string lblart = Session["lblart"].ToString();
+            string lblart1 = lblart.Substring(2, 4);
+            int d = Convert.ToInt32(lblart1);
+            d++;
+            //textBox2.Text = data.GetValue(0).ToString();
+            //int c = Convert.ToInt32(cmd.ExecuteScalar());
+
             //SqlDataReader rdr1;
             //con.Open();
             //rdr5 = cmd.ExecuteScalar();
             //while (rdr1.Read())
             //{
-                //a = rdr1.GetString(rdr1.GetOrdinal("artworkID"));
-                //int c = Convert.ToInt32(cmd.ExecuteScalar());
-                //c++;
-                //b = a.Substring(6,2);
-                //c = b + 1;
-                if (cgy == "Painting")
-                {
-                    lblArtworkID.Text = "PT000" + c.ToString();
-                }
-                else if (cgy == "Photography")
-                {
-                    lblArtworkID.Text = "PG000" + c.ToString();
-                }
-                else if (cgy == "Design")
-                {
-                    lblArtworkID.Text = "DG000" + c.ToString();
-                }
-                else if (cgy == "Sculpture")
-                {
-                    lblArtworkID.Text = "SP000" + c.ToString();
-                }
-                else if (cgy == "Textile")
-                {
-                    lblArtworkID.Text = "TT000" + c.ToString();
-                }
-                else if (cgy == "Illustration")
-                {
-                    lblArtworkID.Text = "IT000" + c.ToString();
-                }
+            //a = rdr1.GetString(rdr1.GetOrdinal("artworkID"));
+            //int c = Convert.ToInt32(cmd.ExecuteScalar());
+            //c++;
+            //b = a.Substring(6,2);
+            //c = b + 1;
+            if (cgy == "Painting")
+            {
+                lblArtworkID.Text = "PT000" + d.ToString();
+            }
+            else if (cgy == "Photography")
+            {
+                lblArtworkID.Text = "PG000" + d.ToString();
+            }
+            else if (cgy == "Design")
+            {
+                lblArtworkID.Text = "DG000" + d.ToString();
+            }
+            else if (cgy == "Sculpture")
+            {
+                lblArtworkID.Text = "SP000" + d.ToString();
+            }
+            else if (cgy == "Textile")
+            {
+                lblArtworkID.Text = "TT000" + d.ToString();
+            }
+            else if (cgy == "Illustration")
+            {
+                lblArtworkID.Text = "IT000" + d.ToString();
+            }
 
 
             con.Close();
