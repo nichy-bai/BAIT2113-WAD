@@ -31,6 +31,19 @@ namespace BAIT2113_WAD
 
         }
 
+        protected void email()
+        {
+            String message1 = "Congratulation! You have successfully register as Gallerion member.";
+
+            MailMessage mail = new MailMessage();
+            mail.IsBodyHtml = true;
+            mail.From = new MailAddress("Gallerion2021@gmail.com", "Gallerion");
+            mail.To.Add(new MailAddress(txtemail.Text));
+            mail.Body = message1;
+            SmtpClient smtpClient = new SmtpClient();
+            smtpClient.Send(mail);
+        }
+
         protected void btn1_Click(object sender, EventArgs e)
         {
             String ID = txtid.Text;
@@ -69,6 +82,8 @@ namespace BAIT2113_WAD
                     cmd.Parameters.AddWithValue("@ProfilePic", uploadpic);
                     cmd.ExecuteNonQuery();
                     con.Close();
+
+                    email();
                     Response.Redirect("Login.aspx");
                 }
                 else
@@ -92,6 +107,8 @@ namespace BAIT2113_WAD
                     cmd.Parameters.AddWithValue("@ProfilePic", uploadpic1);
                     cmd.ExecuteNonQuery();
                     con.Close();
+
+                    email();
                     Response.Redirect("Login.aspx");
                 }
             }
@@ -117,6 +134,8 @@ namespace BAIT2113_WAD
                     cmd1.Parameters.AddWithValue("@State ", State);
                     cmd1.Parameters.AddWithValue("@ProfilePic ", uploadpic);
                     con.Close();
+
+                    email();
                     Response.Redirect("Login.aspx");
                 }
                 else
@@ -138,6 +157,8 @@ namespace BAIT2113_WAD
                     cmd1.Parameters.AddWithValue("@State ", State);
                     cmd1.Parameters.AddWithValue("@ProfilePic ", uploadpic);
                     con.Close();
+
+                    email();
                     Response.Redirect("Login.aspx");
                 }
             }

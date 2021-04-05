@@ -24,6 +24,7 @@
             <span class="profile-detail-label">email</span>
             <asp:Label ID="lblemail" runat="server" CssClass="profile-detail-text"></asp:Label>
 
+            <a href="ArtistProfile.aspx" class="profile-btn">Artist Profile</a>
             <a href="mygallery.aspx" class="profile-btn-active">My Gallery</a>
             <a href="AddArtwork.aspx" class="profile-btn">Add New Artwork</a>
             <a href="ManageOrder.aspx" class="profile-btn">Manage Order</a>
