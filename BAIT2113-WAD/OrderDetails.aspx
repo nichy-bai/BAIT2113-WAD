@@ -36,27 +36,27 @@
         <div>
             <div class="profile-addtitle">Order Details</div>
 
-            <table id="purchaseHistory" style="width: 1000px; margin-left: auto; margin-right: auto; margin-top: 3%">
-                <tr style="font-weight: bold;text-align: center">
-                    <th>Order Number</th>
-                    <th></th>
-                    <th></th>
+            <table id="purchaseHistory" style="width:100%; border:hidden; border-collapse: collapse">
+                <tr style="width:100%; background-color:lightgrey;">
+                    <th>Artwork</th>
+                    <th>Artwork ID</th>
+                    <th>Quantity</th>
                     <th>Subtotal</th>
                 </tr>
 
                 <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                     <ItemTemplate>
-                        <tr style="border-style: solid none solid none; border-width: thin; font-weight: bold; ">
-
-
-                           <td style="text-align: center; height: 200px;"><%# Eval("artworkID")%></td>
-                            <td style="text-align: center; height: 200px;"><%# Eval("quantity")%></td>
-                            <td style ="text-align: center; height: 200px;"><%# Eval("subtotal")%></td>
+                        <tr style="border-bottom: 1px solid black;">
+                            <td class="image" style="vertical-align: middle;">
+                                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("image")%>' ImageAlign="Baseline" Width="200px" Height="200px" /></td>
+                           <td style="text-align: center; height: 100px;width:200px;"><%# Eval("artworkID")%></td>
+                            <td style="text-align: center; height: 100px;width:200px;"><%# Eval("quantity")%></td>
+                            <td style ="text-align: center; height: 100px;width:200px;"><%# Eval("subtotal","${0:0.00}")%></td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
 
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT artworkID, quantity, subtotal FROM OrderDetails WHERE OrderID = @OrderID">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT OrderDetails.artworkID, OrderDetails.quantity, OrderDetails.subtotal, Artwork.image FROM OrderDetails INNER JOIN Artwork ON OrderDetails.artworkID = Artwork.artworkID WHERE (OrderDetails.OrderID = @OrderID)">
                     <SelectParameters>
                         <asp:SessionParameter Name="orderID" SessionField="@OrderID" />
                     </SelectParameters>

@@ -4,7 +4,26 @@
     <siteMapNode url="~/Artwork.aspx" title="Artwork"  description="Artwork">
       <siteMapNode url="~/Order.aspx" title="Artwork Details"  description="Artwork Details" />
     </siteMapNode>
-    <siteMapNode url="~/Wishlist.aspx" title="Wishlist"  description="Wishlist" />
+
+    <siteMapNode url="~/Login.aspx" title="Login"  description="Login">
+      <siteMapNode url="~/ArtistProfile.aspx" title="Artist Profile"  description="Artist Profile" />
+      <siteMapNode url="~/mygallery.aspx" title="Artist Gallery"  description="Artist Gallery" />
+      <siteMapNode url="~/AddArtwork.aspx" title="Add Artwork"  description="Add Artwork" />
+      <siteMapNode url="~/ManageOrder.aspx" title="Manage Order"  description="Manage Order" />
+      <siteMapNode url="~/Profile.aspx" title="Customer Profile"  description="Customer Profile" />
+      <siteMapNode url="~/Wishlist.aspx" title="Wishlist"  description="Wishlist" />
+
+      <siteMapNode url="~/Cart.aspx" title="Shopping Cart"  description="Shopping Cart">
+        <siteMapNode url="~/Checkout.aspx" title="Checkout"  description="Checkout" />
+        <siteMapNode url="~/Payment.aspx" title="Payment"  description="Payment" />
+      </siteMapNode>
+
+      <siteMapNode url="~/PurchaseHistory.aspx" title="Purchase History"  description="Purchase History">
+        <siteMapNode url="~/OrderDetails.aspx" title="Order Details"  description="Order Details" />
+      </siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode url="~/Register.aspx" title="Register"  description="Register" />
     <siteMapNode url="~/Help.aspx" title="Help"  description="Help" />
   </siteMapNode>
 </siteMap>

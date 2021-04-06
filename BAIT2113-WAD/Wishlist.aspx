@@ -1,19 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Gallerion.Master" AutoEventWireup="true" CodeBehind="Wishlist.aspx.cs" Inherits="BAIT2113_WAD.WebForm4" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-		<style>
-        .image {
-            text-align: center;
-        }
-
-        table.wishlist {
-            margin-left: auto;
-            margin-right: auto;
-        }
-         img.rounded {
-            border-radius: 6px !important;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 	<link href="StyleSheet3.css" rel="stylesheet" />
@@ -53,17 +40,23 @@
         <div>
             <div class="profile-addtitle">Wishlist</div>
 
-            <table id="wishlist" style="width: 1000px; margin-left: auto; margin-right: auto; margin-top: 3%">
+            <table id="wishlist" style="width:100%; border:hidden; border-collapse: collapse">
+                <tr style="width:100%; background-color:lightgrey;">
+                    <th>Artwork</th>
+                    <th>Artwork ID</th>
+                    <th>Artwork Name</th>
+                    <th></th>
+                </tr>
 
                 <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                     <ItemTemplate>
-                        <tr style="border-style: solid none solid none; border-width: thin; font-weight: bold; ">
-                            <td style="text-align: center; height: 200px;">
-								<asp:Label ID="artworkID" runat="server" Text='<%# Eval("artworkID")%>'></asp:Label></td>
+                        <tr style="border-bottom: 1px solid black;">
                             <td class="image">
-                                <asp:ImageButton ID="Image1" runat="server" ImageUrl='<%# Eval("image")%>' ImageAlign="Baseline" Width="100px" Height="100px" /></td>
-                            <td style="text-align: center; height: 200px;"><%# Eval("artworkName")%></td>
-                            <td style="text-align: center; height: 200px;">
+                                <asp:ImageButton ID="Image1" runat="server" ImageUrl='<%# Eval("image")%>' ImageAlign="Baseline" Width="200px" Height="200px" /></td>
+                             <td style="text-align: center;width:200px;">
+								<asp:Label ID="artworkID" runat="server" Text='<%# Eval("artworkID")%>'></asp:Label></td>
+                            <td style="text-align: center;width:200px;"><%# Eval("artworkName")%></td>
+                            <td style="text-align: center;width:200px;">
                                 <asp:ImageButton ID="btnDelete" runat="server" Imageurl ="images/delete.png"  OnClick ="Delete_Click" ImageAlign="Baseline" Height="50px" Width="50px" />
                             </td>
                         </tr>

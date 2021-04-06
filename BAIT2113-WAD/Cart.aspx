@@ -75,7 +75,7 @@
             </asp:GridView>--%>
             <table style="width:100%; border:hidden; border-collapse: collapse">
                             <tr style="width:100%; background-color:lightgrey">
-                                <td style="text-align:center;width:200px;">Image</td>
+                                <td style="text-align:center;width:200px;">Artwork</td>
                                 <td style="text-align:center;width:150px;">Artwork Name</td>
                                 <td style="text-align:center;width:150px;">Price</td>
                                 <td style="text-align:center;width:150px;">Quantity</td>

@@ -2,6 +2,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+		function ImagePreview(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$('#<%=Image1.ClientID%>').prop('src', e.target.result)
+						.width(300)
+						.height("auto");
+				};
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+    </script>
     <link href="StyleSheet3.css" rel="stylesheet" />
 	<div>
         <asp:PlaceHolder ID="HeaderPlaceHolder" runat ="server" />

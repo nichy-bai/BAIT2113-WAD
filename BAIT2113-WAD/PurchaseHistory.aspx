@@ -1,18 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Gallerion.Master" AutoEventWireup="true" CodeBehind="PurchaseHistory.aspx.cs" Inherits="BAIT2113_WAD.PurchaseHistory" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-		 <style>
-        .image {
-            text-align: center;
-        }
-
-        table.purchaseHistory {
-            margin-left: auto;
-            margin-right: auto;
-        }
-         img.rounded {
-            border-radius: 6px !important;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script runat="server">
@@ -63,8 +50,8 @@
         <div>
             <div class="profile-addtitle">Purchase History</div>
 
-            <table id="purchaseHistory" style="width: 1000px; margin-left: auto; margin-right: auto; margin-top: 3%">
-                <tr style="font-weight: bold;text-align: center">
+            <table id="purchaseHistory" style="width:100%; border:hidden; border-collapse: collapse">
+                <tr style="width:100%; background-color:lightgrey;">
                     <th>Order Number</th>
                     <th>Total Amount</th>
                     <th>Date Order</th>
@@ -73,15 +60,14 @@
 
                 <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                     <ItemTemplate>
-                        <tr style="border-style: solid none solid none; border-width: thin; font-weight: bold; ">
-
-                               <td style="text-align: center; height: 200px;">
-								   <asp:LinkButton ID="LinkButton1" runat="server" OnClick ="viewMore_Click" CommandArgument='<%# Eval("orderID") %>'><%# Eval("orderID")%></asp:LinkButton></td>
-
-                           <td style="text-align: center; height: 200px;"><%# Eval("totalAmount","${0:0.00}")%></td>
-                           <td style="text-align: center; height: 200px;"><%# (String.IsNullOrEmpty(Eval("dateOrder").ToString()))
+                        <tr style="border-bottom: 1px solid black;">
+                            <td style="text-align: center; height: 100px; width:200px;">
+								<asp:LinkButton ID="LinkButton1" runat="server" OnClick ="viewMore_Click" CommandArgument='<%# Eval("orderID") %>'><%# Eval("orderID")%></asp:LinkButton>
+                            </td>
+                           <td style="text-align: center; height: 100px;width:200px;"><%# Eval("totalAmount","${0:0.00}")%></td>
+                           <td style="text-align: center; height: 100px;width:200px;"><%# (String.IsNullOrEmpty(Eval("dateOrder").ToString()))
     ? "No Date Available" : Eval("dateOrder", "{0:d}") %></td>
-                           <td style ="text-align: center; height: 200px;"><%# (String.IsNullOrEmpty(Eval("dateDelivered").ToString()))
+                           <td style ="text-align: center; height: 100px;width:200px;"><%# (String.IsNullOrEmpty(Eval("dateDelivered").ToString()))
     ? "No Date Available" : Eval("dateDelivered", "{0:d}") %></td>
                         </tr>
                     </ItemTemplate>
