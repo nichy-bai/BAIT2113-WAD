@@ -89,7 +89,6 @@
     <Content Include="Payment.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="PurchaseHistory.aspx" />
-    <Content Include="Receipt.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ShinStyle2.css" />
     <Content Include="styleArtwork.css" />
@@ -233,13 +232,6 @@
     </Compile>
     <Compile Include="PurchaseHistory.aspx.designer.cs">
       <DependentUpon>PurchaseHistory.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Receipt.aspx.cs">
-      <DependentUpon>Receipt.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Receipt.aspx.designer.cs">
-      <DependentUpon>Receipt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
