@@ -9,13 +9,41 @@ using System.Web.UI.WebControls;
 
 namespace BAIT2113_WAD
 {
-	public partial class Payment : System.Web.UI.Page
-	{
+    public partial class CheckoutBuyNow : System.Web.UI.Page
+    {
+        //protected void Page_Load(object sender, EventArgs e)
+        //{
+        //    string artworkID = Session["ArtworkID"].ToString();
+        //    //string buyQty = Session["QuantityBuy"].ToString();
+
+        //    string sql2 = "Select * from Artwork where artworkID = @ArtworkID ";
+        //    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+        //    SqlCommand cmd = new SqlCommand(sql2, con);
+        //    SqlDataReader rdr;
+        //    cmd.Parameters.AddWithValue("@ArtworkID", artworkID);
+        //    con.Open();
+        //    rdr = cmd.ExecuteReader();
+
+        //    while (rdr.Read())
+        //    {
+        //        Image1.ImageUrl = rdr["image"].ToString();
+        //        Label2.Text = rdr["artworkName"].ToString();
+        //        Label3.Text = rdr["price"].ToString();
+        //    }
+        //    Label4.Text = buyQty;
+        //    int QuantityBuy = Convert.ToInt32(Label4.Text);
+        //    double price = Convert.ToDouble(Label3.Text);
+        //    double total = QuantityBuy * price;
+
+        //    Label5.Text = Convert.ToString(total);
+
+        //    con.Close();
+        //}
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			if (Session["CustomerID"] != null)
-            {
+			{
 				if (PreviousPage != null)
 				{
 					/*
@@ -35,7 +63,6 @@ namespace BAIT2113_WAD
 			{
 				ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You must log in as a customer to access this feature.');window.location ='Homepage.aspx';", true);
 			}
-
 		}
 
 		protected void TextBox2_TextChanged(object sender, EventArgs e)
@@ -45,8 +72,8 @@ namespace BAIT2113_WAD
 
 		protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
 		{
-            if (Page.IsValid)
-            {
+			if (Page.IsValid)
+			{
 				String num = args.Value;
 				if (num.Length != 16)
 				{
@@ -73,8 +100,11 @@ namespace BAIT2113_WAD
 		}
 		protected void Pay_OnClick(object sender, System.EventArgs e)
 		{
-			if(Page.IsValid)
-            {
+			if (Page.IsValid)
+			{
+				string artworkID = Session["ArtworkID"].ToString();
+				string buyQty = Session["QuantityBuy"].ToString();
+
 				//Insert into order
 				SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True;MultipleActiveResultSets=True;");
 				Con.Open();
@@ -93,18 +123,21 @@ namespace BAIT2113_WAD
 
 				//Insert into order details
 				Con.Open();
-				SqlCommand cmdOrderDetails = new SqlCommand("SELECT Cart.quantity,Cart.artworkID FROM Cart WHERE Cart.CustomerID = @customerID", Con);
-				cmdOrderDetails.Parameters.AddWithValue("@customerID", Session["customerID"].ToString());
+				SqlCommand cmdOrderDetails = new SqlCommand("Select * from Artwork where artworkID = @AaartworkID ", Con);
+				cmdOrderDetails.Parameters.AddWithValue("@AaartworkID", Session["ArtworkID"].ToString());
 				SqlDataReader cart = cmdOrderDetails.ExecuteReader();
+				
 				while (cart.Read())
 				{
-					SqlCommand cmdAddOrderDetails = new SqlCommand("INSERT INTO [dbo].[OrderDetails] (OrderID,quantity,artworkID) values (@OrderID,@quantity,@artworkID)", Con);
+					
+					SqlCommand cmdAddOrderDetails = new SqlCommand("INSERT INTO [dbo].[OrderDetails] (OrderID,quantity,artworkID) values (@OrderID,@quantity,@AartworkID)", Con);
 					cmdAddOrderDetails.Parameters.AddWithValue("@OrderID", orderID.ToString());
-					cmdAddOrderDetails.Parameters.AddWithValue("@quantity", cart["quantity"].ToString());
-					cmdAddOrderDetails.Parameters.AddWithValue("@artworkID", cart["artworkID"].ToString());
+					cmdAddOrderDetails.Parameters.AddWithValue("@quantity", buyQty);
+					cmdAddOrderDetails.Parameters.AddWithValue("@AartworkID", artworkID); 
 					cmdAddOrderDetails.ExecuteNonQuery();
 				}
 				Con.Close();
+
 
 				//Update subtotal
 				Con.Open();
@@ -132,14 +165,7 @@ namespace BAIT2113_WAD
 				}
 				Con.Close();
 
-				//clear cart
-				SqlConnection DeleteCon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-				DeleteCon.Open();
-				SqlCommand ClearCart = new SqlCommand("Delete From Cart WHERE customerID = @customerID", DeleteCon);
-				ClearCart.Parameters.AddWithValue("@customerID", Session["CustomerID"].ToString());
-				ClearCart.ExecuteNonQuery();
-				DeleteCon.Close();
-
+				
 				String ID = Session["CustomerID"].ToString();
 				Con.Open();
 				String name = "Select Name from Customer where customerID = @customerID";
@@ -222,5 +248,6 @@ namespace BAIT2113_WAD
 			//return bodyMsg;
 			return bodyMsg;
 		}
+
 	}
 }

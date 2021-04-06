@@ -24,16 +24,23 @@ namespace BAIT2113_WAD
             lblTotal.Text = sql2;*/
 
             //string sql2 = "Select * from Cart where CustomerID = @ID ";
-            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True"); //connect to the database here
-            conn.Open();
-            //SqlCommand cmd = new SqlCommand(sql2, conn);
-            //cmd.Parameters.AddWithValue("@ID", ID);
-            String ID = Session["CustomerID"].ToString();
-            SqlDataAdapter sda = new SqlDataAdapter(string.Format("Select SUM(subtotal) from Cart where CustomerID = '{0}'", ID), conn);
-            conn.Close();
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            lblTotal.Text = String.Format("$ {0:0.00}", (dt.Rows[0][0].ToString()));
+            if (Session["CustomerID"] != null)
+            {
+                SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True"); //connect to the database here
+                conn.Open();
+                //SqlCommand cmd = new SqlCommand(sql2, conn);
+                //cmd.Parameters.AddWithValue("@ID", ID);
+                String ID = Session["CustomerID"].ToString();
+                SqlDataAdapter sda = new SqlDataAdapter(string.Format("Select SUM(subtotal) from Cart where CustomerID = '{0}'", ID), conn);
+                conn.Close();
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                lblTotal.Text = String.Format("$ {0:0.00}", (dt.Rows[0][0].ToString()));
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You must log in as a customer to access this feature.');window.location ='Homepage.aspx';", true);
+            }
         }
 
         protected void Payment_Click(object sender, EventArgs e)

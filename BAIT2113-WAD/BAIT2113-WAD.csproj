@@ -74,8 +74,10 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="BuyNow.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="Checkout.aspx" />
+    <Content Include="CheckoutBuyNow.aspx" />
     <Content Include="errors\400.html" />
     <Content Include="errors\403.html" />
     <Content Include="errors\404.html" />
@@ -126,6 +128,13 @@
     <Content Include="Wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuyNow.aspx.cs">
+      <DependentUpon>BuyNow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuyNow.aspx.designer.cs">
+      <DependentUpon>BuyNow.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -139,6 +148,13 @@
     </Compile>
     <Compile Include="Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckoutBuyNow.aspx.cs">
+      <DependentUpon>CheckoutBuyNow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckoutBuyNow.aspx.designer.cs">
+      <DependentUpon>CheckoutBuyNow.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

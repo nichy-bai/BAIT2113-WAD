@@ -303,7 +303,7 @@ namespace BAIT2113_WAD
             if (Session["CustomerID"] != null)
             {
                 Session["QuantityBuy"] = txtQuantity.Text;
-                //Response.Redirect("Checkout.aspx");
+                Response.Redirect("BuyNow.aspx");
                 //here put ur add to cart code
             }
             else
