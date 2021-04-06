@@ -9,8 +9,8 @@
         <div class="profile-artworkrow">
             <div class="profile-addquestion">Credit Card Type</div>
             <asp:RadioButtonList ID="RadioButtonList1" runat="server">
-			<asp:ListItem>&nbsp;&nbsp;Visa</asp:ListItem>
-			<asp:ListItem>&nbsp;&nbsp;MasterCard</asp:ListItem>
+			<asp:ListItem>Visa</asp:ListItem>
+			<asp:ListItem>MasterCard</asp:ListItem>
 	        </asp:RadioButtonList>
 	        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="RadioButtonList1" Display="Dynamic" ErrorMessage="Please choose either 1 type of credit card" ForeColor="Red">*</asp:RequiredFieldValidator>
         </div>
@@ -47,8 +47,8 @@
         <div class="profile-artworkrow">
             <div class="profile-addquestion">Logistics</div>
             <asp:RadioButtonList ID="RadioButtonList2" runat="server">
-				<asp:ListItem>&nbsp;&nbsp;DHL</asp:ListItem>
-				<asp:ListItem>&nbsp;&nbsp;PosLaju</asp:ListItem>
+				<asp:ListItem>DHL</asp:ListItem>
+				<asp:ListItem>PosLaju</asp:ListItem>
 			</asp:RadioButtonList>
 
             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="RadioButtonList2" ErrorMessage="Logistics is required" Display="Dynamic" ForeColor="Red">*</asp:RequiredFieldValidator> <p>
