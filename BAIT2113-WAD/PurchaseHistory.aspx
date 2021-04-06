@@ -28,7 +28,9 @@
     }
         </script>
 	<link href="StyleSheet3.css" rel="stylesheet" />
-
+    <div>
+        <asp:PlaceHolder ID="HeaderPlaceHolder" runat ="server" />
+    </div>
     <div class="profile-box">
         <div class="profile-detail">
 

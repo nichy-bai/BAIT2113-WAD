@@ -12,6 +12,9 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var ctl = Page.LoadControl("~/User Control/CHeader.ascx");
+            HeaderPlaceHolder.Controls.Add(ctl);
+
             string ID = Session["CustomerID"].ToString();
 
             string sql2 = "Select * from Customer where customerID = @ID ";
