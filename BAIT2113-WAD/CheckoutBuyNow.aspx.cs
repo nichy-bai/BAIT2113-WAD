@@ -42,19 +42,26 @@ namespace BAIT2113_WAD
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (PreviousPage != null)
+			if (Session["CustomerID"] != null)
 			{
-				/*
-				LinkButton senderbtn = (LinkButton)PreviousPage.FindControl("Payment");
-				RepeaterItem clickedItem = (RepeaterItem)senderbtn.NamingContainer;
+				if (PreviousPage != null)
+				{
+					/*
+					LinkButton senderbtn = (LinkButton)PreviousPage.FindControl("Payment");
+					RepeaterItem clickedItem = (RepeaterItem)senderbtn.NamingContainer;
 
-				HiddenField artworkIdHidden = (HiddenField)clickedItem.FindControl("artworkID");
-				artworkID = artworkIdHidden.Value;
+					HiddenField artworkIdHidden = (HiddenField)clickedItem.FindControl("artworkID");
+					artworkID = artworkIdHidden.Value;
 
-				Label artworkName = (Label)clickedItem.FindControl("artworkName");
-				ArtworkName = artworkName.Text;
-				*/
+					Label artworkName = (Label)clickedItem.FindControl("artworkName");
+					ArtworkName = artworkName.Text;
+					*/
 
+				}
+			}
+			else
+			{
+				ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You must log in as a customer to access this feature.');window.location ='Homepage.aspx';", true);
 			}
 		}
 

@@ -14,54 +14,61 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            var ctl = Page.LoadControl("~/User Control/Header.ascx");
-            HeaderPlaceHolder.Controls.Add(ctl);
-
-            string ID = Session["ArtistID"].ToString();
-            string sql = "Select COUNT(*) from [Order] WHERE status = 'Pending' ";
-            string sql3 = "Select COUNT(*) from [Order] WHERE status = 'Shipped Out' ";
-            string sql2 = "Select * from Artist where artistID = @ID ";
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand(sql2, con);
-            SqlCommand cmd1 = new SqlCommand(sql, con);
-            SqlCommand cmd2 = new SqlCommand(sql3, con);
-            SqlDataReader rdr;
-            cmd.Parameters.AddWithValue("@ID", ID);
-            con.Open();
-            rdr = cmd.ExecuteReader();
-
-            while (rdr.Read())
+            if(Session["ArtistID"] != null)
             {
-                lblArtistID.Text = rdr["artistID"].ToString();
-                lblArtistName.Text = rdr["name"].ToString();
-                lbldob.Text = rdr["dob"].ToString();
-                lblphone.Text = rdr["phoneNum"].ToString();
-                lblemail.Text = rdr["email"].ToString();
-                profilepic.ImageUrl = rdr["profilePic"].ToString();
+                var ctl = Page.LoadControl("~/User Control/Header.ascx");
+                HeaderPlaceHolder.Controls.Add(ctl);
 
+                string ID = Session["ArtistID"].ToString();
+                string sql = "Select COUNT(*) from [Order] WHERE status = 'Pending' ";
+                string sql3 = "Select COUNT(*) from [Order] WHERE status = 'Shipped Out' ";
+                string sql2 = "Select * from Artist where artistID = @ID ";
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+                SqlCommand cmd = new SqlCommand(sql2, con);
+                SqlCommand cmd1 = new SqlCommand(sql, con);
+                SqlCommand cmd2 = new SqlCommand(sql3, con);
+                SqlDataReader rdr;
+                cmd.Parameters.AddWithValue("@ID", ID);
+                con.Open();
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    lblArtistID.Text = rdr["artistID"].ToString();
+                    lblArtistName.Text = rdr["name"].ToString();
+                    lbldob.Text = rdr["dob"].ToString();
+                    lblphone.Text = rdr["phoneNum"].ToString();
+                    lblemail.Text = rdr["email"].ToString();
+                    profilepic.ImageUrl = rdr["profilePic"].ToString();
+
+                }
+                con.Close();
+                con.Open();
+
+                int c = Convert.ToInt32(cmd1.ExecuteScalar());
+                Button1.Text = "Pending Shipment (" + c.ToString() + ")";
+
+                con.Close();
+                con.Open();
+
+                int d = Convert.ToInt32(cmd2.ExecuteScalar());
+                Button2.Text = "Shipped Out (" + d.ToString() + ")";
+
+                con.Close();
+
+                if (!IsPostBack)
+                {
+                    this.SqlDataSource1.SelectCommand = null;
+                    this.DataList1.Visible = false;
+                    this.SqlDataSource2.SelectCommand = null;
+                    this.DataList2.Visible = false;
+                }
             }
-            con.Close();
-            con.Open();
-
-            int c = Convert.ToInt32(cmd1.ExecuteScalar());
-            Button1.Text = "Pending Shipment (" + c.ToString() + ")";
-
-            con.Close();
-            con.Open();
-
-            int d = Convert.ToInt32(cmd2.ExecuteScalar());
-            Button2.Text = "Shipped Out (" + d.ToString() + ")";
-
-            con.Close();
-
-            if (!IsPostBack)
+            else
             {
-                this.SqlDataSource1.SelectCommand = null;
-                this.DataList1.Visible = false;
-                this.SqlDataSource2.SelectCommand = null;
-                this.DataList2.Visible = false;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You must log in as an artist to access this feature.');window.location ='Homepage.aspx';", true);
             }
+
 
         }
 

@@ -14,31 +14,38 @@ namespace BAIT2113_WAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            var ctl = Page.LoadControl("~/User Control/Header.ascx");
-            HeaderPlaceHolder.Controls.Add(ctl);
-
-            string ID = Session["ArtistID"].ToString();
-
-
-            string sql2 = "Select * from Artist where artistID = @ID ";
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand(sql2, con);
-            SqlDataReader rdr3;
-            cmd.Parameters.AddWithValue("@ID", ID);
-            con.Open();
-            rdr3 = cmd.ExecuteReader();
-
-            while (rdr3.Read())
+            if(Session["ArtistID"] != null)
             {
-                lblArtistID.Text = rdr3["artistID"].ToString();
-                lblArtistName.Text = rdr3["name"].ToString();
-                lbldob.Text = rdr3["dob"].ToString();
-                lblphone.Text = rdr3["phoneNum"].ToString();
-                lblemail.Text = rdr3["email"].ToString();
-                profilepic.ImageUrl = rdr3["profilePic"].ToString();
+                var ctl = Page.LoadControl("~/User Control/Header.ascx");
+                HeaderPlaceHolder.Controls.Add(ctl);
 
+                string ID = Session["ArtistID"].ToString();
+
+
+                string sql2 = "Select * from Artist where artistID = @ID ";
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+                SqlCommand cmd = new SqlCommand(sql2, con);
+                SqlDataReader rdr3;
+                cmd.Parameters.AddWithValue("@ID", ID);
+                con.Open();
+                rdr3 = cmd.ExecuteReader();
+
+                while (rdr3.Read())
+                {
+                    lblArtistID.Text = rdr3["artistID"].ToString();
+                    lblArtistName.Text = rdr3["name"].ToString();
+                    lbldob.Text = rdr3["dob"].ToString();
+                    lblphone.Text = rdr3["phoneNum"].ToString();
+                    lblemail.Text = rdr3["email"].ToString();
+                    profilepic.ImageUrl = rdr3["profilePic"].ToString();
+
+                }
             }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You must log in as an artist to access this feature.');window.location ='Homepage.aspx';", true);
+            }
+
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
