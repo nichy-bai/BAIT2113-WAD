@@ -114,6 +114,7 @@
             <br />
             <asp:Button ID="Delete" runat="server" Text="Clear All" OnClick="Delete_Click" CssClass="delete-btn" Width="150px" Height="26px" BackColor="White" Font-Size="Medium"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="addMoreItems" runat="server" Text="Add More Items" OnClick="addMoreItems_Click" CssClass="delete-btn" Width="150px" Height="30px" BackColor="Black" ForeColor="White" BorderStyle="None" Font-Size="Medium"/>
+            <asp:Button ID="ProceedToCheckout" runat="server" Text="Proceed to Checkout" OnClick="Payment_Click" CssClass="delete-btn" Width="150px" Height="30px" BackColor="Black" ForeColor="White" BorderStyle="None" Font-Size="Medium" CommandArgument='<%# Eval("customerID") %>'></asp:Button>
 
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT artworkID, image, artworkName, price, quantity, quantity * price AS subtotal FROM Cart WHERE (customerID = @customerID)" DeleteCommand="DELETE FROM [Cart] WHERE [No] = @No" InsertCommand="INSERT INTO [Cart] ([No], [artworkID], [image], [artworkName], [price], [quantity], [subtotal]) VALUES (@No, @artworkID, @image, @artworkName, @price, @quantity, @subtotal)" UpdateCommand="UPDATE [Cart] SET [artworkID] = @artworkID, [image] = @image, [artworkName] = @artworkName, [price] = @price, [quantity] = @quantity, [subtotal] = @subtotal WHERE [No] = @No">
                 <DeleteParameters>

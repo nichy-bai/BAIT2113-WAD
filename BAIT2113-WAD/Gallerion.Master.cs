@@ -70,8 +70,7 @@ namespace BAIT2113_WAD
             Server.ClearError();
             Response.Redirect("/errors/Error.html");
         }
-    }
-}
+
         protected void dropbtn1_Click(object sender, EventArgs e)
         {
             if (Session["ArtistID"] != null)

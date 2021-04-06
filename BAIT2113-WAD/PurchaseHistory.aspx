@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Gallerion.Master" AutoEventWireup="true" CodeBehind="PurchaseHistory.aspx.cs" Inherits="BAIT2113_WAD.PurchaseHistory" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
+		 <style>
         .image {
             text-align: center;
         }
@@ -15,7 +15,19 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link href="StyleSheet3.css" rel="stylesheet" />
+    <script runat="server">
+
+    protected void viewMore_Click(object sender, EventArgs e)
+    {
+        LinkButton InkRowSelection = (LinkButton)sender;
+        //get the recipe id from command argument to link button
+        string orderID = InkRowSelection.CommandArgument.ToString();
+        Session.Add("@OrderID", orderID);
+        //Session("artworkID") = ArtworkID;
+        Response.Redirect("~/OrderDetails.aspx");
+    }
+        </script>
+	<link href="StyleSheet3.css" rel="stylesheet" />
 
     <div class="profile-box">
         <div class="profile-detail">
@@ -49,29 +61,31 @@
         <div>
             <div class="profile-addtitle">Purchase History</div>
 
-            <table id="purchaseHistory" style="width: 70%; margin-left: auto; margin-right: auto; margin-top: 3%">
+            <table id="purchaseHistory" style="width: 1000px; margin-left: auto; margin-right: auto; margin-top: 3%">
                 <tr style="font-weight: bold;text-align: center">
                     <th>Order Number</th>
-                    <th></th>
-                    <th></th>
-                    <th>Subtotal</th>
+                    <th>Total Amount</th>
+                    <th>Date Order</th>
+                    <th>Date Delivered</th>
                 </tr>
 
                 <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                     <ItemTemplate>
                         <tr style="border-style: solid none solid none; border-width: thin; font-weight: bold; ">
 
-                               <td style="text-align: center; height: 200px;"><%# Eval("orderID")%></td>
+                               <td style="text-align: center; height: 200px;">
+								   <asp:LinkButton ID="LinkButton1" runat="server" OnClick ="viewMore_Click" CommandArgument='<%# Eval("orderID") %>'><%# Eval("orderID")%></asp:LinkButton></td>
 
-                            <td class="image">
-                                <asp:ImageButton ID="Image1" runat="server" ImageUrl='<%# Eval("image")%>' ImageAlign="Baseline" Width="100px" Height="100px" /></td>
-                            <td style="text-align: center; height: 200px;"><%# Eval("artworkName")%></td>
-                            <td style ="text-align: center; height: 200px;"><%# Eval("subtotal")%></td>
+                           <td style="text-align: center; height: 200px;"><%# Eval("totalAmount","${0:0.00}")%></td>
+                           <td style="text-align: center; height: 200px;"><%# (String.IsNullOrEmpty(Eval("dateOrder").ToString()))
+    ? "No Date Available" : Eval("dateOrder", "{0:d}") %></td>
+                           <td style ="text-align: center; height: 200px;"><%# (String.IsNullOrEmpty(Eval("dateDelivered").ToString()))
+    ? "No Date Available" : Eval("dateDelivered", "{0:d}") %></td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
 
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Order].orderID, Artwork.image, Artwork.artworkName, [Order].subtotal FROM Artwork INNER JOIN [Order] ON Artwork.artworkID = [Order].artworkID WHERE ([Order].customerID = @customerID)">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT orderID, totalAmount, dateOrder, dateDelivered FROM [Order] WHERE customerId = @customerID">
                     <SelectParameters>
                         <asp:SessionParameter Name="customerID" SessionField="CustomerID" />
                     </SelectParameters>
@@ -80,4 +94,5 @@
             </table>
         </div>
     </div>
+
 </asp:Content>
