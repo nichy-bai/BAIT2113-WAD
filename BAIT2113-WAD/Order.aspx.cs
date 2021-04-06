@@ -302,9 +302,63 @@ namespace BAIT2113_WAD
         {
             if (Session["CustomerID"] != null)
             {
-                Session["QuantityBuy"] = txtQuantity.Text;
-                Response.Redirect("BuyNow.aspx");
-                //here put ur add to cart code
+                int a = Convert.ToInt32(txtQuantity.Text);
+
+                string artworkID = Session["ArtworkID"].ToString();
+
+                string sql = "Select * from Cart where artworkID = @AartworkID";
+                string sql1 = "Select * from Artwork where artworkID = @ID ";
+
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlCommand cmd1 = new SqlCommand(sql1, con);
+                SqlDataReader rdr0, rdr;
+
+                cmd.Parameters.AddWithValue("@AartworkID", artworkID);
+                cmd1.Parameters.AddWithValue("@ID", artworkID);
+
+                con.Open();
+                rdr0 = cmd.ExecuteReader();
+
+                while (rdr0.Read())
+                {
+                    Session["CartQty"] = rdr0["quantity"].ToString();
+                }
+                con.Close();
+
+                int cartqty = Convert.ToInt32(Session["CartQty"]);
+                int totalQty = a + cartqty;
+                con.Open();
+                rdr = cmd1.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Session["quantity"] = rdr["quantity"].ToString();
+                    Session["Image"] = rdr["image"].ToString();
+                    Session["ArtworkName"] = rdr["artworkName"].ToString();
+                    Session["Price"] = rdr["price"].ToString();
+
+                }
+                con.Close();
+
+                int StoreQty = Convert.ToInt32(Session["quantity"]);
+
+                if (a > 0 && totalQty <= StoreQty)
+                {
+                    Session["QuantityBuy"] = txtQuantity.Text;
+                    Response.Redirect("BuyNow.aspx");
+                }
+                else if (a == 0)
+                {
+                    errLabel.Text = "Cannot add 0 item(s) to cart!";
+                    errLabel.Visible = true;
+                }
+                else if (totalQty > StoreQty)
+                {
+                    errLabel.Text = "Cannot add items more than available item stock in store!";
+                    errLabel.Visible = true;
+                }
             }
             else
             {

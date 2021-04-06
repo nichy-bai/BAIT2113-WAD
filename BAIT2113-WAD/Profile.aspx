@@ -73,6 +73,7 @@
 					<div class="profile-addquestion">Phone Number</div>
 					<asp:TextBox ID="Phone" runat="server" Width="250px"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Phone" ErrorMessage="Phone Number is required." Display="Dynamic" ForeColor="Red" ValidationGroup="editprofile">*</asp:RequiredFieldValidator>
+					<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="Phone" ErrorMessage="Phone Number Invalid (Numbers Only)" Display="Dynamic" ForeColor="Red" ValidationExpression="\d{3}\d{7}" ValidationGroup="editprofile">*</asp:RegularExpressionValidator>
 				</div>
 				<div class="profile-artworkrow">
 					<div class="profile-addquestion">Email</div>

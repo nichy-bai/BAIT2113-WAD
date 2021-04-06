@@ -197,7 +197,7 @@ namespace BAIT2113_WAD
 				//	//lblMsg.ForeColor = System.Drawing.Color.Red;
 				//}
 
-				ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('The receipt has been sent to your email.');window.location ='Homepage.aspx';", true);
+				ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Thank you for your purchase. The receipt has been sent to your email.');window.location ='Homepage.aspx';", true);
 			}
 		}
 		private string GetWebPageContent(string recipient, string customMsg)
@@ -226,9 +226,10 @@ namespace BAIT2113_WAD
 			}
 			Con.Close();
 
-			bodyMsg += System.Environment.NewLine + "**************************End******************************";
+			bodyMsg += System.Environment.NewLine + "*****************************************************************************End*******************************************************************************************";
 			//return bodyMsg;
 			return bodyMsg;
+
 		}
 	}
 }

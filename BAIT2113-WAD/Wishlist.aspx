@@ -40,7 +40,7 @@
         <div>
             <div class="profile-addtitle">Wishlist</div>
 
-            <table id="wishlist" style="width:100%; border:hidden; border-collapse: collapse">
+            <table id="wishlist" style="width:800px; border:hidden; border-collapse: collapse">
                 <tr style="width:100%; background-color:lightgrey;">
                     <th>Artwork</th>
                     <th>Artwork ID</th>

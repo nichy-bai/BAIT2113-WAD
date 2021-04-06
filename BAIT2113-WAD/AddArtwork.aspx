@@ -82,7 +82,7 @@
                 <div class="profile-addquestion">Price($)</div>
                 <asp:TextBox ID="txtPrice" runat="server" Width="250px" ValidationGroup="addartwork"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ValidationGroup="addartwork" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="The price must insert" ForeColor="Red">*</asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="Must be a decimal number (eg. 420.69)" ForeColor="Red" ValidationGroup="addartwork" ValidationExpression="^\d+.\d{0,2}$">*</asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="Must be a number" ForeColor="Red" ValidationGroup="addartwork" ValidationExpression="^(?!0*\.0+$)\d*(?:\.\d+)?$">*</asp:RegularExpressionValidator>
             </div>
 
             <div class="profile-artworkrow">

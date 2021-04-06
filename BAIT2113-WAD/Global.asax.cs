@@ -17,7 +17,7 @@ namespace BAIT2113_WAD
 
         protected void Session_Start(object sender, EventArgs e)
         {
-
+            Session.Timeout = 60;
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

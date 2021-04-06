@@ -94,7 +94,7 @@
                                     <asp:TextBox ID="txtref" runat="server" placeholder="Reference Number"></asp:TextBox><p>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtref" ValidationGroup="ref" ErrorMessage="Reference Number is required" ForeColor="Red"></asp:RequiredFieldValidator>
                                     <asp:Label ID="errref" runat="server" Text="" ForeColor="Red"></asp:Label>
-                                    <asp:Button ID="btnsubmit" runat="server" Text="Update" CommandName="reference" ValidationGroup="ref" />
+                                    <asp:Button ID="btnsubmit" runat="server" Text="Update" CommandName="reference" ValidationGroup="ref" Width="100px" Height="30px" BackColor="Black" ForeColor="White" BorderStyle="None" />
                                 </td>
                             </tr>
                         </table>
@@ -113,7 +113,7 @@
                                 <td style="width:100px; height:100px">
                                     <asp:Image ID="product" runat="server" ImageUrl='<%# Eval("image") %>' Height="200px" Width="200px"/>
                                 </td>
-                                <td style="text-align:left; width:200px">
+                                <td style="text-align:left; width:180px">
                                     <asp:Label ID="lblartid" runat="server" Text='<%# Eval("artworkID") %>'></asp:Label><p></p>
                                     <asp:Label ID="lblart" runat="server" Text='<%# Eval("artworkName") %>'></asp:Label>
                                 </td>
@@ -121,7 +121,7 @@
                                     <asp:Label ID="lblqty" runat="server" Text='<%# Eval("quantity") %>'></asp:Label>
                                     <asp:Label ID="Label2" runat="server" Text="x"></asp:Label>
                                 </td>
-                                <td style="width:50px">
+                                <td style="width:70px">
                                     <asp:Label ID="Label3" runat="server" Text="$"></asp:Label>
                                     <asp:Label ID="lblamt" runat="server" Text='<%# Eval("subtotal") %>'></asp:Label>
                                 </td>
@@ -133,7 +133,8 @@
                                     <asp:Label ID="lbllgt" runat="server" Text='<%# Eval("Logistics") %>'></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:Label ID="Labeldel" runat="server" Text='<%# Eval("dateDelivered") %>'></asp:Label>
+                                    <asp:Label ID="Labeldel" runat="server" Text='<%# (String.IsNullOrEmpty(Eval("dateDelivered").ToString()))
+    ? "No Date Available" : Eval("dateDelivered", "{0:d}") %>'></asp:Label>
 
                                     </td>
                                 <td>

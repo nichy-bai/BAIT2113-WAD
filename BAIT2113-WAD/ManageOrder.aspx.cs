@@ -20,8 +20,8 @@ namespace BAIT2113_WAD
                 HeaderPlaceHolder.Controls.Add(ctl);
 
                 string ID = Session["ArtistID"].ToString();
-                string sql = "Select COUNT(*) from [Order] WHERE status = 'Pending' ";
-                string sql3 = "Select COUNT(*) from [Order] WHERE status = 'Shipped Out' ";
+                string sql = "Select COUNT(*) from [Order] INNER JOIN [OrderDetails] ON [Order].orderID = [OrderDetails].OrderID INNER JOIN [Artwork] ON [OrderDetails].artworkID = [Artwork].artworkID WHERE [Order].status = 'Pending' AND Artwork.artistID = @ID ";
+                string sql3 = "Select COUNT(*) from [Order] INNER JOIN [OrderDetails] ON [Order].orderID = [OrderDetails].OrderID INNER JOIN [Artwork] ON [OrderDetails].artworkID = [Artwork].artworkID WHERE [Order].status = 'Shipped Out' AND Artwork.artistID = @ID ";
                 string sql2 = "Select * from Artist where artistID = @ID ";
                 SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
                 SqlCommand cmd = new SqlCommand(sql2, con);
@@ -29,6 +29,9 @@ namespace BAIT2113_WAD
                 SqlCommand cmd2 = new SqlCommand(sql3, con);
                 SqlDataReader rdr;
                 cmd.Parameters.AddWithValue("@ID", ID);
+                cmd1.Parameters.AddWithValue("@ID", ID);
+                cmd2.Parameters.AddWithValue("@ID", ID);
+
                 con.Open();
                 rdr = cmd.ExecuteReader();
 

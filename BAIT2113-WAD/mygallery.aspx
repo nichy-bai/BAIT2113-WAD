@@ -50,7 +50,7 @@
                         <asp:SessionParameter Name="artistID" SessionField="ArtistID" Type="String" />
                     </SelectParameters>
                 </asp:SqlDataSource>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [Artwork] WHERE [artworkID] = @artworkID" InsertCommand="INSERT INTO [Artwork] ([artworkID], [artworkName], [artworkDesc], [quantity], [price], [category], [image]) VALUES (@artworkID, @artworkName, @artworkDesc, @quantity, @price, @category, @image)" SelectCommand="SELECT [artworkID], [artworkName], [artworkDesc], [quantity], [price], [category], [image] FROM [Artwork] WHERE (([category] = @category) AND ([artistID] = @artistID))" UpdateCommand="UPDATE [Artwork] SET [artworkName] = @artworkName, [artworkDesc] = @artworkDesc, [quantity] = @quantity, [price] = @price, [category] = @category, [image] = @image WHERE [artworkID] = @artworkID">
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [Artwork] WHERE [artworkID] = @artworkID" InsertCommand="INSERT INTO [Artwork] ([artworkID], [artworkName], [artworkDesc], [quantity], [price], [category], [image]) VALUES (@artworkID, @artworkName, @artworkDesc, @quantity, @price, @category, @image)" SelectCommand="SELECT [artworkID], [artworkName], [artworkDesc], [quantity], [price], [category], [image] FROM [Artwork] WHERE (([category] = @category) AND ([artistID] = @artistID))" UpdateCommand="UPDATE [Artwork] SET [artworkName] = @artworkName, [artworkDesc] = @artworkDesc, [quantity] = @quantity, [price] = @price WHERE [artworkID] = @artworkID">
                     <DeleteParameters>
                         <asp:Parameter Name="artworkID" Type="String" />
                     </DeleteParameters>
@@ -81,25 +81,55 @@
                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="artworkID" DataSourceID="SqlDataSource2" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" CssClass="profile-gridview">
                     <Columns>
                         <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                        <asp:BoundField DataField="artworkID" HeaderText="artworkID" ReadOnly="True" SortExpression="artworkID" ItemStyle-Width="200px">
+                        <asp:BoundField DataField="artworkID" HeaderText="artwork ID" ReadOnly="True" SortExpression="artworkID" ItemStyle-Width="200px">
 <ItemStyle Width="200px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField DataField="artworkName" HeaderText="artworkName" SortExpression="artworkName" ItemStyle-Width="200px" >
+                        <asp:TemplateField HeaderText="artwork Name" SortExpression="artworkName">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("artworkName") %>'></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Artwork name is required" ForeColor="Red"></asp:RequiredFieldValidator>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label1" runat="server" Text='<%# Bind("artworkName") %>'></asp:Label>
+                            </ItemTemplate>
+                            <ItemStyle Width="200px" />
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="artwork Desc" SortExpression="artworkDesc">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("artworkDesc") %>'></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ErrorMessage="Artwork description is required" ForeColor="Red"></asp:RequiredFieldValidator>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("artworkDesc") %>'></asp:Label>
+                            </ItemTemplate>
+                            <ItemStyle Width="200px" />
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="quantity" SortExpression="quantity">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("quantity") %>'></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" ErrorMessage="Quantity is required" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBox3" ValidationExpression="\d{1,5}" ErrorMessage="Invalid quantity" ForeColor="Red"></asp:RegularExpressionValidator>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label3" runat="server" Text='<%# Bind("quantity") %>'></asp:Label>
+                            </ItemTemplate>
+                            <ItemStyle Width="200px" />
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="price" SortExpression="price">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("price") %>'></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox4" ErrorMessage="Price is required" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextBox4" ValidationExpression="^(?!0*\.0+$)\d*(?:\.\d+)?$" ErrorMessage="Invalid price" ForeColor="Red"></asp:RegularExpressionValidator>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label4" runat="server" Text='<%# Bind("price") %>'></asp:Label>
+                            </ItemTemplate>
+                            <ItemStyle Width="200px" />
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="category" HeaderText="category" SortExpression="category" ItemStyle-Width="200px" ReadOnly="True" >
 <ItemStyle Width="200px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField DataField="artworkDesc" HeaderText="artworkDesc" SortExpression="artworkDesc" ItemStyle-Width="200px" >
-<ItemStyle Width="200px"></ItemStyle>
-                        </asp:BoundField>
-                        <asp:BoundField DataField="quantity" HeaderText="quantity" SortExpression="quantity" ItemStyle-Width="200px" >
-<ItemStyle Width="200px"></ItemStyle>
-                        </asp:BoundField>
-                        <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" ItemStyle-Width="200px" >
-<ItemStyle Width="200px"></ItemStyle>
-                        </asp:BoundField>
-                        <asp:BoundField DataField="category" HeaderText="category" SortExpression="category" ItemStyle-Width="200px">
-<ItemStyle Width="200px"></ItemStyle>
-                        </asp:BoundField>
-                        <asp:ImageField HeaderText="image" SortExpression="image" DataImageURLField="image" ItemStyle-Width="200px" ItemStyle-Height="200px" ControlStyle-Height="200" ControlStyle-Width="200" >
+                        <asp:ImageField HeaderText="artwork" SortExpression="image" DataImageURLField="image" ItemStyle-Width="200px" ItemStyle-Height="200px" ControlStyle-Height="200" ControlStyle-Width="200" ReadOnly="True" >
 <ControlStyle Height="200px" Width="200px"></ControlStyle>
 
 <ItemStyle Height="200px" Width="200px"></ItemStyle>

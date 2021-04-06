@@ -36,7 +36,7 @@
         <div>
             <div class="profile-addtitle">Order Details</div>
 
-            <table id="purchaseHistory" style="width:100%; border:hidden; border-collapse: collapse">
+            <table id="purchaseHistory" style="width:800px; border:hidden; border-collapse: collapse">
                 <tr style="width:100%; background-color:lightgrey;">
                     <th>Artwork</th>
                     <th>Artwork ID</th>

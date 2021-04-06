@@ -19,8 +19,29 @@
         }
     }
 
+    protected void Button0_Click(object sender, EventArgs e)
+    {
+        Button0.ForeColor = System.Drawing.Color.White;
+        Button0.BackColor = System.Drawing.Color.Black;
+        Button1.ForeColor = System.Drawing.Color.Black;
+        Button1.BackColor = System.Drawing.Color.White;
+        Button2.ForeColor = System.Drawing.Color.Black;
+        Button2.BackColor = System.Drawing.Color.White;
+        Button3.ForeColor = System.Drawing.Color.Black;
+        Button3.BackColor = System.Drawing.Color.White;
+        Button4.ForeColor = System.Drawing.Color.Black;
+        Button4.BackColor = System.Drawing.Color.White;
+        Button5.ForeColor = System.Drawing.Color.Black;
+        Button5.BackColor = System.Drawing.Color.White;
+        Button6.ForeColor = System.Drawing.Color.Black;
+        Button6.BackColor = System.Drawing.Color.White;
+        Response.Redirect("~/Artwork.aspx");
+    }
+
     protected void Button1_Click(object sender, EventArgs e)
     {
+        Button0.ForeColor = System.Drawing.Color.Black;
+        Button0.BackColor = System.Drawing.Color.White;
         Button1.ForeColor = System.Drawing.Color.White;
         Button1.BackColor = System.Drawing.Color.Black;
         Button2.ForeColor = System.Drawing.Color.Black;
@@ -44,6 +65,8 @@
 
     protected void Button2_Click(object sender, EventArgs e)
     {
+        Button0.ForeColor = System.Drawing.Color.Black;
+        Button0.BackColor = System.Drawing.Color.White;
         Button1.ForeColor = System.Drawing.Color.Black;
         Button1.BackColor = System.Drawing.Color.White;
         Button2.ForeColor = System.Drawing.Color.White;
@@ -67,6 +90,8 @@
 
     protected void Button3_Click(object sender, EventArgs e)
     {
+        Button0.ForeColor = System.Drawing.Color.Black;
+        Button0.BackColor = System.Drawing.Color.White;
         Button1.ForeColor = System.Drawing.Color.Black;
         Button1.BackColor = System.Drawing.Color.White;
         Button2.ForeColor = System.Drawing.Color.Black;
@@ -90,6 +115,8 @@
 
     protected void Button4_Click(object sender, EventArgs e)
     {
+        Button0.ForeColor = System.Drawing.Color.Black;
+        Button0.BackColor = System.Drawing.Color.White;
         Button1.ForeColor = System.Drawing.Color.Black;
         Button1.BackColor = System.Drawing.Color.White;
         Button2.ForeColor = System.Drawing.Color.Black;
@@ -113,6 +140,8 @@
 
     protected void Button5_Click(object sender, EventArgs e)
     {
+        Button0.ForeColor = System.Drawing.Color.Black;
+        Button0.BackColor = System.Drawing.Color.White;
         Button1.ForeColor = System.Drawing.Color.Black;
         Button1.BackColor = System.Drawing.Color.White;
         Button2.ForeColor = System.Drawing.Color.Black;
@@ -136,6 +165,8 @@
 
     protected void Button6_Click(object sender, EventArgs e)
     {
+        Button0.ForeColor = System.Drawing.Color.Black;
+        Button0.BackColor = System.Drawing.Color.White;
         Button1.ForeColor = System.Drawing.Color.Black;
         Button1.BackColor = System.Drawing.Color.White;
         Button2.ForeColor = System.Drawing.Color.Black;
@@ -180,6 +211,7 @@
                 <div class="side_menu_title">Category</div>
                 <div>
                     <ul class="category">
+                        <li class="category_item"><asp:Button ID="Button0" runat="server" Text="All Artwork" OnClick="Button0_Click" BackColor="Black" ForeColor="White" class="view_more" /></li>
                         <li class="category_item"><asp:Button ID="Button1" runat="server" Text="Painting" OnClick="Button1_Click" class="view_more" /></li>
                         <li class="category_item"><asp:Button ID="Button2" runat="server" Text="Photography" OnClick="Button2_Click" class="view_more" /></li>
                         <li class="category_item"><asp:Button ID="Button3" runat="server" Text="Design" OnClick="Button3_Click"  class="view_more"/></li>

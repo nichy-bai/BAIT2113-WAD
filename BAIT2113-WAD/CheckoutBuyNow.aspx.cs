@@ -126,14 +126,14 @@ namespace BAIT2113_WAD
 				SqlCommand cmdOrderDetails = new SqlCommand("Select * from Artwork where artworkID = @AaartworkID ", Con);
 				cmdOrderDetails.Parameters.AddWithValue("@AaartworkID", Session["ArtworkID"].ToString());
 				SqlDataReader cart = cmdOrderDetails.ExecuteReader();
-				
+
 				while (cart.Read())
 				{
-					
+
 					SqlCommand cmdAddOrderDetails = new SqlCommand("INSERT INTO [dbo].[OrderDetails] (OrderID,quantity,artworkID) values (@OrderID,@quantity,@AartworkID)", Con);
 					cmdAddOrderDetails.Parameters.AddWithValue("@OrderID", orderID.ToString());
 					cmdAddOrderDetails.Parameters.AddWithValue("@quantity", buyQty);
-					cmdAddOrderDetails.Parameters.AddWithValue("@AartworkID", artworkID); 
+					cmdAddOrderDetails.Parameters.AddWithValue("@AartworkID", artworkID);
 					cmdAddOrderDetails.ExecuteNonQuery();
 				}
 				Con.Close();
@@ -165,7 +165,7 @@ namespace BAIT2113_WAD
 				}
 				Con.Close();
 
-				
+
 				String ID = Session["CustomerID"].ToString();
 				Con.Open();
 				String name = "Select Name from Customer where customerID = @customerID";
@@ -181,7 +181,7 @@ namespace BAIT2113_WAD
 				getEmail.Parameters.AddWithValue("@customerID", Session["CustomerID"].ToString());
 				String emailstring = (string)getEmail.ExecuteScalar();
 				Con.Close();
-				try
+				//try
 				{
 					string Subject = "This is test mail with html web page",
 					Body = GetWebPageContent("adad", "adad"),
@@ -194,7 +194,7 @@ namespace BAIT2113_WAD
 					mail.To.Add(ToEmail);
 					mail.Subject = Subject;
 					mail.Body = Body;
-					mail.IsBodyHtml = true;
+					mail.IsBodyHtml = false;
 					mail.Priority = MailPriority.Normal;
 
 					SmtpClient smtp = new SmtpClient();
@@ -211,43 +211,51 @@ namespace BAIT2113_WAD
 					//lblMsg.Text = “Success: Mail sent successfully!”;
 					//lblMsg.ForeColor = System.Drawing.Color.Green;
 				}
-				catch (SmtpException ex)
-				{
-					//catched smtp exception
-					//lblMsg.Text = “SMTP Exception: “ +ex.Message.ToString();
-					//lblMsg.ForeColor = System.Drawing.Color.Red;
-				}
-				catch (Exception ex)
-				{
-					//lblMsg.Text = “Error: “ +ex.Message.ToString();
-					//lblMsg.ForeColor = System.Drawing.Color.Red;
-				}
+				//catch (SmtpException ex)
+				//{
+				//	//catched smtp exception
+				//	//lblMsg.Text = “SMTP Exception: “ +ex.Message.ToString();
+				//	//lblMsg.ForeColor = System.Drawing.Color.Red;
+				//}
+				//catch (Exception ex)
+				//{
+				//	//lblMsg.Text = “Error: “ +ex.Message.ToString();
+				//	//lblMsg.ForeColor = System.Drawing.Color.Red;
+				//}
 
-				ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('The receipt has been sent to your email.');window.location ='Homepage.aspx';", true);
+				ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Thank you for your purchase. The receipt has been sent to your email.');window.location ='Homepage.aspx';", true);
 			}
 		}
 		private string GetWebPageContent(string recipient, string customMsg)
 		{
-			string bodyMsg = string.Empty;
-			SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True;MultipleActiveResultSets=True;");
+			int count = 1;
+			string bodyMsg = "													Receipt														" + System.Environment.NewLine + "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + System.Environment.NewLine;
+			SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True;MultipleActiveResultSets=True;Integrated Security=True");
 			Con.Open();
 			SqlCommand cmdGetArtWorkCount = new SqlCommand("SELECT OrderDetails.quantity as Qty, OrderDetails.OrderID as OrderId, OrderDetails.subtotal as SubTotal, OrderDetails.artworkID as ArtworkID, Artwork.artworkName as ArtworkName FROM OrderDetails INNER JOIN Artwork ON OrderDetails.artworkID = Artwork.artworkID WHERE OrderDetails.OrderID = (SELECT TOP 1[dbo].[Order].orderID FROM[dbo].[Order] ORDER BY[dbo].[Order].orderID DESC)", Con);
 			SqlDataReader rows = cmdGetArtWorkCount.ExecuteReader();
 			while (rows.Read())
 			{
-				string newLine = "Artwork Name : " + rows["ArtworkName"] + System.Environment.NewLine + "Quantity: " + rows["Qty"] + System.Environment.NewLine + "Sub Total: " + rows["SubTotal"] + System.Environment.NewLine;
+				string newLine = System.Environment.NewLine + "Item " + count + System.Environment.NewLine + "Artwork Name : " + rows["ArtworkName"] + System.Environment.NewLine + "Quantity          : " + rows["Qty"] + System.Environment.NewLine + "Sub Total         : " + String.Format("${0:0.00}", rows["SubTotal"]) + System.Environment.NewLine;
 				bodyMsg += newLine;
+				count++;
 			}
+			Con.Close();
 
-			//StreamReader objStreamReader = new StreamReader(Server.MapPath("~/receipt.aspx"));
-			////read html template file
-			//string bodyMsg = objStreamReader.ReadToEnd();
-			////replace the dynamic string at run-time
-			//bodyMsg = bodyMsg.Replace("##recipient##", recipient);
-			//bodyMsg = bodyMsg.Replace("##somecustommessage##", customMsg);
+			Con.Open();
+			SqlCommand cmdGetTotal = new SqlCommand("SELECT totalAmount as total From [dbo].[Order] where [dbo].[Order].orderID = (SELECT TOP 1[dbo].[Order].orderID FROM[dbo].[Order] ORDER BY[dbo].[Order].orderID DESC)", Con);
+			SqlDataReader total = cmdGetTotal.ExecuteReader();
+			while (total.Read())
+			{
+				String total1 = System.Environment.NewLine + "Total               : " + String.Format("${0:0.00}", total["total"]);
+				bodyMsg += total1;
+			}
+			Con.Close();
+
+			bodyMsg += System.Environment.NewLine + "*****************************************************************************End*******************************************************************************************";
 			//return bodyMsg;
 			return bodyMsg;
-		}
 
+		}
 	}
 }

@@ -2,30 +2,33 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
-        <div class="profile-addtitle">Check Out</div>
+    <link href="StyleSheet3.css" rel="stylesheet" />
+    <div style="padding: 0 50px;">
+        <div class="profile-addtitle" style="margin-top: 50px;">Buy Now</div>
 
-        <table style="width: 100%; border: hidden; border-collapse: collapse">
-            <tr style="width: 100%; background-color: lightgrey">
+        <table style="border: hidden; border-collapse: collapse">
+            <tr style="background-color: lightgrey">
                 <td style="text-align: center; width: 200px;">Image</td>
-                <td style="text-align: center; width: 150px;">Artwork Name</td>
-                <td style="text-align: center; width: 150px;">Price</td>
-                <td style="text-align: center; width: 150px;">Quantity</td>
-                <td style="text-align: center; width: 150px;">Subtotal</td>
+                <td style="text-align: center; width: 200px;">Artwork Name</td>
+                <td style="text-align: center; width: 200px;">Price</td>
+                <td style="text-align: center; width: 200px;">Quantity</td>
+                <td style="text-align: center; width: 200px;">Subtotal</td>
             </tr>
             <tr>
-                <td>
-                    <asp:Image ID="Image1" runat="server" /></td>
-                <td>
-                    <asp:Label ID="Label2" runat="server" Text=""></asp:Label></td>
-                <td>
-                    <asp:Label ID="Label3" runat="server" Text=""></asp:Label></td>
-                <td>
-                    <asp:Label ID="Label4" runat="server" Text=""></asp:Label></td>
-                <td>
-                    <asp:Label ID="Label5" runat="server" Text=""></asp:Label></td>
+                <td style="text-align:center;width: 500px;">
+                    <asp:Image ID="Image1" runat="server" Width="200px" /></td>
+                <td style="text-align:center;">
+                    <asp:Label ID="Label2" runat="server" Text="" Width="200px"></asp:Label></td>
+                <td style="text-align:center;">
+                    <asp:Label ID="Label3" runat="server" Text="" Width="200px"></asp:Label></td>
+                <td style="text-align:center;">
+                    <asp:Label ID="Label4" runat="server" Text="" Width="200px"></asp:Label></td>
+                <td style="text-align:center;">
+                    <asp:Label ID="Label5" runat="server" Text="" Width="200px"></asp:Label></td>
             </tr>
         </table>
-        <asp:Button ID="checkout" runat="server" Text="Checkout" OnClick="checkout_Click" />
+        <div style="margin: 100px 25%;">
+            <asp:Button ID="checkout" runat="server" Text="Checkout" OnClick="checkout_Click"  CssClass="profile-uploadbtn"/>
+        </div>
     </div>
 </asp:Content>
