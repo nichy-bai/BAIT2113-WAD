@@ -147,53 +147,69 @@ namespace BAIT2113_WAD
 
                 if (logistic == "PosLaju")
                 {
-                    if (reference.Substring(0, 2) == "PL")
+                    if(reference !=  "")
                     {
-                        string sql1 = "Update o set o.referencesNo = @reference, o.status = 'Shipped out', o.dateDelivered = '" + DateTime.Today + "' FROM [Order] o INNER JOIN OrderDetails d ON o.orderID = d.orderID where o.orderID = @orderID AND d.artworkID = @artworkID";
-                        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-                        SqlCommand cmd = new SqlCommand(sql1, con);
-                        cmd.Parameters.AddWithValue("@reference", reference);
-                        cmd.Parameters.AddWithValue("@orderID", orderid);
-                        cmd.Parameters.AddWithValue("@artworkID", artid);
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        ((Label)e.Item.FindControl("errref")).Visible = false;
-                        this.DataList1.Visible = true;
-                        this.DataList2.Visible = false;
-                        this.DataList1.DataBind();
+                        if (reference.Substring(0, 2) == "PL")
+                        {
+                            string sql1 = "Update o set o.referencesNo = @reference, o.status = 'Shipped out', o.dateDelivered = '" + DateTime.Now.ToString("MM/dd/yyyy") + "' FROM [Order] o INNER JOIN OrderDetails d ON o.orderID = d.orderID where o.orderID = @orderID AND d.artworkID = @artworkID";
+                            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+                            SqlCommand cmd = new SqlCommand(sql1, con);
+                            cmd.Parameters.AddWithValue("@reference", reference);
+                            cmd.Parameters.AddWithValue("@orderID", orderid);
+                            cmd.Parameters.AddWithValue("@artworkID", artid);
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                            ((Label)e.Item.FindControl("errref")).Visible = false;
+                            this.DataList1.Visible = true;
+                            this.DataList2.Visible = false;
+                            this.DataList1.DataBind();
 
+                        }
+                        else
+                        {
+                            ((Label)e.Item.FindControl("errref")).Visible = true;
+                            ((Label)e.Item.FindControl("errref")).Text = "The reference number must match with the logistic";
+                        }
                     }
                     else
                     {
                         ((Label)e.Item.FindControl("errref")).Visible = true;
-                        ((Label)e.Item.FindControl("errref")).Text = "Please confirm the reference number is match with the logistic";
+                        ((Label)e.Item.FindControl("errref")).Text = "The reference number must match with the logistic";
                     }
 
                 }
-                if (logistic == "J&T Express")
+                if (logistic == "DHL")
                 {
-                    if (reference.Substring(0, 2) == "JT")
+                    if (reference != "")
                     {
-                        string sql1 = "Update o set o.referencesNo = @reference, o.status = 'Shipped out', o.dateDelivered = '" + DateTime.Today + "' FROM [Order] o INNER JOIN OrderDetails d ON o.orderID = d.orderID where o.orderID = @orderID AND d.artworkID = @artworkID";
-                        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-                        SqlCommand cmd = new SqlCommand(sql1, con);
-                        cmd.Parameters.AddWithValue("@reference", reference);
-                        cmd.Parameters.AddWithValue("@orderID", orderid);
-                        cmd.Parameters.AddWithValue("@artworkID", artid);
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        ((Label)e.Item.FindControl("errref")).Visible = false;
-                        this.DataList1.Visible = true;
-                        this.DataList2.Visible = false;
-                        this.DataList1.DataBind();
+                        if (reference.Substring(0, 2) == "DH")
+                        {
+                            string sql1 = "Update o set o.referencesNo = @reference, o.status = 'Shipped out', o.dateDelivered = '" + DateTime.Now.ToString("MM/dd/yyyy") + "' FROM [Order] o INNER JOIN OrderDetails d ON o.orderID = d.orderID where o.orderID = @orderID AND d.artworkID = @artworkID";
+                            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
+                            SqlCommand cmd = new SqlCommand(sql1, con);
+                            cmd.Parameters.AddWithValue("@reference", reference);
+                            cmd.Parameters.AddWithValue("@orderID", orderid);
+                            cmd.Parameters.AddWithValue("@artworkID", artid);
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                            ((Label)e.Item.FindControl("errref")).Visible = false;
+                            this.DataList1.Visible = true;
+                            this.DataList2.Visible = false;
+                            this.DataList1.DataBind();
 
+                        }
+                        else
+                        {
+                            ((Label)e.Item.FindControl("errref")).Visible = true;
+                            ((Label)e.Item.FindControl("errref")).Text = "The reference number must match with the logistic";
+                        }
                     }
                     else
                     {
                         ((Label)e.Item.FindControl("errref")).Visible = true;
-                        ((Label)e.Item.FindControl("errref")).Text = "Please confirm the reference number is match with the logistic";
+                        ((Label)e.Item.FindControl("errref")).Text = "The reference number must match with the logistic";
                     }
                 }
             }

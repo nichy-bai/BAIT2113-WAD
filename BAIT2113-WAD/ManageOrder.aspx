@@ -92,9 +92,8 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtref" runat="server" placeholder="Reference Number"></asp:TextBox><p>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtref" ValidationGroup="ref" ErrorMessage="Reference Number is required" ForeColor="Red"></asp:RequiredFieldValidator>
                                     <asp:Label ID="errref" runat="server" Text="" ForeColor="Red"></asp:Label>
-                                    <asp:Button ID="btnsubmit" runat="server" Text="Update" CommandName="reference" ValidationGroup="ref" Width="100px" Height="30px" BackColor="Black" ForeColor="White" BorderStyle="None" />
+                                    <div><asp:Button ID="btnsubmit" runat="server" Text="Update" CommandName="reference" ValidationGroup="ref" Width="100px" Height="30px" BackColor="Black" ForeColor="White" BorderStyle="None" /></div>
                                 </td>
                             </tr>
                         </table>

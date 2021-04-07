@@ -109,7 +109,7 @@ namespace BAIT2113_WAD
 				InsertOrder.Parameters.AddWithValue("@customerID", Session["CustomerID"].ToString());
 				InsertOrder.Parameters.AddWithValue("@logistics", RadioButtonList2.SelectedValue);
 				InsertOrder.Parameters.AddWithValue("@status", "Pending");
-				InsertOrder.Parameters.AddWithValue("@dateOrder", DateTime.Now.ToString("dd-MM-yyyy"));
+				InsertOrder.Parameters.AddWithValue("@dateOrder", DateTime.Today);
 				InsertOrder.ExecuteNonQuery();
 				Con.Close();
 
