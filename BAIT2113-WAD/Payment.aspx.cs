@@ -45,13 +45,14 @@ namespace BAIT2113_WAD
 
 		protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
 		{
+
 			String num = args.Value;
 			if (num.Length != 16)
 			{
 				CustomValidator1.ErrorMessage = "Invalid Credit card number!";
 				args.IsValid = false;
 			}
-			if (RadioButtonList1.Text == "Visa")
+			if (RadioButtonList1.SelectedValue == "Visa")
 			{
 				if (num.First() != '4')
 				{
@@ -59,7 +60,7 @@ namespace BAIT2113_WAD
 					args.IsValid = false;
 				}
 			}
-			if (RadioButtonList1.Text == "Master")
+			if (RadioButtonList1.SelectedValue == "MasterCard")
 			{
 				if (num.First() != '5')
 				{
