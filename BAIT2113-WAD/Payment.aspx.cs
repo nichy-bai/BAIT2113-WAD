@@ -49,14 +49,14 @@ namespace BAIT2113_WAD
 			String num = args.Value;
 			if (num.Length != 16)
 			{
-				CustomValidator1.ErrorMessage = "Invalid Credit card number!";
+				CustomValidator1.ErrorMessage = "Invalid Credit Card length!";
 				args.IsValid = false;
 			}
 			if (RadioButtonList1.SelectedValue == "Visa")
 			{
 				if (num.First() != '4')
 				{
-					CustomValidator1.ErrorMessage = "Invalid Credit card number!";
+					CustomValidator1.ErrorMessage = "Invalid Visa Card number!";
 					args.IsValid = false;
 				}
 			}
@@ -64,7 +64,7 @@ namespace BAIT2113_WAD
 			{
 				if (num.First() != '5')
 				{
-					CustomValidator1.ErrorMessage = "Invalid Credit card number!";
+					CustomValidator1.ErrorMessage = "Invalid Master Card number!";
 					args.IsValid = false;
 				}
 			}
@@ -155,7 +155,7 @@ namespace BAIT2113_WAD
 				Con.Close();
 				//try
 				{
-					string Subject = "This is test mail with html web page",
+					string Subject = "Receipt From Gallerion",
 					Body = GetWebPageContent("adad", "adad"),
 					ToEmail = emailstring;
 
