@@ -33,7 +33,7 @@
             <div class="profile-addquestion">Expiration Month</div>
             <asp:TextBox ID="TextBox4" runat="server" Width="50px"></asp:TextBox>
 			<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox4" ErrorMessage="Expiration month is required" Display="Dynamic" ForeColor="Red">*</asp:RequiredFieldValidator>
-            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox4" ErrorMessage="Invalid month" MaximumValue="12" MinimumValue="1" Display="Dynamic" ForeColor="Red">*</asp:RangeValidator>
+            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox4" ErrorMessage="Invalid month" MaximumValue="12" MinimumValue="01" Display="Dynamic" ForeColor="Red">*</asp:RangeValidator>
         </div>
 
 

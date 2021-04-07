@@ -351,12 +351,12 @@ namespace BAIT2113_WAD
                 }
                 else if (a == 0)
                 {
-                    errLabel.Text = "Cannot add 0 item(s) to cart!";
+                    errLabel.Text = "Cannot buy 0 item(s)!";
                     errLabel.Visible = true;
                 }
                 else if (totalQty > StoreQty)
                 {
-                    errLabel.Text = "Cannot add items more than available item stock in store!";
+                    errLabel.Text = "Cannot buy items more than available item stock in store!";
                     errLabel.Visible = true;
                 }
             }
