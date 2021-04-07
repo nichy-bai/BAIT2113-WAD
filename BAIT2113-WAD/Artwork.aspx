@@ -104,7 +104,7 @@
         Button5.BackColor = System.Drawing.Color.White;
         Button6.ForeColor = System.Drawing.Color.Black;
         Button6.BackColor = System.Drawing.Color.White;
-        this.Repeater1.Visible = true;
+        this.Repeater1.Visible = false;
         this.Repeater2.Visible = false;
         this.Repeater3.Visible = true;
         this.Repeater4.Visible = false;
