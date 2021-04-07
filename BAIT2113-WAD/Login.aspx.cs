@@ -102,7 +102,7 @@ namespace BAIT2113_WAD
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             string id = txtID.Text;
-            if (id == null)
+            if (id == "")
             {
                 Response.Write("<script> alert('User not exist') </script>");
             }
