@@ -78,7 +78,7 @@ namespace BAIT2113_WAD
 				CustomValidator1.ErrorMessage = "Invalid Credit card number!";
 				args.IsValid = false;
 			}
-			if (RadioButtonList1.Text == "Visa")
+			if (RadioButtonList1.SelectedValue == "Visa")
 			{
 				if (num.First() != '4')
 				{
@@ -86,7 +86,7 @@ namespace BAIT2113_WAD
 					args.IsValid = false;
 				}
 			}
-			if (RadioButtonList1.Text == "Master")
+			if (RadioButtonList1.SelectedValue == "Master")
 			{
 				if (num.First() != '5')
 				{
