@@ -112,7 +112,7 @@ namespace BAIT2113_WAD
 
 				//Update total amount
 				Con.Open();
-				SqlCommand cmdUpdateOrder = new SqlCommand("UPDATE [dbo].[Order] SET totalAmount = (CAST(subtotal AS DECIMAL(10,2))) From OrderDetails where [dbo].[OrderDetails].OrderID = [dbo].[Order].orderID", Con);
+				SqlCommand cmdUpdateOrder = new SqlCommand("UPDATE [dbo].[Order] SET totalAmount = (SELECT(SUM(CAST(subtotal AS DECIMAL(10,2)))) From OrderDetails where [dbo].[OrderDetails].OrderID = [dbo].[Order].orderID)", Con);
 				cmdUpdateOrder.ExecuteNonQuery();
 				Con.Close();
 
